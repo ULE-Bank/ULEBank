@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package es.unileon.ulebank.office;
+package es.unileon.ulebankoffice.web;
 
 import java.io.IOException;
 

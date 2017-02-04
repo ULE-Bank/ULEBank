@@ -1,9 +1,11 @@
-package es.unileon.ulebank.office;
+package es.unileon.ulebankoffice.web;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
+
+import es.unileon.ulebankoffice.web.HelloController;
 
 public class HelloControllerTest {
 
