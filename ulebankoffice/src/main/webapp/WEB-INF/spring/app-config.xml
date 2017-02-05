@@ -10,6 +10,31 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+
+	<bean id="productManager" class="es.unileon.ulebankoffice.service.SimpleProductManager">
+		<property name="products">
+			<list>
+				<bean class="es.unileon.ulebankoffice.domain.Product">
+					<property name="description" value="Lamp" />
+					<property name="price" value="5.75" />
+				</bean>
+				<bean class="es.unileon.ulebankoffice.domain.Product">
+					<property name="description" value="Table" />
+					<property name="price" value="75.25" />
+				</bean>
+				<bean class="es.unileon.ulebankoffice.domain.Product">
+					<property name="description" value="Chair" />
+					<property name="price" value="22.79" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/classes/messages" />
+	</bean>
+
 	<!-- Scans the classpath of this application for @Components to deploy as 
 		beans -->
 	<context:component-scan base-package="es.unileon.ulebankoffice.web" />
