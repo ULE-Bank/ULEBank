@@ -16,12 +16,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.unileon.ulebankoffice.service.PriceIncrease;
+import es.unileon.ulebankoffice.service.IncrementoPrecio;
 import es.unileon.ulebankoffice.service.ProductManager;
 
 
 @Controller
-@RequestMapping(value="/priceincrease.htm")
+@RequestMapping(value="/incrementarPrecio")
 public class PriceIncreaseFormController {
 
     /** Logger for this class and subclasses */
@@ -31,13 +31,13 @@ public class PriceIncreaseFormController {
     private ProductManager productManager;
 
     @RequestMapping(method = RequestMethod.POST)
-    public String onSubmit(@Valid PriceIncrease priceIncrease, BindingResult result)
+    public String onSubmit(@Valid IncrementoPrecio incrementoDePrecio, BindingResult result)
     {
         if (result.hasErrors()) {
             return "priceincrease";
         }
 		
-        int increase = priceIncrease.getPercentage();
+        int increase = incrementoDePrecio.getPercentage();
         logger.info("Increasing prices by " + increase + "%.");
         System.out.println("Increasing prices by " + increase + "%.");
 
@@ -47,10 +47,10 @@ public class PriceIncreaseFormController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    protected PriceIncrease formBackingObject(HttpServletRequest request) throws ServletException {
-        PriceIncrease priceIncrease = new PriceIncrease();
-        priceIncrease.setPercentage(15);
-        return priceIncrease;
+    protected IncrementoPrecio formBackingObject(HttpServletRequest request) throws ServletException {
+        IncrementoPrecio incrementoDePrecio = new IncrementoPrecio();
+        incrementoDePrecio.setPercentage(15);
+        return incrementoDePrecio;
     }
 
     public void setProductManager(ProductManager productManager) {

@@ -4,8 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
-
-
 	<!-- Mapeado a modo de prueba, para que no aparezca /index...html si no 
 		/incio -->
 	<servlet>
@@ -33,6 +31,10 @@
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>FrontalController</servlet-name>
+		<url-pattern>/incrementarPrecio</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>HelloAppEngine</servlet-name>

@@ -20,7 +20,7 @@
 		<br>
 	</c:forEach>
 	<br>
-    <a href="<c:url value="priceincrease.htm"/>">Increase Prices</a>
+    <a href="<c:url value="incrementarPrecio"/>">Increase Prices</a>
     <br>
 	<p><a href="/inicio">Volver a Login</a></p>
 </html>
