@@ -36,6 +36,11 @@
 		<url-pattern>/incrementarPrecio</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>FrontalController</servlet-name>
+		<url-pattern>/usuarios</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>HelloAppEngine</servlet-name>
 		<servlet-class>es.unileon.ulebankoffice.web.HelloAppEngine</servlet-class>
@@ -50,4 +55,8 @@
 	<welcome-file-list>
 		<welcome-file>inicio</welcome-file>
 	</welcome-file-list>
+
+
+
+
 </web-app>
