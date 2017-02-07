@@ -41,6 +41,18 @@
 					<property name="email" value="admin@ulebankoffice.com" />
 					<property name="password" value="password" />
 				</bean>
+				<bean class="es.unileon.ulebankoffice.domain.User">
+					<property name="name" value="nombre" />
+					<property name="lastname" value="apellido" />
+					<property name="email" value="nombre@ulebankoffice.com" />
+					<property name="password" value="password" />
+				</bean>
+				<bean class="es.unileon.ulebankoffice.domain.User">
+					<property name="name" value="Ejemplo1" />
+					<property name="lastname" value="Ejemplo1" />
+					<property name="email" value="Ejemplo1@ulebankoffice.com" />
+					<property name="password" value="password" />
+				</bean>
 			</list>
 		</property>
 

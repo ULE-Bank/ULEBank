@@ -50,7 +50,7 @@ public class SimpleUserManager implements UserManager{
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();
 		for (User user : usuarios) {
-			buffer.append(user.toString()+"\n");
+			buffer.append(user.toString());
 		}
 		
 		return buffer.toString();

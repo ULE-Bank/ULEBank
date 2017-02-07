@@ -65,7 +65,7 @@ public class UserLoginDataController {
 		
 		myModel.put("mensajeEnFuncionDeMetodo", usuarioAuxiliar.toString());
 		if(usuarioAuxiliar.getEmail().equals("admin@ulebankoffice.com")){
-			myModel.put("todosLosUsuarios", usuariosManager.toString());
+			myModel.put("todosLosUsuarios", usuariosManager.getUsuarios());
 		}
 		System.out.println("Alguien ha iniciado sesión con el usuario: ->" + usuarioAuxiliar.toString());
 		return new ModelAndView("usuarios","model",myModel);

@@ -7,12 +7,12 @@
 	<!-- Mapeado a modo de prueba, para que no aparezca /index...html si no 
 		/incio -->
 	<servlet>
-		<servlet-name>inicioMapeado</servlet-name>
-		<jsp-file>/index.html</jsp-file>
+		<servlet-name>inicio</servlet-name>
+		<jsp-file>/index.jsp</jsp-file>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>inicioMapeado</servlet-name>
+		<servlet-name>inicio</servlet-name>
 		<url-pattern>/inicio</url-pattern>
 	</servlet-mapping>
 
