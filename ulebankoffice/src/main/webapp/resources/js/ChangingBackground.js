@@ -2,15 +2,15 @@
  * Author: Razvan Raducu
  */
 
-var urls = [ "http://imagizer.imageshack.us/v2/800x600q90/922/kRhvy9.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/922/EiKNO7.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/923/ZIQi3O.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/924/Is0H2u.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/922/Leaj6X.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/924/g5igyt.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/924/Xk2LSt.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/924/JHQboZ.jpg",
-		"http://imagizer.imageshack.us/v2/800x600q90/923/AFSZqf.jpg" 
+var urls = [ "resources/images/background/1.JPG",
+		"resources/images/background/2.JPG",
+		"resources/images/background/3.JPG",
+		"resources/images/background/4.JPG",
+		"resources/images/background/5.JPG",
+		"resources/images/background/6.JPG",
+		"resources/images/background/7.JPG",
+		"resources/images/background/8.JPG",
+		"resources/images/background/9.JPG" 
 		];
 
 function goRandom() {
