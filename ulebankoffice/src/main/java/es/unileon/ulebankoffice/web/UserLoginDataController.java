@@ -32,22 +32,11 @@ public class UserLoginDataController {
 	@Autowired
 	private UserManager usuariosManager;
 	
-	@RequestMapping(value = "/usuarios", method = RequestMethod.POST, params={"login"})
+	private String email;
+	private String password;
+	
+	@RequestMapping(value = "/usuarios", method = {RequestMethod.POST}, params={"login"})
 	public ModelAndView paginaDeLogin(@RequestParam("email") String email, @RequestParam("password") String password){
-		
-		
-//		 Map<String, Object> myModel = new HashMap<>();
-//	        myModel.put("now", now);
-//	        myModel.put("products", productManager.getProducts());
-	        
-	        
-//		User usuarioAuxiliar = null;
-//		for (User user : usuarios.getUsuarios()) {
-//			if(user.getEmail().equals(email)){
-//				usuarioAuxiliar = user;
-//			}
-//		}
-		
 
 		Map<String, Object> myModel = new HashMap<>();
 		
@@ -60,6 +49,8 @@ public class UserLoginDataController {
 		
 		if(!usuarioAuxiliar.getPassword().equals(password)){
 			myModel.put("mensajeEnFuncionDeMetodo", "Contraseña incorrecta");
+			this.email = email;
+			this.password= password; 
 			return new ModelAndView("usuarios","model",myModel);
 		}
 		
@@ -73,7 +64,7 @@ public class UserLoginDataController {
 		
 	}
 	
-	@RequestMapping(value = "/usuarios", method = RequestMethod.POST, params={"signup"})
+	@RequestMapping(value = "/usuarios", method = {RequestMethod.POST}, params={"signup"})
 	public ModelAndView paginaDeRegistro(@RequestParam("email") String email, @RequestParam("password") String password, @RequestParam("name") String name, @RequestParam("lastname") String lastname){
 		
 		if(usuariosManager.usuarioYaRegistrado(email)){
@@ -88,4 +79,21 @@ public class UserLoginDataController {
 		
 	}
 	
+	@RequestMapping(value = "/usuarios", method = RequestMethod.GET)
+	public ModelAndView internacionalización(){
+		Map<String, Object> myModel = new HashMap<>();
+		if(email != null && password != null){
+			
+			
+			User usuarioAuxiliar = usuariosManager.obtenerUsuario(email);
+			myModel.put("mensajeEnFuncionDeMetodo", usuarioAuxiliar.toString());
+			if(usuarioAuxiliar.getEmail().equals("admin@ulebankoffice.com")){
+				myModel.put("todosLosUsuarios", usuariosManager.getUsuarios());
+			}
+		} else {
+			myModel.put("mensajeEnFuncionDeMetodo", "FORBIDDEN");
+		}
+		
+		return new ModelAndView("usuarios","model",myModel);
+	}
 }

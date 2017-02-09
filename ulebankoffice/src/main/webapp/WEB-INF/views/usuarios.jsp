@@ -3,16 +3,17 @@
 
 <html>
 <head>
-<title><fmt:message key="title" /></title>
+<title><spring:message code="label.title" /></title>
 <meta charset="UTF-8">
 </head>
 <body>
 	<h1>
-		<fmt:message key="loginTitle" />
+		<spring:message code="label.title" /><br/>
 	</h1>
 	<p>
 	<h1>
-		<fmt:message key="loginUserData" />
+		<spring:message code="label.welcome" /><br/>
+		<spring:message code="label.language" />: <a href="?language=es">Español</a> | <a href="?language=en">English</a>
 		<br>
 	</h1>
 	<c:out value="${model.mensajeEnFuncionDeMetodo}" />
@@ -21,10 +22,10 @@
 	<c:forEach items="${model.todosLosUsuarios}" var="userAdmin">
 		<table>
 			<tr>
-				<th>Name</th>
-				<th>Last Name</th>
-				<th>eMail</th>
-				<th>password</th>
+				<th><spring:message code="label.name" /></th>
+				<th><spring:message code="label.lastname" /></th>
+				<th><spring:message code="label.email" /></th>
+				<th><spring:message code="label.password" /></th>
 			</tr>
 			<tr>
 				<td><c:out value="${userAdmin.name}" /></td>

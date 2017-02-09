@@ -1,3 +1,4 @@
+<%@ include file="/WEB-INF/views/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
 				<form action="/usuarios" method="post">
 
 					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span>
+						<label> e-Mail<span class="req">*</span>
 						</label> <input type="email" name="email" required autocomplete="off" />
 					</div>
 
@@ -51,7 +52,7 @@
 						<a href="#">Forgot Password?</a>
 					</p>
 
-					<button class="button button-block" name="login">Log In</button>
+					<button class="button button-block" name="login">LogIn</button>
 
 				</form>
 
