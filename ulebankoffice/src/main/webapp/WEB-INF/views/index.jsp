@@ -26,67 +26,69 @@
 	<div class="form">
 
 		<ul class="tab-group">
-			<li class="tab active"><a href="#login">Log In</a></li>
-			<li class="tab"><a href="#signup">Sign Up</a></li>
+			<li class="tab active"><a href="#login"><spring:message code="label.submit"/></a></li>
+			<li class="tab"><a href="#signup"><spring:message code="label.signup"/></a></li>
 		</ul>
 
 		<div class="tab-content">
-
+		
+		<p style="text-align:center"><font color="white"><spring:message code="label.welcome"></spring:message><br>
+		<spring:message code="label.language"></spring:message>: <a href="?language=es">Español</a> | <a href="?language=en">English</a><br/></font></p>
 
 			<div id="login">
-				<h1>Welcome Back!</h1>
+				<h1><spring:message code="label.welcomeback"/></h1>
 
 				<form action="/usuarios" method="post">
 
 					<div class="field-wrap">
-						<label> e-Mail<span class="req">*</span>
+						<label><spring:message code="label.email"/><span class="req">*</span>
 						</label> <input type="email" name="email" required autocomplete="off" />
 					</div>
 
 					<div class="field-wrap">
-						<label> Password<span class="req">*</span>
+						<label> <spring:message code="label.password"/><span class="req">*</span>
 						</label> <input type="password" name="password" required autocomplete="off" />
 					</div>
 
 					<p class="forgot">
-						<a href="#">Forgot Password?</a>
+						<a href="#"><spring:message code="label.forgotpassword"/></a>
 					</p>
 
-					<button class="button button-block" name="login">LogIn</button>
+					<button class="button button-block" name="login"><spring:message code="label.submit"/></button> 
 
 				</form>
 
 			</div>
 
 			<div id="signup">
-				<h1>Sign Up for Free</h1>
+				<h1><spring:message code="label.signupMessage"/></h1>
 
 				<form action="/usuarios" method="post">
 
 					<div class="top-row">
 						<div class="field-wrap">
-							<label> First Name<span class="req">*</span>
+							<label> <spring:message code="label.name"/><span class="req">*</span>
 							</label> <input type="text" name="name" required autocomplete="off" />
 						</div>
 
 						<div class="field-wrap">
-							<label> Last Name<span class="req">*</span>
+							<label> <spring:message code="label.lastname"/><span class="req">*</span>
 							</label> <input type="text" name="lastname" required autocomplete="off" />
 						</div>
 					</div>
 
 					<div class="field-wrap">
-						<label> Email Address<span class="req">*</span>
+						<label> <spring:message code="label.email"/><span class="req">*</span>
 						</label> <input type="email" name="email" required autocomplete="off" />
 					</div>
 
 					<div class="field-wrap">
-						<label> Set A Password<span class="req">*</span>
+						<label> <spring:message code="label.password"/><span class="req">*</span>
 						</label> <input type="password" name="password" required autocomplete="off" />
 					</div>
 
 					<button type="submit" class="button button-block" name="signup">
-					Get Started
+					<spring:message code="label.letsstart"/>
 					</button>
 
 				</form>

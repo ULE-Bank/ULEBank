@@ -12,7 +12,7 @@
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>inicio</servlet-name>
+		<servlet-name>FrontalController</servlet-name>
 		<url-pattern>/inicio</url-pattern>
 	</servlet-mapping>
 
@@ -60,5 +60,13 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+<!-- Solución para los caracteres UTF-8. Funciona :) -->
+
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
 
 </web-app>
