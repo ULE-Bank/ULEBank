@@ -1,5 +1,6 @@
 package es.unileon.ulebankoffice.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import es.unileon.ulebankoffice.domain.User;
@@ -11,9 +12,10 @@ import es.unileon.ulebankoffice.domain.User;
 public class SimpleUserManager implements UserManager{
 	
 	private List<User> usuarios;
-
+	
 	@Override
 	public void registrarUsuario(User usuario) {
+		//If !usuarioYaRegistrado ????
 		usuarios.add(usuario);
 		
 	}
@@ -55,7 +57,5 @@ public class SimpleUserManager implements UserManager{
 		
 		return buffer.toString();
 	}
-	
-	
 	
 }
