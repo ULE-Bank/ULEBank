@@ -1,3 +1,11 @@
 /target/
 
-/src/main/webapp/resources/images
+*.png
+*.jpg
+*.gif
+*.JPG
+*.mp4
+*.MP4
+*.ogv
+*.webm
+*.db
