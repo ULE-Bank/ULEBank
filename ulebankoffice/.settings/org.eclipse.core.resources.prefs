@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources/messages_en.properties=UTF-8
 encoding//src/main/resources/messages_es.properties=UTF-8
+encoding//src/main/webapp/WEB-INF/views/index.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/indexLoginUleBankOffice.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/usuarios.jsp=UTF-8
 encoding/<project>=UTF-8

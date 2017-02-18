@@ -10,6 +10,11 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<bean id="authenticator" class="es.unileon.ulebankoffice.domain.Authenticator" scope="singleton">
+	</bean>
+	
+	<bean id="datastore" class="es.unileon.ulebankoffice.domain.Datastore" scope="singleton">
+	</bean>
 
 	<bean id="productManager" class="es.unileon.ulebankoffice.service.SimpleProductManager">
 		<property name="products">

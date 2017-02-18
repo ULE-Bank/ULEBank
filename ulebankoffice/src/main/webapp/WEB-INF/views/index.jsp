@@ -1,13 +1,14 @@
-  <!DOCTYPE html>
+<%@ include file="/WEB-INF/views/include.jsp"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="keywords" content="HTML5 Template" />
 <meta name="description" content="The Corps — Multi-Purpose HTML Template" />
 <meta name="author" content="potenzaglobalsolutions.com" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Mensaje introductorio</title>
+<title><spring:message code="label.sitetitle"/></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="resources/template/images/favicon.ico" />
@@ -66,35 +67,35 @@
       </div>
    <div id="menu">
     <div class="menu-side-top">
-         <h3 class="text-white">Custom menu</h3>
-          <a href="#">Home</a>
-          <a href="#">About us</a>
-          <a href="#">Portfolio</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact us</a>
+		<%--     <spring:message code=""/> --%>
+         <h3 class="text-white">ULe-Bank</h3>
+          <a href="#"><spring:message code="label.sitehome"/></a>
+          <a href="#"><spring:message code="label.siteservices"/></a>
+          <a href="#"><spring:message code="label.siteabout"/></a>
+          <a href="#"><spring:message code="label.sitecontact"/></a>
          </div>
          <div class="login-side mt-40 text-left">
-          <h3 class="text-white">Login</h3>
+          <h3 class="text-white"><spring:message code="lable.sitelogin"/></h3>
            <form>  
              <div class="form-group">     
-              <label>Username</label>
+              <label><spring:message code="label.siteloginusername"/></label>
                <input type="text" name="username" placeholder="Email Address" />
                 </div>
                 <div class="form-group">
-                 <label>Password</label>
+                 <label><spring:message code="label.siteloginpassword"/></label>
                 <input type="password" name="password" placeholder="Password" />      
                </div>
                <div class="remember-checkbox">
                  <input type="checkbox" name="one" id="one" />
-               <label class="remember" for="one">Remember me</label>
+               <label class="remember" for="one"><spring:message code="label.siteloginrememberme"/></label>
                </div>
                <div class="clearfix">
                <a href="#" class="button button-white mt-20">
-                  <span>Login</span>
+                  <span><spring:message code="lable.sitelogin"/></span>
                 </a>
-               <a class="forgot" href="#">Forgot password ?</a> 
+               <a class="forgot" href="#"><spring:message code="label.siteloginforgotpassword"/></a> 
               </div>
-           <p class="register text-white mt-20">Don't have account?  <a href="#"> Register Now</a></p> 
+           <p class="register text-white mt-20"><spring:message code="lable.sitedonthaveaccount"/>  <a href="#"> <spring:message code="label.siteregisternow"/></a></p> 
          </form>
       </div>
   </div>
@@ -119,7 +120,7 @@
         <!-- menu links -->
         <ul class="menu-links">
             <!-- active class -->
-            <li class="active"><a href="javascript:void(0)"> Home <i class="fa fa-angle-down fa-indicator"></i></a>
+            <li class="active"><a href="javascript:void(0)"> <spring:message code="label.sitehome"/> <i class="fa fa-angle-down fa-indicator"></i></a>
                 <div class="drop-down grid-col-8 offset-4">
                 <!--grid row-->
                  <div class="grid-row">
@@ -154,7 +155,7 @@
                    </div>
                   </div>
               </li>
-            <li><a href="javascript:void(0)">Pages <i class="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="#services"><spring:message code="label.siteservices"/><i class="fa fa-angle-down fa-indicator"></i></a>
                 <!-- drop down full width -->
                 <div class="drop-down menu-bg grid-col-12">
                     <!--grid row-->
@@ -162,15 +163,13 @@
                         <!--grid column 3-->
                         <div class="grid-col-3">
                             <ul>
-                              <li><a href="about-1.html">About 1</a></li>
-                              <li><a href="about-2.html">About 2</a></li>
-                              <li><a href="about-3.html">About 3</a></li>
-                              <li><a href="about-me.html">About me</a></li>
-                              <li><a href="service-1.html">service 1 </a></li>
-                              <li><a href="service-2.html">service 2 </a></li>
-                              <li><a href="service-3.html">service 3 </a></li>
-                              <li><a href="team-1.html">team 1 </a></li>
-                              <li><a href="team-2.html">team 2 </a></li>
+                              <li><a href="/apr"><spring:message code="label.siteservice1"/></a></li>
+                              <li><a href="/leasing"><spring:message code="label.siteservice2"/></a></li>
+                              <li><a href="/offersconsulting"><spring:message code="label.siteservice3"/></a></li>
+                              <li><a href="/loans"><spring:message code="label.siteservice4"/></a></li>
+                              <li><a href="/discounts"><spring:message code="label.siteservice5"/></a></li>
+                              <li><a href="/reversemortgage"><spring:message code="label.siteservice6"/></a></li>
+                              <li><a href="/creditaccount"><spring:message code="label.siteservice7"/></a></li>
                             </ul>
                         </div>
                         <!--grid column 3-->
@@ -408,6 +407,13 @@
                     <li><a href="contact-3.html">Contact 3</a></li>
                 </ul>
             </li>
+            <li><a href="javascript:void(0)"> <spring:message code="label.sitelanguage"/> <i class="fa fa-angle-down fa-indicator"></i></a>
+                 <!-- drop down multilevel  -->
+                <ul class="drop-down-multilevel right-menu">
+                    <li><a href="?language=en"><spring:message code="label.english"/></a></li>
+                    <li><a href="?language=es"><spring:message code="label.spanish"/></a></li>
+                </ul>
+            </li>
             <li>
               <div class="search-3">
                       <a class="search-btn not_click" href="javascript:void(0);">Search Button</a>
@@ -436,29 +442,29 @@
 
 <section class="slider-fade-carousel">
    <div class="owl-carousel-1">
-      <div class="item bg-opacity-black-50">
+      <div class="item bg-50 bg-opacity-black-50">
          <img src="resources/template/images/slider/slider-06.jpg" alt="">
             <div class="slider-contents container slide-1 text-center">
-              <h1 class="text-white">If you can dream it, you can do it</h1>
-              <p class="text-white">We are a creative company, who works with passion and love. We provide the best services you need. We help you to get better...</p>
+              <h1 class="text-white"><spring:message code ="label.welcomemessage1"/></h1>
+              <p class="text-white"><spring:message code ="label.welcomesubmessage1"/></p>
               <a href='#' class='button'><span>View Our work</span> <i class="fa fa-hand-o-right"></i></a>
               <a href='#' class='button button-white'><span>Discover more</span> <i class="fa fa-eye"></i></a>
             </div>  
        </div>
-      <div class="item bg-opacity-black-50">
+      <div class="item bg-51 bg-opacity-black-50">
          <img src="resources/template/images/slider/slider-07.jpg" alt="">
             <div class="slider-contents container slide-2 text-center">
-              <h1 class="text-white">It's easy when you're doing something you love</h1>
-              <p class="text-white">The Corps is a bootstrap based responsive, flat and affordable template with easy customization and great support</p>
+              <h1 class="text-white"><spring:message code ="label.welcomemessage2"/></h1>
+              <p class="text-white"><spring:message code ="label.welcomesubmessage2"/></p>
               <a href='#' class='button'><span>View Our work</span> <i class="fa fa-hand-o-right"></i></a>
               <a href='#' class='button button-white'><span>Discover more</span> <i class="fa fa-eye"></i></a> 
             </div>  
       </div>
-      <div class="item bg-opacity-black-50">
+      <div class="item bg-52 bg-opacity-black-50">
       <img src="resources/template/images/slider/slider-08.jpg" alt="">
         <div class="slider-contents container slide-3 text-center">
-              <h1 class="slider-title text-white">Unlimited possibilities & unique pages</h1>
-              <p class="text-white">You can start to build your website. Use The Corps Responsive HTML5 Template and design your layout</p>
+              <h1 class="slider-title text-white"><spring:message code ="label.welcomemessage3"/></h1>
+              <p class="text-white"><spring:message code ="label.welcomesubmessage3"/></p>
               <a href='#' class='button'><span>View Our work</span> <i class="fa fa-hand-o-right"></i></a>
               <a href='#' class='button button-white'><span>Discover more</span> <i class="fa fa-eye"></i></a>
             </div>  
@@ -857,84 +863,91 @@ news-letter -->
 
  <!--=================================
  key-features -->
+ 
+ 
+<!--  Estos son todos los simple line icons que se pueden usar  -->
+<!-- .icon-user-female, .icon-user-follow, .icon-user-following, .icon-user-unfollow, .icon-trophy, .icon-screen-smartphone,  -->
+<!-- .icon-screen-desktop, .icon-plane, .icon-notebook, .icon-moustache, .icon-mouse, .icon-magnet, .icon-energy, .icon-emoticon-smile, . -->
+<!--  icon-disc, .icon-cursor-move, .icon-crop, .icon-credit-card, .icon-chemistry, .icon-user, .icon-speedometer, .icon-social-youtube,  -->
+<!-- .icon-social-twitter, .icon-social-tumblr, .icon-social-facebook, .icon-social-dropbox, .icon-social-dribbble, .icon-shield, .icon-screen-tablet,  -->
+<!-- .icon-magic-wand, .icon-hourglass, .icon-graduation, .icon-ghost, .icon-game-controller, .icon-fire, .icon-eyeglasses, .icon-envelope-open, .icon-envelope-letter,  -->
+<!-- .icon-bell, .icon-badge, .icon-anchor, .icon-wallet, .icon-vector, .icon-speech, .icon-puzzle, .icon-printer, .icon-present, .icon-playlist,  -->
+<!-- .icon-pin, .icon-picture, .icon-map, .icon-layers, .icon-handbag, .icon-globe-alt, .icon-globe, .icon-frame, .icon-folder-alt, .icon-film, .icon-feed,  -->
+<!-- .icon-earphones-alt, .icon-earphones, .icon-drop, .icon-drawer, .icon-docs, .icon-directions, .icon-direction, .icon-diamond, .icon-cup, .icon-compass,  -->
+<!-- .icon-call-out, .icon-call-in, .icon-call-end, .icon-calculator, .icon-bubbles, .icon-briefcase, .icon-book-open, .icon-basket-loaded, .icon-basket,  -->
+<!-- .icon-bag, .icon-action-undo, .icon-action-redo, .icon-wrench, .icon-umbrella, .icon-trash, .icon-tag, .icon-support, .icon-size-fullscreen, .icon-size-actual,  -->
+<!-- .icon-shuffle, .icon-share-alt, .icon-share, .icon-rocket, .icon-question, .icon-pie-chart, .icon-pencil, .icon-note, .icon-music-tone-alt, .icon-music-tone,  -->
+<!-- .icon-microphone, .icon-loop, .icon-logout, .icon-login, .icon-list, .icon-like, .icon-home, .icon-grid, .icon-graph, .icon-equalizer, .icon-dislike, .icon-cursor,  -->
+<!-- .icon-control-start, .icon-control-rewind, .icon-control-play, .icon-control-pause, .icon-control-forward, .icon-control-end, .icon-calendar, .icon-bulb, .icon-bar-chart,  -->
+<!-- .icon-arrow-up, .icon-arrow-right, .icon-arrow-left, .icon-arrow-down, .icon-ban, .icon-bubble, .icon-camcorder, .icon-camera, .icon-check, .icon-clock, .icon-close,  -->
+<!-- .icon-cloud-download, .icon-cloud-upload, .icon-doc, .icon-envelope, .icon-eye, .icon-flag, .icon-folder, .icon-heart, .icon-info, .icon-key, .icon-link,  -->
+<!-- .icon-lock, .icon-lock-open, .icon-magnifier, .icon-magnifier-add, .icon-magnifier-remove, .icon-paper-clip, .icon-paper-plane, .icon-plus, .icon-pointer,  -->
+<!-- .icon-power, .icon-refresh, .icon-reload, .icon-settings, .icon-star, .icon-symbol-female, .icon-symbol-male, .icon-target, .icon-volume-1, .icon-volume-2,  -->
+<!-- .icon-volume-off, .icon-users  -->
 
-<section class="key-features white-bg page-section-ptb">
+<section id="services" class="key-features white-bg page-section-ptb">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="section-title-2 text-center">
-          <h1 class="text-blue">Our key features</h1>
+          <h1 class="text-blue"><spring:message code ="label.siteservicestitle"/></h1>
           <div class="title-line"></div>
-          <p> See some of our awesome key features </p>
+          <p> <spring:message code ="label.siteservicessubtitle"/></p>
         </div>
        </div>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s ">
-            <span class="icon-layers" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Many Style Available</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="/apr"><span class="icon-calculator" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice1"/></h4>
+            <p><spring:message code ="label.siteservice1description"/></p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.5s">
-            <span class="icon-picture" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Revolution Slider</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="/leasing"><span class="icon-layers" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice2"/></h4>
+            <p><spring:message code ="label.siteservice2description"/></p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.5s">
-            <span class="icon-heart" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Advanced Blog Options</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="/offersconsulting"><span class="icon-book-open" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice3"/></h4>
+            <p><spring:message code ="label.siteservice3description"/></p>
           </div>
         </div>
      </div>
      <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1.5s">
-            <span class="icon-mouse" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Parallax Sections</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="/loans"><span class="icon-wallet" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice4"/></h4>
+            <p><spring:message code ="label.siteservice4description"/></p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="1.0s" data-wow-duration="1.5s">
-            <span class="icon-flag" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Unlimited Colors</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="/discounts"><span class="icon-basket-loaded" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice5"/></h4>
+            <p><spring:message code ="label.siteservice5description"/></p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1.5s">
-            <span class="icon-equalizer" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Built with HTML5 and CSS3</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="/reversemortgage"><span class="icon-shuffle" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice6"/></h4>
+            <p><spring:message code ="label.siteservice6description"/></p>
           </div>
         </div>
      </div>
      <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="feature-10 text-center wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1.5s">
-            <span class="icon-paper-clip" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Unlimited layouts</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center wow fadeInUp" data-wow-delay="1.6s" data-wow-duration="1.5s">
-            <span class="icon-star" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Advanced Portfolio Options</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">  
-          <div class="feature-10 text-center wow fadeInUp" data-wow-delay="1.8s" data-wow-duration="1.5s">
-            <span class="icon-rocket" aria-hidden="true"></span>
-            <h4 class="text-back pt-20 pb-10">Powerful Performance</h4>
-            <p>Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam,  sed quia nesciunt in accusamus necessitatibus modi adipisci officia</p>
+            <a href="creditaccount"><span class="icon-credit-card" aria-hidden="true"></span></a>
+            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice7"/></h4>
+            <p><spring:message code ="label.siteservice7description"/></p>
           </div>
         </div>
      </div>
@@ -944,6 +957,60 @@ news-letter -->
 <!--=================================
   key-features -->
 
+<!--=================================
+ testimonial-->
+
+<section class="testimonial-3 bg-17 bg-opacity-black-40 white-bg page-section-ptb">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 col-md-12 text-center">
+          <h2 class="text-white mb-60"><spring:message code="label.oursponsorstitle"></spring:message></h2>
+           <div class="owl-carousel-19">
+            <div class="item">
+             <p><a href="www.unileon.es"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"></a></p>
+             <span>Universidad de León</span><br>
+             <span><a href="www.unileon.es">Acceder</a></span>
+            </div>
+            <div class="item">
+              <p><a href="http://centros.unileon.es/eiii/"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"/></a></p>
+              <span>Escuela de Ingenierías</span><br>
+             <span><a href="http://centros.unileon.es/eiii/">Acceder</a></span>
+            </div>
+            <div class="item">
+              <p><a href="http://economicas.unileon.es/"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"/></a></p>
+              <span>Facultad de Ciencias Económicas y Empresariales</span><br>
+             <span><a href="http://economicas.unileon.es/">Acceder</a></span>
+            </div>
+           </div>  
+       </div>
+   </div>
+ </div>
+</section> 
+
+ <!--=================================
+ testimonial -->
+
+ <!--=================================
+ map-->
+
+<section id="contact" class="white-bg contact clearfix page-section-pt">
+  <div class="container">
+    <div class="row">
+     <div class="col-lg-12 col-md-12">
+      <div class="section-title text-center">
+        <h1 class="text-blue">Contact us</h1>
+        <div class="title-line"></div>
+        <p>We have completed over a 1000+ projects for five hundred clients. Give us your next project.</p>
+       </div>
+      </div>
+     </div>
+   </div>
+   <div class="container-fluid">
+     <div class="contact-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351288872545!2d144.9556518!3d-37.8173306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1443621171568" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+     </div>       
+  </div>
+</section>
 
 <!--=================================
   social -->
@@ -975,24 +1042,24 @@ news-letter -->
   <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6">
        <div class="get-in-touch footer-hedding">
-        <h4 class="text-blue mb-20">Get in Touch</h4>
+        <h4 class="text-blue mb-20"><spring:message code="label.getintouch"/></h4>
          <div class="contact-add">
            <i class="fa fa-map-marker"></i>
-           <p class="mt-15 mb-15 text-white">1234 North Avenue Luke Lane South Bend, IN 360001</p>
+           <p class="mt-15 mb-15 text-white">Campus Universitario de Vegazana, S/N, 24071 Le�n</p>
          </div>
          <div class="contact-add">
            <i class="fa fa-phone"></i>
-           <p class="mt-15 mb-15 text-white">+0123 456 789</p>
+           <p class="mt-15 mb-15 text-white">987 29 10 00 (ES)</p>
          </div>
          <div class="contact-add">
            <i class="fa fa-envelope-o"></i>
-           <p class="mt-15 mb-15 text-white"> support@thecorps.com</p>
+           <p class="mt-15 mb-15 text-white"> rraduc00@estudiantes.unileon.es </p>
          </div>
     </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6">
       <div class="office-hours footer-hedding">
-        <h4 class="text-blue mb-20">Office Hours</h4>
+        <h4 class="text-blue mb-20"><spring:message code="label.siteofficehours"/></h4>
          <p>Mon-Fri : 10 a.m. – 7 p.m. (GMT +1)</p>
          <p>Saturday : 9 a.m. – 1 p.m. (GMT +1)</p>
          <img src="resources/template/images/clock.png" alt="">
@@ -1000,17 +1067,12 @@ news-letter -->
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6">
        <div class="tags footer-hedding">
-        <h4 class="text-blue mb-20">Tagcloud</h4>
+        <h4 class="text-blue mb-20"><spring:message code="label.sitetopsearch"/></h4>
         <ul>
-          <li><a href="#">Bootstrap</a></li>
-          <li><a href="#">HTML5</a></li>
-          <li><a href="#">Wordpress</a></li>
-          <li><a href="#">CSS3</a></li>
-          <li><a href="#">Creative</a></li>
-          <li><a href="#">Multipurpose</a></li>
-          <li><a href="#">Bootstrap</a></li>
-          <li><a href="#">HTML5</a></li>
-          <li><a href="#">Wordpress</a></li>
+          <li><a href="/apr"><spring:message code="label.siteservice1"/></a></li>
+          <li><a href="/offersconsulting"><spring:message code="label.siteservice3"/></a></li>
+          <li><a href="/discounts"><spring:message code="label.siteservice5"/></a></li>
+          <li><a href="/creditaccount"><spring:message code="label.siteservice7"/></a></li>
         </ul>
       </div>
       </div>
@@ -1029,10 +1091,7 @@ news-letter -->
    <div class="container"> 
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6">
-        <p class="text-white mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> theCORPS</a> All Rights Reserved </p>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <p class="text-white text-right mt-15">If you are interested in The Corps, do not wait and <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522">BUY IT NOW!</a></p>
+        <p class="text-white mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> ULe-Bank </a> <spring:message code="label.siterights"/> </p>
       </div>
     </div>    
    </div>
