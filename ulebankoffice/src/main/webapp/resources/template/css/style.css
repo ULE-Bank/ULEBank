@@ -584,16 +584,21 @@ img#background { width: 100%; height: 100vh; }
 /* animated slider 1 home-6*/
 #animated-slider { overflow: hidden; -webkit-backface-visibility: hidden; -webkit-transform-style: preserve-3d; }
 #animated-slider .item img { width: 100%; }
-#animated-slider .item .slider-content { z-index: 0; opacity: 0; -webkit-transition: opacity 500ms; -moz-transition: opacity 500ms; -o-transition: opacity 500ms; -ms-transition: opacity 500ms; transition: opacity 500ms; }
-#animated-slider .item.active .slider-content { z-index: 0; opacity: 1; -webkit-transition: opacity 100ms; -ms-transition: opacity 100ms; -moz-transition: opacity 100ms; -o-transition: opacity 100ms; transition: opacity 100ms; }
-#animated-slider .slider-content{ display: inline-block; left: 0; position: absolute; text-align: center; top: 55%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); width: 100%; z-index: 2; }
+/* ↓ Modificación de Razvan para el fondo no tape el contenido (z-index), para que las letras tengan shadow, etc.. ↓ */
+#animated-slider .item .slider-content { z-index: 10; opacity: 0; -webkit-transition: opacity 5000ms; -moz-transition: opacity 500ms; -o-transition: opacity 500ms; -ms-transition: opacity 500ms; transition: opacity 500ms; }
+#animated-slider .item.active .slider-content { z-index: 10; opacity: 1; -webkit-transition: opacity 1000ms; -ms-transition: opacity 100ms; -moz-transition: opacity 100ms; -o-transition: opacity 100ms; transition: opacity 100ms; }
+/* ↓ Modificación de Razvan para que el fondo tenga filtro oscurecido ↓ */
+#animated-slider .bg-opacity-black-50:before {z-index: 1;}
+/* ↑ Modificación de Razvan para que el fondo tenga filtro oscurecido ↑ */
+#animated-slider .slider-content{ display: inline-block; left: 0; position: absolute; text-align: center; top: 55%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); width: 100%; z-index: 2;  }
 #animated-slider .carousel-indicators { bottom: 30px; }
 .carousel-indicators li { border-radius: 0px; width: 40px !important; height: 10px !important;  border: 2px solid #fff !important; margin: 1px !important; }
-#animated-slider .slider-content h1 { font-size: 60px; color: #323232; margin: 10px 0px 10px; font-weight: 600; line-height: 80px; text-transform: uppercase; }
-#animated-slider .slider-content span { color: #00a9da; font-size: 18px; margin-bottom: 10px; line-height: 20px; letter-spacing: 4px; font-weight: 400; display: block; text-transform: uppercase; }
-#animated-slider .slider-content .slider-2 p { font-size: 18px; }
-#animated-slider .slider-content p { padding: 0px 200px; margin-bottom: 30px; }
-#animated-slider .slider-content a.button span { letter-spacing: inherit; font-size: 14px; font-weight: 400; margin-bottom: 0px; color: #fff; }
+#animated-slider .slider-content h1 { font-size: 60px; color: #ffffff; margin: 10px 0px 10px; font-weight: 600; line-height: 80px; text-transform: uppercase; }
+#animated-slider .slider-content span { color: #ff5555; font-size: 18px; margin-bottom: 10px; line-height: 20px; letter-spacing: 4px; font-weight: 400; display: block; text-transform: uppercase; }
+#animated-slider .slider-content .slider-2 p {font-size: 18px; }
+#animated-slider .slider-content p {  color: #a9abfe; padding: 0px 200px; margin-bottom: 30px; text-shadow: 0px 0px 5px #000000}
+#animated-slider .slider-content a.button span { z-index: 10; letter-spacing: inherit; font-size: 14px; font-weight: 400; margin-bottom: 0px; color: #fff; }
+/* ↑ Modificación de Razvan para el fondo no tape el contenido (z-index), para que las letras tengan shadow, etc.. ↑ */
 
 /*-- Animation --*/
 .carousel .item.active .animated1 { -webkit-animation: lightSpeedIn 1s ease-in 200ms both; -o-animation: lightSpeedIn 1s ease-in 200ms both; -ms-animation: lightSpeedIn 1s ease-in 200ms both; -moz-animation: lightSpeedIn 1s ease-in 200ms both; animation: lightSpeedIn 1s ease-in 200ms both; }

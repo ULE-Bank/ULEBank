@@ -436,45 +436,80 @@
 <!--=================================
  header -->
 
- 
-<!--=================================
- banner -->
-
-<section class="slider-fade-carousel">
-   <div class="owl-carousel-1">
-      <div class="item bg-50 bg-opacity-black-50">
-         <img src="resources/template/images/slider/slider-06.jpg" alt="">
-            <div class="slider-contents container slide-1 text-center">
-              <h1 class="text-white"><spring:message code ="label.welcomemessage1"/></h1>
-              <p class="text-white"><spring:message code ="label.welcomesubmessage1"/></p>
-              <a href='#' class='button'><span>View Our work</span> <i class="fa fa-hand-o-right"></i></a>
-              <a href='#' class='button button-white'><span>Discover more</span> <i class="fa fa-eye"></i></a>
-            </div>  
-       </div>
-      <div class="item bg-51 bg-opacity-black-50">
-         <img src="resources/template/images/slider/slider-07.jpg" alt="">
-            <div class="slider-contents container slide-2 text-center">
-              <h1 class="text-white"><spring:message code ="label.welcomemessage2"/></h1>
-              <p class="text-white"><spring:message code ="label.welcomesubmessage2"/></p>
-              <a href='#' class='button'><span>View Our work</span> <i class="fa fa-hand-o-right"></i></a>
-              <a href='#' class='button button-white'><span>Discover more</span> <i class="fa fa-eye"></i></a> 
-            </div>  
-      </div>
-      <div class="item bg-52 bg-opacity-black-50">
-      <img src="resources/template/images/slider/slider-08.jpg" alt="">
-        <div class="slider-contents container slide-3 text-center">
-              <h1 class="slider-title text-white"><spring:message code ="label.welcomemessage3"/></h1>
-              <p class="text-white"><spring:message code ="label.welcomesubmessage3"/></p>
-              <a href='#' class='button'><span>View Our work</span> <i class="fa fa-hand-o-right"></i></a>
-              <a href='#' class='button button-white'><span>Discover more</span> <i class="fa fa-eye"></i></a>
-            </div>  
-       </div>
-    </div>
-</section>  
 
 <!--=================================
- banner -->
+slider- -->
+<!-- data-interval se necesita pra definir la pausa en cada slide. Al haber texto, es mejor poner algo más. -->
+  <section id="animated-slider" class="carousel slide" data-ride="carousel" data-interval="6000">
+      <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#animated-slider" data-slide-to="0" class="active"></li>
+          <li data-target="#animated-slider" data-slide-to="1"></li>
+          <li data-target="#animated-slider" data-slide-to="2"></li>
+        </ol>
+        <!-- Carousel inner -->
+        <div class="carousel-inner">
+          <!--/ Carousel item end -->
+          <div class="item active bg-opacity-black-50">
+            <img class="img-responsive" src="resources/template/images/gallery/facultadeconomicas.jpg" alt="slider">  
+            <div class="slider-content">
+              <div class="container">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                 <div class="slider-2">
+                    <span class="animated1"><spring:message code ="label.welcometopmessage1"/></span>
+                    <h1 class="animated2 text-white"><spring:message code ="label.welcomemessage1"/></h1>
+                    <p class="animated3"><spring:message code ="label.welcomesubmessage1"/></p>
+                    <a href="#" class="button animated8"> <span> Read More </span></a>
+                    <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button button-black animated8"><span> Purchase Now </span> </a>
+                 </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="item bg-opacity-black-50">
+            <img class="img-responsive" src="resources/template/images/gallery/facultadingenieras.jpg" alt="slider">  
+            <div class="slider-content">
+              <div class="container">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                 <div class="slider-2">
+                  <span class="animated1"><spring:message code ="label.welcometopmessage2"/></span>
+                    <h1 class="animated4 text-white"><spring:message code ="label.welcomemessage2"/></h1>
+                    <p class="animated5"><spring:message code ="label.welcomesubmessage2"/></p>
+                    <a href="#" class="button animated8"> <span> Read More </span></a>
+                    <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button button-black animated8"><span> Purchase Now </span> </a>
+                 </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+           <div class="item bg-opacity-black-50">
+            <img class="img-responsive" src="resources/template/images/gallery/bibliotecauniversitaria.jpg" alt="slider">  
+            <div class="slider-content">
+              <div class="container">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                 <div class="slider-2">
+                  <span class="animated1"><spring:message code ="label.welcometopmessage3"/></span>
+                    <h1 class="animated6 text-white"><spring:message code ="label.welcomemessage3"/></h1>
+                    <p class="animated7"><spring:message code ="label.welcomesubmessage3"/></p>
+                    <a href="#" class="button animated8"> <span> Read More </span></a>
+                    <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button button-black animated8"><span> Purchase Now </span> </a>
+                 </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!--/ Carousel item end -->
+        </div>
+  </section>
  
+<!--=================================
+slider -->
  
  <!--=================================
 custom-content -->
