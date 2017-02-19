@@ -993,7 +993,7 @@ news-letter -->
   key-features -->
 
 <!--=================================
- testimonial-->
+ testimonial (sponsors) -->
 
 <section class="testimonial-3 bg-17 bg-opacity-black-40 white-bg page-section-ptb">
    <div class="container">
@@ -1023,7 +1023,109 @@ news-letter -->
 </section> 
 
  <!--=================================
- testimonial -->
+ testimonial (sponsors)-->
+
+<!--=================================
+our-team  -->
+
+ <section class="our-team white-bg page-section-ptb">
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-12 col-md-12">
+         <div class="section-title-2 text-center">
+          <h2 class="text-blue"><spring:message code="label.meetourteam"/></h2>
+          <div class="title-line"></div>
+          <p><spring:message code="label.meetourteamsub"/></p>
+        </div>
+       </div> 
+    </div>
+  <div class="team-2">
+   <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6">
+       <div class="team-2-box">
+        <img alt="" src="resources/template/images/team/random1.jpg" class="img-responsive"> 
+          <div class="team-overlay text-center"> 
+              <div class="info">
+                 <h5 class="text-white">Camino Fernández</h5>
+               <span><spring:message code="label.teamrol1"/></span>
+             </div>
+              <div class="social">
+               <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+            </ul>
+          </div>
+       </div>
+      </div>
+     </div> 
+      <div class="col-lg-3 col-md-3 col-sm-6">
+         <div class="team-2-box">
+          <img alt="" src="resources/template/images/team/random3.jpg" class="img-responsive"> 
+            <div class="team-overlay text-center"> 
+                <div class="info">
+                   <h5 class="text-white">Alexis Gutiérrez</h5>
+                 <span><spring:message code="label.teamrol2"/></span>
+               </div>
+                <div class="social">
+                 <ul>
+                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+              </ul>
+            </div>
+         </div>
+        </div>
+       </div>
+      <div class="col-lg-3 col-md-3 col-sm-6">
+       <div class="team-2-box">
+        <img alt="" src="resources/template/images/team/random1.jpg" class="img-responsive"> 
+          <div class="team-overlay text-center"> 
+              <div class="info">
+                 <h5 class="text-white">Javier Castaño</h5>
+               <span><spring:message code="label.teamrol3"/></span>
+             </div>
+              <div class="social">
+               <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+            </ul>
+          </div>
+       </div>
+      </div>
+     </div> 
+      <div class="col-lg-3 col-md-3 col-sm-6">
+       <div class="team-2-box">
+        <img alt="" src="resources/template/images/team/random2.jpg" class="img-responsive"> 
+          <div class="team-overlay text-center"> 
+              <div class="info">
+                 <h5 class="text-white">Razvan Raducu</h5>
+               <span><spring:message code="label.teamrol2"/></span>
+             </div>
+              <div class="social">
+               <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+            </ul>
+          </div>
+       </div>
+      </div>
+     </div> 
+   </div>
+  </div>
+ </div>
+</section>
+
+<!--=================================
+our-team -->
+
+
 
  <!--=================================
  map-->
@@ -1033,16 +1135,16 @@ news-letter -->
     <div class="row">
      <div class="col-lg-12 col-md-12">
       <div class="section-title text-center">
-        <h1 class="text-blue">Contact us</h1>
+        <h1 class="text-blue"><spring:message code="label.getintouch"/></h1>
         <div class="title-line"></div>
-        <p>We have completed over a 1000+ projects for five hundred clients. Give us your next project.</p>
+        <p><spring:message code="label.getintouchsub"/></p>
        </div>
       </div>
      </div>
    </div>
    <div class="container-fluid">
      <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8351288872545!2d144.9556518!3d-37.8173306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1443621171568" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11744.720547149747!2d-5.567375190484793!3d42.61513548195593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379a96402735cb%3A0x3f44569fb640efd5!2sUniversity+of+Le%C3%B3n!5e0!3m2!1sen!2ses!4v1487545508683" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
      </div>       
   </div>
 </section>
@@ -1080,7 +1182,7 @@ news-letter -->
         <h4 class="text-blue mb-20"><spring:message code="label.getintouch"/></h4>
          <div class="contact-add">
            <i class="fa fa-map-marker"></i>
-           <p class="mt-15 mb-15 text-white">Campus Universitario de Vegazana, S/N, 24071 Le�n</p>
+           <p class="mt-15 mb-15 text-white">Campus Universitario de Vegazana, S/N, 24071 León</p>
          </div>
          <div class="contact-add">
            <i class="fa fa-phone"></i>
