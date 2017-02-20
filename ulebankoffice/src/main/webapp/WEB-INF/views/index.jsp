@@ -569,18 +569,18 @@ custom-content -->
 <!--=================================
  creativity -->
 
-<section class="bg-4 bg-opacity-black-80 creativity page-section-ptb">
+<section class="bg-4 bg-opacity-black-60 creativity page-section-ptb">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 text-center"> 
-        <h1 class="text-white">See what others don't see <br/>Then show it to them</h1>
-        <p class="text-white mt-30 mb-0">That is creativity </p>
-        <a class="button mt-50" target="blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522">
-            <span>Purchase Now</span>
-            <i class="fa fa-download"></i>
+        <h1 class="text-white"><spring:message code="label.rightdecision"/></h1>
+        <p class="text-white mt-30 mb-0"><spring:message code="label.freehelp"/></p>
+        <a class="button mt-50" target="blank" href="#contact2">
+            <span><spring:message code="label.contactways"/></span>
+            <i class="fa fa-info"></i>
          </a>
-        <a class="button button-white mt-50" href="#">
-          <span>Discover more</span>
+        <a class="button button-white mt-50" href="http://lawandfinanceule.blogspot.com.es/">
+          <span><spring:message code="label.ourblog"/></span>
           <i class="fa fa-eye"></i>
        </a>
       </div>
@@ -647,25 +647,30 @@ custom-content -->
 
 <!--=================================
  video-background -->
- 
-<div id="video-background" class="video-content bg-opacity-black-30" style="width: 100%;" data-vide-bg="mp4: resources/template/video/video-1, webm: resources/template/video/video-1, ogv: resources/template/video/video-1, poster: resources/template/video/video-1" data-vide-options="position: 0% 50%">
- <div class="video-bg bg-opacity-black-50 page-section-pt">
-  <div class="container">
-    <div class="row">
-       <div class="section-title-2 text-center">
-          <h1 class="text-white">Video Background</h1>
-          <div class="title-line-2"></div>
-          <p class="text-white mt-20 mb-30">Beautiful HTML5 Video background</p>
-          <a target="blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button-border-white">
-            <span>Purchase Now</span>
-         </a>
-        </div>
-     </div>
-    </div>
-   </div>
-</div>
 
-<!--=================================
+		<div id="video-background" class="video-content bg-opacity-black-30"
+			style="width: 100%;"
+			data-vide-bg="mp4: resources/template/video/ulebackground, webm: resources/template/video/ulebackground, ogv: resources/template/video/ulebackground, poster: resources/template/video/ulebackground"
+			data-vide-options="position: 0% 50%">
+			<div class="video-bg bg-opacity-black-50 page-section-pt">
+				<div class="container">
+					<div class="row">
+						<div class="section-title-2 text-center">
+							<h1 class="text-white">Video Background</h1>
+							<div class="title-line-2"></div>
+							<p class="text-white mt-20 mb-30">Beautiful HTML5 Video
+								background</p>
+							<a target="blank"
+								href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522"
+								class="button-border-white"> <span>Purchase Now</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--=================================
  video-background -->
 
 
@@ -1169,12 +1174,51 @@ our-team -->
 
 <!--=================================
   social -->
+  
+  
+<!--=================================
+ External Links (Interest)-->
+
+<section class="about page-section-ptb">
+  <div class="container">
+    <div class="row">
+       <div class="col-lg-12 col-md-12">
+        <div class="section-title-1 text-center">
+          <h1 class="text-blue"><spring:message code="label.interestlinks"/></h1>
+          <div class="title-line"></div>
+          <p><spring:message code="label.interestlinkssub"/></p>
+        </div>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="who-we-are-left">
+          <h3 class="text-blue mb-20 text-center"><a href="https://www.unileon.es" target="_blank"><spring:message code="label.interestlink1"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.economicas.unileon.es" target="_blank"><spring:message code="label.interestlink2"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.imf.org/external/index.htm" target="_blank"><spring:message code="label.interestlink3"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.bancomundial.org" target="_blank"><spring:message code="label.interestlink4"/></a></h3>
+        </div>
+      </div>  
+      <div class="col-lg-6 col-md-6">
+         <div class="who-we-are-left">
+          <h3 class="text-blue mb-20 text-center"><a href="http://lawandfinanceule.blogspot.com.es/" target="_blank"><spring:message code="label.interestlink5"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.bde.es/bde/es/" target="_blank"><spring:message code="label.interestlink6"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="https://www.ecb.europa.eu/home/html/index.en.html" target="_blank"><spring:message code="label.interestlink7"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.mineco.gob.es/portal/site/mineco/" target="_blank"><spring:message code="label.interestlink8"/></a></h3>
+          </div>
+         </div>
+        </div>
+      </div>
+</section>
+
+<!--=================================
+ External Links (Interest)-->
 
 
 <!--=================================
  footer -->
 
-<footer class="footer-4 page-section-pt">
+<footer id="contact2" class="footer-4 page-section-pt">
  <div class="container">
   <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6">
@@ -1229,6 +1273,9 @@ our-team -->
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6">
         <p class="text-white mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> ULe-Bank </a> <spring:message code="label.siterights"/> </p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <p class="text-white mt-15"><span id="copyright"></span> <a href="cookies"> Cookies Policy </a></p>
       </div>
     </div>    
    </div>
@@ -1319,6 +1366,10 @@ our-team -->
 
 <!-- custom -->
 <script type="text/javascript" src="resources/template/js/custom.js"></script>
+
+<!--Start Cookie Script-->
+<script type="text/javascript" src="resources/template/js/cookie-bar-master/cookiebar-latest.js?remember=1&always=1&top=1&showNoConsent=1&blocking=1&privacyPage=cookies"></script>
+<!--End Cookie Script-->		
  
 </body>
 </html>
