@@ -69,10 +69,10 @@
     <div class="menu-side-top">
 		<%--     <spring:message code=""/> --%>
          <h3 class="text-white">ULe-Bank</h3>
-          <a href="#"><spring:message code="label.sitehome"/></a>
-          <a href="#"><spring:message code="label.siteservices"/></a>
-          <a href="#"><spring:message code="label.siteabout"/></a>
-          <a href="#"><spring:message code="label.sitecontact"/></a>
+          <a href="./"><spring:message code="label.sitehome"/></a>
+          <a href="#services"><spring:message code="label.siteservices"/></a>
+          <a href="#contact"><spring:message code="label.siteabout"/></a>
+          <a href="/contact"><spring:message code="label.contact"/></a>
          </div>
          <div class="login-side mt-40 text-left">
           <h3 class="text-white"><spring:message code="lable.sitelogin"/></h3>
@@ -120,294 +120,306 @@
         <!-- menu links -->
         <ul class="menu-links">
             <!-- active class -->
-            <li class="active"><a href="javascript:void(0)"> <spring:message code="label.sitehome"/> <i class="fa fa-angle-down fa-indicator"></i></a>
-                <div class="drop-down grid-col-8 offset-4">
-                <!--grid row-->
-                 <div class="grid-row">
-                   <!--grid column 3-->
-                    <div class="grid-col-4">
-                     <ul>
-                        <li><a href="home-1-default.html">Home 1 - Default <span class="label label-danger ml-10">Hot</span></a></li>
-                        <li><a href="home-2-rain.html">Home 2 - Rain</a></li> 
-                        <li><a href="home-3-corporate.html">Home 3 - Corporate</a></li>
-                        <li class="active"><a href="home-4-corporate.html">Home 4 - Corporate</a></li>
-                        <li><a href="home-5-creative.html">Home 5 - Creative</a></li>
-                     </ul>
-                    </div>
-                    <div class="grid-col-4">
-                     <ul>
-                        <li><a href="home-6-business.html">Home 6 - Business <span class="label label-info ml-10">New</span> </a></li>
-                        <li><a href="home-7-classic.html">Home 7 - Classic <span class="label label-primary ml-10">New</span></a></li> 
-                        <li><a href="home-8-agency.html">Home 8 - Agency <span class="label label-success ml-10">New</span></a></li>
-                        <li><a href="home-9-personal.html">Home 9 - Personal <span class="label label-warning ml-10">New</span></a></li>
-                        <li><a href="home-10-parallax.html">Home 10 - Parallax <span class="label label-default ml-10">New</span></a></li>
-                     </ul>
-                    </div>
-                    <div class="grid-col-4">
-                     <ul>
-                        <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-1-default/index.html">One page 1 - Default </a></li>
-                        <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-2-rain/index.html">One page 2 - Rain </a></li>
-                        <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-3-corporate/index.html">One page 3 - Corporate </a></li>
-                        <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-4-corporate/index.html">One page 4 - Corporate </a></li>
-                        <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-5-creative/index.html">One page 5 - Creative </a></li>
-                     </ul>
-                    </div>
-                   </div>
-                  </div>
+            <li class="active page-scroll"><a href="./"> <spring:message code="label.sitehome"/></a>
+<!--                 <div class="drop-down grid-col-8 offset-4"> -->
+<!--                 grid row -->
+<!--                  <div class="grid-row"> -->
+<!--                    grid column 3 -->
+<!--                     <div class="grid-col-4"> -->
+<!--                      <ul> -->
+<!--                         <li><a href="home-1-default.html">Home 1 - Default <span class="label label-danger ml-10">Hot</span></a></li> -->
+<!--                         <li><a href="home-2-rain.html">Home 2 - Rain</a></li>  -->
+<!--                         <li><a href="home-3-corporate.html">Home 3 - Corporate</a></li> -->
+<!--                         <li class="active"><a href="home-4-corporate.html">Home 4 - Corporate</a></li> -->
+<!--                         <li><a href="home-5-creative.html">Home 5 - Creative</a></li> -->
+<!--                      </ul> -->
+<!--                     </div> -->
+<!--                     <div class="grid-col-4"> -->
+<!--                      <ul> -->
+<!--                         <li><a href="home-6-business.html">Home 6 - Business <span class="label label-info ml-10">New</span> </a></li> -->
+<!--                         <li><a href="home-7-classic.html">Home 7 - Classic <span class="label label-primary ml-10">New</span></a></li>  -->
+<!--                         <li><a href="home-8-agency.html">Home 8 - Agency <span class="label label-success ml-10">New</span></a></li> -->
+<!--                         <li><a href="home-9-personal.html">Home 9 - Personal <span class="label label-warning ml-10">New</span></a></li> -->
+<!--                         <li><a href="home-10-parallax.html">Home 10 - Parallax <span class="label label-default ml-10">New</span></a></li> -->
+<!--                      </ul> -->
+<!--                     </div> -->
+<!--                     <div class="grid-col-4"> -->
+<!--                      <ul> -->
+<!--                         <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-1-default/index.html">One page 1 - Default </a></li> -->
+<!--                         <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-2-rain/index.html">One page 2 - Rain </a></li> -->
+<!--                         <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-3-corporate/index.html">One page 3 - Corporate </a></li> -->
+<!--                         <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-4-corporate/index.html">One page 4 - Corporate </a></li> -->
+<!--                         <li><a target="_blank" href="http://themes.potenzaglobal.net/thecorps/one-page/one-page-5-creative/index.html">One page 5 - Creative </a></li> -->
+<!--                      </ul> -->
+<!--                     </div> -->
+<!--                    </div> -->
+<!--                   </div> -->
               </li>
-            <li><a href="#services"><spring:message code="label.siteservices"/><i class="fa fa-angle-down fa-indicator"></i></a>
+            <li class="page-scroll"><a href="#services"><spring:message code="label.siteservices"/><i class="fa fa-angle-down fa-indicator"></i></a>
                 <!-- drop down full width -->
-                <div class="drop-down menu-bg grid-col-12">
+                <div class="drop-down menu-bg grid-col-5">
                     <!--grid row-->
                     <div class="grid-row">
                         <!--grid column 3-->
-                        <div class="grid-col-3">
+                        <div class="grid-col-4">
                             <ul>
                               <li><a href="/apr"><spring:message code="label.siteservice1"/></a></li>
                               <li><a href="/leasing"><spring:message code="label.siteservice2"/></a></li>
                               <li><a href="/offersconsulting"><spring:message code="label.siteservice3"/></a></li>
-                              <li><a href="/loans"><spring:message code="label.siteservice4"/></a></li>
+                            </ul>
+                        </div>
+                        <!--grid column 3-->
+                        <div class="grid-col-4">
+                            <ul>
+                             <li><a href="/loans"><spring:message code="label.siteservice4"/></a></li>
                               <li><a href="/discounts"><spring:message code="label.siteservice5"/></a></li>
-                              <li><a href="/reversemortgage"><spring:message code="label.siteservice6"/></a></li>
+                            </ul>
+                        </div>
+                        <div class="grid-col-4">
+                            <ul>
+  							  <li><a href="/reversemortgage"><spring:message code="label.siteservice6"/></a></li>
                               <li><a href="/creditaccount"><spring:message code="label.siteservice7"/></a></li>
                             </ul>
                         </div>
-                        <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="team-single.html">team single </a></li>
-                              <li><a href="contact-1.html">contact 1 </a></li>
-                              <li><a href="contact-2.html">contact 2 </a></li>
-                              <li><a href="contact-3.html">contact 3 </a></li>
-                              <li><a href="faqs-1.html">faqs 1 </a></li>
-                              <li><a href="faqs-2.html">faqs 2 </a></li>
-                              <li><a href="our-clients-1.html">our clients 1 </a></li>
-                              <li><a href="our-clients-2.html">our clients 2 </a></li>
-                              <li><a href="careers.html">careers </a></li>
-                            </ul>
                         </div>
                         <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="maintenance-1.html">maintenance 1 </a></li>
-                              <li><a href="maintenance-2.html">maintenance 2 </a></li>
-                              <li><a href="login-1.html">login 1 </a></li>
-                              <li><a href="login-2.html">login 2 </a></li>
-                              <li><a href="register-1.html">register 1 </a></li>
-                              <li><a href="register-2.html">register 2 </a></li>
-                              <li><a href="error-404-1.html">error 404 1 </a></li>
-                              <li><a href="error-404-2.html">error 404 2 </a></li>
-                              <li><a href="coming-soon-1.html">coming soon 1 </a></li>
-                            </ul>
-                        </div>
-                        <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="coming-soon-2.html">coming soon 2 </a></li>
-                              <li><a href="page-left-sidebar.html">page left sidebar </a></li>
-                              <li><a href="page-right-sidebar.html">page right sidebar </a></li>
-                              <li><a href="page-two-sidebar.html">page two sidebar </a></li>
-                              <li><a href="sitemap.html">sitemap </a></li>
-                              <li><a href="terms-and-conditions.html">terms and conditions </a></li>
-                              <li><a href="privacy-policy.html">privacy policy </a></li>
-                            </ul>
-                        </div>
-                        
-                    </div>
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="team-single.html">team single </a></li> -->
+<!--                               <li><a href="contact-1.html">contact 1 </a></li> -->
+<!--                               <li><a href="contact-2.html">contact 2 </a></li> -->
+<!--                               <li><a href="contact-3.html">contact 3 </a></li> -->
+<!--                               <li><a href="faqs-1.html">faqs 1 </a></li> -->
+<!--                               <li><a href="faqs-2.html">faqs 2 </a></li> -->
+<!--                               <li><a href="our-clients-1.html">our clients 1 </a></li> -->
+<!--                               <li><a href="our-clients-2.html">our clients 2 </a></li> -->
+<!--                               <li><a href="careers.html">careers </a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
+<!--                         grid column 3 -->
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="maintenance-1.html">maintenance 1 </a></li> -->
+<!--                               <li><a href="maintenance-2.html">maintenance 2 </a></li> -->
+<!--                               <li><a href="login-1.html">login 1 </a></li> -->
+<!--                               <li><a href="login-2.html">login 2 </a></li> -->
+<!--                               <li><a href="register-1.html">register 1 </a></li> -->
+<!--                               <li><a href="register-2.html">register 2 </a></li> -->
+<!--                               <li><a href="error-404-1.html">error 404 1 </a></li> -->
+<!--                               <li><a href="error-404-2.html">error 404 2 </a></li> -->
+<!--                               <li><a href="coming-soon-1.html">coming soon 1 </a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
+<!--                         grid column 3 -->
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="coming-soon-2.html">coming soon 2 </a></li> -->
+<!--                               <li><a href="page-left-sidebar.html">page left sidebar </a></li> -->
+<!--                               <li><a href="page-right-sidebar.html">page right sidebar </a></li> -->
+<!--                               <li><a href="page-two-sidebar.html">page two sidebar </a></li> -->
+<!--                               <li><a href="sitemap.html">sitemap </a></li> -->
+<!--                               <li><a href="terms-and-conditions.html">terms and conditions </a></li> -->
+<!--                               <li><a href="privacy-policy.html">privacy policy </a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
                 </div>
             </li>
-            <li><a href="javascript:void(0)">blog <i class="fa fa-angle-down fa-indicator"></i></a>
-                <!-- drop down multilevel  -->
-                <ul class="drop-down-multilevel">
-                    <li><a href="javascript:void(0)">blog classic <i class="fa fa-angle-right fa-indicator"></i> </a>
+            <li class="page-scroll"><a href="#blog">blog</a>
+<!--                 drop down multilevel  -->
+<!--                 <ul class="drop-down-multilevel"> -->
+<!--                     <li><a href="javascript:void(0)">blog classic <i class="fa fa-angle-right fa-indicator"></i> </a> -->
 
-                        <!-- drop down second level -->
-                        <ul class="drop-down-multilevel">
-                           <li><a href="blog-classic-left-sidebar.html">left sidebar</a></li>
-                           <li><a href="blog-classic-right-sidebar.html">right sidebar</a></li>
-                           <li><a href="blog-classic-fullwidth.html">fullwidth</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:void(0)">grid <i class="fa fa-angle-right fa-indicator"></i> </a>
-                        <!-- drop down second level -->
-                        <ul class="drop-down-multilevel">
-                            <li><a href="blog-grid-2-column.html"> 2 column </a> </li>
-                            <li><a href="blog-grid-3-column.html"> 3 column </a> </li>
-                            <li><a href="blog-grid-2-column-left-sidebar.html">left sidebar</a></li>
-                            <li><a href="blog-grid-2-column-right-sidebar.html">right sidebar</a></li>
-                        </ul> 
-                    </li>
-                    <li><a href="javascript:void(0)">Masonry  <i class="fa fa-angle-right fa-indicator"></i> </a>
-                      <!-- drop down second level -->
-                        <ul class="drop-down-multilevel">
-                            <li><a href="blog-masonry-2-columns.html"> 2 column </a> </li>
-                            <li><a href="blog-masonry-3-columns.html"> 3 column </a> </li>
-                            <li><a href="blog-masonry-2-columns-left-sidebar.html">left sidebar</a></li>
-                           <li><a href="blog-masonry-2-columns-right-sidebar.html">right sidebar</a></li>
-                        </ul> 
-                    </li>
-                    <li><a href="#">timeline  <i class="fa fa-angle-right fa-indicator"></i></a>
-                        <!-- drop down second level -->
-                        <ul class="drop-down-multilevel">
-                          <li><a href="blog-timeline.html">fullwidth</a></li>
-                          <li><a href="blog-timeline-left-sidebar.html">left sidebar</a></li>
-                          <li><a href="blog-timeline-right-sidebar.html">right sidebar</a></li>
-                        </ul> 
-                    </li>
-                    <li><a href="#">single post  <i class="fa fa-angle-right fa-indicator"></i></a>
-                        <!-- drop down second level -->
-                        <ul class="drop-down-multilevel">
-                            <li><a href="blog-single-image-post.html"> blog image post </a> </li>
-                            <li><a href="blog-single-video-post.html"> blog video post </a> </li>
-                            <li><a href="blog-single-youtube-post.html"> blog youtube post </a> </li>
-                            <li><a href="blog-single-vimeo-post.html"> blog vimeo post </a> </li>
-                            <li><a href="blog-single-audio-post.html"> blog audio post  </a> </li>
-                        </ul> 
-                    </li>
-                </ul>
+<!--                         drop down second level -->
+<!--                         <ul class="drop-down-multilevel"> -->
+<!--                            <li><a href="blog-classic-left-sidebar.html">left sidebar</a></li> -->
+<!--                            <li><a href="blog-classic-right-sidebar.html">right sidebar</a></li> -->
+<!--                            <li><a href="blog-classic-fullwidth.html">fullwidth</a></li> -->
+<!--                         </ul> -->
+<!--                     </li> -->
+<!--                     <li><a href="javascript:void(0)">grid <i class="fa fa-angle-right fa-indicator"></i> </a> -->
+<!--                         drop down second level -->
+<!--                         <ul class="drop-down-multilevel"> -->
+<!--                             <li><a href="blog-grid-2-column.html"> 2 column </a> </li> -->
+<!--                             <li><a href="blog-grid-3-column.html"> 3 column </a> </li> -->
+<!--                             <li><a href="blog-grid-2-column-left-sidebar.html">left sidebar</a></li> -->
+<!--                             <li><a href="blog-grid-2-column-right-sidebar.html">right sidebar</a></li> -->
+<!--                         </ul>  -->
+<!--                     </li> -->
+<!--                     <li><a href="javascript:void(0)">Masonry  <i class="fa fa-angle-right fa-indicator"></i> </a> -->
+<!--                       drop down second level -->
+<!--                         <ul class="drop-down-multilevel"> -->
+<!--                             <li><a href="blog-masonry-2-columns.html"> 2 column </a> </li> -->
+<!--                             <li><a href="blog-masonry-3-columns.html"> 3 column </a> </li> -->
+<!--                             <li><a href="blog-masonry-2-columns-left-sidebar.html">left sidebar</a></li> -->
+<!--                            <li><a href="blog-masonry-2-columns-right-sidebar.html">right sidebar</a></li> -->
+<!--                         </ul>  -->
+<!--                     </li> -->
+<!--                     <li><a href="#">timeline  <i class="fa fa-angle-right fa-indicator"></i></a> -->
+<!--                         drop down second level -->
+<!--                         <ul class="drop-down-multilevel"> -->
+<!--                           <li><a href="blog-timeline.html">fullwidth</a></li> -->
+<!--                           <li><a href="blog-timeline-left-sidebar.html">left sidebar</a></li> -->
+<!--                           <li><a href="blog-timeline-right-sidebar.html">right sidebar</a></li> -->
+<!--                         </ul>  -->
+<!--                     </li> -->
+<!--                     <li><a href="#">single post  <i class="fa fa-angle-right fa-indicator"></i></a> -->
+<!--                         drop down second level -->
+<!--                         <ul class="drop-down-multilevel"> -->
+<!--                             <li><a href="blog-single-image-post.html"> blog image post </a> </li> -->
+<!--                             <li><a href="blog-single-video-post.html"> blog video post </a> </li> -->
+<!--                             <li><a href="blog-single-youtube-post.html"> blog youtube post </a> </li> -->
+<!--                             <li><a href="blog-single-vimeo-post.html"> blog vimeo post </a> </li> -->
+<!--                             <li><a href="blog-single-audio-post.html"> blog audio post  </a> </li> -->
+<!--                         </ul>  -->
+<!--                     </li> -->
+<!--                 </ul> -->
             </li>
-            <li><a href="javascript:void(0)">Portfolio<i class="fa fa-angle-down fa-indicator"></i></a>
-                <!-- drop down multilevel  -->
-                <ul class="drop-down-multilevel left-side">
+<!--             <li><a href="javascript:void(0)">Portfolio<i class="fa fa-angle-down fa-indicator"></i></a> -->
+<!--                 drop down multilevel  -->
+<!--                 <ul class="drop-down-multilevel left-side"> -->
                     
-                    <li><a href="#">portfolio classic <i class="fa fa-angle-left fa-indicator"></i></a>
-                      <!-- drop down second level -->
-                        <ul class="drop-down-multilevel left-side">
-                            <li><a href="javascript:void(0)"> 1 column  <i class="fa fa-angle-left fa-indicator"></i></a>
-                                <!-- drop down third level -->
-                                <ul class="drop-down-multilevel left-side">
-                                    <li><a href="portfolio-classic-1-column-default.html">default</a></li>
-                                    <li><a href="portfolio-classic-1-columns-left-sidebar.html">left sidebar</a></li>
-                                    <li><a href="portfolio-classic-1-columns-right-sidebar.html">right sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)"> 2 column  <i class="fa fa-angle-left fa-indicator"></i></a>
-                                <!-- drop down third level -->
-                                <ul class="drop-down-multilevel left-side">
-                                    <li><a href="portfolio-classic-2-columns-left-sidebar.html">left sidebar</a></li>
-                                    <li><a href="portfolio-classic-2-columns-right-sidebar.html">right sidebar</a></li>
-                                    <li><a href="portfolio-classic-2-columns-fullwidth.html">fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)"> 3 column  <i class="fa fa-angle-left fa-indicator"></i></a>
-                                <!-- drop down third level -->
-                                <ul class="drop-down-multilevel left-side">
-                                    <li><a href="portfolio-classic-3-columns-left-sidebar.html">left sidebar</a></li>
-                                    <li><a href="portfolio-classic-3-columns-right-sidebar.html">right sidebar</a></li>
-                                    <li><a href="portfolio-classic-3-columns-fullwidth.html">fullwidth</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)"> 4 column <i class="fa fa-angle-left fa-indicator"></i></a>
-                                <!-- drop down third level -->
-                                <ul class="drop-down-multilevel left-side">
-                                    <li><a href="portfolio-classic-4-columns-left-sidebar.html">left sidebar</a></li>
-                                    <li><a href="portfolio-classic-4-columns-right-sidebar.html">right sidebar</a></li>
-                                    <li><a href="portfolio-classic-4-columns-fullwidth.html">fullwidth</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:void(0)">portfolio Masonry <i class="fa fa-angle-left fa-indicator"></i></a>
-                      <!-- drop down second level -->
-                        <ul class="drop-down-multilevel left-side">
-                            <li><a href="portfolio-masonry-2-columns.html"> 2 column </a> </li>
-                            <li><a href="portfolio-masonry-3-columns.html"> 3 column </a> </li>
-                            <li><a href="portfolio-masonry-4-columns.html"> 4 column </a> </li>
-                            <li><a href="portfolio-masonry-full-screen.html"> full screen </a> </li>
-                        </ul> 
-                    </li>
-                    <li><a href="#">portfolio grid <i class="fa fa-angle-left fa-indicator"></i></a>
-                      <ul class="drop-down-multilevel left-side">
-                            <li><a href="javascript:void(0)"> grid <i class="fa fa-angle-left fa-indicator"></i></a>  
-                               <!-- drop down third level -->
-                                <ul class="drop-down-multilevel left-side">
-                                    <li><a href="portfolio-grid-2-columns.html">2 column</a></li>
-                                    <li><a href="portfolio-grid-3-columns.html">3 column</a></li>
-                                    <li><a href="portfolio-grid-4-columns.html">4 column</a></li>
-                                </ul>
-                              </li>
-                            <li><a href="javascript:void(0)"> grid full screen <i class="fa fa-angle-left fa-indicator"></i></a> 
-                               <!-- drop down third level -->
-                                <ul class="drop-down-multilevel left-side">
-                                    <li><a href="portfolio-grid-full-screen-2-columns.html">2 column</a></li>
-                                    <li><a href="portfolio-grid-full-screen-3-columns.html">3 column</a></li>
-                                    <li><a href="portfolio-grid-full-screen-4-columns.html">4 column</a></li>
-                                    <li><a href="portfolio-grid-full-screen-5-columns.html">5 column</a></li>
-                                </ul>
-                            </li>
-                       </ul>
-                    </li>
-                    <li><a href="#">portfolio Packery <i class="fa fa-angle-left fa-indicator"></i></a>
-                      <!-- drop down second level -->
-                        <ul class="drop-down-multilevel left-side">
-                            <li><a href="portfolio-packetry.html"> packetry fullwidth </a> </li>
-                            <li><a href="portfolio-packetry-fullwidth.html"> full screen </a> </li>
-                         </ul>
-                    </li>
-                    <li><a href="#">portfolio single <i class="fa fa-angle-left fa-indicator"></i></a>
-                      <!-- drop down second level -->
-                        <ul class="drop-down-multilevel left-side">
-                            <li><a href="portfolio-single-1.html"> single 01 </a> </li>
-                            <li><a href="portfolio-single-2.html"> single 02 </a> </li>
-                         </ul>
-                    </li>
-                </ul>
+<!--                     <li><a href="#">portfolio classic <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                       drop down second level -->
+<!--                         <ul class="drop-down-multilevel left-side"> -->
+<!--                             <li><a href="javascript:void(0)"> 1 column  <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                                 drop down third level -->
+<!--                                 <ul class="drop-down-multilevel left-side"> -->
+<!--                                     <li><a href="portfolio-classic-1-column-default.html">default</a></li> -->
+<!--                                     <li><a href="portfolio-classic-1-columns-left-sidebar.html">left sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-1-columns-right-sidebar.html">right sidebar</a></li> -->
+<!--                                 </ul> -->
+<!--                             </li> -->
+<!--                             <li><a href="javascript:void(0)"> 2 column  <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                                 drop down third level -->
+<!--                                 <ul class="drop-down-multilevel left-side"> -->
+<!--                                     <li><a href="portfolio-classic-2-columns-left-sidebar.html">left sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-2-columns-right-sidebar.html">right sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-2-columns-fullwidth.html">fullwidth</a></li> -->
+<!--                                 </ul> -->
+<!--                             </li> -->
+<!--                             <li><a href="javascript:void(0)"> 3 column  <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                                 drop down third level -->
+<!--                                 <ul class="drop-down-multilevel left-side"> -->
+<!--                                     <li><a href="portfolio-classic-3-columns-left-sidebar.html">left sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-3-columns-right-sidebar.html">right sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-3-columns-fullwidth.html">fullwidth</a></li> -->
+<!--                                 </ul> -->
+<!--                             </li> -->
+<!--                             <li><a href="javascript:void(0)"> 4 column <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                                 drop down third level -->
+<!--                                 <ul class="drop-down-multilevel left-side"> -->
+<!--                                     <li><a href="portfolio-classic-4-columns-left-sidebar.html">left sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-4-columns-right-sidebar.html">right sidebar</a></li> -->
+<!--                                     <li><a href="portfolio-classic-4-columns-fullwidth.html">fullwidth</a></li> -->
+<!--                                 </ul> -->
+<!--                             </li> -->
+<!--                         </ul> -->
+<!--                     </li> -->
+<!--                     <li><a href="javascript:void(0)">portfolio Masonry <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                       drop down second level -->
+<!--                         <ul class="drop-down-multilevel left-side"> -->
+<!--                             <li><a href="portfolio-masonry-2-columns.html"> 2 column </a> </li> -->
+<!--                             <li><a href="portfolio-masonry-3-columns.html"> 3 column </a> </li> -->
+<!--                             <li><a href="portfolio-masonry-4-columns.html"> 4 column </a> </li> -->
+<!--                             <li><a href="portfolio-masonry-full-screen.html"> full screen </a> </li> -->
+<!--                         </ul>  -->
+<!--                     </li> -->
+<!--                     <li><a href="#">portfolio grid <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                       <ul class="drop-down-multilevel left-side"> -->
+<!--                             <li><a href="javascript:void(0)"> grid <i class="fa fa-angle-left fa-indicator"></i></a>   -->
+<!--                                drop down third level -->
+<!--                                 <ul class="drop-down-multilevel left-side"> -->
+<!--                                     <li><a href="portfolio-grid-2-columns.html">2 column</a></li> -->
+<!--                                     <li><a href="portfolio-grid-3-columns.html">3 column</a></li> -->
+<!--                                     <li><a href="portfolio-grid-4-columns.html">4 column</a></li> -->
+<!--                                 </ul> -->
+<!--                               </li> -->
+<!--                             <li><a href="javascript:void(0)"> grid full screen <i class="fa fa-angle-left fa-indicator"></i></a>  -->
+<!--                                drop down third level -->
+<!--                                 <ul class="drop-down-multilevel left-side"> -->
+<!--                                     <li><a href="portfolio-grid-full-screen-2-columns.html">2 column</a></li> -->
+<!--                                     <li><a href="portfolio-grid-full-screen-3-columns.html">3 column</a></li> -->
+<!--                                     <li><a href="portfolio-grid-full-screen-4-columns.html">4 column</a></li> -->
+<!--                                     <li><a href="portfolio-grid-full-screen-5-columns.html">5 column</a></li> -->
+<!--                                 </ul> -->
+<!--                             </li> -->
+<!--                        </ul> -->
+<!--                     </li> -->
+<!--                     <li><a href="#">portfolio Packery <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                       drop down second level -->
+<!--                         <ul class="drop-down-multilevel left-side"> -->
+<!--                             <li><a href="portfolio-packetry.html"> packetry fullwidth </a> </li> -->
+<!--                             <li><a href="portfolio-packetry-fullwidth.html"> full screen </a> </li> -->
+<!--                          </ul> -->
+<!--                     </li> -->
+<!--                     <li><a href="#">portfolio single <i class="fa fa-angle-left fa-indicator"></i></a> -->
+<!--                       drop down second level -->
+<!--                         <ul class="drop-down-multilevel left-side"> -->
+<!--                             <li><a href="portfolio-single-1.html"> single 01 </a> </li> -->
+<!--                             <li><a href="portfolio-single-2.html"> single 02 </a> </li> -->
+<!--                          </ul> -->
+<!--                     </li> -->
+<!--                 </ul> -->
+<!--             </li> -->
+<!--             <li><a href="javascript:void(0)"> Shortcodes <i class="fa fa-angle-down fa-indicator"></i></a> -->
+<!--               drop down full width -->
+<!--                 <div class="drop-down grid-col-12"> -->
+<!--                     grid row -->
+<!--                     <div class="grid-row"> -->
+<!--                         grid column 3 -->
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="elements-accordions.html"><i class="fa fa-list-ul"></i> accordions </a></li> -->
+<!--                               <li><a href="elements-action-box.html"><i class="fa fa-rocket"></i> action box</a></li> -->
+<!--                               <li><a href="elements-alerts-and-callouts.html"><i class="fa fa-info-circle"></i> alerts and callouts</a></li> -->
+<!--                               <li><a href="elements-buttons.html"><i class="fa fa-external-link"></i> buttons</a></li> -->
+<!--                               <li><a href="elements-carousel-slider.html"><i class="fa fa-exchange"></i> carousel slider</a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
+<!--                         grid column 3 -->
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="elements-columns.html"><i class="fa fa-th"></i> columns</a></li> -->
+<!--                               <li><a href="elements-content-box.html"><i class="fa fa-file-text-o"></i> content box</a></li> -->
+<!--                               <li><a href="elements-counter.html"><i class="fa fa-sort-numeric-asc"></i> counter</a></li> -->
+<!--                               <li><a href="elements-data-table.html"><i class="fa fa-table"></i> data table</a></li> -->
+<!--                               <li><a href="elements-lists-style.html"><i class="fa fa-th-list"></i> lists style</a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
+<!--                         grid column 3 -->
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="elements-post-style.html"> <i class="fa fa-photo"></i> post style</a></li> -->
+<!--                               <li><a href="elements-pricing-tables.html"><i class="fa fa-money"></i> pricing tables</a></li> -->
+<!--                               <li><a href="elements-skills.html"><i class="fa fa-tasks"></i> skills</a></li> -->
+<!--                               <li><a href="elements-social-icon.html"><i class="fa fa-share-alt"></i> social icon</a></li> -->
+<!--                               <li><a href="elements-social-widget-gallery.html"><i class="fa fa-bullhorn"></i> social widget gallery</a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
+<!--                         grid column 3 -->
+<!--                         <div class="grid-col-3"> -->
+<!--                             <ul> -->
+<!--                               <li><a href="elements-tabs.html"><i class="fa fa-star"></i> tabs</a></li> -->
+<!--                               <li><a href="elements-team.html"><i class="fa fa-users"></i> team</a></li> -->
+<!--                               <li><a href="elements-typography.html"><i class="fa fa-italic"></i> typography</a></li> -->
+<!--                             </ul> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div>  -->
+<!--             </li> -->
+			<li class="page-scroll"><a href="#team"><spring:message code="label.ourteam"/></a>
             </li>
-            <li><a href="javascript:void(0)"> Shortcodes <i class="fa fa-angle-down fa-indicator"></i></a>
-              <!-- drop down full width -->
-                <div class="drop-down grid-col-12">
-                    <!--grid row-->
-                    <div class="grid-row">
-                        <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="elements-accordions.html"><i class="fa fa-list-ul"></i> accordions </a></li>
-                              <li><a href="elements-action-box.html"><i class="fa fa-rocket"></i> action box</a></li>
-                              <li><a href="elements-alerts-and-callouts.html"><i class="fa fa-info-circle"></i> alerts and callouts</a></li>
-                              <li><a href="elements-buttons.html"><i class="fa fa-external-link"></i> buttons</a></li>
-                              <li><a href="elements-carousel-slider.html"><i class="fa fa-exchange"></i> carousel slider</a></li>
-                            </ul>
-                        </div>
-                        <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="elements-columns.html"><i class="fa fa-th"></i> columns</a></li>
-                              <li><a href="elements-content-box.html"><i class="fa fa-file-text-o"></i> content box</a></li>
-                              <li><a href="elements-counter.html"><i class="fa fa-sort-numeric-asc"></i> counter</a></li>
-                              <li><a href="elements-data-table.html"><i class="fa fa-table"></i> data table</a></li>
-                              <li><a href="elements-lists-style.html"><i class="fa fa-th-list"></i> lists style</a></li>
-                            </ul>
-                        </div>
-                        <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="elements-post-style.html"> <i class="fa fa-photo"></i> post style</a></li>
-                              <li><a href="elements-pricing-tables.html"><i class="fa fa-money"></i> pricing tables</a></li>
-                              <li><a href="elements-skills.html"><i class="fa fa-tasks"></i> skills</a></li>
-                              <li><a href="elements-social-icon.html"><i class="fa fa-share-alt"></i> social icon</a></li>
-                              <li><a href="elements-social-widget-gallery.html"><i class="fa fa-bullhorn"></i> social widget gallery</a></li>
-                            </ul>
-                        </div>
-                        <!--grid column 3-->
-                        <div class="grid-col-3">
-                            <ul>
-                              <li><a href="elements-tabs.html"><i class="fa fa-star"></i> tabs</a></li>
-                              <li><a href="elements-team.html"><i class="fa fa-users"></i> team</a></li>
-                              <li><a href="elements-typography.html"><i class="fa fa-italic"></i> typography</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> 
+            <li class="page-scroll"><a href="#sponsors"><spring:message code="label.sponsors"/></a>
             </li>
-            <li><a href="javascript:void(0)"> Contact <i class="fa fa-angle-down fa-indicator"></i></a>
+            <li class="page-scroll"><a href="#links"><spring:message code="label.links"/></a>
+            </li>
+            <li class="page-scroll"><a href="#contact"><spring:message code="label.contact"/><i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel right-menu">
-                    <li><a href="contact-1.html">Contact 1</a></li>
-                    <li><a href="contact-2.html">Contact 2</a></li>
-                    <li><a href="contact-3.html">Contact 3</a></li>
+                    <li><a href="contact-1.html"><spring:message code="label.contactform"/></a></li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0)"> <spring:message code="label.sitelanguage"/> <i class="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href=""> <spring:message code="label.sitelanguage"/> <i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel right-menu">
                     <li><a href="?language=en"><spring:message code="label.english"/></a></li>
@@ -460,8 +472,8 @@ slider- -->
                     <span class="animated1"><spring:message code ="label.welcometopmessage1"/></span>
                     <h1 class="animated2 text-white"><spring:message code ="label.welcomemessage1"/></h1>
                     <p class="animated3"><spring:message code ="label.welcomesubmessage1"/></p>
-                    <a href="#" class="button animated8"> <span> Read More </span></a>
-                    <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button button-black animated8"><span> Purchase Now </span> </a>
+                    <a href="#services" class="button animated8"> <span> <spring:message code="label.knowourservices"/> </span></a>
+                    <a target="_blank" href="/contact" class="button button-black animated8"><span> <spring:message code="label.getintouch"/> </span> </a>
                  </div>
                 </div>
               </div>
@@ -478,8 +490,8 @@ slider- -->
                   <span class="animated1"><spring:message code ="label.welcometopmessage2"/></span>
                     <h1 class="animated4 text-white"><spring:message code ="label.welcomemessage2"/></h1>
                     <p class="animated5"><spring:message code ="label.welcomesubmessage2"/></p>
-                    <a href="#" class="button animated8"> <span> Read More </span></a>
-                    <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button button-black animated8"><span> Purchase Now </span> </a>
+                    <a href="#services" class="button animated8"> <span> <spring:message code="label.knowourservices"/> </span></a>
+                    <a target="_blank" href="/contact" class="button button-black animated8"><span> <spring:message code="label.getintouch"/> </span> </a>
                  </div>
                 </div>
               </div>
@@ -496,8 +508,8 @@ slider- -->
                   <span class="animated1"><spring:message code ="label.welcometopmessage3"/></span>
                     <h1 class="animated6 text-white"><spring:message code ="label.welcomemessage3"/></h1>
                     <p class="animated7"><spring:message code ="label.welcomesubmessage3"/></p>
-                    <a href="#" class="button animated8"> <span> Read More </span></a>
-                    <a target="_blank" href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522" class="button button-black animated8"><span> Purchase Now </span> </a>
+                    <a href="#services" class="button animated8"> <span> <spring:message code="label.knowourservices"/> </span></a>
+                    <a target="_blank" href="/contact" class="button button-black animated8"><span> <spring:message code="label.getintouch"/> </span> </a>
                  </div>
                 </div>
               </div>
@@ -514,170 +526,72 @@ slider -->
  <!--=================================
 custom-content -->
 
-<section class="custom-content-3 hello-content white-bg">
-  <div class="container">
-     <div class="row">
-        <div class="col-lg-7 col-md-7">
-          <div class="page-section-pt">
-           <span>Hello, i’m</span>
-           <h2 class="text-blue">- Felicity Queen</h2>
-           <strong class="mb-50">I work for every kind of customer's requirement.</strong>
-           <div class="custom-content-3-info pull-left">
-             <i class="fa fa-quote-right"></i>
-             <p>I am consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam iste labore? Libero possimus excepturi, labore! At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut. Fugit rerum, nisi quo nam iste labore? Libero possimus.</p>
-             <img class="signature pull-right" src="resources/template/images/signature.png" alt="">
-           </div> 
-           <div class="row">
-             <div class="col-lg-6 col-md-6">
-               <div class="feature-8 clearfix mt-30">
-                <div class="feature-8-title">
-                  <span class="icon-layers" aria-hidden="true"></span>
-                </div>
-                <div class="feature-8-info">
-                  <h4 class="text-back">Professional Design</h4>
-                  <p class="textjustify">Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam</p>
-                </div>
-              </div>
-             </div>
-             <div class="col-lg-6 col-md-6">
-               <div class="feature-8 clearfix mt-30">
-                <div class="feature-8-title">
-                  <span class="icon-picture" aria-hidden="true"></span>
-                </div>
-                <div class="feature-8-info">
-                  <h4 class="text-back">Revolution Slider</h4>
-                  <p class="textjustify">Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam </p>
-                </div>
-              </div>
-             </div>
-           </div>
-         </div>
-        </div>
-        <div class="col-lg-5 col-md-5">
-         <div class="custom-content-3-image mt-15">
-           <img src="resources/template/images/device/women-2.jpg" alt="">
-         </div>
-        </div>
-     </div>
-  </div>
-</section> 
+<!-- <section class="custom-content-3 hello-content white-bg"> -->
+<!--   <div class="container"> -->
+<!--      <div class="row"> -->
+<!--         <div class="col-lg-7 col-md-7"> -->
+<!--           <div class="page-section-pt"> -->
+<!--            <span>Hello, i’m</span> -->
+<!--            <h2 class="text-blue">- Felicity Queen</h2> -->
+<!--            <strong class="mb-50">I work for every kind of customer's requirement.</strong> -->
+<!--            <div class="custom-content-3-info pull-left"> -->
+<!--              <i class="fa fa-quote-right"></i> -->
+<!--              <p>I am consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam iste labore? Libero possimus excepturi, labore! At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut. Fugit rerum, nisi quo nam iste labore? Libero possimus.</p> -->
+<!--              <img class="signature pull-right" src="resources/template/images/signature.png" alt=""> -->
+<!--            </div>  -->
+<!--            <div class="row"> -->
+<!--              <div class="col-lg-6 col-md-6"> -->
+<!--                <div class="feature-8 clearfix mt-30"> -->
+<!--                 <div class="feature-8-title"> -->
+<!--                   <span class="icon-layers" aria-hidden="true"></span> -->
+<!--                 </div> -->
+<!--                 <div class="feature-8-info"> -->
+<!--                   <h4 class="text-back">Professional Design</h4> -->
+<!--                   <p class="textjustify">Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam</p> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--              </div> -->
+<!--              <div class="col-lg-6 col-md-6"> -->
+<!--                <div class="feature-8 clearfix mt-30"> -->
+<!--                 <div class="feature-8-title"> -->
+<!--                   <span class="icon-picture" aria-hidden="true"></span> -->
+<!--                 </div> -->
+<!--                 <div class="feature-8-info"> -->
+<!--                   <h4 class="text-back">Revolution Slider</h4> -->
+<!--                   <p class="textjustify">Dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam </p> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--              </div> -->
+<!--            </div> -->
+<!--          </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-5 col-md-5"> -->
+<!--          <div class="custom-content-3-image mt-15"> -->
+<!--            <img src="resources/template/images/device/women-2.jpg" alt=""> -->
+<!--          </div> -->
+<!--         </div> -->
+<!--      </div> -->
+<!--   </div> -->
+<!-- </section>  -->
 
 <!--=================================
 custom-content -->
 
-
-<!--=================================
- creativity -->
-
-<section class="bg-4 bg-opacity-black-60 creativity page-section-ptb">
-  <div class="container">
+<!-- About us -->
+<section id="links" class="about page-section-ptb">
+	<div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 text-center"> 
-        <h1 class="text-white"><spring:message code="label.rightdecision"/></h1>
-        <p class="text-white mt-30 mb-0"><spring:message code="label.freehelp"/></p>
-        <a class="button mt-50" target="blank" href="#contact2">
-            <span><spring:message code="label.contactways"/></span>
-            <i class="fa fa-info"></i>
-         </a>
-        <a class="button button-white mt-50" href="http://lawandfinanceule.blogspot.com.es/">
-          <span><spring:message code="label.ourblog"/></span>
-          <i class="fa fa-eye"></i>
-       </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--=================================
- creativity -->
-
-
- <!--=================================
- our-clients -->
-
-<section class="happy-clients white-bg page-section-ptb">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-        <div class="section-title-2 text-center">
-          <h1 class="text-blue">Our Happy Clients</h1>
-          <div class="title-line"></div>
-          <p>What Our Happy Clients say about us</p>
-        </div>
-       </div>
-      </div>
-      <div class="row">
        <div class="col-lg-12 col-md-12">
-         <div id="tabs">
-             <div id="tab1" class="tabcontent"> 
-                  <p>" I would like to express my thanks and appreciation to you for understanding the subject matter and for your excellent writing. Good job and well done. I look forward to working with you in our next project Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos ”</p>
-              </div>
-              <div id="tab2" class="tabcontent"> 
-                  <p>" We are very pleased with your service and the professional way all our queries and problems have been handled. I certainly would not hesitate to recommend your organisation to other people I come into contact with. Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos ”</p>
-              </div>
-              <div id="tab3" class="tabcontent"> 
-                  <p>" Our old site was very information-heavy; the Corps helped to capture and simplify the message we wanted to get across. It’s now more precise, easy to use and looks great! quos magnam cupiditate pariatur? Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra. ”</p>
-              </div>
-              <div id="tab4" class="tabcontent"> 
-                  <p>" We are very pleased with your service and the professional way all our queries and problems have been handled. I certainly would not hesitate to recommend your organisation to other people I come into contact with. Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos. ”</p>
-              </div>
-              <div id="tab5" class="tabcontent"> 
-                  <p>" I would like to express my thanks and appreciation to you for understanding the subject matter and for your excellent writing. Good job and well done. I look forward to working with you in our next project Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos. ”</p>
-              </div>
-              <div id="tab6" class="tabcontent"> 
-                  <p>" Our old site was very information-heavy; the Corps helped to capture and simplify the message we wanted to get across. It’s now more precise, easy to use and looks great! quos magnam cupiditate pariatur? Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos. ”</p>
-              </div>
-              <ul class="tabs">
-                 <li data-tabs="tab1" class="animated-arrow active"> <img class="img-responsive" src="resources/template/images/clients/01.png" alt=""></li>
-                 <li data-tabs="tab2" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/02.png" alt=""></li>
-                 <li data-tabs="tab3" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/03.png" alt=""></li>
-                 <li data-tabs="tab4" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/04.png" alt=""></li>
-                 <li data-tabs="tab5" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/05.png" alt=""></li>
-                 <li data-tabs="tab6" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/02.png" alt=""></li>
-                </ul>
-          </div>
+        <div class="section-title-1 text-center">
+          <h1 class="text-blue"><spring:message code="label.aboutus"/></h1>
+          <div class="title-line"></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
- <!--=================================
- our-clients -->
-
-
 <!--=================================
- video-background -->
-
-		<div id="video-background" class="video-content bg-opacity-black-30"
-			style="width: 100%;"
-			data-vide-bg="mp4: resources/template/video/ulebackground, webm: resources/template/video/ulebackground, ogv: resources/template/video/ulebackground, poster: resources/template/video/ulebackground"
-			data-vide-options="position: 0% 50%">
-			<div class="video-bg bg-opacity-black-50 page-section-pt">
-				<div class="container">
-					<div class="row">
-						<div class="section-title-2 text-center">
-							<h1 class="text-white">Video Background</h1>
-							<div class="title-line-2"></div>
-							<p class="text-white mt-20 mb-30">Beautiful HTML5 Video
-								background</p>
-							<a target="blank"
-								href="http://themeforest.net/item/the-corps-multipurpose-html5-template/15623522"
-								class="button-border-white"> <span>Purchase Now</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!--=================================
- video-background -->
-
-
- <!--=================================
  owl-custom -->
 
-<section class="owl-custom white-bg page-section-ptb">
+<section class="owl-custom white-bg">
   <div class="container">
     <div class="row">
      <div class="owl-carousel-12">
@@ -687,7 +601,7 @@ custom-content -->
       </div>
       <div class="col-lg-6 col-md-6">
        <div class="custom-content">
-         <h2 class="text-blue mb-20">Easy To Use Templates</h2>
+         <h2 class="text-blue mb-20">Who we are 1</h2>
          
          <p>There are lots of reasons, but most importantly because. lorem ipsum dolor sit amet, consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.</p>
           <ul class="mt-20">
@@ -703,7 +617,7 @@ custom-content -->
      <div class="item">
       <div class="col-lg-6 col-md-6">
        <div class="custom-content">
-         <h2 class="text-blue mb-30">Clean & Simple Code! </h2>
+         <h2 class="text-blue mb-30">Who we are 2 </h2>
          <p>There are lots of reasons, but most importantly because. lorem ipsum dolor sit amet, consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.</p>
            <div class="feature-8 mt-30">
             <div class="feature-8-title">
@@ -735,7 +649,7 @@ custom-content -->
       </div>
       <div class="col-lg-6 col-md-6">
        <div class="custom-content">
-         <h2 class="text-blue mb-30">Unlimited Options</h2>
+         <h2 class="text-blue mb-30">Who we are 3</h2>
          <p>There are lots of reasons, but most importantly because. lorem ipsum dolor sit amet, consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.</p>
           <ul class="mt-20 mb-20">
             <li><i class="fa fa-hand-o-right"></i> Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, </li>
@@ -753,120 +667,154 @@ custom-content -->
 
 <!--=================================
  owl-custom -->
+ 
+ </div>
+</section>
+<!-- About us -->
+
+
+
+
+<!--=================================
+ video-background -->
+<section >
+		<div id="video-background" class="video-content bg-opacity-black-30"
+			style="width: 100%;"
+			data-vide-bg="mp4: resources/template/video/ulebackground, webm: resources/template/video/ulebackground, ogv: resources/template/video/ulebackground, poster: resources/template/video/ulebackground"
+			data-vide-options="position: 0% 50%">
+			<div class="video-bg bg-opacity-black-50 page-section-pt">
+				<div class="container">
+					<div class="row">
+						<div class="section-title-2 text-center">
+							<h1 class="text-white"><spring:message code="label.knowledge"/></h1>
+							<div class="title-line-2"></div>
+							<p class="text-white mt-20 mb-30"><spring:message code="label.knowledgesub"/></p>
+							<a target="blank"
+								href="/offersconsulting"
+								class="button-border-white"> <span><spring:message code="label.knowledgesubmit"/></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+		<!--=================================
+ video-background -->
 
 
 <!--=================================
 blog -->
 
-<section class="our-blog hover-direction white-bg">
-  <div class="container-fluid">
-     <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <div class="blog-box-info">
-             <h1 class="text-white">Our Latest Blog Post</h1>
-             <span class="text-white"> Read what we say in our blog</span>
-             <p class="text-white pt-30 pb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam iste labore? Libero. </p>
-             <a href="#" class="button button-white">
-                <span>View all post</span>
-                <i class="fa fa-hand-o-right"></i>
-             </a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-          <div class="blog-box-image">
-            <div class="portfolio-item">
-                 <img class="img-responsive" src="resources/template/images/portfolio/medium/06.jpg" alt="">
-                 <div class="portfolio-caption text-right">
-                   <a href="#">Lorem ipsum dolor sit </a>
-                    <ul class="port-tag">
-                      <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li>
-                      <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li>
-                      <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li>
-                   </ul>
-                  <a href="#" class="button-border">
-                    <span>Read view</span>
-                  </a>
-               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-          <div class="blog-box-image">
-            <div class="portfolio-item">
-                 <img class="img-responsive" src="resources/template/images/portfolio/medium/17.jpg" alt="">
-                 <div class="portfolio-caption text-right">
-                   <a href="#">Lorem ipsum dolor sit </a>
-                    <ul class="port-tag">
-                      <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li>
-                      <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li>
-                      <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li>
-                   </ul>
-                  <a href="#" class="button-border">
-                    <span>Read view</span>
-                  </a>
-               </div>
-            </div>
-        </div>
-      </div>
-     </div>
-     <div class="row">
-        <div class="col-lg-3 col-md-3">
-          <div class="blog-box-image">
-            <div class="portfolio-item">
-                 <img class="img-responsive" src="resources/template/images/portfolio/medium/10.jpg" alt="">
-                 <div class="portfolio-caption text-right">
-                   <a href="#">Lorem ipsum dolor sit </a>
-                    <ul class="port-tag">
-                      <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li>
-                      <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li>
-                      <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li>
-                   </ul>
-                  <a href="#" class="button-border">
-                    <span>Read view</span>
-                  </a>
-               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-          <div class="blog-box-image">
-            <div class="portfolio-item">
-                 <img class="img-responsive" src="resources/template/images/portfolio/medium/16.jpg" alt="">
-                 <div class="portfolio-caption text-right">
-                   <a href="#">Lorem ipsum dolor sit </a>
-                    <ul class="port-tag">
-                      <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li>
-                      <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li>
-                      <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li>
-                   </ul>
-                  <a href="#" class="button-border">
-                    <span>Read view</span>
-                  </a>
-               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <div class="blog-box-image">
-             <div class="portfolio-item">
-                 <img class="img-responsive" src="resources/template/images/blog/big/24.jpg" alt="">
-                 <div class="portfolio-caption text-right">
-                   <a href="#">Lorem ipsum dolor sit </a>
-                    <ul class="port-tag">
-                      <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li>
-                      <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li>
-                      <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li>
-                   </ul>
-                   <a href="#" class="button-border">
-                    <span>Read view</span>
-                  </a>
-               </div>
-            </div>
-          </div>
-        </div>
-     </div>
-  </div>
-</section>
+<!-- <section class="our-blog hover-direction white-bg"> -->
+<!--   <div class="container-fluid"> -->
+<!--      <div class="row"> -->
+<!--         <div class="col-lg-6 col-md-6"> -->
+<!--           <div class="blog-box-info"> -->
+<!--              <h1 class="text-white">Our Latest Blog Post</h1> -->
+<!--              <span class="text-white"> Read what we say in our blog</span> -->
+<!--              <p class="text-white pt-30 pb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At molestiae debitis quaerat nesciunt, aliquam perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam iste labore? Libero. </p> -->
+<!--              <a href="#" class="button button-white"> -->
+<!--                 <span>View all post</span> -->
+<!--                 <i class="fa fa-hand-o-right"></i> -->
+<!--              </a> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-3 col-md-3"> -->
+<!--           <div class="blog-box-image"> -->
+<!--             <div class="portfolio-item"> -->
+<!--                  <img class="img-responsive" src="resources/template/images/portfolio/medium/06.jpg" alt=""> -->
+<!--                  <div class="portfolio-caption text-right"> -->
+<!--                    <a href="#">Lorem ipsum dolor sit </a> -->
+<!--                     <ul class="port-tag"> -->
+<!--                       <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li> -->
+<!--                    </ul> -->
+<!--                   <a href="#" class="button-border"> -->
+<!--                     <span>Read view</span> -->
+<!--                   </a> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-3 col-md-3"> -->
+<!--           <div class="blog-box-image"> -->
+<!--             <div class="portfolio-item"> -->
+<!--                  <img class="img-responsive" src="resources/template/images/portfolio/medium/17.jpg" alt=""> -->
+<!--                  <div class="portfolio-caption text-right"> -->
+<!--                    <a href="#">Lorem ipsum dolor sit </a> -->
+<!--                     <ul class="port-tag"> -->
+<!--                       <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li> -->
+<!--                    </ul> -->
+<!--                   <a href="#" class="button-border"> -->
+<!--                     <span>Read view</span> -->
+<!--                   </a> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--      </div> -->
+<!--      <div class="row"> -->
+<!--         <div class="col-lg-3 col-md-3"> -->
+<!--           <div class="blog-box-image"> -->
+<!--             <div class="portfolio-item"> -->
+<!--                  <img class="img-responsive" src="resources/template/images/portfolio/medium/10.jpg" alt=""> -->
+<!--                  <div class="portfolio-caption text-right"> -->
+<!--                    <a href="#">Lorem ipsum dolor sit </a> -->
+<!--                     <ul class="port-tag"> -->
+<!--                       <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li> -->
+<!--                    </ul> -->
+<!--                   <a href="#" class="button-border"> -->
+<!--                     <span>Read view</span> -->
+<!--                   </a> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-3 col-md-3"> -->
+<!--           <div class="blog-box-image"> -->
+<!--             <div class="portfolio-item"> -->
+<!--                  <img class="img-responsive" src="resources/template/images/portfolio/medium/16.jpg" alt=""> -->
+<!--                  <div class="portfolio-caption text-right"> -->
+<!--                    <a href="#">Lorem ipsum dolor sit </a> -->
+<!--                     <ul class="port-tag"> -->
+<!--                       <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li> -->
+<!--                    </ul> -->
+<!--                   <a href="#" class="button-border"> -->
+<!--                     <span>Read view</span> -->
+<!--                   </a> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--         <div class="col-lg-6 col-md-6"> -->
+<!--           <div class="blog-box-image"> -->
+<!--              <div class="portfolio-item"> -->
+<!--                  <img class="img-responsive" src="resources/template/images/blog/big/24.jpg" alt=""> -->
+<!--                  <div class="portfolio-caption text-right"> -->
+<!--                    <a href="#">Lorem ipsum dolor sit </a> -->
+<!--                     <ul class="port-tag"> -->
+<!--                       <li><a href="#"><i class="fa fa-user"></i> By The Corps</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-comments-o"></i> 5 Comments</a></li> -->
+<!--                       <li><a href="#"><i class="fa fa-folder-open"></i> Business</a></li> -->
+<!--                    </ul> -->
+<!--                    <a href="#" class="button-border"> -->
+<!--                     <span>Read view</span> -->
+<!--                   </a> -->
+<!--                </div> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--      </div> -->
+<!--   </div> -->
+<!-- </section> -->
 
 <!--=================================
 blog -->
@@ -875,34 +823,34 @@ blog -->
 <!--=================================
 news-letter -->
 
-<section class="news-letter bg-8 bg-opacity-white-70">
-  <div class="container">
-     <div class="row">
-        <div class="col-lg-6 col-md-6">
-            <h1 class="text-blue">News letter sign up</h1>
-            <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
-        </div>
-        <div class="col-lg-6 col-md-6">
-           <div class="section-field mt-30">
-              <div class="field-widget">
-                <i class="fa fa-envelope-o"></i>
-                <input type="text" name="name" placeholder="Email address..."  id="name">
-                <a href="#" class="button-border pull-right">
-                    <span>Sign up</span>
-                  </a>
-              </div>  
-            </div>
-        </div>
-    </div>
-  </div>
-</section>
+<!-- <section class="news-letter bg-8 bg-opacity-white-70"> -->
+<!--   <div class="container"> -->
+<!--      <div class="row"> -->
+<!--         <div class="col-lg-6 col-md-6"> -->
+<!--             <h1 class="text-blue">News letter sign up</h1> -->
+<!--             <p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p> -->
+<!--         </div> -->
+<!--         <div class="col-lg-6 col-md-6"> -->
+<!--            <div class="section-field mt-30"> -->
+<!--               <div class="field-widget"> -->
+<!--                 <i class="fa fa-envelope-o"></i> -->
+<!--                 <input type="text" name="name" placeholder="Email address..."  id="name"> -->
+<!--                 <a href="#" class="button-border pull-right"> -->
+<!--                     <span>Sign up</span> -->
+<!--                   </a> -->
+<!--               </div>   -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </section> -->
 
 <!--=================================
 news-letter -->
 
 
  <!--=================================
- key-features -->
+ key-features (services) -->
  
  
 <!--  Estos son todos los simple line icons que se pueden usar  -->
@@ -995,45 +943,37 @@ news-letter -->
 </section>
 
 <!--=================================
-  key-features -->
+  key-features (services) -->
+  
+  <!--=================================
+ make the good decision -->
+
+<section id="blog" class="bg-4 bg-opacity-black-60 creativity page-section-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 text-center"> 
+        <h1 class="text-white"><spring:message code="label.rightdecision"/></h1>
+        <p class="text-white mt-30 mb-0"><spring:message code="label.freehelp"/></p>
+        <a class="button mt-50" href="/contact">
+            <span><spring:message code="label.contactways"/></span>
+            <i class="fa fa-info"></i>
+         </a>
+        <a class="button button-white mt-50" target="blank" href="http://lawandfinanceule.blogspot.com.es/">
+          <span><spring:message code="label.ourblog"/></span>
+          <i class="fa fa-eye"></i>
+       </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!--=================================
- testimonial (sponsors) -->
-
-<section class="testimonial-3 bg-17 bg-opacity-black-40 white-bg page-section-ptb">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-12 col-md-12 text-center">
-          <h2 class="text-white mb-60"><spring:message code="label.oursponsorstitle"></spring:message></h2>
-           <div class="owl-carousel-19">
-            <div class="item">
-             <p><a href="www.unileon.es"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"></a></p>
-             <span>Universidad de León</span><br>
-             <span><a href="www.unileon.es">Acceder</a></span>
-            </div>
-            <div class="item">
-              <p><a href="http://centros.unileon.es/eiii/"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"/></a></p>
-              <span>Escuela de Ingenierías</span><br>
-             <span><a href="http://centros.unileon.es/eiii/">Acceder</a></span>
-            </div>
-            <div class="item">
-              <p><a href="http://economicas.unileon.es/"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"/></a></p>
-              <span>Facultad de Ciencias Económicas y Empresariales</span><br>
-             <span><a href="http://economicas.unileon.es/">Acceder</a></span>
-            </div>
-           </div>  
-       </div>
-   </div>
- </div>
-</section> 
-
+ make the good decision -->
+ 
  <!--=================================
- testimonial (sponsors)-->
-
-<!--=================================
 our-team  -->
 
- <section class="our-team white-bg page-section-ptb">
+ <section id="team" class="our-team white-bg page-section-ptb">
    <div class="container">
      <div class="row">
        <div class="col-lg-12 col-md-12">
@@ -1130,7 +1070,130 @@ our-team  -->
 <!--=================================
 our-team -->
 
+ <!--=================================
+ our-clients -->
 
+<section class="happy-clients white-bg page-section-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="section-title-2 text-center">
+          <h1 class="text-blue">Our Happy Clients (EXAMPLES NEED TO BE GIVEN)</h1>
+          <div class="title-line"></div>
+          <p>What Our Happy Clients say about us</p>
+        </div>
+       </div>
+      </div>
+      <div class="row">
+       <div class="col-lg-12 col-md-12">
+         <div id="tabs">
+             <div id="tab1" class="tabcontent"> 
+                  <p>" I would like to express my thanks and appreciation to you for understanding the subject matter and for your excellent writing. Good job and well done. I look forward to working with you in our next project Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos ”</p>
+              </div>
+              <div id="tab2" class="tabcontent"> 
+                  <p>" We are very pleased with your service and the professional way all our queries and problems have been handled. I certainly would not hesitate to recommend your organisation to other people I come into contact with. Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos ”</p>
+              </div>
+              <div id="tab3" class="tabcontent"> 
+                  <p>" Our old site was very information-heavy; the Corps helped to capture and simplify the message we wanted to get across. It’s now more precise, easy to use and looks great! quos magnam cupiditate pariatur? Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra. ”</p>
+              </div>
+              <div id="tab4" class="tabcontent"> 
+                  <p>" We are very pleased with your service and the professional way all our queries and problems have been handled. I certainly would not hesitate to recommend your organisation to other people I come into contact with. Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos. ”</p>
+              </div>
+              <div id="tab5" class="tabcontent"> 
+                  <p>" I would like to express my thanks and appreciation to you for understanding the subject matter and for your excellent writing. Good job and well done. I look forward to working with you in our next project Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos. ”</p>
+              </div>
+              <div id="tab6" class="tabcontent"> 
+                  <p>" Our old site was very information-heavy; the Corps helped to capture and simplify the message we wanted to get across. It’s now more precise, easy to use and looks great! quos magnam cupiditate pariatur? Quae ratione, in ipsa.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos. ”</p>
+              </div>
+              <ul class="tabs">
+                 <li data-tabs="tab1" class="animated-arrow active"> <img class="img-responsive" src="resources/template/images/clients/01.png" alt=""></li>
+                 <li data-tabs="tab2" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/02.png" alt=""></li>
+                 <li data-tabs="tab3" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/03.png" alt=""></li>
+                 <li data-tabs="tab4" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/04.png" alt=""></li>
+                 <li data-tabs="tab5" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/05.png" alt=""></li>
+                 <li data-tabs="tab6" class="animated-arrow"> <img class="img-responsive" src="resources/template/images/clients/02.png" alt=""></li>
+                </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!--=================================
+ our-clients -->
+
+<!--=================================
+ testimonial (sponsors) -->
+
+<section id="sponsors" class="testimonial-3 bg-17 bg-opacity-black-40 white-bg page-section-ptb">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 col-md-12 text-center">
+          <h2 class="text-white mb-60"><spring:message code="label.oursponsorstitle"></spring:message></h2>
+           <div class="owl-carousel-19">
+            <div class="item">
+             <p><a href="www.unileon.es"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"></a></p>
+             <span>Universidad de León</span><br>
+             <span><a href="www.unileon.es">Acceder</a></span>
+            </div>
+            <div class="item">
+              <p><a href="http://centros.unileon.es/eiii/"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"/></a></p>
+              <span>Escuela de Ingenierías</span><br>
+             <span><a href="http://centros.unileon.es/eiii/">Acceder</a></span>
+            </div>
+            <div class="item">
+              <p><a href="http://economicas.unileon.es/"><img alt="logoule" src="resources/template/images/sponsors/logo-ule.png"/></a></p>
+              <span>Facultad de Ciencias Económicas y Empresariales</span><br>
+             <span><a href="http://economicas.unileon.es/">Acceder</a></span>
+            </div>
+           </div>  
+       </div>
+   </div>
+ </div>
+</section> 
+
+ <!--=================================
+ testimonial (sponsors)-->
+
+
+
+<!--=================================
+ External Links (Interest)-->
+
+<section id="links" class="about page-section-ptb">
+  <div class="container">
+    <div class="row">
+       <div class="col-lg-12 col-md-12">
+        <div class="section-title-1 text-center">
+          <h1 class="text-blue"><spring:message code="label.interestlinks"/></h1>
+          <div class="title-line"></div>
+          <p><spring:message code="label.interestlinkssub"/></p>
+        </div>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="who-we-are-left">
+          <h3 class="text-blue mb-20 text-center"><a href="https://www.unileon.es" target="_blank"><spring:message code="label.interestlink1"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.economicas.unileon.es" target="_blank"><spring:message code="label.interestlink2"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.imf.org/external/index.htm" target="_blank"><spring:message code="label.interestlink3"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.bancomundial.org" target="_blank"><spring:message code="label.interestlink4"/></a></h3>
+        </div>
+      </div>  
+      <div class="col-lg-6 col-md-6">
+         <div class="who-we-are-left">
+          <h3 class="text-blue mb-20 text-center"><a href="http://lawandfinanceule.blogspot.com.es/" target="_blank"><spring:message code="label.interestlink5"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.bde.es/bde/es/" target="_blank"><spring:message code="label.interestlink6"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="https://www.ecb.europa.eu/home/html/index.en.html" target="_blank"><spring:message code="label.interestlink7"/></a></h3>
+          <h3 class="text-blue mb-20 text-center"><a href="http://www.mineco.gob.es/portal/site/mineco/" target="_blank"><spring:message code="label.interestlink8"/></a></h3>
+          </div>
+         </div>
+        </div>
+      </div>
+</section>
+
+<!--=================================
+ External Links (Interest)-->
 
  <!--=================================
  map-->
@@ -1175,45 +1238,6 @@ our-team -->
 <!--=================================
   social -->
   
-  
-<!--=================================
- External Links (Interest)-->
-
-<section class="about page-section-ptb">
-  <div class="container">
-    <div class="row">
-       <div class="col-lg-12 col-md-12">
-        <div class="section-title-1 text-center">
-          <h1 class="text-blue"><spring:message code="label.interestlinks"/></h1>
-          <div class="title-line"></div>
-          <p><spring:message code="label.interestlinkssub"/></p>
-        </div>
-      </div>
-    </div>
-     <div class="row">
-      <div class="col-lg-6 col-md-6">
-        <div class="who-we-are-left">
-          <h3 class="text-blue mb-20 text-center"><a href="https://www.unileon.es" target="_blank"><spring:message code="label.interestlink1"/></a></h3>
-          <h3 class="text-blue mb-20 text-center"><a href="http://www.economicas.unileon.es" target="_blank"><spring:message code="label.interestlink2"/></a></h3>
-          <h3 class="text-blue mb-20 text-center"><a href="http://www.imf.org/external/index.htm" target="_blank"><spring:message code="label.interestlink3"/></a></h3>
-          <h3 class="text-blue mb-20 text-center"><a href="http://www.bancomundial.org" target="_blank"><spring:message code="label.interestlink4"/></a></h3>
-        </div>
-      </div>  
-      <div class="col-lg-6 col-md-6">
-         <div class="who-we-are-left">
-          <h3 class="text-blue mb-20 text-center"><a href="http://lawandfinanceule.blogspot.com.es/" target="_blank"><spring:message code="label.interestlink5"/></a></h3>
-          <h3 class="text-blue mb-20 text-center"><a href="http://www.bde.es/bde/es/" target="_blank"><spring:message code="label.interestlink6"/></a></h3>
-          <h3 class="text-blue mb-20 text-center"><a href="https://www.ecb.europa.eu/home/html/index.en.html" target="_blank"><spring:message code="label.interestlink7"/></a></h3>
-          <h3 class="text-blue mb-20 text-center"><a href="http://www.mineco.gob.es/portal/site/mineco/" target="_blank"><spring:message code="label.interestlink8"/></a></h3>
-          </div>
-         </div>
-        </div>
-      </div>
-</section>
-
-<!--=================================
- External Links (Interest)-->
-
 
 <!--=================================
  footer -->
@@ -1275,7 +1299,7 @@ our-team -->
         <p class="text-white mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> ULe-Bank </a> <spring:message code="label.siterights"/> </p>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6">
-        <p class="text-white mt-15"><span id="copyright"></span> <a href="cookies"> Cookies Policy </a></p>
+        <p class="text-white mt-15"><span id="copyright"></span> <a href="cookies"><spring:message code="label.cookiespolicy"/></a></p>
       </div>
     </div>    
    </div>
@@ -1368,7 +1392,7 @@ our-team -->
 <script type="text/javascript" src="resources/template/js/custom.js"></script>
 
 <!--Start Cookie Script-->
-<script type="text/javascript" src="resources/template/js/cookie-bar-master/cookiebar-latest.js?remember=1&always=1&top=1&showNoConsent=1&blocking=1&privacyPage=cookies"></script>
+<script type="text/javascript" src="resources/template/js/cookie-bar-master/cookiebar-latest.js?tracking=1&thirdparty=1&scrolling=1&always=1&blocking=1&privacyPage=cookies"></script>
 <!--End Cookie Script-->		
  
 </body>

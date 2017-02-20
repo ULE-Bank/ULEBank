@@ -4,7 +4,7 @@ if(isset($_POST["action"])) {
   $email = $_POST['email'];     // Sender's email address
   $message = $_POST['message'];    // Sender's message
   $from = 'Demo Contact Form';    
-  $to = 'demo@domain.com';     // Recipient's email address
+  $to = 'rraduc00@estudiantes.unileon.es';     // Recipient's email address
   $subject = 'Message from Contact Demo ';
 
  $body ="From: $name \n E-Mail: $email \n Message : $message" ;

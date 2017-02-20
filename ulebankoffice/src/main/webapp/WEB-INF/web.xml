@@ -35,6 +35,7 @@
 		<url-pattern>/reversemortgage</url-pattern>
 		<url-pattern>/creditaccount</url-pattern>
 		<url-pattern>/cookies</url-pattern>
+		<url-pattern>/contact</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

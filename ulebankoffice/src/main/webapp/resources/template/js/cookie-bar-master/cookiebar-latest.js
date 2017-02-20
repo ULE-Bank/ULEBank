@@ -74,74 +74,74 @@ function setupCookieBar() {
   var detailsLinkUrl;
   var startup = false;
   var shutup = false;
-//
-//  /**
-//   * If cookies are disallowed, delete all the cookies at every refresh
-//   * @param null
-//   * @return null
-//   */
-//  if (getCookie() == 'CookieDisallowed') {
-//    removeCookies();
-//    setCookie('cookiebar', 'CookieDisallowed');
-//  }
-//
-//  /**
-//   * Load plugin only if needed:
-//   * show if the "always" parameter is set
-//   * do nothing if cookiebar cookie is set
-//   * show only for european users
-//   * @param null
-//   * @return null
-//   */
-//
-//  // If the user is in EU, then STARTUP
-//  var checkEurope = new XMLHttpRequest();
-//  checkEurope.open('GET', '//freegeoip.io/json/', true);
-//  checkEurope.onreadystatechange = function() {
-//    if (checkEurope.readyState === 4 && checkEurope.status === 200) {
-//      clearTimeout(xmlHttpTimeout);
-//      var country = JSON.parse(checkEurope.responseText).country_code;
-//      if (cookieLawStates.indexOf(country) > -1) {
-//        startup = true;
-//      } else {
-//        shutup = true;
-//      }
-//    }
-//  };
-//
-//  /*
-//  * Using an external service for geoip localization could be a long task
-//  * If it takes more than 1.5 second, start normally
-//  */
-//  var xmlHttpTimeout = setTimeout(ajaxTimeout, 1500);
-//  function ajaxTimeout() {
-//    console.log('cookieBAR - Timeout for ip geolocation');
-//    checkEurope.abort();
-//    startup = true;
-//  }
-//  checkEurope.send();
-//
-//  // If at least a cookie or localstorage is set, then STARTUP
-//  if (document.cookie.length > 0 || window.localStorage.length > 0) {
-//    var accepted = getCookie();
-//    if (accepted === undefined) {
-//      startup = true;
-//    } else {
-//      shutup = true;
-//    }
-//  }
-//
-//  // If cookieBAR should always be show, then STARTUP
-//  if (getURLParameter('always')) {
-//    startup = true;
-//  }
-//
-//  if (startup === true && shutup === false) {
-//    startCookieBar();
-//  }
- /* ↓ Modificación de Razvan para que la política de cookies se muestre siempre ↓ */
-    startCookieBar(); 
- /* ↑ Modificación de Razvan para que la política de cookies se muestre siempre ↑ */
+
+  /**
+   * If cookies are disallowed, delete all the cookies at every refresh
+   * @param null
+   * @return null
+   */
+  if (getCookie() == 'CookieDisallowed') {
+    removeCookies();
+    setCookie('cookiebar', 'CookieDisallowed');
+  }
+
+  /**
+   * Load plugin only if needed:
+   * show if the "always" parameter is set
+   * do nothing if cookiebar cookie is set
+   * show only for european users
+   * @param null
+   * @return null
+   */
+
+  // If the user is in EU, then STARTUP
+  var checkEurope = new XMLHttpRequest();
+  checkEurope.open('GET', '//freegeoip.io/json/', true);
+  checkEurope.onreadystatechange = function() {
+    if (checkEurope.readyState === 4 && checkEurope.status === 200) {
+      clearTimeout(xmlHttpTimeout);
+      var country = JSON.parse(checkEurope.responseText).country_code;
+      if (cookieLawStates.indexOf(country) > -1) {
+        startup = true;
+      } else {
+        shutup = true;
+      }
+    }
+  };
+
+  /*
+  * Using an external service for geoip localization could be a long task
+  * If it takes more than 1.5 second, start normally
+  */
+  var xmlHttpTimeout = setTimeout(ajaxTimeout, 1500);
+  function ajaxTimeout() {
+    console.log('cookieBAR - Timeout for ip geolocation');
+    checkEurope.abort();
+    startup = true;
+  }
+  checkEurope.send();
+
+  // If at least a cookie or localstorage is set, then STARTUP
+  if (document.cookie.length > 0 || window.localStorage.length > 0) {
+    var accepted = getCookie();
+    if (accepted === undefined) {
+      startup = true;
+    } else {
+      shutup = true;
+    }
+  }
+
+  // If cookieBAR should always be show, then STARTUP
+  if (getURLParameter('always')) {
+    startup = true;
+  }
+
+  if (startup === true && shutup === false) {
+    startCookieBar();
+  }
+// /* ↓ Modificación de Razvan para que la política de cookies se muestre siempre ↓ */
+//   startCookieBar(); 
+// /* ↑ Modificación de Razvan para que la política de cookies se muestre siempre ↑ */
 
   /**
    * Load external files (css, language files etc.)
