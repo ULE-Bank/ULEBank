@@ -419,7 +419,7 @@
                     <li><a href="contact-1.html"><spring:message code="label.contactform"/></a></li>
                 </ul>
             </li>
-            <li><a href=""> <spring:message code="label.sitelanguage"/> <i class="fa fa-angle-down fa-indicator"></i></a>
+            <li><a><spring:message code="label.sitelanguage"/> <i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel right-menu">
                     <li><a href="?language=en"><spring:message code="label.english"/></a></li>
@@ -873,76 +873,165 @@ news-letter -->
 <!-- .icon-power, .icon-refresh, .icon-reload, .icon-settings, .icon-star, .icon-symbol-female, .icon-symbol-male, .icon-target, .icon-volume-1, .icon-volume-2,  -->
 <!-- .icon-volume-off, .icon-users  -->
 
-<section id="services" class="key-features white-bg page-section-ptb">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-        <div class="section-title-2 text-center">
-          <h1 class="text-blue"><spring:message code ="label.siteservicestitle"/></h1>
-          <div class="title-line"></div>
-          <p> <spring:message code ="label.siteservicessubtitle"/></p>
-        </div>
-       </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.5s ">
-            <a href="/apr"><span class="icon-calculator" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice1"/></h4>
-            <p><spring:message code ="label.siteservice1description"/></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.5s">
-            <a href="/leasing"><span class="icon-layers" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice2"/></h4>
-            <p><spring:message code ="label.siteservice2description"/></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.5s">
-            <a href="/offersconsulting"><span class="icon-book-open" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice3"/></h4>
-            <p><spring:message code ="label.siteservice3description"/></p>
-          </div>
-        </div>
-     </div>
-     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1.5s">
-            <a href="/loans"><span class="icon-wallet" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice4"/></h4>
-            <p><spring:message code ="label.siteservice4description"/></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="1.0s" data-wow-duration="1.5s">
-            <a href="/discounts"><span class="icon-basket-loaded" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice5"/></h4>
-            <p><spring:message code ="label.siteservice5description"/></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center mb-30 wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1.5s">
-            <a href="/reversemortgage"><span class="icon-shuffle" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice6"/></h4>
-            <p><spring:message code ="label.siteservice6description"/></p>
-          </div>
-        </div>
-     </div>
-     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <div class="feature-10 text-center wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1.5s">
-            <a href="creditaccount"><span class="icon-credit-card" aria-hidden="true"></span></a>
-            <h4 class="text-back pt-20 pb-10"><spring:message code ="label.siteservice7"/></h4>
-            <p><spring:message code ="label.siteservice7description"/></p>
-          </div>
-        </div>
-     </div>
-   </div>
-</section>
+		<section id="services" class="key-features white-bg page-section-ptb">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="section-title-2 text-center">
+							<h1 class="text-blue">
+								<spring:message code="label.siteservicestitle" />
+							</h1>
+							<div class="title-line"></div>
+							<p>
+								<spring:message code="label.siteservicessubtitle" />
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center clearfix">
+							<div class="feature-11 text-center mb-30 wow fadeInUp"
+								data-wow-delay="0.2s" data-wow-duration="1.5s ">
+								<div class="feature-11-icon mb-20">
+									<a href="/apr"><span class="icon-calculator"
+										aria-hidden="true"></span></a>
+								</div>
+								<div class="feature-11-info">
+									<h4 class="text-back pb-10">
+										<a href="/apr"><spring:message code="label.siteservice1" /></a>
+									</h4>
+									<p>
+										<a href="/apr"><spring:message
+												code="label.siteservice1description" /></a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center mb-30 wow fadeInUp "
+							data-wow-delay="0.4s" data-wow-duration="1.5s">
+							<div class="feature-11-icon mb-20">
+								<a href="/leasing"><span class="icon-layers"
+									aria-hidden="true"></span></a>
+							</div>
+							<div class="feature-11-info text-center">
+								<h4 class="text-back pb-10 ">
+									<a href="/leasing"><spring:message
+											code="label.siteservice2" /></a>
+								</h4>
+								<p>
+									<a href="/leasing"><spring:message
+											code="label.siteservice2description" /></a>
+								</p>
+							</div>
+						</div>
+					</div>
 
-<!--=================================
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center mb-30 wow fadeInUp"
+							data-wow-delay="0.6s" data-wow-duration="1.5s">
+							<div class="feature-11-icon mb-20">
+								<a href="/offersconsulting"><span class="icon-book-open"
+									aria-hidden="true"></span></a>
+							</div>
+							<div class="feature-11-info text-center">
+								<h4 class="text-back pb-10">
+									<a href="/offersconsulting"><spring:message
+											code="label.siteservice3" /></a>
+								</h4>
+								<p>
+									<a href="/offersconsulting"><spring:message
+											code="label.siteservice3description" /></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center mb-30 wow fadeInUp"
+							data-wow-delay="0.8s" data-wow-duration="1.5s">
+							<div class="feature-11-icon mb-20">
+								<a href="/loans"><span class="icon-wallet"
+									aria-hidden="true"></span></a>
+							</div>
+							<div class="feature-11-info text-center">
+								<h4 class="text-back pt-20 pb-10">
+									<a href="/loans"><spring:message code="label.siteservice4" /></a>
+								</h4>
+								<p>
+									<a href="/loans"><spring:message
+											code="label.siteservice4description" /></a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center mb-30 wow fadeInUp"
+							data-wow-delay="1.0s" data-wow-duration="1.5s">
+							<div class="feature-11-icon mb-20">
+								<a href="/discounts"><span class="icon-basket-loaded"
+									aria-hidden="true"></span></a>
+							</div>
+							<div class="feature-11-info text-center">
+								<h4 class="text-back pt-20 pb-10">
+									<a href="/discounts"><spring:message
+											code="label.siteservice5" /></a>
+								</h4>
+								<p>
+									<a href="/discounts"><spring:message
+											code="label.siteservice5description" /></a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center mb-30 wow fadeInUp"
+							data-wow-delay="1.2s" data-wow-duration="1.5s">
+							<div class="feature-11-icon mb-20">
+								<a href="/reversemortgage"><span class="icon-shuffle"
+									aria-hidden="true"></span></a>
+							</div>
+							<div class="feature-11-info text-center">
+								<h4 class="text-back pt-20 pb-10">
+									<a href="/reversemortgage"><spring:message
+											code="label.siteservice6" /></a>
+								</h4>
+								<p>
+									<a href="/reversemortgage"><spring:message
+											code="label.siteservice6description" /></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="feature-11 text-center wow fadeInUp"
+							data-wow-delay="1.4s" data-wow-duration="1.5s">
+							<div class="feature-11-icon mb-20">
+								<a href="creditaccount"><span class="icon-credit-card"
+									aria-hidden="true"></span></a>
+							</div>
+							<div class="feature-11-info text-center">
+								<h4 class="text-back pt-20 pb-10">
+									<a href="creditaccount"><spring:message
+											code="label.siteservice7" /></a>
+								</h4>
+								<p>
+									<a href="creditaccount"><spring:message
+											code="label.siteservice7description" /></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--=================================
   key-features (services) -->
   
   <!--=================================
