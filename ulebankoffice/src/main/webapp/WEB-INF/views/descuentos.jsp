@@ -1,38 +1,68 @@
-<%@ include file="/WEB-INF/views/include.jsp" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <meta charset="UTF-8">
-        
-        <meta name="description" content="Descuentos">
-        <meta name="keywords" content="ULe-Bank, descuentos">
-		<meta name="author" content="Alexis Gutiérrez & Camino Fernández">
-		<meta name="robots" content="index,follow">
-        
-        <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
-        
-        <link rel="shortcut icon" type="image/x-icon" href="/resources/img/favicon.ico" />
-        
-        <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/resources/css/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/resources/css/styles-responsive.css">
-        
-        <script src="/resources/js/jquery.min.js"></script>
-  		<script src="/resources/js/bootstrap.min.js"></script>
-        
-        <script src="/resources/js/jquery-cookie.js"></script>
-        
-        <script src="/resources/js/script.js"></script>
-        
-        <title>Descuentos</title>
-        
-        <!-- GOOGLE ANALYTICS TRACKER -->
-        <script>
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="description" content="Descuentos">
+<meta name="keywords" content="ULe-Bank, descuentos">
+<meta name="author" content="Alexis Gutiérrez & Camino Fernández">
+<meta name="robots" content="index,follow">
+
+<link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
+<link rel="stylesheet"
+	href="/resources/services/css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="/resources/services/css/styles-responsive.css">
+
+<script src="/resources/services/js/jquery.min.js"></script>
+
+<!-- <script src="/resources/services/js/bootstrap.min.js"></script> -->
+
+<script src="/resources/services/js/jquery-cookie.js"></script>
+
+<script src="/resources/services/js/script.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../favicon.ico" />
+
+<!-- bootstrap -->
+<link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- plugins -->
+<link href="resources/template/css/plugins-css.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- mega menu -->
+<link href="resources/template/css/mega-menu/mega_menu.css"
+	rel="stylesheet" type="text/css" />
+
+<!-- default -->
+<link href="resources/template/css/default.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- main style -->
+<link href="resources/template/css/style.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- responsive -->
+<link href="resources/template/css/responsive.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- custom style -->
+<link href="resources/template/css/custom.css" rel="stylesheet"
+	type="text/css" />
+
+<title><spring:message code="label.siteservice5" /></title>
+
+<!-- GOOGLE ANALYTICS TRACKER -->
+<script>
   			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -41,198 +71,364 @@
   			ga('create', 'UA-72492123-1', 'auto');
   			ga('send', 'pageview');
 		</script>
-        
-    </head>
 
-    <body>
-        
-      
-        
-        <main class="general-class">
-        
-        	<div class="container">
-        
-        		<div class="global-header"></div>
-        		
-                <ol class="breadcrumb">
-                    <li><a href="/">Inicio</a></li>
-                </ol>
-                
-                <div class="page-header">
-  					<h1>Descuentos</h1>
-				</div>
+</head>
 
-				<form:form role="form" method="post" modelAttribute="descuentos">
-					<div class="row">
-						<div class="col-md-4">
-	    					<label for="importeDescuento">Importe sobre el que se aplica el descuento:</label>
-	    					<span class="fa fa-info pull-right hidden-md hidden-lg" data-toggle="tooltip" data-placement="left" 
-	    					title="Nominal de la letra. Mayor o igual que 1. En euros."></span>
-	    					<div class="input-group">
-		    					<form:input class="form-control" path="importeDescuento"/>
-		    					<span class="input-group-addon"><i class="fa fa-eur" aria-hidden="true"></i></span>
-		    				</div>
-		    				<form:errors path="importeDescuento"></form:errors>
-	  					</div>
-	  					<span class="fa fa-info input-info hidden-sm hidden-xs" data-toggle="tooltip" data-placement="right" 
-	    				title="Nominal de la letra. Mayor o igual que 1. En euros."></span>
-  					</div>
-  					<br>
-  					<div class="row">
-	  					<div class="col-md-4">
-	    					<label for="periodoDescuento">Periodo sobre el que se efectua el descuento:</label>
-	    					<span class="fa fa-info pull-right hidden-md hidden-lg" data-toggle="tooltip" data-placement="left" 
-	    					title="Periodo desde que la entidad practica la liquidación hasta el vencimiento de la letra de cambio.
-	    					Mayor o igual que 1."></span>
-	    					<form:input class="form-control" path="periodoDescuento"/>
-	    					<form:errors path="periodoDescuento"></form:errors>
-	  					</div>
-	  					<span class="fa fa-info input-info hidden-sm hidden-xs" data-toggle="tooltip" data-placement="right" 
-	    				title="Periodo desde que la entidad practica la liquidación hasta el vencimiento de la letra de cambio.
-	    				Mayor o igual que 1."></span>
-  					</div>
-  					<br>
-  					<div class="row">
-	  					<div class="col-md-4">
-	    					<label for="tipoInteres">Tipo de interés:</label>
-	    					<span class="fa fa-info pull-right hidden-md hidden-lg" data-toggle="tooltip" data-placement="left" 
-	    					title="Tipo de interés del descuento. Mayor o igual que 0. En tanto por ciento."></span>
-	    					<div class="input-group">
-		    					<form:input class="form-control" path="tipoInteres"/>
-		    					<span class="input-group-addon"><i class="fa fa-percent" aria-hidden="true"></i></span>
-		    				</div>
-		    				<form:errors path="tipoInteres"></form:errors>
-	  					</div>
-	  					<span class="fa fa-info input-info hidden-sm hidden-xs" data-toggle="tooltip" data-placement="right" 
-	    				title="Tipo de interés del descuento. Mayor o igual que 0. En tanto por ciento."></span>
-  					</div>
-  					<br>
-  					<div class="row">
-	  					<div class="col-md-4">
-	    					<label for="base">Base sobre la que se calculan los intereses:</label>
-	    					<span class="fa fa-info pull-right hidden-md hidden-lg" data-toggle="tooltip" data-placement="left" 
-	    					title="Base sobre la que se calculan los intereses."></span>
-	    					<form:select class="form-control" path="base">
-	    						<option value="365">365 días - Año natural</option>
-   								<option value="360">360 días - Año comercial</option>
-	    					</form:select>
-	  					</div>
-	  					<span class="fa fa-info input-info hidden-sm hidden-xs" data-toggle="tooltip" data-placement="right" 
-	    				title="Base sobre la que se calculan los intereses."></span>
-  					</div>
-  					<br>
-  					<div class="row">
-	  					<div class="col-md-4">
-	    					<label for="otrosGastos">Otros gastos:</label>
-	    					<span class="fa fa-info pull-right hidden-md hidden-lg" data-toggle="tooltip" data-placement="left" 
-	    					title="Gastos no favorables a la entidad financiera. Mayor o igual que 0. En euros."></span>
-	    					<div class="input-group">
-		    					<form:input class="form-control" path="otrosGastos"/>
-		    					<span class="input-group-addon"><i class="fa fa-eur" aria-hidden="true"></i></span>
-		    				</div>
-		    				<form:errors path="otrosGastos"></form:errors>
-	  					</div>
-	  					<span class="fa fa-info input-info hidden-sm hidden-xs" data-toggle="tooltip" data-placement="right" 
-	    				title="Gastos no favorables a la entidad financiera. Mayor o igual que 0. En euros."></span>
-  					</div>
-  					<br>
-  					<div class="row">
-	  					<div class="col-md-4">
-	    					<label for="comisiones">Comisiones:</label>
-	    					<span class="fa fa-info pull-right hidden-md hidden-lg" data-toggle="tooltip" data-placement="left" 
-	    					title="Negociables entre la entidad financiera y el descontante. Mayor o igual que 0. En euros."></span>
-	    					<div class="input-group">
-		    					<form:input class="form-control" path="comisiones"/>
-		    					<span class="input-group-addon"><i class="fa fa-percent" aria-hidden="true"></i></span>
-		    				</div>
-		    				<form:errors path="comisiones"></form:errors>
-	  					</div>
-	  					<span class="fa fa-info input-info hidden-sm hidden-xs" data-toggle="tooltip" data-placement="right" 
-	    				title="Negociables entre la entidad financiera y el descontante. Mayor o igual que 0. En euros."></span>
-  					</div>
-  					<br>
-				  	<input type="submit" class="btn btn-default" value="Calcular">
-				</form:form>
-				
-				<br>
-				
-				<div class="bg-info">
-                    <h3><c:out value="${model.efectivo}"/></h3>
-                    <h3><c:out value="${model.descuento}"/></h3>
-                </div>
-                
-                <p class="modal-link last-element"><a href="#" onclick="drawChart()" data-toggle="modal" data-target="#modalExplicativo">¿Qué un descuento?</a></p>
-				
+<body>
+
+	<div class="page-wrapper">
+		<!--=================================
+ preloader -->
+
+		<div id="preloader">
+			<div class="clear-loading loading-effect">
+				<span></span>
 			</div>
-        </main>
-        
-     
-        	<jsp:param name="lastUpdate" value="7 de Junio de 2016"/>
-    	</jsp:include>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="modalExplicativo" tabindex="-1" role="dialog" aria-labelledby="modalExplicativoLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="modalExplicativoLabel">Descuentos</h4>
-                    </div>
-                    <div class="modal-body">
-                    	<p>La cantidad anticipada por la entidad financiera a los clientes se denomina efectivo y se obtiene restando al nominal 
-                    	de la letra de cambio el importe de los intereses y otros gastos y comisiones que aplica la entidad.</p>
-                    	
-                    	<p>Al vencimiento de la letra de cambio, si esta resultara impagada, se cargará en la cuenta del cliente el importe del 
-                    	nominal más una serie de gastos.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fin Modal -->
-        
-        <!-- MODAL RESULTADOS -->
-        <div class="modal fade" id="modalResultados" tabindex="-1" role="dialog" aria-labelledby="modalResultadosLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="modalResultadosLabel">Resultado de la simulación</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table">
+		</div>
+
+		<!--=================================
+ preloader -->
+
+
+		<!--=================================
+ header -->
+		<jsp:include page="/WEB-INF/views/header.jsp" />
+
+		<!--=================================
+ header -->
+
+
+		<!--=================================
+ inner-intro-->
+
+		<section
+			class="inner-intro grayscale bg-services-discounts bg-opacity-black-70">
+			<div class="container">
+				<div class="row text-center intro-title">
+					<h1 class="text-blue">
+						<spring:message code="label.siteservice5" />
+					</h1>
+					<p class="text-white">
+						<spring:message code="label.siteservice5description" />
+					</p>
+					<ul class="page-breadcrumb">
+						<li><a href="./"><i class="fa fa-home"></i> <spring:message
+									code="label.sitehome" /></a> <i class="fa fa-angle-double-right"></i></li>
+						<li><a href="./#services"><spring:message
+									code="label.siteservices" /></a> <i
+							class="fa fa-angle-double-right"></i></li>
+						<li><span><spring:message code="label.siteservice5" /></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!--=================================
+ inner-intro-->
+		<!--=================================
+ Form-->
+
+		<section class="white-bg page-section-ptb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<form:form role="form" method="post" modelAttribute="descuentos"
+							id="servicesform">
+							<div id="register-form" class="register-form">
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.s5c1" /></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<i class="fa fa-eur"></i>
+											<form:input type="text" name="name" path="importeDescuento" />
+										</div>
+									</div>
+									<div class="section-field col-md-6">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.s5i3"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<form:errors style="color: red;" path="importeDescuento"></form:errors>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.s5c2" />:</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<i class="fa fa-clock-o"></i>
+											<form:input type="text" name="name" path="periodoDescuento" />
+										</div>
+									</div>
+									<div class="section-field col-md-6">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.s5i4"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<form:errors style="color: red;" path="periodoDescuento"></form:errors>
+									</div>
+								</div>
+
+
+
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message
+												code="label.typeofinterest" /></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<i class="fa fa-percent"></i>
+											<form:input type="text" name="name" path="tipoInteres" />
+										</div>
+									</div>
+									<div class="section-field col-md-6">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.s5i5"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<form:errors style="color: red;" path="tipoInteres"></form:errors>
+									</div>
+								</div>
+
+
+
+
+
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.s5c3" /></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<spring:message code="label.365days" var="variable1" />
+											<spring:message code="label.360days" var="variable2" />
+											<form:select path="base">
+												<form:option value="1" label="${variable1}" />
+												<form:option value="2" label="${variable2}" />
+											</form:select>
+										</div>
+									</div>
+									<div class="section-field col-md-6">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.s5i6"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.s5c4" /></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<i class="fa fa-eur"></i>
+											<form:input type="text" name="name" path="otrosGastos" />
+										</div>
+									</div>
+									<div class="section-field col-md-6">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.s5i7"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<form:errors style="color: red;" path="otrosGastos"></form:errors>
+									</div>
+								</div>
+
+
+
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.s5c5" /></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<i class="fa fa-percent"></i>
+											<form:input type="text" name="name" path="comisiones" />
+										</div>
+									</div>
+									<div class="section-field col-md-6">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.s5i8"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<form:errors style="color: red;" path="comisiones"></form:errors>
+									</div>
+								</div>
+
+								<div class="bg-info">
+									<h3>
+										<c:out value="${model.resultado}" />
+									</h3>
+								</div>
+
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="row text-center intro-title">
+											<p class="modal-link last-element">
+												<a href="#" data-toggle="modal"
+													data-target="#modalExplicativo"> <spring:message
+														code="label.whatisdiscount" /></a>
+											</p>
+										</div>
+										<a class="button mt-20" id="submitservices"
+											onclick="document.getElementById('servicesform').submit()">
+											<span><spring:message code="label.calculate" /></span> <i
+											class="fa fa-calculator"></i>
+										</a>
+										<!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+										<noscript>
+											<input type="submit"
+												value="<spring:message code="label.calculate"/>" />
+										</noscript>
+									</div>
+								</div>
+							</div>
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--=================================
+ Form-->
+
+		<!--=================================
+ Footer-->
+		<jsp:include page="/WEB-INF/views/footer.jsp" />
+		<!--=================================
+ Footer-->
+
+		<!-- Modal -->
+		<div class="modal fade" id="modalExplicativo" tabindex="-1"
+			role="dialog" aria-labelledby="modalExplicativoLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="modalExplicativoLabel">
+							<spring:message code="label.siteservice5" />
+						</h4>
+					</div>
+					<div class="modal-body">
+						<p>
+							<spring:message code="label.s5i1" />
+						</p>
+
+						<p>
+							<spring:message code="label.s5i2" />
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<spring:message code="label.close" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Fin Modal -->
+
+		<!-- MODAL RESULTADOS -->
+		<div class="modal fade" id="modalResultados" tabindex="-1"
+			role="dialog" aria-labelledby="modalResultadosLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="modalResultadosLabel">
+							<spring:message code="label.simulationresult" />
+						</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table">
 							<thead>
-		      					<tr>
-			      					<th>Intereses</th>
-			      					<th>Comisiones</th>
-			      					<th>Total gastos</th>
-		        					<th>Efectivo</th>
-		      					</tr>
-		    				</thead>
+								<tr>
+									<th><spring:message code="label.interest" /></th>
+									<th><spring:message code="label.comission" /></th>
+									<th><spring:message code="label.totalspend" /></th>
+									<th><spring:message code="label.cash" /></th>
+								</tr>
+							</thead>
 							<tbody>
 								<c:forEach var="fila" items="${tabla}">
 									<tr>
 										<c:forEach var="itemFila" items="${fila}">
-											<td>
-							               		<c:out value="${itemFila}"/>
-							               	</td>
-							            </c:forEach>
-						           	</tr>
+											<td><c:out value="${itemFila}" /></td>
+										</c:forEach>
+									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- FIN MODAL RESULTADOS -->
-       
-       	<script src="/resources/js/tooltip-script.js"></script>
-       
-    </body>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<spring:message code="label.close" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FIN MODAL RESULTADOS -->
+
+		<script src="/resources/services/js/tooltip-script.js"></script>
+
+		<!-- bootstrap -->
+		<script type="text/javascript"
+			src="resources/template/js/bootstrap.min.js"></script>
+
+		<!-- plugins-jquery -->
+		<script type="text/javascript"
+			src="resources/template/js/plugins-jquery.js"></script>
+
+		<!-- mega menu -->
+		<script type="text/javascript"
+			src="resources/template/js/mega-menu/mega_menu.js"></script>
+
+		<!-- custom -->
+		<script type="text/javascript" src="resources/template/js/custom.js"></script>
+</body>
 </html>

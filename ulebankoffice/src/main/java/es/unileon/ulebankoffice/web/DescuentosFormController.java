@@ -19,7 +19,7 @@ import es.unileon.ulebankoffice.service.Descuentos;
 @Controller
 public class DescuentosFormController {
 	
-	@RequestMapping(value = "/descuentos.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/discounts", method = RequestMethod.POST)
     public ModelAndView processAdd(@Valid @ModelAttribute("descuentos")
     		Descuentos descuentos, BindingResult bindingResult, HttpServletResponse response) {
 		

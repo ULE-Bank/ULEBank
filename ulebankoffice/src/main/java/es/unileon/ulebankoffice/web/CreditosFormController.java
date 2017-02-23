@@ -86,7 +86,7 @@ public class CreditosFormController {
 	@RequestMapping(value = "/creditaccount", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("creditos", new Creditos());
-        
-        return "creditos";
+        return "coming-soon-1";
+//        return "creditos";
     }
 }

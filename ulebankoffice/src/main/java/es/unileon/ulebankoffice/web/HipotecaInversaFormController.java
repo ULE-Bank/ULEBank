@@ -56,6 +56,7 @@ public class HipotecaInversaFormController {
     public String add(Model model) {
         model.addAttribute("hipotecaInversa", new HipotecaInversa());
         
-        return "hipoteca-inversa";
+//        return "hipoteca-inversa";
+        return "coming-soon-1";
     }
 }
