@@ -283,10 +283,7 @@
 			</div>
         </main>
         
-       
-        	<jsp:param name="lastUpdate" value="7 de Junio de 2016"/>
-    	</jsp:include>
-        
+     
         <!-- Modal -->
         <div class="modal fade" id="modalExplicativo" tabindex="-1" role="dialog" aria-labelledby="modalExplicativoLabel">
             <div class="modal-dialog modal-lg" role="document">

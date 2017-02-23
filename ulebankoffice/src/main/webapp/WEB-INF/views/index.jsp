@@ -416,7 +416,7 @@
             <li class="page-scroll"><a href="#contact"><spring:message code="label.contact"/><i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel right-menu">
-                    <li><a href="contact-1.html"><spring:message code="label.contactform"/></a></li>
+                    <li><a href="/contact"><spring:message code="label.contactform"/></a></li>
                 </ul>
             </li>
             <li><a><spring:message code="label.sitelanguage"/> <i class="fa fa-angle-down fa-indicator"></i></a>
@@ -1304,6 +1304,13 @@ our-team -->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11744.720547149747!2d-5.567375190484793!3d42.61513548195593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379a96402735cb%3A0x3f44569fb640efd5!2sUniversity+of+Le%C3%B3n!5e0!3m2!1sen!2ses!4v1487545508683" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
      </div>       
   </div>
+  <div class="row">
+     <div class="col-lg-12 col-md-12">
+      <div class="section-title text-center">
+        <h2 class="text-blue"><spring:message code="label.contactifyouprefer"/></h2><h1 class="text-red"> <a href="/contact"><spring:message code="label.contactform"/></a></h1>
+       </div>
+      </div>
+     </div>
 </section>
 
 <!--=================================

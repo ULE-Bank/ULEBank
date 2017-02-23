@@ -22,7 +22,7 @@ import es.unileon.ulebankoffice.service.HipotecaInversa;
 @Controller
 public class HipotecaInversaFormController {
 	
-	@RequestMapping(value = "/hipoteca-inversa.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/reversemortgage", method = RequestMethod.POST)
     public ModelAndView processAdd(@ModelAttribute("hipotecaInversa") @Valid 
     		HipotecaInversa hipotecaInversa, BindingResult bindingResult, HttpServletResponse response) {
 		
@@ -56,7 +56,7 @@ public class HipotecaInversaFormController {
     public String add(Model model) {
         model.addAttribute("hipotecaInversa", new HipotecaInversa());
         
-//        return "hipoteca-inversa";
-        return "coming-soon-1";
+        return "hipoteca-inversa";
+//        return "coming-soon-1";
     }
 }

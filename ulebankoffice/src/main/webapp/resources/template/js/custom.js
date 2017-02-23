@@ -581,7 +581,7 @@ $(document).ready(function(){
     $("#ajaxloader").show();
     $("#contactform").hide();
     $.ajax({
-      url:'php/contact-form.php',
+      url:'/resources/template/php/contact-form.php',
       data:$(this).serialize(),
       type:'post',
       success:function(response){
@@ -600,7 +600,7 @@ $(document).ready(function(){
     $("#ajaxloader-2").show();
     $("#contactform-2").hide();
     $.ajax({
-      url:'php/contact-form-2.php',
+      url:'/resources/template/php/contact-form.php',
       data:$(this).serialize(),
       type:'post',
       success:function(response){

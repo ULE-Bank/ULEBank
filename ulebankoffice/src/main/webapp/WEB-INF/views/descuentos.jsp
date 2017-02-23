@@ -413,7 +413,7 @@
 			</div>
 		</div>
 		<!-- FIN MODAL RESULTADOS -->
-
+</div>
 		<script src="/resources/services/js/tooltip-script.js"></script>
 
 		<!-- bootstrap -->
