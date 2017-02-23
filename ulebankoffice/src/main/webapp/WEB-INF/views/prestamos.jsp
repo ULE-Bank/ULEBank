@@ -1,195 +1,263 @@
+<%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <meta charset="UTF-8">
-        
-        <meta name="description" content="Préstamos ULe-Bank. Francés. Italiano. Alemán. Americano.">
-        <meta name="keywords" content="ULe-Bank, préstamos, frances, aleman, italiano, americano">
-		<meta name="author" content="Alexis Gutiérrez & Camino Fernández">
-		<meta name="robots" content="index,follow">
-        
-        <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
-        
-        <link rel="shortcut icon" type="image/x-icon" href="/resources/img/favicon.ico" />
-        
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/styles-responsive.css">
-        
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery.min.js"></script>
-        
-        <title>Préstamos</title>
-        
-        <!-- GOOGLE ANALYTICS TRACKER -->
-        <script>
-  			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  			ga('create', 'UA-72492123-1', 'auto');
-  			ga('send', 'pageview');
-		</script>
-    </head>
+<head>
+<meta charset="UTF-8">
 
-    <body>
-        
-        <header class="general-class">
-            <div class="container header-content">
-                <a href="/resources/index.html">ULe-Bank</a>
-                <form class="form-inline col-xs-3 pull-right" role="form" method="get" action="/resources/search.html">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar" name="q">
-                        <span class="input-group-btn">
-                            <button class="btn btn-header-search" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-        </header>
-        
-        <main class="general-class">
-            
-            <div class="container">
-                
-                <div class="global-header"></div>
-                
-                <ol class="breadcrumb">
-                    <li><a href="../index.html">Inicio</a></li>      
-                </ol>
-                
-                <div class="col-md-3 hidden-sm hidden-xs browse-root">
-                    <ul>
-                        <a href="#"><li class="active"><span class="category">Préstamos</span><span class="glyphicon glyphicon-chevron-right arrow"></span></li></a>
-                        
-                        <!--  
-                        <a href="hipotecas.html"><li class="no-active"><span class="category">Hipotecas</span><span class="glyphicon glyphicon-chevron-right arrow"></span></li></a>
-                        <a href="leasing.html"> <li class="no-active"><span class="category">Leasing</span><span class="glyphicon glyphicon-chevron-right arrow"></span></li></a>
-                        <a href="otras-operaciones.html"><li class="no-active"><span class="category">Otras operaciones</span><span class="glyphicon glyphicon-chevron-right arrow"></span></li></a>
-                        -->
-                        
-                    </ul>
-                </div>
-                
-                <div class="col-md-9 col-sm-12 browse-results">
-                    <div class="col-md-2 hidden-sm hidden-xs alphabetical"><i class="fa fa-chevron-right"></i></div>
-                    <div class="col-md-6 results">
-                    
-                        <h2>Préstamos</h2>
-                        
-                        <ul>
-                            <a href="/prestamo-frances-cuota-constante.htm">
-                                <li>
-                                    <h4>Préstamo método Francés</h4>
-                                    <p>Se caracteriza por intereses decrecientes, cuota de amortización creciente y anualidad constante.</p>
-                                </li>
-                            </a>
-                            <a href="/prestamo-metodo-italiano.htm">
-                                <li>
-                                    <h4>Préstamo método Italiano</h4>
-                                    <p>Se caracteriza por intereses decrecientes, cuota de amortización constante y anualidad decreciente.</p>
-                                </li>
-                            </a>
-                            <a href="/prestamo-metodo-aleman.htm">
-                                <li>
-                                    <h4>Préstamo método Alemán</h4>
-                                    <p>Se caracteriza por intereses decrecientes, cuotas de amortización 
-                                    constante y anualidad decreciente. Los intereses se pagan anticipadamente, en el periodo anterior.</p>
-                                </li>
-                            </a>
-                            <a href="/prestamo-metodo-americano.htm">
-                                <li>
-                                    <h4>Préstamo método Americano</h4>
-                                    <p>Se caracteriza por intereses constantes, el préstamo se 
-                                    devuelve en un único pago al vencimiento del préstamo, no existen cuotas de amortización.</p>
-                                </li>
-                            </a>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-        </main>
-        
-        <footer class="general-class">
-            <div class="footer-corporative"></div>
-            
-            <div class="container footer-container">
-            	<div class="row links">
-	                <div class="col-md-8">
-	                    <h3>Enlaces de interés</h3>
-	                    
-	                    <hr>
-	                    
-	                    <ul class="col-md-6">
-	                        <li>
-	                            <a href="https://www.unileon.es/">Universidad de León</a>
-	                        </li>
-	                        <li>
-	                            <a href="http://economicas.unileon.es/">Facultad de Ciencias Económicas</a>
-	                        </li>
-	                        <li>
-	                            <a href="http://www.imf.org/external/spanish/">Fondo Monetario Internacional</a>
-	                        </li>
-	                        <li>
-	                            <a href="http://www.bancomundial.org/">Banco Mundial</a>
-	                        </li>
-	                    </ul>
-	                    
-	                    <ul class="col-md-6">
-	                    	<li>
-	                            <a href="http://lawandfinanceule.blogspot.com.es/">Finance & Law ULE</a>
-	                        </li>
-	                        <li>
-	                            <a href="http://www.bde.es/bde/es/">Banco de España</a>
-	                        </li>
-	                        <li>
-	                            <a href="https://www.ecb.europa.eu/ecb/html/index.es.html">Banco Central Europeo</a>
-	                        </li>
-	                        <li>
-	                            <a href="http://www.minhap.gob.es/es-ES/Paginas/Home.aspx">Ministerio de Economía</a>
-	                        </li>
-	                    </ul>
-	                </div>
-                
-	                <div class="col-md-4">
-	                    <h3>Patrocinadores</h3>
-	                    
-	                    <hr>
-	                    
-	                    <ul class="col-sm-12">
-	                    	<li>
-                            	<a href="https://www.unileon.es/">Universidad de León</a>
-                        	</li>
-                        	<li>
-                                <a href="https://www.unileon.es/"><img src="/resources/img/logo-footer-fin.png" /></a>
-                            </li>
-	                    </ul>
-	                </div>
-	            </div>
-                
-                <hr>
-                
-                <div class="row legal">
+<meta name="description"
+	content="Préstamos ULe-Bank. Francés. Italiano. Alemán. Americano.">
+<meta name="keywords"
+	content="ULe-Bank, préstamos, frances, aleman, italiano, americano">
+<meta name="author"
+	content="Alexis Gutiérrez, Camino Fernández, Razvan Raducu">
+<meta name="robots" content="index,follow">
 
-	                <ul class="col-md-12 list-inline">
-	                    <li><a href="/resources/politica-cookies.html">Política de cookies</a></li>
-	                    <li><a href="http://www.unileon.es/aviso-legal">Aviso legal</a></li>
-	                    <li><a href="/resources/about.html">Acerca de</a></li>
-	                    <li><a href="mailto:ulebank.unileon@gmail.com" target="_blank">Contacto</a></li>
-	                </ul>
-	                
-	                <p class="col-md-6">Última actualización - 9 de Junio de 2016</p>
-	                <p class="col-md-6 text-right"><small>Copyright © 2015 - 2016 Universidad de León</small></p>
-                    
-                </div>
-            </div>
-        </footer>
-        
-    </body>
+<link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
+
+<!-- <link rel="stylesheet" href="resources/services/css/bootstrap.min.css"> -->
+<link rel="stylesheet"
+	href="resources/services/css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="resources/services/css/styles-responsive.css">
+
+<script src="resources/services/js/jquery.min.js"></script>
+<!-- <script src="resources/services/js/bootstrap.min.js"></script> -->
+
+<script src="resources/services/js/jquery-cookie.js"></script>
+
+<script src="resources/services/js/script.js"></script>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../favicon.ico" />
+
+<!-- bootstrap -->
+<link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- plugins -->
+<link href="resources/template/css/plugins-css.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- mega menu -->
+<link href="resources/template/css/mega-menu/mega_menu.css"
+	rel="stylesheet" type="text/css" />
+
+<!-- default -->
+<link href="resources/template/css/default.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- main style -->
+<link href="resources/template/css/style.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- responsive -->
+<link href="resources/template/css/responsive.css" rel="stylesheet"
+	type="text/css" />
+
+<!-- custom style -->
+<link href="resources/template/css/custom.css" rel="stylesheet"
+	type="text/css" />
+
+<title><spring:message code="label.siteservice4" /></title>
+
+<!-- GOOGLE ANALYTICS TRACKER -->
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
+
+	ga('create', 'UA-72492123-1', 'auto');
+	ga('send', 'pageview');
+</script>
+</head>
+
+<body>
+	<div class="page-wrapper">
+		<!--=================================
+ preloader -->
+
+		<div id="preloader">
+			<div class="clear-loading loading-effect">
+				<span></span>
+			</div>
+		</div>
+
+		<!--=================================
+ preloader -->
+
+		<!--=================================
+ header -->
+		<jsp:include page="/WEB-INF/views/header.jsp" />
+
+		<!--=================================
+ header -->
+
+
+		<!--=================================
+ inner-intro-->
+
+		<section
+			class="inner-intro grayscale bg-services-loans bg-opacity-black-70">
+			<div class="container">
+				<div class="row text-center intro-title">
+					<h1 class="text-blue">
+						<spring:message code="label.siteservice4" />
+					</h1>
+					<p class="text-white">
+						<spring:message code="label.siteservice4description" />
+					</p>
+					<ul class="page-breadcrumb">
+						<li><a href="./"><i class="fa fa-home"></i> <spring:message
+									code="label.sitehome" /></a> <i class="fa fa-angle-double-right"></i></li>
+						<li><a href="./#services"><spring:message
+									code="label.siteservices" /></a> <i
+							class="fa fa-angle-double-right"></i></li>
+						<li><span><spring:message code="label.siteservice4" /></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!--=================================
+ inner-intro-->
+
+		<!--=================================
+ prestamos-->
+
+		<section class="faq white-bg page-section-ptb">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="section-title-1 text-center">
+							<h1 class="text-blue">
+								<spring:message code="label.siteservice4" />
+							</h1>
+							<div class="title-line"></div>
+							<p>
+								<spring:message code="label.siteservice4intro" />
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="accordion">
+							<div class="accordion-title">
+								<a href="#"><spring:message code="label.s4french" /></a>
+							</div>
+							<div class="accordion-content">
+								<h5>
+									<spring:message code="label.characteristics" />
+								</h5>
+								<!--                 <p>Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat </p> -->
+								<ul>
+									<li>1. <spring:message code="label.s4c1" /></li>
+									<li>2. <spring:message code="label.s4c2" /></li>
+									<li>3. <spring:message code="label.s4c3" /></li>
+								</ul>
+								<a href="/frenchloan" target="_blank" class="button mt-20"> <span><spring:message
+											code="label.startsimulation" /></span> <i
+									class="fa fa-external-link"></i>
+								</a>
+							</div>
+							<div class="accordion-title">
+								<a href="#"><spring:message code="label.s4italian" /></a>
+							</div>
+							<div class="accordion-content">
+								<h5>
+									<spring:message code="label.characteristics" />
+								</h5>
+								<ul>
+									<li>1. <spring:message code="label.s4c1" /></li>
+									<li>2. <spring:message code="label.s4c4" /></li>
+									<li>3. <spring:message code="label.s4c5" /></li>
+								</ul>
+								<a href="/italianloan" target="__blank" class="button mt-20">
+									<span><spring:message code="label.startsimulation" /></span> <i
+									class="fa fa-external-link"></i>
+								</a>
+							</div>
+							<div class="accordion-title">
+								<a href="#"><spring:message code="label.s4german" /></a>
+							</div>
+							<div class="accordion-content">
+								<h5>
+									<spring:message code="label.characteristics" />
+								</h5>
+								<ul>
+									<li>1. <spring:message code="label.s4c1" /></li>
+									<li>2. <spring:message code="label.s4c4" /></li>
+									<li>3. <spring:message code="label.s4c5" /></li>
+									<li>4. <spring:message code="label.s4c6" /></li>
+								</ul>
+								<a href="/germanloan" target="_blank" class="button mt-20"> <span><spring:message
+											code="label.startsimulation" /></span> <i
+									class="fa fa-external-link"></i>
+								</a>
+
+							</div>
+							<div class="accordion-title">
+								<a href="#"><spring:message code="label.s4american" /></a>
+							</div>
+							<div class="accordion-content">
+								<h5>
+									<spring:message code="label.characteristics" />
+								</h5>
+								<ul>
+									<li>1. <spring:message code="label.s4c7" /></li>
+									<li>2. <spring:message code="label.s4c8" /></li>
+									<li>3. <spring:message code="label.s4c9" /></li>
+								</ul>
+								<a href="/americanloan" target="_blank" class="button mt-20">
+									<span><spring:message code="label.startsimulation" /></span> <i
+									class="fa fa-external-link"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--=================================
+ prestamos-->
+
+		<!--=================================
+ Footer-->
+		<jsp:include page="/WEB-INF/views/footer.jsp" />
+		<!--=================================
+ Footer-->
+	</div>
+	<script src="resources/services/js/tooltip-script.js"></script>
+
+	<!-- bootstrap -->
+	<script type="text/javascript"
+		src="resources/template/js/bootstrap.min.js"></script>
+
+	<!-- plugins-jquery -->
+	<script type="text/javascript"
+		src="resources/template/js/plugins-jquery.js"></script>
+
+	<!-- mega menu -->
+	<script type="text/javascript"
+		src="resources/template/js/mega-menu/mega_menu.js"></script>
+
+	<!-- custom -->
+	<script type="text/javascript" src="resources/template/js/custom.js"></script>
+
+</body>
 
 </html>

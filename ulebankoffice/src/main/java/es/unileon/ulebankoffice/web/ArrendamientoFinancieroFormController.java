@@ -20,7 +20,7 @@ import es.unileon.ulebankoffice.service.ArrendamientoFinanciero;
 @Controller
 public class ArrendamientoFinancieroFormController {
 
-	@RequestMapping(value = "/arrendamiento-financiero.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/leasing", method = RequestMethod.POST)
     public ModelAndView processAdd(@ModelAttribute("arrendamientoFinanciero") @Valid 
     		ArrendamientoFinanciero arrendamientoFinanciero, BindingResult bindingResult, HttpServletResponse response) {
 		

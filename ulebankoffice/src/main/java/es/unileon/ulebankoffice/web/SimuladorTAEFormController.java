@@ -22,7 +22,7 @@ import es.unileon.ulebankoffice.service.TAE;
 @Controller
 public class SimuladorTAEFormController {
 
-	@RequestMapping(value = "/simulador-calculos-tae.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/apr", method = RequestMethod.POST)
     public ModelAndView processAdd(@ModelAttribute("tae") @Valid TAE tae, BindingResult bindingResult, HttpServletResponse response) {
 		
 		ModelAndView model = new ModelAndView("simulador-calculos-tae");

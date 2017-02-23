@@ -24,7 +24,7 @@
 								<!-- active class -->
 								<li class="page-scroll"><a href="./"> <spring:message
 											code="label.sitehome" /></a></li>
-								<li class="page-scroll"><a href="#services"><spring:message
+								<li class="page-scroll"><a><spring:message
 											code="label.siteservices" /><i
 										class="fa fa-angle-down fa-indicator"></i></a> <!-- drop down full width -->
 									<div class="drop-down menu-bg grid-col-2">
@@ -51,7 +51,7 @@
 											
 										</div>
 									</div></li>
-								<li><a href=""> <spring:message
+								<li><a> <spring:message
 											code="label.sitelanguage" /> <i
 										class="fa fa-angle-down fa-indicator"></i></a> <!-- drop down multilevel  -->
 									<ul class="drop-down-multilevel right-menu">

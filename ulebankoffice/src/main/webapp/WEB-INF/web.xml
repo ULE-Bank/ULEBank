@@ -36,6 +36,11 @@
 		<url-pattern>/creditaccount</url-pattern>
 		<url-pattern>/cookies</url-pattern>
 		<url-pattern>/contact</url-pattern>
+		<url-pattern>/frenchloan</url-pattern>
+		<url-pattern>/italianloan</url-pattern>
+		<url-pattern>/germanloan</url-pattern>
+		<url-pattern>/americanloan</url-pattern>
+		
 	</servlet-mapping>
 
 	<servlet>

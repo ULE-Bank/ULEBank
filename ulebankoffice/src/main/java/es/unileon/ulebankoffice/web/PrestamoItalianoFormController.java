@@ -19,7 +19,7 @@ import es.unileon.ulebankoffice.service.PrestamoMetodoItaliano;
 @Controller
 public class PrestamoItalianoFormController {
 	
-	@RequestMapping(value = "/prestamo-metodo-italiano.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/italianloan", method = RequestMethod.POST)
     public ModelAndView processAdd(@ModelAttribute("prestamoMetodoItaliano") @Valid 
     		PrestamoMetodoItaliano prestamoMetodoItaliano, BindingResult bindingResult, HttpServletResponse response) {
 		
@@ -44,7 +44,7 @@ public class PrestamoItalianoFormController {
         return model;	
 	}
 	
-	@RequestMapping(value = "/prestamo-metodo-italiano.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/italianloan", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("prestamoMetodoItaliano", new PrestamoMetodoItaliano());
         

@@ -20,7 +20,7 @@ import es.unileon.ulebankoffice.service.PrestamoFrancesCuotaConstante;
 @Controller
 public class PrestamoFrancesCuotaConsFormController {
 	
-	@RequestMapping(value = "/prestamo-frances-cuota-constante.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/frenchloan", method = RequestMethod.POST)
     public ModelAndView processAdd(@Valid @ModelAttribute("prestamoFrancesCuotaConstante")
     		PrestamoFrancesCuotaConstante prestamoFrancesCuotaConstante, BindingResult bindingResult, HttpServletResponse response) {
 		
@@ -45,7 +45,7 @@ public class PrestamoFrancesCuotaConsFormController {
         return model;	
 	}
 	
-	@RequestMapping(value = "/prestamo-frances-cuota-constante.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/frenchloan", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("prestamoFrancesCuotaConstante", new PrestamoFrancesCuotaConstante());
         
