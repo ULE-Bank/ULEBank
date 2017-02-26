@@ -52,6 +52,17 @@
   float: left;
   height: 60px;
 }
+
+/* Modificado por Razvan para que las banderas de selección de idioma se posicionen correctamente */
+.mega-menu .languageflag {
+  /*------------------------------- IMAGE */
+  margin: 0;
+  padding: 0;
+  display: inline;
+  max-width: 100% !important;
+  float: right;
+  height: auto;
+}
 .mega-menu input {
   /*------------------------------ DEFAULT INPUT */
   border: none;

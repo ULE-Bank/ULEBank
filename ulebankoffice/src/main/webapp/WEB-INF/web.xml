@@ -40,6 +40,7 @@
 		<url-pattern>/italianloan</url-pattern>
 		<url-pattern>/germanloan</url-pattern>
 		<url-pattern>/americanloan</url-pattern>
+		<url-pattern>/search</url-pattern>
 		
 	</servlet-mapping>
 

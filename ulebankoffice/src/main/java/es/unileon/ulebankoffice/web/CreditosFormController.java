@@ -32,7 +32,7 @@ public class CreditosFormController {
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-	@RequestMapping(value = "/creditos.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/creditaccount", method = RequestMethod.POST)
     public ModelAndView processAdd(@Valid @ModelAttribute("creditos")
     		Creditos creditos, BindingResult bindingResult, HttpServletResponse response) throws ParseException {
 		
@@ -86,7 +86,7 @@ public class CreditosFormController {
 	@RequestMapping(value = "/creditaccount", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("creditos", new Creditos());
-        return "coming-soon-1";
-//        return "creditos";
+//        return "coming-soon-1";
+        return "creditos";
     }
 }

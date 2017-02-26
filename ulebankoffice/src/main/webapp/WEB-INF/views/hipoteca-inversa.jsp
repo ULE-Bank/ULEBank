@@ -9,7 +9,7 @@
     <head>
         <meta charset="UTF-8">
         
-        <meta name="description" content="Cálculos de una hipoteca inversa".>
+        <meta name="description" content="Cálculos de una hipoteca inversa">
         <meta name="keywords" content="ULe-Bank, simulador, calculos, hipoteca, inversa">
 		<meta name="author" content="Alexis Gutiérrez, Camino Fernández, Razvan Raducu">
 		<meta name="robots" content="index,follow">

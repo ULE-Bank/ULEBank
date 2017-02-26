@@ -56,17 +56,20 @@
 										class="fa fa-angle-down fa-indicator"></i></a> <!-- drop down multilevel  -->
 									<ul class="drop-down-multilevel right-menu">
 										<li><a href="?language=en"><spring:message
-													code="label.english" /></a></li>
-										<li><a href="?language=es"><spring:message
-													code="label.spanish" /></a></li>
+															code="label.english" /> <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/></a></li>
+												<li><a href="?language=es"><spring:message
+															code="label.spanish" /> <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/></a></li>
 									</ul></li>
 								<li>
 									<div class="search-3">
-										<a class="search-btn not_click" href="javascript:void(0);">Search
-											Button</a>
+										<a class="search-btn not_click" href="javascript:void(0);"><spring:message
+												code="label.searchbutton" /></a>
 										<div class="search-3-box not-click">
-											<input type="text" class="not-click" placeholder="Search"
-												value="" name="s"> <i class="fa fa-search"></i>
+											<form role="form" method="get" action="/search" id="searchengine">
+												<input type="text" class="not-click" placeholder="Search"
+													value="" name="q"> <i class="fa fa-search" onclick="document.getElementById('searchengine').submit()"></i>
+											</form>
+
 										</div>
 									</div>
 								</li>

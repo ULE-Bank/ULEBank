@@ -1,6 +1,11 @@
 var movesContainer = $('#moves-container');
 var movesCounter = 1;
 
+/* Obteniendo las variables internacionalizadas del código html*/
+var mDescription = strings['movimiento.descripcion'];
+var mDate = strings['movimiento.fecha'];
+var mAmount = strings['movimiento.importe'];
+
 window.onload = function() {
 	
 	if($.cookie("movimientos")) {
@@ -33,29 +38,31 @@ window.onload = function() {
 	$("#add-moves").click(function(){
 	    
 	    var row = $('<div class="row" />');
-	    var inputs = $('<div class="col-md-3">' +
-	            '<label for="movimientos' + movesCounter + '.descripcionMovimiento">Descripción del movimiento:</label>' +
-		        '<input name="movimientos[' + movesCounter + '].descripcionMovimiento" id="movimientos' + movesCounter + '.descripcionMovimiento" type="text" class="form-control" required="required"/>' +
-		  	'</div>' +
+	    var inputs = $('<div class="section-field col-md-4">' +
+	            '<label for="movimientos' + movesCounter + '.descripcionMovimiento">'+ mDescription + '</label>' +
+		        '<div class="field-widget"><i class="fa fa-pencil" ></i><input name="movimientos[' + movesCounter + '].descripcionMovimiento" id="movimientos' + movesCounter + '.descripcionMovimiento" type="text" required="required"/>' +
+		  	'</div></div>' +
 	      
-	        '<div class="col-md-3">' +
-	            '<label for="movimientos' + movesCounter + '.importeMovimiento">Importe del movimiento:</label>' + 
-	            '<div class="input-group">' +
-		        	'<input name="movimientos[' + movesCounter + '].importeMovimiento" id="movimientos' + movesCounter + '.importeMovimiento" type="text" class="form-control" value="0.0" required="required"/>' + 
-		        	'<span class="input-group-addon"><i class="fa fa-eur" aria-hidden="true"></i></span>' + 
+	        '<div class="section-field col-md-4">' +
+	            '<label for="movimientos' + movesCounter + '.importeMovimiento">' + mAmount + '</label>' + 
+	            '<div class="field-widget">' +
+	            '<i class="fa fa-eur" ></i>' +
+		        	'<input name="movimientos[' + movesCounter + '].importeMovimiento" id="movimientos' + movesCounter + '.importeMovimiento" type="text" value="0.0" required="required"/>' + 
 		        '</div>' +
 		  	'</div>' +
 	      
-	        '<div class="col-md-3">' +
-	            '<label for="movimientos' + movesCounter + '.fechaMovimiento">Fecha del movimiento:</label>' +
-		        '<input name="movimientos[' + movesCounter + '].fechaMovimiento" id="movimientos' + movesCounter + '.fechaMovimiento" type="date" class="form-control" value="0" required="required"/>' +
-		  	'</div>');
-	    var br = $('<br>');
+	        '<div class="section-field col-md-4">' +
+	            '<label for="movimientos' + movesCounter + '.fechaMovimiento">'+ mDate + '</label>' +
+            	'<div class="field-widget">' + 
+            	'<i class="fa fa-calendar"></i>' +
+		        '<input name="movimientos[' + movesCounter + '].fechaMovimiento" id="movimientos' + movesCounter + '.fechaMovimiento" type="date" value="0" required="required"/>' +
+		  	'</div></div>');
+	   
 	    
 	    row.append(inputs);
 	    
 	    row.appendTo(movesContainer);
-	    br.appendTo(movesContainer);
+	   
 	    
 	    /*
 	    remove.click(function() {
@@ -110,32 +117,31 @@ function restaurarForm() {
 
 function addMovimiento(descripcion, importe, fecha, index) {
 	var row = $('<div class="row" />');
-    var inputs = $('<div class="col-md-3">' +
-            '<label for="movimientos' + index + '.descripcionMovimiento">Descripción del movimiento:</label>' +
-	        '<input name="movimientos[' + index + '].descripcionMovimiento" id="movimientos' + index + 
-	        '.descripcionMovimiento" type="text" class="form-control" value="' + descripcion + '" required="required"/>' +
-	  	'</div>' +
-      
-        '<div class="col-md-3">' +
-            '<label for="movimientos' + index + '.importeMovimiento">Importe del movimiento:</label>' + 
-            '<div class="input-group">' +
-	        	'<input name="movimientos[' + index + '].importeMovimiento" id="movimientos' + index + 
-	        	'.importeMovimiento" type="text" class="form-control" value="' + importe + '" required="required"/>' +
-	        	'<span class="input-group-addon"><i class="fa fa-eur" aria-hidden="true"></i></span>' + 
-	        '</div>' + 
-	  	'</div>' +
-      
-        '<div class="col-md-3">' +
-            '<label for="movimientos' + index + '.fechaMovimiento">Fecha del movimiento:</label>' +
-	        '<input name="movimientos[' + index + '].fechaMovimiento" id="movimientos' + index + 
-	        '.fechaMovimiento" type="date" class="form-control" value="' + fecha + '" required="required"/>' +
-	  	'</div>');
-    var br = $('<br>');
+    var inputs = $('<div class="section-field col-md-4">' +
+	            '<label for="movimientos' + movesCounter + '.descripcionMovimiento">'+ mDescription + '</label>' +
+		        '<div class="field-widget"><i class="fa fa-pencil" ></i><input name="movimientos[' + movesCounter + '].descripcionMovimiento" id="movimientos' + movesCounter + '.descripcionMovimiento" type="text" required="required"/>' +
+		  	'</div></div>' +
+	      
+	        '<div class="section-field col-md-4">' +
+	            '<label for="movimientos' + movesCounter + '.importeMovimiento">' + mAmount + '</label>' + 
+	            '<div class="field-widget">' +
+	            '<i class="fa fa-eur" ></i>' +
+		        	'<input name="movimientos[' + movesCounter + '].importeMovimiento" id="movimientos' + movesCounter + '.importeMovimiento" type="text" value="0.0" required="required"/>' + 
+		        '</div>' +
+		  	'</div>' +
+	      
+	        '<div class="section-field col-md-4">' +
+	            '<label for="movimientos' + movesCounter + '.fechaMovimiento">'+ mDate + '</label>' +
+            	'<div class="field-widget">' + 
+            	'<i class="fa fa-calendar"></i>' +
+		        '<input name="movimientos[' + movesCounter + '].fechaMovimiento" id="movimientos' + movesCounter + '.fechaMovimiento" type="date" value="0" required="required"/>' +
+		  	'</div></div>');
+   
     
     row.append(inputs);
     
     row.appendTo(movesContainer);
-    br.appendTo(movesContainer);
+   
     
     /*
     remove.click(function() {

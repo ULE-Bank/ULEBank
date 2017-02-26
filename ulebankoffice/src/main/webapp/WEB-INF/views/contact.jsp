@@ -71,7 +71,7 @@
 <!--=================================
  inner-intro-->
 
-<section class="inner-intro bg-2 bg-opacity-black-70">
+<section class="inner-intro bg-contactform bg-opacity-black-70">
   <div class="container">
      <div class="row text-center intro-title">
             <h1 class="text-blue"><spring:message code="label.contactways"/></h1>
@@ -113,7 +113,7 @@
    </div>       
   </div>
   <div class="col-lg-6 col-md-6"> 
-    <div class="bg-7 contact-3-info bg-opacity-black-80">
+    <div class="bg-contactform contact-3-info bg-opacity-black-80">
       <div class="clearfix">
            <h2 class="text-white"><spring:message code="label.contact"/></h2>
            <p class="text-white mb-50"><spring:message code="label.contacthearfromyou"/><span class="tooltip-content-2" data-original-title="<spring:message code="label.timezone"/>" data-toggle="tooltip" data-placement="top"> <spring:message code="label.contact24hours"/></span></p>
@@ -143,15 +143,11 @@
                  <div id="ajaxloader" style="display:none"><img class="center-block mt-30 mb-30" src="resources/template/images/ajax-loader-white.gif" alt=""></div>
               </div>
 <!-- =================================== -->
-         <div class="get-in-touch mt-50 clearfix">
-           <h2 class="text-white">Get in Touch</h2>
-           <p class="mt-20 mb-30 text-white">Lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin lorem quis bibendum auctor.</p>
-         </div>
-           <div class="row">
+           <div class="row mt-30 pt-30">
             <div class="col-lg-4 col-md-4 col-sm-4"> 
              <div class="contact-add">
                <i class="fa fa-map-marker"></i>
-               <p class="text-white">Your Company LTD<br> Street nr 257, 1473972, London, Uk</p>
+               <p class="text-white">Universidad de León<br> Campus Vegazana, S/N, León, España</p>
               </div>
              </div>
              <div class="col-lg-4 col-md-4 col-sm-4">
@@ -163,7 +159,7 @@
              <div class="col-lg-4 col-md-4 col-sm-4">
              <div class="contact-add">
                <i class="fa fa-envelope-o"></i>
-               <p class="text-white"> support@thecorps.com<br>  support@thecorps.com</p>
+               <p class="text-white"> rraduc00@estudiantes.unileon.es<br>  support@thecorps.com</p>
              </div>
            </div>
           </div>
