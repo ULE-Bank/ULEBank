@@ -52,7 +52,7 @@
 										</div>
 									</div></li>
 								<li><a> <spring:message
-											code="label.sitelanguage" /> <i
+											code="label.language" /> <i
 										class="fa fa-angle-down fa-indicator"></i></a> <!-- drop down multilevel  -->
 									<ul class="drop-down-multilevel right-menu">
 										<li><a href="?language=en"><spring:message

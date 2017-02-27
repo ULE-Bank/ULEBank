@@ -73,11 +73,11 @@
 		<!--=================================
  preloader -->
 
-		<div id="preloader">
-			<div class="clear-loading loading-effect">
-				<span></span>
-			</div>
-		</div>
+<!-- 		<div id="preloader"> -->
+<!-- 			<div class="clear-loading loading-effect"> -->
+<!-- 				<span></span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
 		<!--=================================
  preloader -->
@@ -97,10 +97,15 @@
 				<div class="menu-side-top">
 					<%--     <spring:message code=""/> --%>
 					<h3 class="text-white">ULe-Bank</h3>
-					<a href="./"><spring:message code="label.sitehome" /></a> <a
-						href="#services"><spring:message code="label.siteservices" /></a>
-					<a href="#contact"><spring:message code="label.siteabout" /></a> <a
+					<a href="./"><spring:message code="label.sitehome" /></a> 
+					<a
+						href="#services"><spring:message code="label.siteservices" />
+						</a>
+					<a href="#contact"><spring:message code="label.siteabout" /></a> 
+					<a
 						href="/contact"><spring:message code="label.contact" /></a>
+					<a
+						href="/sitemap"><spring:message code="label.sitemap" /></a>
 				</div>
 				<!--          <div class="login-side mt-40 text-left"> -->
 				<%--           <h3 class="text-white"><spring:message code="lable.sitelogin"/></h3> --%>
@@ -141,14 +146,14 @@
 								<div class="col-lg-12 col-md-12">
 									<!-- menu logo -->
 									<ul class="menu-logo">
-										<li><a href="home-1-default.html"><img id="logo_img"
+										<li><a href="#"><img id="logo_img"
 												src="resources/template/images/logo.png" alt="logo"> </a>
 										</li>
 									</ul>
 									<!-- menu links -->
 									<ul class="menu-links">
 										<!-- active class -->
-										<li class="active page-scroll"><a href="./"> <spring:message
+										<li class="active page-scroll"><a href="#"> <spring:message
 													code="label.sitehome" /></a></li>
 										<li class="page-scroll"><a href="#services"><spring:message
 													code="label.siteservices" /><i
