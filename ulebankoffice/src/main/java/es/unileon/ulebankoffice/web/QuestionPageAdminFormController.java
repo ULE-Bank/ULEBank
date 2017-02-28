@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -35,7 +33,7 @@ public class QuestionPageAdminFormController {
 	@Autowired
 	private Datastore datastore;
 	
-	@RequestMapping(value = "/question-page-admin.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/adminquerypage", method = RequestMethod.POST)
     public ModelAndView processAdd(@Valid @ModelAttribute("adminAnswer")
     		AdminAnswer adminAnswer, BindingResult bindingResult) {
 		
@@ -53,7 +51,7 @@ public class QuestionPageAdminFormController {
         return new ModelAndView("redirect:/resources/answer-verification.html", "model", myModel);	
 	}
 	
-	@RequestMapping(value = "/question-page-admin.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminquerypage", method = RequestMethod.GET)
     public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		model.addAttribute("adminAnswer", new AdminAnswer());

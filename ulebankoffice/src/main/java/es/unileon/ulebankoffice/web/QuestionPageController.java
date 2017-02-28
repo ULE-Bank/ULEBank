@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +27,7 @@ public class QuestionPageController {
 	@Autowired
 	private Datastore datastore;
 	
-	@RequestMapping(value = "/question-page.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/querypage", method = RequestMethod.GET)
     public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         
         if (authenticator.isAuthenticated(req)) {
@@ -40,6 +38,7 @@ public class QuestionPageController {
 
         	String[] question = new Question(id, datastore).getQuestion();
         	
+        	myModel.put("id_query", id);
         	myModel.put("nombre", question[0]);
         	myModel.put("apellidos", question[1]);
         	myModel.put("titulo", question[2]);

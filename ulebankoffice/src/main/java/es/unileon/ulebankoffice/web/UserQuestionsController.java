@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +35,7 @@ public class UserQuestionsController {
         if (authenticator.isAuthenticated(req)) {
         	
         	if(authenticator.isAdmin(req))
-        		return new ModelAndView("redirect:/admin-questions.htm");
+        		return new ModelAndView("redirect:/adminoffersconsulting");
                                      
         	ModelAndView Model = new ModelAndView("user-questions");
         	

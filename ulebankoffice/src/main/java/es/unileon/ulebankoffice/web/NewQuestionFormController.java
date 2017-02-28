@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,7 +30,7 @@ public class NewQuestionFormController {
 	@Autowired
 	private Datastore datastore;
 	
-	@RequestMapping(value = "/new-question.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/newquery", method = RequestMethod.POST)
     public ModelAndView processAdd(@Valid @ModelAttribute("newQuestion")
     		NewQuestion newQuestion, BindingResult bindingResult, HttpServletRequest req, HttpServletResponse resp) {
 		
@@ -57,10 +55,10 @@ public class NewQuestionFormController {
 		
 		new Question(propertiesValues, datastore).insertQuestion();
 
-        return new ModelAndView("redirect:/resources/question-verification.html", "model", myModel);	
+        return new ModelAndView("redirect:/queryok", "model", myModel);	
 	}
 	
-	@RequestMapping(value = "/new-question.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/newquery", method = RequestMethod.GET)
     public String add(Model model, HttpServletRequest req, HttpServletResponse resp) {
         
         if (authenticator.isAuthenticated(req)) {

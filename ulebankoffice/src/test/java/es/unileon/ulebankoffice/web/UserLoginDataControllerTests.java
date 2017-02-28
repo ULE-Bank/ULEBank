@@ -3,7 +3,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import es.unileon.ulebankoffice.domain.User;
 import es.unileon.ulebankoffice.service.SimpleUserManager;
-import es.unileon.ulebankoffice.service.UserManager;
 
 /**
  * 

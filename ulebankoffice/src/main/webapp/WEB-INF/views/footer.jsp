@@ -17,21 +17,36 @@
 				</div>
 				<div class="pl-0 pr-0 col-lg-2 col-md-2 col-sm-2">
 					<p class="text-white mt-15">
-						<span id="copyright"></span> <a href="cookies"><spring:message
+						<span id="copyright"></span> <a href="/cookies"><spring:message
 								code="label.cookiespolicy" /></a>
 					</p>
 				</div>
-				<div class="pl-0 col-lg-1 col-md-1 col-sm-1">
+				<div class="pl-0 col-lg-2 col-md-1 col-sm-1">
 					<p class="text-white mt-15">
 						<span id="copyright"></span> <a href="./#contact"><spring:message
 								code="label.contact" /></a>
 					</p>
 				</div>
-			</div>
-			<div class="row">
-					<a href="https://www.unileon.es"><img id="logo_img"
+				</div>
+				<div class="row">
+				<div class="pr-0 col-lg-4 col-md-6 col-sm-6">
+				<a href="https://www.unileon.es"><img id="logo_img"
 						src="resources/template/images/sponsors/logo-ule.png" alt="logo"></a>
+				</div>
+				<div class="pl-0 col-lg-2 col-md-2 col-sm-2">
+					<p class="text-white mt-15">
+						<span id="copyright"></span> <a href="/sitemap"><spring:message
+								code="label.sitemap" /></a>
+					</p>
+				</div>
+				<div class="pl-0 col-lg-2 col-md-2 col-sm-2">
+					<p class="text-white mt-15">
+						<span id="copyright"></span> <a href="/search"><spring:message
+								code="label.ulebanksearch" /></a>
+					</p>
+				</div>
 			</div>
+		
 		</div>
 	</div>
 </footer>

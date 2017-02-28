@@ -1193,35 +1193,12 @@ our-team -->
 					</div>
 				</div>
 			</div>
-			<div class="footer-widget mt-60">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6">
-							<p class="text-white mt-15">
-								&copy;Copyright <span id="copyright"> <script>
-									document
-											.getElementById('copyright')
-											.appendChild(
-													document
-															.createTextNode(new Date()
-																	.getFullYear()))
-								</script></span> <a href="#"> ULe-Bank </a>
-								<spring:message code="label.siterights" />
-							</p>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6">
-							<p class="text-white mt-15">
-								<span id="copyright"></span> <a href="cookies"><spring:message
-										code="label.cookiespolicy" /></a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<!--=================================
- footer -->
+			</footer>
+	<!--=================================
+         Footer-->
+      <jsp:include page="/WEB-INF/views/footer.jsp" />
+      <!--=================================
+         Footer-->
 
 
 		<!--=================================
