@@ -152,7 +152,7 @@
 				<table class="table">
 					<thead>
       					<tr>
-        					<th class="col-md-3"><spring:message code="label.cookies7"/></th>
+        					<th class="col-md-3" class="text-justify"><spring:message code="label.cookies7"/></th>
         					<th class="col-md-6"><spring:message code="label.cookies8"/></th>
         					<th class="col-md-3"><spring:message code="label.cookies9"/></th>
       					</tr>
@@ -160,7 +160,7 @@
     				<tbody>
       					<tr>
         					<td class="col-md-3"><spring:message code="label.cookies10"/></td>
-        					<td class="col-md-6"><spring:message code="label.cookies11"/></td>
+        					<td class="col-md-6"><p class="text-justify"><spring:message code="label.cookies11"/></p></td>
         					<td class="col-md-3">
         						<a href="https://www.google.com/policies/technologies/types/">
         							Google Authentication
@@ -169,13 +169,24 @@
       					</tr>
       					<tr>
         					<td class="col-md-3"><spring:message code="label.cookies12"/></td>
-        					<td class="col-md-6"><spring:message code="label.cookies13"/></td>
+        					<td class="col-md-6"><p class="text-justify"><spring:message code="label.cookies13"/></p></td>
         					<td class="col-md-3">
         						<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage?hl=es#overview">
         							Google Analytics
         						</a>
         					</td>
       					</tr>
+      					<tr>
+        					<td class="col-md-3"><spring:message code="label.cookies18"/></td>
+        					<td class="col-md-6" ><p class="text-justify"><spring:message code="label.cookies19"/></p></td>
+        					<td class="col-md-3">
+        					<spring:message code="label.cookies20"/>
+        						<a href="./">
+        							<spring:message code="label.ulebank"/>
+        						</a>
+        					</td>
+      					</tr>
+      					
     				</tbody>
   				</table>
   				

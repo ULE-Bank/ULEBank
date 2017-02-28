@@ -6,7 +6,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description"
-	content="Bienvenidos a ULe-Bank. Operaciones de gestión bancaria. Universidad de León.">
+	content="<spring:message code='label.indexdescription'/>"/>
 <meta name="keywords"
 	content="ULe-Bank, universidad, leon, simulador, calculos, bancarios, operaciones, gestion">
 <meta name="author"

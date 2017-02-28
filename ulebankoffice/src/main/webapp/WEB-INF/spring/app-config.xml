@@ -85,9 +85,16 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+<!-- 	<bean id="localeResolver" -->
+<!-- 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"> -->
+<!-- 		<property name="defaultLocale" value="en" /> -->
+<!-- 	</bean> -->
+	
 	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 		<property name="defaultLocale" value="en" />
+		<property name="cookieName" value="ULeBankLanguagePreference"></property>
+		<property name="cookieMaxAge" value="604800"></property>
 	</bean>
 
 	<mvc:interceptors>
