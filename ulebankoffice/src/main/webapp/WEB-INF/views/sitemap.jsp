@@ -210,6 +210,36 @@
                               <spring:message
                                  code="label.siteservice4" />
                            </a>
+                           <ul>
+                              <li style="padding-left: 40px">
+                                 <a href="/frenchloan">
+                                    <i class="fa fa-angle-right"></i> 
+                                    <spring:message
+                                       code="label.s4french" />
+                                 </a>
+                              </li>
+                              <li style="padding-left: 40px">
+                                 <a href="/italianloan">
+                                    <i class="fa fa-angle-right"></i> 
+                                    <spring:message
+                                       code="label.s4italian" />
+                                 </a>
+                              </li>
+                              <li style="padding-left: 40px">
+                                 <a href="/germanloan">
+                                    <i class="fa fa-angle-right"></i> 
+                                    <spring:message
+                                       code="label.s4german" />
+                                 </a>
+                              </li>
+                              <li style="padding-left: 40px">
+                                 <a href="/americanloan">
+                                    <i class="fa fa-angle-right"></i> 
+                                    <spring:message
+                                       code="label.s4american" />
+                                 </a>
+                              </li>
+                           </ul>
                         </li>
                         <li>
                            <a href="/discounts">

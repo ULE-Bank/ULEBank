@@ -16,7 +16,7 @@
 <title><spring:message code="label.sitetitle" /></title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="resources/template/images/favicon.ico" />
+<link rel="shortcut icon" href="../favicon.ico" />
 
 <!-- bootstrap -->
 <link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
