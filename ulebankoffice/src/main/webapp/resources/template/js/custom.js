@@ -116,7 +116,7 @@ $(".search-2").click(function(){
              return false;
             });
          jQuery("html, body").on('click', function (e) {
-          if (!jQuery(e.target).hasClass("not-click")) {
+          if (!jQuery(e.target).hasClass("not-click") && !jQuery(e.target).parents('.not-click').length) {
                jQuery('.search-3').removeClass("search-3-open");
            }
        });
