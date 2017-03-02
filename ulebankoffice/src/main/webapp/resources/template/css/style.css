@@ -251,14 +251,14 @@ body.top-search-open #header .logo, body.top-search-open #header .topbar-left, b
    z-index: 888; border-radius: 0 0 3px 3px; }
 /* ↓ Modificación de Razvan para que la barra de búsqueda de Google sea transaprente y el botón se pueda ver ↓ */
  .search-3.search-3-open .search-3-box { opacity: 1 !important; top: 104px !important; visibility: visible !important; }
- /* ↓ Modificación de Razvan para que la barra de búsqueda de Google sea transaprente y el botón se pueda ver ↓ */
+ /* ↑ Modificación de Razvan para que la barra de búsqueda de Google sea transaprente y el botón se pueda ver ↑ */
 .search-3 .search-3-box input.gsc-search-button { border:1px solid #eceff8; 
    padding-left: 15px; box-shadow: none; background: #333333;
    box-shadow: 0px 0px 10px #000000; }
 
 .search-3 .search-3-box input { background: transparent; border:1px solid #eceff8; 
    padding-left: 15px; box-shadow: 0px 0px 10px #000000; }
-/* ↓ Modificación de Razvan para que la barra de búsqueda de Google sea transaprente y el botón se pueda ver ↓ */
+/* ↑ Modificación de Razvan para que la barra de búsqueda de Google sea transaprente y el botón se pueda ver ↑ */
 
  .search-3 .search-3-box input:focus { background: transparent; border:1px solid #00a9da; }
  .search-3.search-3-open i {  cursor: pointer; font-size: 15px; position: absolute; right: 27px; top: 31px; }
@@ -279,7 +279,10 @@ body.top-search-open #header .logo, body.top-search-open #header .topbar-left, b
  .header-4 .mega-menu.desktopTopFixed > section.menu-list-items { padding: 0px 20px; }
  .header-4 .mega-menu.desktopTopFixed .menu-links > li > a { line-height: 74px; }
  .header-4 .mega-menu.desktopTopFixed .search-3 .search-btn { line-height: 32px; }
- .header-4 .mega-menu.desktopTopFixed .search-3.search-3-open .search-3-box { top: 74px !important; border:1px solid #eceff8; border-top:0px; }
+/* ↓ Modificación de Razvan para al hacer scroll en las páginas, la barra de búsqueda no tenga un borde blanco ↓ */
+ .header-4 .mega-menu.desktopTopFixed .search-3.search-3-open .search-3-box { top: 74px !important; /*border:1px solid #eceff8; */border-top:0px; }
+/* ↑ Modificación de Razvan para al hacer scroll en las páginas, la barra de búsqueda no tenga un borde blanco ↑ */ 
+
  /*slide menu*/
 .mega-menu .menu-links > li:last-child { padding-right: 0px; }
 #menu-toggle { position: absolute; width: 100%; right: 0; top: 0; color: #444444; z-index: 99999; -webkit-transition: .5s ease-in-out; -moz-transition: .5s ease-in-out; -o-transition: .5s ease-in-out; -ms-transition: .5s ease-in-out; transition: .5s ease-in-out; }

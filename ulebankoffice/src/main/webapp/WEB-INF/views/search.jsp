@@ -105,33 +105,28 @@
          <div class="container">
             <div class="row">
                <div class="page-header">
-                  <h1>
-                     <spring:message code="label.searchresults" />
-                  </h1>
+                  <div class="col-md-10 col-md-offset-1">
+                     <h1>
+                        <spring:message code="label.searchresults" />
+                     </h1>
+                  </div>
                </div>
             </div>
             <div class="row">
-               <script>
-                  (function() {
-                    var cx = '004973092061729270447:x_i5h1dtlam';
-                    var gcse = document.createElement('script');
-                    gcse.type = 'text/javascript';
-                    gcse.async = true;
-                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                        '//cse.google.com/cse.js?cx=' + cx;
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(gcse, s);
-                  })();
-               </script>
-               <gcse:search></gcse:search>
+               <div class="col-md-10 col-md-offset-1">
+                  <!--              No hace falta incluí el script de Google puesto que al estar en el header.jsp, se incluye mediante jsp:include. Si se incluye dos veces, revienta. -->
+                  <gcse:search></gcse:search>
+               </div>
             </div>
             <div class="row">
-               <h1>
-                  <spring:message code="label.topsearch" />
-               </h1>
-               <div id="queries"></div>
-               <script src="https://cse.google.com/query_renderer.js"></script>
-               <script src="https://cse.google.com/api/004973092061729270447/cse/x_i5h1dtlam/queries/js?view=overall&callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render"></script>
+               <div class="col-md-10 col-md-offset-1">
+                <h1>
+                        <spring:message code="label.topsearch" />
+                     </h1>
+                  <div id="queries"></div>
+                  <script src="https://cse.google.com/query_renderer.js"></script>
+                  <script src="https://cse.google.com/api/004973092061729270447/cse/x_i5h1dtlam/queries/js?view=overall&callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render"></script>
+               </div>
             </div>
          </div>
       </section>
