@@ -72,7 +72,7 @@
 									    var s = document.getElementsByTagName('script')[0];
 									    s.parentNode.insertBefore(gcse, s);
 									  })();
-									</script>
+								</script>
                                     <!-- GOOGLE CUSTOM SEARCH ENGINE -->
 									<div class="search-3">
 										<a class="search-btn not_click" href="javascript:void(0);"><spring:message
