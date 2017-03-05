@@ -24,7 +24,7 @@ public class ArrendamientoFinancieroFormController {
     public ModelAndView processAdd(@ModelAttribute("arrendamientoFinanciero") @Valid 
     		ArrendamientoFinanciero arrendamientoFinanciero, BindingResult bindingResult, HttpServletResponse response) {
 		
-		ModelAndView model = new ModelAndView("arrendamiento-financiero");
+		ModelAndView model = new ModelAndView("leasing");
 		
 		if (bindingResult.hasErrors())
         	return model;
@@ -50,6 +50,6 @@ public class ArrendamientoFinancieroFormController {
     public String add(Model model) {
         model.addAttribute("arrendamientoFinanciero", new ArrendamientoFinanciero());
         
-        return "arrendamiento-financiero";
+        return "leasing";
     }
 }

@@ -42,6 +42,7 @@
 		<url-pattern>/americanloan</url-pattern>
 		<url-pattern>/search</url-pattern>
 		<url-pattern>/newquery</url-pattern>
+		<url-pattern>/login</url-pattern>
 		<url-pattern>/logout</url-pattern>
 		<url-pattern>/queryok</url-pattern>
 		<url-pattern>/adminoffersconsulting</url-pattern>
@@ -50,6 +51,8 @@
 		<url-pattern>/querypage</url-pattern>
 		<url-pattern>/adminquerypage</url-pattern>
 		<url-pattern>/sitemap</url-pattern>
+		<url-pattern>/tokensignin</url-pattern>
+		
 	</servlet-mapping>
 
 	<servlet>

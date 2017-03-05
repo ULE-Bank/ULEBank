@@ -110,6 +110,12 @@
 			<artifactId>gson</artifactId>
 			<version>2.8.0</version>
 		</dependency>
+<!--Usado para descifrar el token.id enviado por parte de OAuth2 Google SignIn -->
+		<dependency>
+		     <groupId>com.google.api-client</groupId>
+		     <artifactId>google-api-client</artifactId>
+		     <version>1.22.0</version>
+  		 </dependency>
 	</dependencies>
 
 	<build>

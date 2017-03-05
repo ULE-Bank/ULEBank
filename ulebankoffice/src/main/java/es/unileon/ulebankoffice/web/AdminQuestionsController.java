@@ -48,7 +48,7 @@ public class AdminQuestionsController {
         		list.add(new QuestionInfo(id, title, state));
         	}
         	
-        	ModelAndView Model = new ModelAndView("admin-questions");
+        	ModelAndView Model = new ModelAndView("adminoffersconsulting");
         	Model.addObject("lists", list);
         	
         	return Model;

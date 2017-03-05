@@ -23,7 +23,7 @@ public class SimuladorTAEFormController {
 	@RequestMapping(value = "/apr", method = RequestMethod.POST)
     public ModelAndView processAdd(@ModelAttribute("tae") @Valid TAE tae, BindingResult bindingResult, HttpServletResponse response) {
 		
-		ModelAndView model = new ModelAndView("simulador-calculos-tae");
+		ModelAndView model = new ModelAndView("aprcalculation");
 		
         if (bindingResult.hasErrors())
         	return model;
@@ -43,6 +43,6 @@ public class SimuladorTAEFormController {
     public String add(Model model) {
         model.addAttribute("tae", new TAE());
         
-        return "simulador-calculos-tae";
+        return "aprcalculation";
     }
 }

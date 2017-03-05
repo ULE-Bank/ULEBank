@@ -24,7 +24,7 @@ public class HipotecaInversaFormController {
     public ModelAndView processAdd(@ModelAttribute("hipotecaInversa") @Valid 
     		HipotecaInversa hipotecaInversa, BindingResult bindingResult, HttpServletResponse response) {
 		
-		ModelAndView model = new ModelAndView("hipoteca-inversa");
+		ModelAndView model = new ModelAndView("reversemortgage");
 		
 		if (bindingResult.hasErrors())
 			return model;
@@ -54,7 +54,7 @@ public class HipotecaInversaFormController {
     public String add(Model model) {
         model.addAttribute("hipotecaInversa", new HipotecaInversa());
         
-        return "hipoteca-inversa";
+        return "reversemortgage";
 //        return "coming-soon-1";
     }
 }

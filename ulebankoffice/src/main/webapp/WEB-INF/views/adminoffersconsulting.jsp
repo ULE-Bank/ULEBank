@@ -125,7 +125,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<h1>
-							<spring:message code="label.welcomadmin" />
+							<spring:message code="label.welcomeadmin" />
 						</h1>
 					</div>
 				</div>

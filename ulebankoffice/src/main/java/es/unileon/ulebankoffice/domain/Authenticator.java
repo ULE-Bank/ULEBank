@@ -26,6 +26,7 @@ public class Authenticator {
 		UserService userService = UserServiceFactory.getUserService();
 		
 		return "redirect:" + userService.createLoginURL(request.getRequestURI());
+		//return "redirect:/login";
 	}
 	
 	public String logout() {
@@ -39,6 +40,7 @@ public class Authenticator {
 	}
 	
 	public boolean isAdmin(HttpServletRequest request) {
+		//System.out.println("Esto es lo que devuelve el request -> [" + request.getUserPrincipal().getName() + "]" );
 		return Datastore.getDatastore().queryForExists("Admins", "Email", request.getUserPrincipal().getName());
 	}
 }

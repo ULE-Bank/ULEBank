@@ -130,6 +130,7 @@
             </div>
          </div>
       </section>
+      </div>
       <!--=================================
          Footer-->
       <jsp:include page="/WEB-INF/views/footer.jsp" />

@@ -23,7 +23,7 @@ public class DescuentosFormController {
     public ModelAndView processAdd(@Valid @ModelAttribute("descuentos")
     		Descuentos descuentos, BindingResult bindingResult, HttpServletResponse response) {
 		
-		ModelAndView model = new ModelAndView("descuentos");
+		ModelAndView model = new ModelAndView("discounts");
 		
 		if (bindingResult.hasErrors())
         	return model;
@@ -51,7 +51,7 @@ public class DescuentosFormController {
     public String add(Model model) {
         model.addAttribute("descuentos", new Descuentos());
         
-        return "descuentos";
+        return "discounts";
     }
 	
 	private double redondear(double r) {

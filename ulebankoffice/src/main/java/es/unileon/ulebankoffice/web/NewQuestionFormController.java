@@ -37,7 +37,7 @@ public class NewQuestionFormController {
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		
 		if (bindingResult.hasErrors())
-        	return new ModelAndView("new-question", "model", myModel);
+        	return new ModelAndView("newquery", "model", myModel);
 		
 		String[] propertiesValues = new String[12];
 		propertiesValues[0] = req.getUserPrincipal().getName();
@@ -63,7 +63,7 @@ public class NewQuestionFormController {
         
         if (authenticator.isAuthenticated(req)) {
         	model.addAttribute("newQuestion", new NewQuestion());
-            return "new-question";
+            return "newquery";
         }
         else    
         	return authenticator.login(req);

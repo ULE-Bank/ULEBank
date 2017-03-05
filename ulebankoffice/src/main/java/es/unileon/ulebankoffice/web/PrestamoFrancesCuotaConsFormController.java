@@ -24,7 +24,7 @@ public class PrestamoFrancesCuotaConsFormController {
     public ModelAndView processAdd(@Valid @ModelAttribute("prestamoFrancesCuotaConstante")
     		PrestamoFrancesCuotaConstante prestamoFrancesCuotaConstante, BindingResult bindingResult, HttpServletResponse response) {
 		
-		ModelAndView model = new ModelAndView("prestamo-frances-cuota-constante");
+		ModelAndView model = new ModelAndView("frenchloan");
 		
 		if (bindingResult.hasErrors())
         	return model;
@@ -49,6 +49,6 @@ public class PrestamoFrancesCuotaConsFormController {
     public String add(Model model) {
         model.addAttribute("prestamoFrancesCuotaConstante", new PrestamoFrancesCuotaConstante());
         
-        return "prestamo-frances-cuota-constante";
+        return "frenchloan";
     }
 }

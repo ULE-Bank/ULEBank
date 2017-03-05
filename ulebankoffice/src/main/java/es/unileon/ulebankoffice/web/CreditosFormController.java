@@ -34,7 +34,7 @@ public class CreditosFormController {
     public ModelAndView processAdd(@Valid @ModelAttribute("creditos")
     		Creditos creditos, BindingResult bindingResult, HttpServletResponse response) throws ParseException {
 		
-		ModelAndView model = new ModelAndView("creditos");
+		ModelAndView model = new ModelAndView("creditaccount");
 		
 		if (bindingResult.hasErrors())
         	return model;
@@ -85,6 +85,6 @@ public class CreditosFormController {
     public String add(Model model) {
         model.addAttribute("creditos", new Creditos());
 //        return "coming-soon-1";
-        return "creditos";
+        return "creditaccount";
     }
 }

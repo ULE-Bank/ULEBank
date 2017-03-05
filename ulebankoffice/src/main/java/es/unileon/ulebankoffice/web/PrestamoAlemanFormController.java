@@ -24,7 +24,7 @@ public class PrestamoAlemanFormController {
     public ModelAndView processAdd(@ModelAttribute("prestamoMetodoAleman") @Valid 
     		PrestamoMetodoAleman prestamoMetodoAleman, BindingResult bindingResult, HttpServletResponse response) {
 		
-		ModelAndView model = new ModelAndView("prestamo-metodo-aleman");
+		ModelAndView model = new ModelAndView("germanloan");
 		
 		if (bindingResult.hasErrors())
         	return model;
@@ -49,6 +49,6 @@ public class PrestamoAlemanFormController {
     public String add(Model model) {
         model.addAttribute("prestamoMetodoAleman", new PrestamoMetodoAleman());
         
-        return "prestamo-metodo-aleman";
+        return "germanloan";
     }
 }

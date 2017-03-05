@@ -22,42 +22,42 @@ import es.unileon.ulebankoffice.domain.QuestionInfo;
 
 @Controller
 public class UserQuestionsController {
-	
+
 	@Autowired
 	private Authenticator authenticator;
-	
+
 	@Autowired
 	private Datastore datastore;
-	
-	@RequestMapping(value = "/offersconsulting", method = RequestMethod.GET)
-    public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        
-        if (authenticator.isAuthenticated(req)) {
-        	
-        	if(authenticator.isAdmin(req))
-        		return new ModelAndView("redirect:/adminoffersconsulting");
-                                     
-        	ModelAndView Model = new ModelAndView("user-questions");
-        	
-        	List<QuestionInfo> list = new ArrayList<QuestionInfo>();
-        	
-        	List<Entity> results = datastore.query("Question", "email", authenticator.getUserEmail(req));
-        	for (Entity result : results) {
-        		String id = Long.toString(result.getKey().getId());
-        		String title = (String) result.getProperty("titulo");
-        		String state = (String) result.getProperty("state");
-        		
-        		list.add(new QuestionInfo(id, title, state));
-        	}
-        	
-        	Model.addObject("nombre", req.getUserPrincipal().getName());
-        	Model.addObject("lists", list);
-        	
-        	return Model;
-        }
-        else {
-        	return new ModelAndView(authenticator.login(req));
-        }
-    }
 
+	@RequestMapping(value = "/offersconsulting", method = RequestMethod.GET)
+	public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+		if (authenticator.isAuthenticated(req)) {
+			if (authenticator.isAdmin(req))
+				return new ModelAndView("redirect:/adminoffersconsulting");
+
+			ModelAndView Model = new ModelAndView("offersconsulting");
+
+			List<QuestionInfo> list = new ArrayList<QuestionInfo>();
+
+			List<Entity> results = datastore.query("Question", "email", "email");
+			for (Entity result : results) {
+				String id = Long.toString(result.getKey().getId());
+				String title = (String) result.getProperty("titulo");
+				String state = (String) result.getProperty("state");
+
+				list.add(new QuestionInfo(id, title, state));
+			}
+
+			Model.addObject("nombre", req.getUserPrincipal().getName());
+			Model.addObject("lists", list);
+
+			return Model;
+		}
+
+		else {
+			return new ModelAndView(authenticator.login(req));
+		}
+
+	}
 }

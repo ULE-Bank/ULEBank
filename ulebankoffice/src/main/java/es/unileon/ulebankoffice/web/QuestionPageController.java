@@ -47,7 +47,7 @@ public class QuestionPageController {
         	myModel.put("state", question[5]);
         	myModel.put("respuesta", question[6]);
         	
-        	return new ModelAndView("question-page", "model", myModel);	
+        	return new ModelAndView("querypage", "model", myModel);	
         	
         }
         else                                     

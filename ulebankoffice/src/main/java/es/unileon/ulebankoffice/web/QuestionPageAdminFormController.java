@@ -40,7 +40,7 @@ public class QuestionPageAdminFormController {
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		
 		if (bindingResult.hasErrors())
-        	return new ModelAndView("question-page-admin", "model", myModel);
+        	return new ModelAndView("adminquerypage", "model", myModel);
 		
 		String answer = adminAnswer.getAnswer();
 		String id = adminAnswer.getIdConsulta();
@@ -82,7 +82,7 @@ public class QuestionPageAdminFormController {
         	myModel.put("email", email);
         	myModel.put("id_consulta", id);
         	
-        	return new ModelAndView("question-page-admin", "model", myModel);	
+        	return new ModelAndView("adminquerypage", "model", myModel);	
         	
         }
         else                                     

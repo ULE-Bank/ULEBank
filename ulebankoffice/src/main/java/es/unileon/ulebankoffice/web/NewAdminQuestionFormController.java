@@ -36,7 +36,7 @@ public class NewAdminQuestionFormController {
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		
 		if (bindingResult.hasErrors())
-        	return new ModelAndView("new-admin-question", "model", myModel);
+        	return new ModelAndView("newadminquery", "model", myModel);
 		
 		String[] properties = {"pregunta", "tipo", "ponderacion"};
 		String[] propertiesValues = {newAdminQuestion.getPregunta(), "1", newAdminQuestion.getPonderacion()};
@@ -51,7 +51,7 @@ public class NewAdminQuestionFormController {
         
         if (authenticator.isAuthenticated(req)) {
         	model.addAttribute("newAdminQuestion", new NewAdminQuestion());
-            return "new-admin-question";
+            return "newadminquery";
         }
         else    
         	return authenticator.login(req);
