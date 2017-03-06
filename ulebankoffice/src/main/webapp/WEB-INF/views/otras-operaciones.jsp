@@ -8,6 +8,7 @@
         <meta name="keywords" content="ULe-Bank, otras, operaciones, descuentos">
 		<meta name="author" content="Alexis Gutiérrez & Camino Fernández">
 		<meta name="robots" content="index,follow">
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
         <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
         
