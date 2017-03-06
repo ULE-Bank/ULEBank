@@ -34,8 +34,8 @@ public class AdminQuestionsController {
         
         if (authenticator.isAuthenticated(req)) {
         	
-        	if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
-        		return new ModelAndView("redirect:/");
+        	//if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
+        		//return new ModelAndView("redirect:/");
         	
         	List<QuestionInfo> list = new ArrayList<QuestionInfo>();
         	
