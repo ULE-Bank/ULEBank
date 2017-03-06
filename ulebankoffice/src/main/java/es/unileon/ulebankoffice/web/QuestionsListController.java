@@ -33,7 +33,9 @@ public class QuestionsListController {
     public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         
         if (authenticator.isAuthenticated(req)) {
-                                     
+        	if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
+        		return new ModelAndView("redirect:/offersconsulting");
+        	
         	ModelAndView Model = new ModelAndView("questions-list");
         	
         	List<AdminQuestionInfo> list = new ArrayList<AdminQuestionInfo>();

@@ -45,6 +45,7 @@
 		<url-pattern>/login</url-pattern>
 		<url-pattern>/logout</url-pattern>
 		<url-pattern>/queryok</url-pattern>
+		<url-pattern>/answerok</url-pattern>
 		<url-pattern>/adminoffersconsulting</url-pattern>
 		<url-pattern>/questions-list</url-pattern>
 		<url-pattern>/newadminquery</url-pattern>

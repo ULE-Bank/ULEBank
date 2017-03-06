@@ -1,21 +1,12 @@
-/**
- * 
- */
 package es.unileon.ulebankoffice.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * @author Razvan Raducu
- *
- */
 @Controller
-public class QueryOKController {
-
-	@RequestMapping(value="/queryok")
+public class AnswerVerificationController {
+	@RequestMapping(value="/answerok")
 	public String controllerVacio(){
-		return "question-verification";
+		return "answer-verification";
 	}
-	
 }

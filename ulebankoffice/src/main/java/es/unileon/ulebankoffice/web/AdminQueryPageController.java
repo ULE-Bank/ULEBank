@@ -25,7 +25,7 @@ import es.unileon.ulebankoffice.domain.Question;
 import es.unileon.ulebankoffice.service.AdminAnswer;
 
 @Controller
-public class QuestionPageAdminFormController {
+public class AdminQueryPageController {
 	
 	@Autowired
 	private Authenticator authenticator;
@@ -48,7 +48,7 @@ public class QuestionPageAdminFormController {
 		
 		new Question(id, datastore).reply(answer, userMail);
 
-        return new ModelAndView("redirect:/resources/answer-verification.html", "model", myModel);	
+        return new ModelAndView("redirect:/answerok", "model", myModel);	
 	}
 	
 	@RequestMapping(value = "/adminquerypage", method = RequestMethod.GET)

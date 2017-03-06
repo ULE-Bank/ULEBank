@@ -128,27 +128,80 @@
   					<h1><c:out value="${model.titulo}"/></h1>
 				</div>
 				
-				<h4><spring:message code="label.querystatus" />: </h4><c:out value="${model.state}"/>
-				<br>
-				<br>
-				<h4><spring:message code="label.name" />: </h4><c:out value="${model.nombre}"/>
-				<h4><spring:message code="label.lastname" />: </h4><c:out value="${model.apellidos}"/>
-				<h4><spring:message code="label.contractlink" />: </h4><a href="<c:out value="${model.url}"/>"><c:out value="${model.url}"/></a>
-				<h4><spring:message code="label.comments" />: </h4><c:out value="${model.comentarios}"/>
-				<form:form role="form" method="post" modelAttribute="adminAnswer">
-					<div class="row">
-						<div class="col-md-6">
-	    					<h4><spring:message code="label.expertanswer" />:</h4>
-	    					<form:textarea class="form-control" path="answer" rows="5"/>
-	    					<form:errors path="answer"></form:errors>
-	  					</div>
-  					</div>
-  					<form:hidden path="email" value="${model.email}"/>
-  					<form:hidden path="idConsulta" value="${model.id_consulta}"/>
-  					<br>
-				  	<input type="submit" class="btn btn-default" value="<spring:message code="label.submitresponse" />">
-				</form:form>
-				
+				<div class="col-md-8 col-md-offset-2">
+						<form:form role="form" method="post"
+							modelAttribute="adminAnswer" id="servicesform">
+							<div id="register-form" class="register-form">
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.querystatus" />:<c:out value="${model.state}"/></label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.name" />:<c:out value="${model.nombre}"/></label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.lastname" />:<c:out value="${model.apellidos}"/></label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.contractlink" />:<a href="<c:out value="${model.url}"/>"><c:out value="${model.url}"/></a></label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.comments" />:<c:out value="${model.comentarios}"/></label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message code="label.expertanswer" />:</label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-12">
+										<div class="field-widget">
+											<form:textarea type="text" value="" path="answer" rows="5" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<form:errors style="color: red;" path="answer"></form:errors>
+									</div>
+								</div>
+								<form:hidden path="email" value="${model.email}"/>
+  								<form:hidden path="idConsulta" value="${model.id_consulta}"/>
+  								
+		
+								<div class="row">
+									<div class="section-field col-md-6">
+										<a class="button mt-20" id="submitservices"
+											onclick="document.getElementById('servicesform').submit()">
+											<span><spring:message code="label.submitresponse" /></span> <i
+											class="fa fa-paper-plane-o"></i>
+										</a>
+										<!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+										<noscript>
+											<input type="submit"
+												value="<spring:message code="label.submitresponse"/>" />
+										</noscript>
+									</div>
+								</div>
+							</div>
+						</form:form>
+					</div>
+		
 				<div class="btn-group last-element pull-right" role="group">
 					<a href="/logout" class="btn btn-default"><spring:message code="label.logout" /></a>
 				</div>

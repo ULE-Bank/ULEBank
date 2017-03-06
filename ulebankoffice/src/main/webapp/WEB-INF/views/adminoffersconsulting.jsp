@@ -126,7 +126,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<h1>
-							<spring:message code="label.welcomeadmin" />
+							<spring:message code="label.welcomeadmin" /> ${adminName}
 						</h1>
 					</div>
 				</div>
@@ -170,11 +170,15 @@
 						<div class="btn-group pull-right last-element" role="group">
 						<a href="/newadminquery" class="button mt-20" >
 											<span><spring:message
-									code="label.newquery" /></span> <i
+									code="label.newquery" /> Admin </span> <i
 											class="fa fa-plus"></i>
 										</a>
 							
-							
+							<a href="/newquery" class="button mt-20" >
+											<span><spring:message
+									code="label.newquery" /></span> <i
+											class="fa fa-plus"></i>
+										</a>
 							<a href="/questions-list" class="button mt-20" >
 											<span><spring:message
 									code="label.allqueries" /></span> <i
@@ -189,11 +193,6 @@
 						
 						</div>
 					</div>
-				</div>
-				<div class="btn-group last-element pull-right" role="group">
-					<a href="/new-admin-question.htm" class="btn btn-default">Nueva pregunta</a>
-					<a href="/questions-list.htm" class="btn btn-default">Preguntas</a>
-					<a href="/logout.htm" class="btn btn-default">Cerrar sesión</a>
 				</div>
 				
 		</div>

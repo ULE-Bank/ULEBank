@@ -34,8 +34,8 @@ public class AdminQuestionsController {
         
         if (authenticator.isAuthenticated(req)) {
         	
-        	//if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
-        		//return new ModelAndView("redirect:/");
+        	if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
+        		return new ModelAndView("redirect:/offersconsulting");
         	
         	List<QuestionInfo> list = new ArrayList<QuestionInfo>();
         	
@@ -50,6 +50,7 @@ public class AdminQuestionsController {
         	
         	ModelAndView Model = new ModelAndView("adminoffersconsulting");
         	Model.addObject("lists", list);
+        	Model.addObject("adminName", req.getUserPrincipal());
         	
         	return Model;
         }

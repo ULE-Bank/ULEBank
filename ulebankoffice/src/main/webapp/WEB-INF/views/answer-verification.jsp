@@ -101,7 +101,7 @@
 				<div class="container">
 					<div class="row text-center intro-title">
 						<h1 class="text-blue">
-							<spring:message code="label.newquery" />
+							<spring:message code="label.responsesent" />
 						</h1>
 						<p class="text-white"></p>
 						<ul class="page-breadcrumb">
@@ -112,7 +112,7 @@
 								class="fa fa-angle-double-right"></i></li>
 							<li><a href="/newquery"><spring:message
 										code="label.newquery" /></a><i class="fa fa-angle-double-right"></i></li>
-							<li><span><spring:message code="label.querysent" /></span></li>
+							<li><span><spring:message code="label.responsesent" /></span></li>
 						</ul>
 					</div>
 				</div>

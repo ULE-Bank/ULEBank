@@ -21,7 +21,7 @@ import es.unileon.ulebankoffice.domain.Datastore;
 import es.unileon.ulebankoffice.domain.QuestionInfo;
 
 @Controller
-public class UserQuestionsController {
+public class OffersConsultingController {
 
 	@Autowired
 	private Authenticator authenticator;

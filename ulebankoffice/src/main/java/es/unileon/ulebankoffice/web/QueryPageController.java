@@ -19,7 +19,7 @@ import es.unileon.ulebankoffice.domain.Datastore;
 import es.unileon.ulebankoffice.domain.Question;
 
 @Controller
-public class QuestionPageController {
+public class QueryPageController {
 	
 	@Autowired
 	private Authenticator authenticator;

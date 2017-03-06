@@ -253,9 +253,9 @@
 												<form:option value="ab" label="${variable2}" />
 												<form:option value="ma" label="${variable3}" />
 												<form:option value="m" label="${variable4}" />
-												<form:option value="t" label="${variable6}" />
+												<form:option value="t" label="${variable5}" />
 												<form:option value="ba" label="${variable6}" />
-												<form:option value="bb" label="${variable6}" />
+												<form:option value="bb" label="${variable7}" />
 											</form:select>
 										</div>
 									</div>
