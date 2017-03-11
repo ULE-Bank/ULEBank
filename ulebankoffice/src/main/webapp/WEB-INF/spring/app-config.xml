@@ -2,18 +2,22 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/data/mongo
+       http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 
-	<bean id="authenticator" class="es.unileon.ulebankoffice.domain.Authenticator" scope="singleton">
+	<bean id="authenticator" class="es.unileon.ulebankoffice.domain.Authenticator"
+		scope="singleton">
 	</bean>
-	
-	<bean id="datastore" class="es.unileon.ulebankoffice.domain.Datastore" scope="singleton">
+
+	<bean id="datastore" class="es.unileon.ulebankoffice.domain.Datastore"
+		scope="singleton">
 	</bean>
 
 	<bean id="productManager" class="es.unileon.ulebankoffice.service.SimpleProductManager">
@@ -84,12 +88,12 @@
 		<property name="prefix" value="WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
-<!-- 	<bean id="localeResolver" -->
-<!-- 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"> -->
-<!-- 		<property name="defaultLocale" value="en" /> -->
-<!-- 	</bean> -->
-	
+
+	<!-- <bean id="localeResolver" -->
+	<!-- class="org.springframework.web.servlet.i18n.SessionLocaleResolver"> -->
+	<!-- <property name="defaultLocale" value="en" /> -->
+	<!-- </bean> -->
+
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 		<property name="defaultLocale" value="en" />
@@ -103,5 +107,30 @@
 			<property name="paramName" value="language" />
 		</bean>
 	</mvc:interceptors>
+
+	<!-- Configuración para la conexión con la base de datos -->
+
+	<mongo:template db-factory-ref="mongoDBFactory" />
 	
+	<mongo:db-factory id="mongoDBFactory" dbname="ulebanktestdb" mongo-ref="mongoClient" />
+	
+	<mongo:mongo-client id="mongoClient" credentials="razvan:ulerazvanule@ulebanktesdb">
+	 <mongo:client-options connect-timeout="5000" />
+	</mongo:mongo-client>
+	
+<!-- 	############### ↕↕↕↕↕↕ Son equivalentes ↕↕↕↕↕ ################## -->
+	
+ 	<!-- Factory bean that creates the Mongo instance -->
+<!-- 	<bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> -->
+<!-- 	</bean> -->
+	
+ 	<!-- MongoTemplate for connecting and quering the documents in the database --> 
+<!-- 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> -->
+<!-- 		<constructor-arg name="mongo" ref="mongo" /> -->
+<!-- 		<constructor-arg name="databaseName" value="ulebanktestdb" /> -->
+<!-- 	</bean> -->
+	 <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes -->
+<!--     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />  -->
+    
+	<mongo:repositories base-package="es.unileon.ulebankoffice.repositories"/>
 </beans>

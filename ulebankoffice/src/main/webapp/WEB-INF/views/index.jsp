@@ -309,6 +309,9 @@
                                        </div>
                                     </div>
                                  </li>
+                                 <li>
+                                 <a href="/alldocs">All docs</a>
+                                 </li>
                               </ul>
                            </div>
                         </div>
