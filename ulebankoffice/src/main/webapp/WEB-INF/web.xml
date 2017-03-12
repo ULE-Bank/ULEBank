@@ -54,7 +54,8 @@
 		<url-pattern>/sitemap</url-pattern>
 		<url-pattern>/tokensignin</url-pattern>
 		<url-pattern>/error404</url-pattern>
-		<url-pattern>/alldocs/*</url-pattern>	
+		<url-pattern>/alldocs/*</url-pattern>
+		<url-pattern>/o/*</url-pattern>	
 	</servlet-mapping>
 
 	<servlet>

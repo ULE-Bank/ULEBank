@@ -112,9 +112,9 @@
 
 	<mongo:template db-factory-ref="mongoDBFactory" />
 	
-	<mongo:db-factory id="mongoDBFactory" dbname="ulebanktestdb" mongo-ref="mongoClient" />
+	<mongo:db-factory id="mongoDBFactory" dbname="ulebankoffice" mongo-ref="mongoClient" />
 	
-	<mongo:mongo-client id="mongoClient" credentials="razvan:ulerazvanule@ulebanktesdb">
+	<mongo:mongo-client id="mongoClient" credentials="razvan:ulerazvanule@ulebankoffice">
 	 <mongo:client-options connect-timeout="5000" />
 	</mongo:mongo-client>
 	

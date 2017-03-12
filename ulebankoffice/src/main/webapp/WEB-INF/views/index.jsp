@@ -310,7 +310,7 @@
                                     </div>
                                  </li>
                                  <li>
-                                 <a href="/alldocs">All docs</a>
+                                 <a href="/o"><spring:message code="label.office"/></a>
                                  </li>
                               </ul>
                            </div>

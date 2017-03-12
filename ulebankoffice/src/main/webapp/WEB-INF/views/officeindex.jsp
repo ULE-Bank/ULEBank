@@ -46,7 +46,7 @@
       <!-- custom style -->
       <link href="resources/template/css/custom.css" rel="stylesheet"
          type="text/css" />
-      <title>TODOS LOS DOCUMENTOS</title>
+      <title>Bienvenido a la oficina ulebanks</title>
       <!-- GOOGLE ANALYTICS TRACKER -->
       <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -123,118 +123,120 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-8 col-md-offset-2">
-                     <form:form role="form" method="post"
-                        modelAttribute="mongoDocument" id="servicesform">
-                        <div id="register-form" class="register-form">
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <label for="name">Serie:</label>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <div class="field-widget">
-                                    <i class="fa fa-eur"></i>
-                                    <form:input type="text" value="" path="serie" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="serie"></form:errors>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <label for="name">Nombre</label>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <div class="field-widget">
-                                    <i class="fa fa-percent"></i>
-                                    <form:input type="text" path="name" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="name"></form:errors>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <label for="name">DNI:</label>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <div class="field-widget">
-                                    <i class="fa fa-clock-o"></i>
-                                    <form:input type="text" name="name" path="DNI" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="DNI"></form:errors>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <label for="name">Ruta:</label>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <div class="field-widget">
-                                    <i class="fa fa-clock-o"></i>
-                                    <form:input type="text" name="name" path="ruta" />
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="ruta"></form:errors>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="row">
-                           <a class="button mt-20" id="submitservices"
-                              onclick="document.getElementById('servicesform').submit()">
-                              <span>
-                                 <spring:message code="label.calculate" />
-                              </span>
-                              <i
-                                 class="fa fa-calculator"></i>
-                           </a>
-                           <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
-                           <noscript>
-                              <input type="submit"
-                                 value="<spring:message code="label.calculate"/>" />
-                           </noscript>
-                        </div>
-                     </form:form>
+<%--                      <form:form role="form" method="post" --%>
+<%--                         modelAttribute="mongoDocument" id="servicesform"> --%>
+<!--                         <div id="register-form" class="register-form"> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <label for="name">Serie:</label> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <div class="field-widget"> -->
+<!--                                     <i class="fa fa-eur"></i> -->
+<%--                                     <form:input type="text" value="" path="serie" /> --%>
+<!--                                  </div> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<%--                                  <form:errors style="color: red;" path="serie"></form:errors> --%>
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <label for="name">Nombre</label> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <div class="field-widget"> -->
+<!--                                     <i class="fa fa-percent"></i> -->
+<%--                                     <form:input type="text" path="name" /> --%>
+<!--                                  </div> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<%--                                  <form:errors style="color: red;" path="name"></form:errors> --%>
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <label for="name">DNI:</label> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <div class="field-widget"> -->
+<!--                                     <i class="fa fa-clock-o"></i> -->
+<%--                                     <form:input type="text" name="name" path="DNI" /> --%>
+<!--                                  </div> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<%--                                  <form:errors style="color: red;" path="DNI"></form:errors> --%>
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <label for="name">Ruta:</label> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<!--                                  <div class="field-widget"> -->
+<!--                                     <i class="fa fa-clock-o"></i> -->
+<%--                                     <form:input type="text" name="name" path="ruta" /> --%>
+<!--                                  </div> -->
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                            <div class="row"> -->
+<!--                               <div class="section-field col-md-6"> -->
+<%--                                  <form:errors style="color: red;" path="ruta"></form:errors> --%>
+<!--                               </div> -->
+<!--                            </div> -->
+<!--                         </div> -->
+<!--                         <div class="row"> -->
+<!--                            <a class="button mt-20" id="submitservices" -->
+<!--                               onclick="document.getElementById('servicesform').submit()"> -->
+<!--                               <span> -->
+<%--                                  <spring:message code="label.calculate" /> --%>
+<!--                               </span> -->
+<!--                               <i -->
+<!--                                  class="fa fa-calculator"></i> -->
+<!--                            </a> -->
+<!--                            En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+<!--                            <noscript> -->
+<!--                               <input type="submit" -->
+<%--                                  value="<spring:message code="label.calculate"/>" /> --%>
+<!--                            </noscript> -->
+<!--                         </div> -->
+<%--                      </form:form> --%>
                      <table border="1">
                         <thead>
                            <tr>
                               <!--       						<th><input type="checkbox"></th> -->
                               <th>id</th>
-                              <th>serie</th>
                               <th>name</th>
-                              <th>DNI</th>
-                              <th>ruta</th>
+                              <th>lastname</th>
+                              <th>email</th>
+                              <th>fechaNacimiento</th>
+                              <td>DNI</td>
                            </tr>
                         </thead>
-                        <c:forEach var="document" items="${documents}">
+                        <c:forEach var="clients" items="${client}">
                            <tr>
-                              <td>${document.id}</td>
-                              <td>${document.serie}</td>
-                              <td>${document.name}</td>
-                              <td>${document.DNI}</td>
-                              <td>${document.ruta}</td>
-                              <td><input type="button" value="delete"
-                                 onclick="window.location='person/delete?id=${document.id}'" /></td>
+                              <td>${client.id}</td>
+                              <td>${client.name}</td>
+                              <td>${client.lastname}</td>
+                              <td>${client.email}</td>
+                              <td>${client.fechaNacimiento}</td>
+                              <td>${client.DNI}</td>
+<!--                               <td><input type="button" value="delete" -->
+<%--                                  onclick="window.location='person/delete?id=${document.id}'" /></td> --%>
                            </tr>
                         </c:forEach>
                      </table>
