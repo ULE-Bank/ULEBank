@@ -3,17 +3,43 @@ package es.unileon.ulebankoffice.service;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author Razvan Raducu
  *
  */
+@Document(collection="Clientes")
 public class Cliente {
 	
+	@Id
+	private String id;
+	
+	@NotEmpty @NotBlank
 	private String name, lastname, email;
-	private Date nacimiento;
-	private ExpedienteElectronico expedienteElectronico;
-	private Handler dni;
+	@NotEmpty @NotBlank 
+	private Date fechaNacimiento;
+	
+	//private ExpedienteElectronico expedienteElectronico;
+	
+	//private Handler dni;
+	
+	@NotEmpty @NotBlank
+	private String dni;
+	
+	public Cliente(String name, String lastname, String email, Date fechaNacimiento, String dni){
+		this.name = name;
+		this.lastname = lastname;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+		this.dni = dni;
+	}
+	
 	private List<Direccion> direccion;
+	
 	public String getName() {
 		return name;
 	}
@@ -33,23 +59,23 @@ public class Cliente {
 		this.email = email;
 	}
 	public Date getNacimiento() {
-		return nacimiento;
+		return fechaNacimiento;
 	}
 	public void setNacimiento(Date nacimiento) {
-		this.nacimiento = nacimiento;
+		this.fechaNacimiento = nacimiento;
 	}
-	public ExpedienteElectronico getExpedienteElectronico() {
-		return expedienteElectronico;
-	}
-	public void setExpedienteElectronico(ExpedienteElectronico expedienteElectronico) {
-		this.expedienteElectronico = expedienteElectronico;
-	}
-	public Handler getDni() {
-		return dni;
-	}
-	public void setDni(Handler dni) {
-		this.dni = dni;
-	}
+//	public ExpedienteElectronico getExpedienteElectronico() {
+//		return expedienteElectronico;
+//	}
+//	public void setExpedienteElectronico(ExpedienteElectronico expedienteElectronico) {
+//		this.expedienteElectronico = expedienteElectronico;
+//	}
+//	public Handler getDni() {
+//		return dni;
+//	}
+//	public void setDni(Handler dni) {
+//		this.dni = dni;
+//	}
 	public List<Direccion> getDireccion() {
 		return direccion;
 	}
@@ -59,6 +85,12 @@ public class Cliente {
 	
 	public void addDireccion(Direccion direccion){
 		this.direccion.add(direccion);
+	}
+	public String getDni() {
+		return dni;
+	}
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 	
 	
