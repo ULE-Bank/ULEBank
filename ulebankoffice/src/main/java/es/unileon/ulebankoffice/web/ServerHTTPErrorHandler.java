@@ -16,17 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ServerHTTPErrorHandler {
 
-//	@RequestMapping(value = "/error/{errorCode}")
+//	@RequestMapping(value = "/e/{errorCode}")
 //	public String errorPage(@PathVariable("errorCode") String errorCode){
+//		System.out.println("He llegado hasta el mapeo del error");
 //		switch(errorCode){
 //		case "404":
-//			return "redirect:/error404";
+//			return "HttpError404";
 //		default:
 //			return "index";
 //		}
 //	}
 	
-	@RequestMapping(value="/error404")
+	@RequestMapping(value="/e/404")
 	public String error404(){
 		return "HttpError404";
 	}

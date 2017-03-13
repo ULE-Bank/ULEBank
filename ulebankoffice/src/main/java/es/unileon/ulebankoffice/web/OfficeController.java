@@ -18,7 +18,7 @@ import es.unileon.ulebankoffice.repositories.ClienteRepository;
 public class OfficeController {
 
 	@Autowired
-	private ClienteRepository clientRepository;
+	private ClienteRepository clienteRepository;
 	
 	/*Método para guardar un nuevo documento. Se comprueba que los campos no sean nulos, vacíos o blancos*/
 //	@RequestMapping(value = "/o", method = RequestMethod.POST)
@@ -39,7 +39,7 @@ public class OfficeController {
 	@RequestMapping(value = "/o", method = RequestMethod.GET)
 	public String showMeAllDocs(ModelMap model ) {
 
-		model.addAttribute("clients", clientRepository.findAll());
+		model.addAttribute("clients", clienteRepository.findAll());
 		return "officeIndex";
 	}
 	

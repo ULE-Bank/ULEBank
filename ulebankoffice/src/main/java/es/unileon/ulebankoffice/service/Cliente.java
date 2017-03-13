@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -27,7 +28,7 @@ public class Cliente {
 	
 	//private Handler dni;
 	
-	@NotEmpty @NotBlank
+	@NotEmpty @NotBlank @Indexed(unique=true)
 	private String dni;
 	
 	public Cliente(String name, String lastname, String email, Date fechaNacimiento, String dni){

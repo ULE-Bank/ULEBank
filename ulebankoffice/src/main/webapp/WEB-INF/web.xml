@@ -53,7 +53,7 @@
 		<url-pattern>/adminquerypage</url-pattern>
 		<url-pattern>/sitemap</url-pattern>
 		<url-pattern>/tokensignin</url-pattern>
-		<url-pattern>/error404</url-pattern>
+		<url-pattern>/e/*</url-pattern>
 		<url-pattern>/alldocs/*</url-pattern>
 		<url-pattern>/o/*</url-pattern>	
 	</servlet-mapping>
@@ -88,9 +88,9 @@
 
 <!-- Manejor de errores HTTP
 http://stackoverflow.com/questions/7066192/how-to-specify-the-default-error-page-in-web-xml  -->
-<!-- 	<error-page> -->
-<!-- 		<error-code>404</error-code> -->
-<!-- 		<location>/error/404</location> -->
-<!-- 	</error-page> -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/e/404</location>
+	</error-page>
 <!-- Actualmente google no permite customizar el error 404 para páginas que no estén mapeadas -->
 </web-app>

@@ -77,11 +77,11 @@
          <!--=================================
             inner-intro-->
          <section
-            class="inner-intro grayscale bg-services-loans-italian bg-opacity-black-70">
+            class="inner-intro grayscale bg-office bg-opacity-black-70">
             <div class="container">
                <div class="row text-center intro-title">
                   <h1 class="text-blue">
-                     <spring:message code="label.s4italian" />
+                     Bienevnido a la oficina 
                   </h1>
                   <ul class="page-breadcrumb">
                      <li>
@@ -110,7 +110,7 @@
                      </li>
                      <li>
                         <span>
-                           <spring:message code="label.s4italian" />
+                           Oficina
                         </span>
                      </li>
                   </ul>
@@ -119,7 +119,7 @@
          </section>
          <!--=================================
             inner-intro-->
-         <section class="white-bg page-section-ptb">
+         <section class="white-bg page-section-ptb" id="clientes">
             <div class="container">
                <div class="row">
                   <div class="col-md-8 col-md-offset-2">
@@ -215,31 +215,135 @@
 <!--                            </noscript> -->
 <!--                         </div> -->
 <%--                      </form:form> --%>
-                     <table border="1">
+
+
+					<div class="row"> 
+					<a class="button mt-20"  id="mostrarFormularioBusquedaClientes"> <span> Buscar clientes </span> <i class ="fa fa-send"></i></a>
+					
+					<form action="" class="formularioBusquedaClientes" style="display: none;">
+                      <div id="register-form" class="register-form"> 
+                    <div class="section-field col-md-12">
+                     <div class="field-widget">
+                      
+                          <i class="fa fa-home">DNI: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     </div> 
+                     
+                 
+                     <input class="col-md-3 col-md-offset-2" type="submit" value="Buscar cliente" onclick="window.location.href='/o#clientes'">
+                     <a href="./o#clientes"><input class="col-md-3 col-md-offset-2" type="button" value="Limpiar búsqueda" onclick="history.go(0)"></a> 
+                    
+                      </div>
+                     </form>
+                     </div>
+                     
+                     <div class ="row formularioBusquedaClientes mt-20" style="display: none;">
+                     <table border="1" class="col-md-12">
                         <thead>
                            <tr>
                               <!--       						<th><input type="checkbox"></th> -->
-                              <th>id</th>
-                              <th>name</th>
-                              <th>lastname</th>
+<!--                               <th>id</th> -->
+  <td>DNI/NIF</td>
+                              <th>Nombre</th>
+                              <th>Apellidos</th>
                               <th>email</th>
-                              <th>fechaNacimiento</th>
-                              <td>DNI</td>
+                              <th>Fecha nacimiento</th>
+                            
                            </tr>
                         </thead>
                         <c:forEach var="clients" items="${client}">
                            <tr>
-                              <td>${client.id}</td>
+<%--                               <td>${client.id}</td> --%>
+<td>${client.DNI}</td>
                               <td>${client.name}</td>
                               <td>${client.lastname}</td>
                               <td>${client.email}</td>
                               <td>${client.fechaNacimiento}</td>
-                              <td>${client.DNI}</td>
+                              
 <!--                               <td><input type="button" value="delete" -->
 <%--                                  onclick="window.location='person/delete?id=${document.id}'" /></td> --%>
                            </tr>
                         </c:forEach>
                      </table>
+                     </div>
+                   
+                     <div class="row"> 
+                     <a class="button mt-20"  id="mostrarFomrularioNuevoCliente"> <span> Crear cliente </span> <i class ="fa fa-send"></i></a>
+                     <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a>
+                     <a class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
+                     </div>
+                     <script>
+                     //jQuery para mostrar u ocultar el formulario de creación de nuevo cliente
+                     $("#mostrarFomrularioNuevoCliente").click(function(){
+                    	 form = $("#formularioNuevoCliente");
+                    	 if (form.css('display') == 'none') {
+                    		 form.show(1000);
+						} else {
+							form.hide(1000);
+						}
+                     });
+                     
+                     $("#mostrarFormularioBusquedaClientes").click(function(){
+                    	 form = $(".formularioBusquedaClientes");
+                    	 if (form.css('display') == 'none') {
+                    		 form.show(1000);
+						} else {
+							form.hide(1000);
+						}
+                     });   
+                     </script>
+                     
+                      <form action="" style="display: none;" id="formularioNuevoCliente">
+                      <div id="register-form" class="register-form"> 
+                     <div class="row">
+                     <div class="section-field col-md-8 col-md-offset-2">
+                     <div class="field-widget">
+                          <i class="fa fa-home">DNI: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     <div class="field-widget">
+                          <i class="fa fa-home">Nombre: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     <div class="field-widget">
+                          <i class="fa fa-home">Apellidos: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     <div class="field-widget">
+                          <i class="fa fa-home">Email: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     <div class="field-widget">
+                          <i class="fa fa-home">Fecha de nacimiento: </i>  
+                          <input id="datePicker" type="date" class="pl-70" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     Dirección:
+                     <div class="field-widget">
+                          <i class="fa fa-home">Comunidad autónoma: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div> 
+                     <div class="field-widget">
+                          <i class="fa fa-home">Localidad: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div>
+                     <div class="field-widget">
+                          <i class="fa fa-home">Calle: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div>
+                     <div class="field-widget">
+                          <i class="fa fa-home">Numero: </i> 
+                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                     </div>
+  
+                     </div> 
+                     </div>
+                     <div class="row">
+                     <input class="col-md-3 col-md-offset-2" type="submit" value="Buscar cliente" onclick="window.location.href='/o#clientes'">
+                     <a href="./o#clientes"><input class="col-md-3 col-md-offset-2" type="button" value="Limpiar búsqueda" onclick="history.go(0)"></a> 
+                      </div>
+                      </div>
+                     </form>
                   </div>
                </div>
             </div>
