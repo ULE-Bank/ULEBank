@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public interface Direccion extends MongoRepository<Direccion, String> {
+public interface DireccionRepository extends MongoRepository<DireccionRepository, String> {
 
 }

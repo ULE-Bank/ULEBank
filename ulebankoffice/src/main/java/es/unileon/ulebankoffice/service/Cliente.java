@@ -3,6 +3,9 @@ package es.unileon.ulebankoffice.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -21,7 +24,8 @@ public class Cliente {
 	
 	@NotEmpty @NotBlank
 	private String name, lastname, email;
-	@NotEmpty @NotBlank 
+	
+	@NotNull @Past 
 	private Date fechaNacimiento;
 	
 	//private ExpedienteElectronico expedienteElectronico;
@@ -30,6 +34,8 @@ public class Cliente {
 	
 	@NotEmpty @NotBlank @Indexed(unique=true)
 	private String dni;
+	
+	public Cliente() {}
 	
 	public Cliente(String name, String lastname, String email, Date fechaNacimiento, String dni){
 		this.name = name;

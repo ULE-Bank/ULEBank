@@ -1,6 +1,7 @@
 package es.unileon.ulebankoffice.service;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,11 +21,11 @@ public class Direccion {
 	@NotEmpty @NotBlank
 	private String calle;
 	
-	@NotEmpty @NotBlank @Min(0)
+	@NotNull @Min(0)
 	private int numero;
 //	private Handler dni;
 	
-	@NotEmpty @NotBlank @Min(0)
+	@NotNull @Min(0)
 	private int codigoPostal;
 	
 	@NotEmpty @NotBlank

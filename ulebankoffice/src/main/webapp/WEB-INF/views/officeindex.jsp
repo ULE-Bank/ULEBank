@@ -223,10 +223,11 @@
 					<form action="" class="formularioBusquedaClientes" style="display: none;">
                       <div id="register-form" class="register-form"> 
                     <div class="section-field col-md-12">
+                     DNI/NIE:
                      <div class="field-widget">
                       
-                          <i class="fa fa-home">DNI: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text" required name="u" placeholder="Identificación fiscal del cliente" >
                      </div> 
                      </div> 
                      
@@ -244,7 +245,7 @@
                            <tr>
                               <!--       						<th><input type="checkbox"></th> -->
 <!--                               <th>id</th> -->
-  <td>DNI/NIF</td>
+  <th>DNI/NIE</th>
                               <th>Nombre</th>
                               <th>Apellidos</th>
                               <th>email</th>
@@ -292,55 +293,119 @@
 							form.hide(1000);
 						}
                      });   
+                     
+                     function dardealtacliente(){
+                    	 $("#submit_handle").click();
+                     }
                      </script>
                      
-                      <form action="" style="display: none;" id="formularioNuevoCliente">
+                      <form style="display: none;" id="formularioNuevoCliente" method="post">
                       <div id="register-form" class="register-form"> 
                      <div class="row">
-                     <div class="section-field col-md-8 col-md-offset-2">
-                     <div class="field-widget">
-                          <i class="fa fa-home">DNI: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div> 
-                     <div class="field-widget">
-                          <i class="fa fa-home">Nombre: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div> 
-                     <div class="field-widget">
-                          <i class="fa fa-home">Apellidos: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div> 
-                     <div class="field-widget">
-                          <i class="fa fa-home">Email: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div> 
-                     <div class="field-widget">
-                          <i class="fa fa-home">Fecha de nacimiento: </i>  
-                          <input id="datePicker" type="date" class="pl-70" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div> 
-                     Dirección:
-                     <div class="field-widget">
-                          <i class="fa fa-home">Comunidad autónoma: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div> 
-                     <div class="field-widget">
-                          <i class="fa fa-home">Localidad: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div>
-                     <div class="field-widget">
-                          <i class="fa fa-home">Calle: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div>
-                     <div class="field-widget">
-                          <i class="fa fa-home">Numero: </i> 
-                          <input class="pl-70" type="text" required="required" name="u" placeholder="Buscar cliente por DNI" >
-                     </div>
-  
-                     </div> 
+                     <div class="section-field col-md-12">
+                     <div class="row">
+                     <h2>Datos personales cliente</h2>
                      </div>
                      <div class="row">
-                     <input class="col-md-3 col-md-offset-2" type="submit" value="Buscar cliente" onclick="window.location.href='/o#clientes'">
-                     <a href="./o#clientes"><input class="col-md-3 col-md-offset-2" type="button" value="Limpiar búsqueda" onclick="history.go(0)"></a> 
+                     <div class="col-md-6">
+                    
+                     DNI: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <spring:bind path="nuevoCliente.dni">
+                          <input class="" type="text" required/>
+                          </spring:bind>
+                          <form:errors style="color: red;" path="dni"></form:errors>
+                     </div> 
+                     </div>
+                     <div class="col-md-6">
+                     Nombre: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <spring:bind path="nuevoCliente.name">
+                          <input class="" type="text" required/>
+                          </spring:bind>
+                           <form:errors style="color: red;" path="name"></form:errors>
+                     </div>
+                     </div> 
+                     </div>
+                      <div class="row">
+                     <div class="col-md-6">
+                     Apellidos: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text" required name="u" />
+                     </div> 
+                       </div> 
+                      <div class="col-md-6">
+                      Email: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="email" required name="u" />
+                     </div> 
+                      </div> 
+                      </div> 
+                     <div class="row">
+                     <div class="col-md-6">
+                     Fecha de nacimiento: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i>  
+                          <input id="datePicker" type="date" class="" required name="u" />
+                     </div> 
+                     </div> 
+                      </div>
+                       <div class="row">
+                     <h2>Dirección cliente</h2>
+                     </div>
+                     
+                      <div class="row">
+                     <div class="col-md-6">
+                     Comunidad autónoma: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text" required name="u"  >
+                     </div> 
+                     </div>
+                     <div class="col-md-6">
+                     Localidad: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text"  name="u" />
+                     </div>
+                      </div> 
+                      </div> 
+                     
+                     
+                      <div class="row">
+                     <div class="col-md-4">
+                     Calle: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text" required name="u" >
+                     </div>
+                     </div>
+                     <div class="col-md-4">
+                     Numero: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text" required name="n" >
+                     </div>
+                     </div>
+                      <div class="col-md-4">
+                     Código postal: 
+                     <div class="field-widget">
+                          <i class="fa fa-home"></i> 
+                          <input class="" type="text" required name="n" >
+                     </div>
+                     </div>
+                     </div>
+   </div> 
+                    
+                 
+                     <div class="row">
+                      <a class="button mt-20"  onclick="dardealtacliente()"> <span> Dar de alta cliente </span> <i class ="fa fa-send"></i></a>
+                     <input id="submit_handle" type="submit" style="display: none" >
+                      </div>
                       </div>
                       </div>
                      </form>
