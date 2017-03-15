@@ -11,6 +11,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 /**
  * @author Razvan Raducu
@@ -25,6 +27,7 @@ public class Cliente {
 	@NotEmpty @NotBlank
 	private String name, lastname, email;
 	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@NotNull @Past 
 	private Date fechaNacimiento;
 	
@@ -65,11 +68,11 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setNacimiento(Date nacimiento) {
-		this.fechaNacimiento = nacimiento;
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 //	public ExpedienteElectronico getExpedienteElectronico() {
 //		return expedienteElectronico;
@@ -98,6 +101,12 @@ public class Cliente {
 	}
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", \nname=" + name + ", \nlastname=" + lastname + ", \nemail=" + email
+				+ ", \nfechaNacimiento=" + fechaNacimiento + ", \ndni=" + dni + ", \ndireccion=" + direccion + "]";
 	}
 	
 	

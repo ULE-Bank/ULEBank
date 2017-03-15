@@ -110,7 +110,7 @@
 
 	<!-- Configuración para la conexión con la base de datos -->
 
-	<mongo:template db-factory-ref="mongoDBFactory" />
+	<mongo:template db-factory-ref="mongoDBFactory" write-concern="FSYNC_SAFE"/>
 	
 	<mongo:db-factory id="mongoDBFactory" dbname="ulebankoffice" mongo-ref="mongoClient" />
 	

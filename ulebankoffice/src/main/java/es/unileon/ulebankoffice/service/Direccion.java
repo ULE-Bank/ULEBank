@@ -85,6 +85,12 @@ public class Direccion {
 		this.comunidadAutonoma = comunidadAutonoma;
 	}
 
+	@Override
+	public String toString() {
+		return "Direccion [id=" + id + ", calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal
+				+ ", localidad=" + localidad + ", comunidadAutonoma=" + comunidadAutonoma + ", dni=" + dni + "]";
+	}
+
 	
 //	public Handler getDni() {
 //		return dni;
