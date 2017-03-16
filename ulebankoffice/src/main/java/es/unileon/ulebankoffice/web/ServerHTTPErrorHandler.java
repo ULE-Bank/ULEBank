@@ -4,7 +4,9 @@
 package es.unileon.ulebankoffice.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Clase controlador para manejar los posibles errores HTTP que se puedan
@@ -27,8 +29,8 @@ public class ServerHTTPErrorHandler {
 //		}
 //	}
 	
-	@RequestMapping(value="/e/404")
-	public String error404(){
+	@RequestMapping(value="/404", method= RequestMethod.GET)
+	public String error404(ModelMap model){
 		return "HttpError404";
 	}
 }

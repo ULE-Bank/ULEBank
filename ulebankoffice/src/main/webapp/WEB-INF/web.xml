@@ -20,7 +20,9 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
 
+	
 	<servlet-mapping>
 		<servlet-name>FrontalController</servlet-name>
 		<url-pattern>/*.htm</url-pattern>
@@ -88,9 +90,9 @@
 
 <!-- Manejor de errores HTTP
 http://stackoverflow.com/questions/7066192/how-to-specify-the-default-error-page-in-web-xml  -->
-	<error-page>
-		<error-code>404</error-code>
-		<location>/e/404</location>
-	</error-page>
+<!-- 	<error-page> -->
+<!-- 		<error-code>404</error-code> -->
+<!-- 		<location>/e/404</location> -->
+<!-- 	</error-page> -->
 <!-- Actualmente google no permite customizar el error 404 para páginas que no estén mapeadas -->
 </web-app>

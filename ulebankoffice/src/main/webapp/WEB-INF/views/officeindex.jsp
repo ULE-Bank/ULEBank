@@ -255,7 +255,7 @@
            
                            <tr>
 <%--                               <td>${client.id}</td> --%>
-<td>${client.dni}</td>
+<td><a href="/o/u?uin=${client.dni}">${client.dni}</a></td>
                               <td>${client.name}</td>
                               <td>${client.lastname}</td>
                               <td>${client.email}</td>
@@ -263,6 +263,7 @@
                               
 <!--                               <td><input type="button" value="delete" -->
 <%--                                  onclick="window.location='person/delete?id=${document.id}'" /></td> --%>
+
                            </tr>
                         </c:forEach>
           
@@ -289,9 +290,7 @@
 							form.hide(1000);
 						}
                      });
-                     
-                    
-                     
+
                      function dardealtacliente(){
                     	 $("#submit_handle").click();
                      }

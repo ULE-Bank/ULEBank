@@ -32,10 +32,12 @@ import es.unileon.ulebankoffice.service.Cliente;
  *
  */
 @Controller
-public class OfficeController {
+public class OfficeIndexController {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	
 	
 //	@InitBinder
 //	public void bindingPreparation(WebDataBinder binder) {
@@ -84,7 +86,7 @@ public class OfficeController {
 	public String showMeAllDocs(ModelMap model, @ModelAttribute("nuevoCliente") Cliente nuevoCliente, HttpServletRequest req) {
 		System.out.println("Petición get " + req.getRemoteHost() + " || " + req.getRemoteAddr());
 		model.addAttribute("clients",  clienteRepository.findAll());
-		return "officeIndex";
+		return "officeindex";
 	}
 	
 	/*Método para mostrar buscar un cliente en concreto por dni*/
@@ -111,7 +113,7 @@ public class OfficeController {
 		}
 		
 	
-		return "officeIndex";
+		return "officeindex";
 	}
 	
 	
