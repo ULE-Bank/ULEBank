@@ -8,6 +8,11 @@
       <meta name="author" content="Razvan Raducu, Camino Fernández" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       
+      <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
+      <meta property="og:determiner" content="the" />
+      <meta property="og:title" content="<spring:message code='label.sitemap' />" />
+      <meta property="og:url" content="http://ulebank.unileon.es/sitemap" />
+      <meta property="og:description" content="<spring:message code='label.sitemap'/>"/>
       
       <link rel="stylesheet"
          href="/resources/services/css/font-awesome/css/font-awesome.min.css">

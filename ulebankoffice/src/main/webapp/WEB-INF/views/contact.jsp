@@ -12,6 +12,14 @@
 <meta name="description" content="Contact form" />
 <meta name="author" content="Razvan Raducu, Camino Fernández" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
+      <meta property="og:determiner" content="the" />
+      <meta property="og:title" content="<spring:message code='label.contactways' />" />
+      <meta property="og:url" content="http://ulebank.unileon.es/contact" />
+      <meta property="og:description" content="<spring:message code='label.contacttogether'/>"/>
+
+
 <title><spring:message code="label.contactways"/></title>
 
 <!-- Favicon -->

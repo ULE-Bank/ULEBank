@@ -18,6 +18,12 @@
 <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
+      <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
+      <meta property="og:determiner" content="the" />
+      <meta property="og:title" content="<spring:message code='label.s4italian' />" />
+      <meta property="og:url" content="http://ulebank.unileon.es/italianloan" />
+      <meta property="og:description" content="<spring:message code='label.s4italian'/>"/>
+        
 <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
 
 <link rel="stylesheet"

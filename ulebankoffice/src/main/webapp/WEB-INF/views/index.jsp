@@ -13,11 +13,12 @@
          content="Alexis Gutiérrez, Camino Fernández, Razvan Raducu">
       <meta name="robots" content="index,follow">
       
+      
       <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
       <meta property="og:determiner" content="the" />
       <meta property="og:title" content="ULe Bank" />
       <meta property="og:url" content="http://ulebank.unileon.es/" />
-      
+      <meta property="og:description" content="<spring:message code='label.indexdescription'/>"/>
       
       <title>
          <spring:message code="label.sitetitle" />
