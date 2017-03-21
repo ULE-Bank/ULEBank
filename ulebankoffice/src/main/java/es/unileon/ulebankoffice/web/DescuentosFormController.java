@@ -35,6 +35,16 @@ public class DescuentosFormController {
 		double otrosGastos = descuentos.getOtrosGastos();
 		double comisiones = descuentos.getComisiones();
 		
+		
+		System.out.println("importe descuento ->" + importeDescuento);
+		System.out.println("periodoDescuento ->" + periodoDescuento);
+		System.out.println("tipoInteres ->" + tipoInteres);
+		System.out.println("base ->" + base);
+		System.out.println("otrosGastos ->" + otrosGastos);
+		System.out.println("comisiones ->" + comisiones);
+		
+		
+		
 		DescuentosDomain myDescuentos = 
 				new DescuentosDomain(importeDescuento, periodoDescuento, tipoInteres, base, otrosGastos, comisiones);
 		

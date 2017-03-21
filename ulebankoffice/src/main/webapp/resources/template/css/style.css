@@ -1760,14 +1760,15 @@ input.feature-toggle:checked ~ .feature-annotations span:nth-child(5) { -webkit-
 /*************************************
 	    	inner-intro
 **************************************/
-.inner-intro { height: 410px; display: block; }
+/* ↓ Modificación de Razvan para que cumpla los requisitos de diseño de Javier y las personas de FINANZAS ↓ */
+.inner-intro { height: 270px; display: block; }
 .inner-intro .container { display: table; height: 100%; position: relative; }
 .inner-intro span { text-transform: capitalize; }
 .inner-intro h1 { text-transform: capitalize; }
 .intro-title { display: table-cell; vertical-align: bottom; }
-.intro-title p { font-size: 18px; text-transform: capitalize; }
+.intro-title p { font-size: 18px; /*text-transform: capitalize;*/ }
 ul.page-breadcrumb li span {  color: #fff; font-size: 14px; text-transform: capitalize; }
-ul.page-breadcrumb { padding-top: 60px; padding-bottom: 25px; }
+ul.page-breadcrumb { padding-top: 30px; padding-bottom: 25px; }
 ul.page-breadcrumb li { color: #fff; display: inline-block; list-style: none; }
 ul.page-breadcrumb li i { font-size: 14px; padding: 0 7px;} 
 ul.page-breadcrumb li a { color: #fff; font-size: 14px; text-transform: capitalize; }

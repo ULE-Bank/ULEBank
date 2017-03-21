@@ -96,7 +96,7 @@
 
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
-		<property name="defaultLocale" value="en" />
+		<property name="defaultLocale" value="es" />
 		<property name="cookieName" value="ULeBankLanguagePreference"></property>
 		<property name="cookieMaxAge" value="604800"></property>
 	</bean>

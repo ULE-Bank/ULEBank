@@ -236,8 +236,8 @@
 											<spring:message code="label.365days" var="variable1" />
 											<spring:message code="label.360days" var="variable2" />
 											<form:select path="base">
-												<form:option value="1" label="${variable1}" />
-												<form:option value="2" label="${variable2}" />
+												<form:option value="365" label="${variable1}" />
+												<form:option value="360" label="${variable2}" />
 											</form:select>
 										</div>
 									</div>
@@ -284,7 +284,7 @@
 								<div class="row">
 									<div class="section-field col-md-6">
 										<div class="field-widget">
-											<i class="fa fa-percent"></i>
+											<i class="fa fa-eur"></i>
 											<form:input type="text" name="name" path="comisiones" />
 										</div>
 									</div>

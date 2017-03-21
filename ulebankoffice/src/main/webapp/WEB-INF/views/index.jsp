@@ -463,174 +463,9 @@
             slider -->
          <!--=================================
             custom-content -->
-         <!-- About us -->
-         <section id="links" class="about page-section-ptb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-lg-12 col-md-12">
-                     <div class="section-title-1 text-center">
-                        <h1 class="text-blue">
-                           <spring:message code="label.aboutus" />
-                        </h1>
-                        <div class="title-line"></div>
-                     </div>
-                  </div>
-               </div>
-               <!--=================================
-                  owl-custom -->
-               <section class="owl-custom white-bg">
-                  <div class="container">
-                     <div class="row">
-                        <div class="owl-carousel-12">
-                           <div class="item">
-                              <div class="col-lg-6 col-md-6">
-                                 <img class="img-responsive"
-                                    src="resources/template/images/device/device-3.png" alt="">
-                              </div>
-                              <div class="col-lg-6 col-md-6">
-                                 <div class="custom-content">
-                                    <h2 class="text-blue mb-20">Who we are 1</h2>
-                                    <p>There are lots of reasons, but most importantly
-                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
-                                    </p>
-                                    <ul class="mt-20">
-                                       <li><i class="fa fa-hand-o-right"></i> Proin gravida
-                                          nibh vel velit auctor aliquet. Aenean sollicitudin,
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
-                                          bibendum auctor, nisi elit consequat ipsum,
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> nec sagittis sem
-                                          nibh id elit. Duis sed odio sit amet nibh vulputate
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> cursus a sit
-                                          amet mauris. Morbi accumsan ipsum velit.
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> cursus a sit
-                                          amet mauris. Morbi accumsan ipsum velit.
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="col-lg-6 col-md-6">
-                                 <div class="custom-content">
-                                    <h2 class="text-blue mb-30">Who we are 2</h2>
-                                    <p>There are lots of reasons, but most importantly
-                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
-                                    </p>
-                                    <div class="feature-8 mt-30">
-                                       <div class="feature-8-title">
-                                          <span aria-hidden="true" class="icon-equalizer"></span>
-                                       </div>
-                                       <div class="feature-8-info">
-                                          <h4 class="text-back">Built with HTML5 and css3</h4>
-                                          <p>Dolor sit amet, consectetur conseqt quibusdam,
-                                             incidunt Vero quod conseqt quibusdam, enim expedita sed
-                                             quia nesciunt incidunt
-                                          </p>
-                                       </div>
-                                    </div>
-                                    <div class="feature-8 mt-30">
-                                       <div class="feature-8-title">
-                                          <span class="icon-picture" aria-hidden="true"></span>
-                                       </div>
-                                       <div class="feature-8-info">
-                                          <h4 class="text-back">Revolution Slider</h4>
-                                          <p>Dolor sit amet, consectetur conseqt quibusdam,
-                                             incidunt Vero quod conseqt quibusdam, enim expedita sed
-                                             quia nesciunt incidunt
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-6 col-md-6">
-                                 <img class="img-responsive"
-                                    src="resources/template/images/device/device-2.png" alt="">
-                              </div>
-                           </div>
-                           <div class="item">
-                              <div class="col-lg-6 col-md-6">
-                                 <img class="img-responsive center-block pt-60"
-                                    src="resources/template/images/device/device.png" alt="">
-                              </div>
-                              <div class="col-lg-6 col-md-6">
-                                 <div class="custom-content">
-                                    <h2 class="text-blue mb-30">Who we are 3</h2>
-                                    <p>There are lots of reasons, but most importantly
-                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
-                                    </p>
-                                    <ul class="mt-20 mb-20">
-                                       <li><i class="fa fa-hand-o-right"></i> Proin gravida
-                                          nibh vel velit auctor aliquet. Aenean sollicitudin,
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
-                                          bibendum auctor, nisi elit consequat ipsum,
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
-                                          bibendum auctor, nisi elit consequat ipsum,
-                                       </li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam
-                                       iste labore? Libero possimus excepturi, labore! At molestiae
-                                       debitis quaerat nesciunt, aliquam perferendis ab! Ut.
-                                    </p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </section>
-               <!--=================================
-                  owl-custom -->
-            </div>
-         </section>
-         <!-- About us -->
-         <!--=================================
-            video-background -->
-         <section>
-            <div id="video-background" class="video-content bg-opacity-black-30"
-               style="width: 100%;"
-               data-vide-bg="mp4: resources/template/video/ulebackground, webm: resources/template/video/ulebackground, ogv: resources/template/video/ulebackground, poster: resources/template/video/ulebackground"
-               data-vide-options="position: 0% 50%">
-               <div class="video-bg bg-opacity-black-50 page-section-pt">
-                  <div class="container">
-                     <div class="row">
-                        <div class="section-title-2 text-center">
-                           <h1 class="text-white">
-                              <spring:message code="label.knowledge" />
-                           </h1>
-                           <div class="title-line-2"></div>
-                           <p class="text-white mt-20 mb-30">
-                              <spring:message code="label.knowledgesub" />
-                           </p>
-                           <a target="blank" href="/offersconsulting"
-                              class="button-border-white">
-                              <span>
-                                 <spring:message
-                                    code="label.knowledgesubmit" />
-                              </span>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!--=================================
-            video-background -->
-         <!--=================================
+            
+            
+            <!--=================================
             key-features (services) -->
          <!--  Estos son todos los simple line icons que se pueden usar  -->
          <!-- .icon-user-female, .icon-user-follow, .icon-user-following, .icon-user-unfollow, .icon-trophy, .icon-screen-smartphone,  -->
@@ -837,6 +672,182 @@
          </section>
          <!--=================================
             key-features (services) -->
+            
+            
+            
+                <!--=================================
+            video-background -->
+         <section>
+            <div id="video-background" class="video-content bg-opacity-black-30"
+               style="width: 100%;"
+               data-vide-bg="mp4: resources/template/video/ulebackground, webm: resources/template/video/ulebackground, ogv: resources/template/video/ulebackground, poster: resources/template/video/ulebackground"
+               data-vide-options="position: 0% 50%">
+               <div class="video-bg bg-opacity-black-50 page-section-pt">
+                  <div class="container">
+                     <div class="row">
+                        <div class="section-title-2 text-center">
+                           <h1 class="text-white">
+                              <spring:message code="label.knowledge" />
+                           </h1>
+                           <div class="title-line-2"></div>
+                           <p class="text-white mt-20 mb-30">
+                              <spring:message code="label.knowledgesub" />
+                           </p>
+                           <a target="blank" href="/offersconsulting"
+                              class="button-border-white">
+                              <span>
+                                 <spring:message
+                                    code="label.knowledgesubmit" />
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!--=================================
+            video-background -->
+            
+            
+            
+            
+         <!-- About us -->
+         <section id="links" class="about page-section-ptb">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-12 col-md-12">
+                     <div class="section-title-1 text-center">
+                        <h1 class="text-blue">
+                           <spring:message code="label.aboutus" />
+                        </h1>
+                        <div class="title-line"></div>
+                     </div>
+                  </div>
+               </div>
+               <!--=================================
+                  owl-custom -->
+               <section class="owl-custom white-bg">
+                  <div class="container">
+                     <div class="row">
+                        <div class="owl-carousel-12">
+                           <div class="item">
+                              <div class="col-lg-6 col-md-6">
+                                 <img class="img-responsive"
+                                    src="resources/template/images/device/device-3.png" alt="">
+                              </div>
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="custom-content">
+                                    <h2 class="text-blue mb-20">Who we are 1</h2>
+                                    <p>There are lots of reasons, but most importantly
+                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
+                                       elit. At molestiae debitis quaerat nesciunt, aliquam
+                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
+                                    </p>
+                                    <ul class="mt-20">
+                                       <li><i class="fa fa-hand-o-right"></i> Proin gravida
+                                          nibh vel velit auctor aliquet. Aenean sollicitudin,
+                                       </li>
+                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
+                                          bibendum auctor, nisi elit consequat ipsum,
+                                       </li>
+                                       <li><i class="fa fa-hand-o-right"></i> nec sagittis sem
+                                          nibh id elit. Duis sed odio sit amet nibh vulputate
+                                       </li>
+                                       <li><i class="fa fa-hand-o-right"></i> cursus a sit
+                                          amet mauris. Morbi accumsan ipsum velit.
+                                       </li>
+                                       <li><i class="fa fa-hand-o-right"></i> cursus a sit
+                                          amet mauris. Morbi accumsan ipsum velit.
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="custom-content">
+                                    <h2 class="text-blue mb-30">Who we are 2</h2>
+                                    <p>There are lots of reasons, but most importantly
+                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
+                                       elit. At molestiae debitis quaerat nesciunt, aliquam
+                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
+                                    </p>
+                                    <div class="feature-8 mt-30">
+                                       <div class="feature-8-title">
+                                          <span aria-hidden="true" class="icon-equalizer"></span>
+                                       </div>
+                                       <div class="feature-8-info">
+                                          <h4 class="text-back">Built with HTML5 and css3</h4>
+                                          <p>Dolor sit amet, consectetur conseqt quibusdam,
+                                             incidunt Vero quod conseqt quibusdam, enim expedita sed
+                                             quia nesciunt incidunt
+                                          </p>
+                                       </div>
+                                    </div>
+                                    <div class="feature-8 mt-30">
+                                       <div class="feature-8-title">
+                                          <span class="icon-picture" aria-hidden="true"></span>
+                                       </div>
+                                       <div class="feature-8-info">
+                                          <h4 class="text-back">Revolution Slider</h4>
+                                          <p>Dolor sit amet, consectetur conseqt quibusdam,
+                                             incidunt Vero quod conseqt quibusdam, enim expedita sed
+                                             quia nesciunt incidunt
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6">
+                                 <img class="img-responsive"
+                                    src="resources/template/images/device/device-2.png" alt="">
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="col-lg-6 col-md-6">
+                                 <img class="img-responsive center-block pt-60"
+                                    src="resources/template/images/device/device.png" alt="">
+                              </div>
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="custom-content">
+                                    <h2 class="text-blue mb-30">Who we are 3</h2>
+                                    <p>There are lots of reasons, but most importantly
+                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
+                                       elit. At molestiae debitis quaerat nesciunt, aliquam
+                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
+                                    </p>
+                                    <ul class="mt-20 mb-20">
+                                       <li><i class="fa fa-hand-o-right"></i> Proin gravida
+                                          nibh vel velit auctor aliquet. Aenean sollicitudin,
+                                       </li>
+                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
+                                          bibendum auctor, nisi elit consequat ipsum,
+                                       </li>
+                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
+                                          bibendum auctor, nisi elit consequat ipsum,
+                                       </li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
+                                       elit. At molestiae debitis quaerat nesciunt, aliquam
+                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam
+                                       iste labore? Libero possimus excepturi, labore! At molestiae
+                                       debitis quaerat nesciunt, aliquam perferendis ab! Ut.
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+               <!--=================================
+                  owl-custom -->
+            </div>
+         </section>
+         <!-- About us -->
+     
+         
          <!--=================================
             make the good decision -->
          <section id="blog"
