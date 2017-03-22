@@ -81,7 +81,7 @@
             <div class="container">
                <div class="row text-center intro-title">
                   <h1 class="text-blue">
-                     Bienevnido a la oficina 
+                     Bienvenido a la oficina 
                   </h1>
                   <ul class="page-breadcrumb">
                      <li>

@@ -227,7 +227,7 @@
                                        </div>
                                     </div>
                                  </li>
-                                 <li class="page-scroll"><a href="#blog">blog</a></li>
+<!--                                  <li class="page-scroll"><a href="#blog">blog</a></li> -->
                                  <li class="page-scroll">
                                     <a href="#team">
                                        <spring:message
@@ -240,12 +240,12 @@
                                           code="label.sponsors" />
                                     </a>
                                  </li>
-                                 <li class="page-scroll">
-                                    <a href="#links">
-                                       <spring:message
-                                          code="label.links" />
-                                    </a>
-                                 </li>
+<!--                                  <li class="page-scroll"> -->
+<!--                                     <a href="#links"> -->
+<%--                                        <spring:message --%>
+<%--                                           code="label.links" /> --%>
+<!--                                     </a> -->
+<!--                                  </li> -->
                                  <li class="page-scroll">
                                     <a href="#contact">
                                        <spring:message
@@ -254,7 +254,7 @@
                                           class="fa fa-angle-down fa-indicator"></i>
                                     </a>
                                     <!-- drop down multilevel  -->
-                                    <ul class="drop-down-multilevel right-menu">
+                                    <ul class="drop-down menu-bg">
                                        <li>
                                           <a href="/contact">
                                              <spring:message

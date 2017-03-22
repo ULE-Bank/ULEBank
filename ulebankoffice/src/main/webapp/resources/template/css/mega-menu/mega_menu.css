@@ -61,7 +61,8 @@
   display: inline;
   max-width: 100% !important;
   float: right;
-  height: auto;
+  height: 20px;
+  width: 20px;
 }
 .mega-menu input {
   /*------------------------------ DEFAULT INPUT */
