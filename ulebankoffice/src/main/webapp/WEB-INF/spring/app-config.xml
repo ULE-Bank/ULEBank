@@ -100,9 +100,14 @@
 		<property name="cookieName" value="ULeBankLanguagePreference"></property>
 		<property name="cookieMaxAge" value="604800"></property>
 	</bean>
-	
+
+	<!-- Es necesario indicarle a spring dónde se encuentras lo recursos para 
+		que, al trabajar con urls virtuales, no haya problemas de rutas. Para guardar 
+		los recursos en cache se puede añadir cache-period="31556926"/> que los alamcena 
+		durante un año -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-	
+	<mvc:resources mapping="resources/**" location="/resources/" />
+
 	<mvc:interceptors>
 		<bean id="localeChangeInterceptor"
 			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
@@ -112,27 +117,32 @@
 
 	<!-- Configuración para la conexión con la base de datos -->
 
-	<mongo:template db-factory-ref="mongoDBFactory" write-concern="FSYNC_SAFE"/>
-	
-	<mongo:db-factory id="mongoDBFactory" dbname="ulebankoffice" mongo-ref="mongoClient" />
-	
-	<mongo:mongo-client id="mongoClient" credentials="razvan:ulerazvanule@ulebankoffice">
-	 <mongo:client-options connect-timeout="5000" />
+	<mongo:template db-factory-ref="mongoDBFactory"
+		write-concern="FSYNC_SAFE" />
+
+	<mongo:db-factory id="mongoDBFactory" dbname="ulebankoffice"
+		mongo-ref="mongoClient" />
+
+	<mongo:mongo-client id="mongoClient"
+		credentials="razvan:ulerazvanule@ulebankoffice">
+		<mongo:client-options connect-timeout="5000" />
 	</mongo:mongo-client>
-	
-<!-- 	############### ↕↕↕↕↕↕ Son equivalentes ↕↕↕↕↕ ################## -->
-	
- 	<!-- Factory bean that creates the Mongo instance -->
-<!-- 	<bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> -->
-<!-- 	</bean> -->
-	
- 	<!-- MongoTemplate for connecting and quering the documents in the database --> 
-<!-- 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> -->
-<!-- 		<constructor-arg name="mongo" ref="mongo" /> -->
-<!-- 		<constructor-arg name="databaseName" value="ulebanktestdb" /> -->
-<!-- 	</bean> -->
-	 <!-- Use this post processor to translate any MongoExceptions thrown in @Repository annotated classes -->
-<!--     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />  -->
-    
-	<mongo:repositories base-package="es.unileon.ulebankoffice.repositories"/>
+
+	<!-- ############### ↕↕↕↕↕↕ Son equivalentes ↕↕↕↕↕ ################## -->
+
+	<!-- Factory bean that creates the Mongo instance -->
+	<!-- <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean"> -->
+	<!-- </bean> -->
+
+	<!-- MongoTemplate for connecting and quering the documents in the database -->
+	<!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> -->
+	<!-- <constructor-arg name="mongo" ref="mongo" /> -->
+	<!-- <constructor-arg name="databaseName" value="ulebanktestdb" /> -->
+	<!-- </bean> -->
+	<!-- Use this post processor to translate any MongoExceptions thrown in 
+		@Repository annotated classes -->
+	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" 
+		/> -->
+
+	<mongo:repositories base-package="es.unileon.ulebankoffice.repositories" />
 </beans>

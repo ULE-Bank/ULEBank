@@ -272,15 +272,13 @@
                                     <ul class="drop-down-multilevel right-menu">
                                        <li>
                                           <a href="?language=en">
-                                             <spring:message
-                                                code="label.english" />
+                                             English
                                              <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/>
                                           </a>
                                        </li>
                                        <li>
                                           <a href="?language=es">
-                                             <spring:message
-                                                code="label.spanish" />
+                                             Español
                                              <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/>
                                           </a>
                                        </li>
@@ -680,7 +678,7 @@
          <section>
             <div id="video-background" class="video-content bg-opacity-black-30"
                style="width: 100%;"
-               data-vide-bg="mp4: resources/template/video/ulebackground, webm: resources/template/video/ulebackground, ogv: resources/template/video/ulebackground, poster: resources/template/video/ulebackground"
+               data-vide-bg="mp4: resources/template/video/ulebackground"
                data-vide-options="position: 0% 50%">
                <div class="video-bg bg-opacity-black-50 page-section-pt">
                   <div class="container">
@@ -1255,7 +1253,7 @@
                      allowfullscreen></iframe>
                </div>
             </div>
-            <div class="row">
+            
                <div class="col-lg-12 col-md-12">
                   <div class="section-title text-center">
                      <h2 class="text-blue">
@@ -1268,7 +1266,7 @@
                      </h1>
                   </div>
                </div>
-            </div>
+           
          </section>
          <!--=================================
             social -->

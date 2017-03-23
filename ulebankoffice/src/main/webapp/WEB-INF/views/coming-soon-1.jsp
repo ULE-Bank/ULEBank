@@ -5,40 +5,50 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="HTML5 Template" />
-<meta name="description" content="The Corps â Multi-Purpose HTML Template" />
-<meta name="author" content="potenzaglobalsolutions.com" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>The Corps â Responsive Multi-purpose HTML5 Template</title>
-
-<!-- Favicon -->
-<link rel="shortcut icon" href="i/resources/template/mages/favicon.ico" />
-
-<!-- bootstrap -->
-<link href="/resources/template/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-<!-- plugins -->
-<link href="/resources/template/css/plugins-css.css" rel="stylesheet" type="text/css" />
-
-<!-- mega menu -->
-<link href="/resources/template/css/mega-menu/mega_menu.css" rel="stylesheet" type="text/css" />
-
- <!-- default -->
-<link href="/resources/template/css/default.css" rel="stylesheet" type="text/css" />
-
-<!-- main style -->
-<link href="/resources/template/css/style.css" rel="stylesheet" type="text/css" />
-
-<!-- responsive -->
-<link href="/resources/template/css/responsive.css" rel="stylesheet" type="text/css" />
-
-<!-- custom style -->
-<link href="/resources/template/css/custom.css" rel="stylesheet" type="text/css" />
-
-</head>
+ <head>
+      <meta charset="UTF-8">
+      <meta name="description"
+         content="Simulador de préstamo método Italiano.">
+      <meta name="keywords"
+         content="ULe-Bank, simulador, calculos, prestamo, metodo, italiano">
+      <meta name="author" content="Razvan Raducu, Camino Fernández ">
+      <meta name="robots" content="index,follow">
+      <meta name="viewport"
+         content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
+      <link rel="stylesheet"
+         href="/resources/services/css/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet"
+         href="/resources/services/css/styles-responsive.css">
+      <script src="/resources/services/js/jquery.min.js"></script>
+      <!-- <script src="/resources/services/js/bootstrap.min.js"></script> -->
+      <script src="/resources/services/js/jquery-cookie.js"></script>
+      <script src="/resources/services/js/script.js"></script>
+      <script src="/resources/services/js/Chart.js"></script>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="../favicon.ico" />
+      <!-- bootstrap -->
+      <link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+         type="text/css" />
+      <!-- plugins -->
+      <link href="resources/template/css/plugins-css.css" rel="stylesheet"
+         type="text/css" />
+      <!-- mega menu -->
+      <link href="resources/template/css/mega-menu/mega_menu.css"
+         rel="stylesheet" type="text/css" />
+      <!-- default -->
+      <link href="resources/template/css/default.css" rel="stylesheet"
+         type="text/css" />
+      <!-- main style -->
+      <link href="resources/template/css/style.css" rel="stylesheet"
+         type="text/css" />
+      <!-- responsive -->
+      <link href="resources/template/css/responsive.css" rel="stylesheet"
+         type="text/css" />
+      <!-- custom style -->
+      <link href="resources/template/css/custom.css" rel="stylesheet"
+         type="text/css" />
+      <title>Office coming soon</title>
 
 <body>
 
@@ -70,15 +80,14 @@
 <!--=================================
  inner-intro-->
 
-<section class="inner-intro bg-2 bg-opacity-black-70">
+<section class="inner-intro bg-office bg-opacity-black-70">
   <div class="container">
      <div class="row text-center intro-title">
             <h1 class="text-blue">Coming Soon</h1>
-            <p class="text-white">Please check back in sometime</p>
+            <p class="text-white">Please come back in sometime</p>
             <ul class="page-breadcrumb">
               <li><a href=""><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-              <li><a href="">pages</a> <i class="fa fa-angle-double-right"></i></li>
-              <li><span>Coming Soon 1</span> </li>
+              <li>Office</li>
            </ul>
      </div>
   </div>
@@ -90,15 +99,15 @@
 
 <!--=================================
  Coming Soon-->
-
-<section class="coming-soon-main maintenance-progress-bar white-bg page-section-ptb">
+<div class="bg-httperror-404 bg-opacity-black-70">
+<section class="coming-soon-main maintenance-progress-bar page-section-ptb clearfix">
   <div class="container">
     <div class="row">
        <div class="col-lg-12 col-md-12">
           <div class="text-center">
               <i class="fa fa-clock-o"></i>
               <h1 class="text-blue">Coming soon</h1>
-              <p>We are currently working on a website and won't take long. Don't forget to check out our Social updates.</p>
+              <p class="text-white">We are currently working on a website and won't take long. Don't forget to check out our Social updates.</p>
           </div>
           <div class="coming-soon-countdown countdown">
             <ul class="countdown">
@@ -127,7 +136,7 @@
     </div>
   </div>
  </section>
-
+</div>
 <!--=================================
  Coming Soon-->
  
@@ -215,7 +224,7 @@
 <script type="text/javascript" src="/resources/template/js/custom.js"></script>
  <script class="source" type="text/javascript">
         $('.countdown').downCount({
-            date: '02/26/2017 12:00:00',
+            date: '04/26/2017 12:00:00',
             offset: +2
         }, function () {
             //alert('WOOT WOOT, done!');

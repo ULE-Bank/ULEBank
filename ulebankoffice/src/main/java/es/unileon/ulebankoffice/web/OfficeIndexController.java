@@ -82,12 +82,19 @@ public class OfficeIndexController {
 	
 	/*Método para mostrar todos los documentos. Con el foreach en el jsp puedo acceder a todos los
 	 * campos del documento*/
-	@RequestMapping(value = "/o", method = RequestMethod.GET)
+	@RequestMapping(value = "/2", method = RequestMethod.GET)
 	public String showMeAllDocs(ModelMap model, @ModelAttribute("nuevoCliente") Cliente nuevoCliente, HttpServletRequest req) {
 		System.out.println("Petición get " + req.getRemoteHost() + " || " + req.getRemoteAddr());
 		model.addAttribute("clients",  clienteRepository.findAll());
 		return "officeindex";
 	}
+	/*Opcional para desplegar en el servidor de producción. Así los usuarios no tienen acceso a la DB
+	 * hasta que no esté todo implementado*/
+	@RequestMapping(value= "/o", method = RequestMethod.GET)
+	public String comingSoon(){
+		return "coming-soon-1";
+	}
+	
 	
 	/*Método para mostrar buscar un cliente en concreto por dni*/
 	@RequestMapping(value = "/o", method = RequestMethod.GET, params="uin")

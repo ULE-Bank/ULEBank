@@ -55,10 +55,8 @@
 											code="label.language" /> <i
 										class="fa fa-angle-down fa-indicator"></i></a> <!-- drop down multilevel  -->
 									<ul class="drop-down-multilevel right-menu">
-										<li><a href="?language=en"><spring:message
-															code="label.english" /> <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/></a></li>
-												<li><a href="?language=es"><spring:message
-															code="label.spanish" /> <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/></a></li>
+										<li><a href="?language=en">English <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/></a></li>
+												<li><a href="?language=es">Español <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/></a></li>
 									</ul></li>
 								<li>
 								<!-- GOOGLE CUSTOM SEARCH ENGINE -->
