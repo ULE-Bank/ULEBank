@@ -16,7 +16,7 @@
 						<div class="col-lg-12 col-md-12">
 							<!-- menu logo -->
 							<ul class="menu-logo">
-								<li><a href="./"><img id="logo_img"
+								<li><a href="/"><img id="logo_img"
 										src="resources/template/images/logo.png" alt="logo"> </a></li>
 							</ul>
 							<!-- menu links -->
