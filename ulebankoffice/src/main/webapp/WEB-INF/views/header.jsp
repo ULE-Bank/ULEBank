@@ -31,8 +31,17 @@
 										<!--grid row-->
 										<div class="grid-row">
 											<!--grid column 3-->
-											
+											<div class="row" style="border-bottom: 1px solid #00a8d9;" >
+                                             <h3>
+                                                <a href="/a/services" style="text-align:center; font-weight:bold;" >
+                                                   <spring:message code="label.accessservicepage" />
+                                                </a>
+                                             </h3>
+                                          </div>
 												<ul>
+												<spring:message
+                                                   code="label.servicegroup1" />
+                                                   
 													<li><a href="/apr"><spring:message
 																code="label.siteservice1" /></a></li>
 													<li><a href="/leasing"><spring:message
@@ -50,7 +59,102 @@
 												</ul>
 											
 										</div>
-									</div></li>
+									</div>
+									
+									
+									
+									
+									     <div class="drop-down menu-bg grid-col-5">
+                                       <!--grid row-->
+                                       <div class="grid-row">
+                                         
+                                          <!--grid column 3-->
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader2" />
+                                             </h3>
+                                             <ul>
+                                                <li>
+                                                   <a href="/a/transactionaccount">
+                                                      <spring:message
+                                                         code="label.siteservice9" />
+                                                   </a>
+                                                </li>
+                                                <li>
+                                                   <a href="/a/deposits">
+                                                      <spring:message
+                                                         code="label.siteservice8" />
+                                                   </a>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message code="label.serviceheader3"/>
+                                             </h3>
+                                             <ul>
+                                             <li>
+                                                   <a href="/creditaccount">
+                                                      <spring:message
+                                                         code="label.siteservice7" />
+                                                   </a>
+                                                </li>
+                                                <li>
+                                                   <a href="/loans">
+                                                      <spring:message
+                                                         code="label.siteservice4" />
+                                                   </a>
+                                                </li>
+                                                <li>
+                                                   <a href="/discounts">
+                                                      <spring:message
+                                                         code="label.siteservice5" />
+                                                   </a>
+                                                </li>
+                                                <li>
+                                                   <a href="/leasing">
+                                                      <spring:message
+                                                         code="label.siteservice2" />
+                                                   </a>
+                                                </li>
+                                                <li>
+                                                   <a href="/reversemortgage">
+                                                      <spring:message
+                                                         code="label.siteservice6" />
+                                                   </a>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                       <div class="grid-row">
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader4" />
+                                             </h3>
+                                          </div>
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader5" />
+                                             </h3>
+                                          </div>
+                                       </div>
+                                       <div class="grid-row">
+                                          <h3 style="text-align:center;">
+                                             <spring:message
+                                                code="label.servicegroup2" />
+                                          </h3>
+                                       </div>
+                                    </div>
+									
+									
+									
+									
+									
+									
+									</li>
 								<li><a> <spring:message
 											code="label.language" /> <i
 										class="fa fa-angle-down fa-indicator"></i></a> <!-- drop down multilevel  -->

@@ -1754,8 +1754,8 @@ input.feature-toggle:checked ~ .feature-annotations span:nth-child(5) { -webkit-
 .experience span { color: #00a9da; display: block; margin: 10px 0px 25px; font-size: 14px; }
 .experience  p { padding-right: 30px; }
 .experience .owl-theme .owl-dots { text-align: center; margin-top: 15px; }
-.experience .owl-theme .owl-dots .owl-dot span { background: transparent; border:3px solid #282828; border-radius: 0px; width: 20px; height: 20px; cursor: pointer; margin-top: 15px;  margin-bottom: 0px; }
-.experience .owl-theme .owl-dots .owl-dot.active span, .experience .owl-theme .owl-dots .owl-dot:hover span { background: #282828; border-color: #282828; }
+.experience .owl-theme .owl-dots .owl-dot span { background: transparent; border:3px solid #fff; border-radius: 0px; width: 20px; height: 20px; cursor: pointer; margin-top: 15px;  margin-bottom: 0px; }
+.experience .owl-theme .owl-dots .owl-dot.active span, .experience .owl-theme .owl-dots .owl-dot:hover span { background: #fff; border-color: #fff; }
 
 /*************************************
 	    	inner-intro
@@ -1767,7 +1767,7 @@ input.feature-toggle:checked ~ .feature-annotations span:nth-child(5) { -webkit-
 .inner-intro h1 { /*text-transform: capitalize;*/ }
 .intro-title { display: table-cell; vertical-align: bottom; }
 .intro-title p { font-size: 18px; /*text-transform: capitalize;*/ }
-ul.page-breadcrumb li span {  color: #fff; font-size: 14px; text-transform: capitalize; }
+ul.page-breadcrumb li span {  color: #fff; font-size: 14px; /* text-transform: capitalize; */ }
 ul.page-breadcrumb { padding-top: 30px; padding-bottom: 25px; }
 ul.page-breadcrumb li { color: #fff; display: inline-block; list-style: none; }
 ul.page-breadcrumb li i { font-size: 14px; padding: 0 7px;} 

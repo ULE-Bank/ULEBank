@@ -12,14 +12,11 @@
       <meta name="author"
          content="Alexis Gutiérrez, Camino Fernández, Razvan Raducu">
       <meta name="robots" content="index,follow">
-      
-      
       <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
       <meta property="og:determiner" content="the" />
       <meta property="og:title" content="ULe Bank" />
       <meta property="og:url" content="http://ulebank.unileon.es/" />
       <meta property="og:description" content="<spring:message code='label.indexdescription'/>"/>
-      
       <title>
          <spring:message code="label.sitetitle" />
       </title>
@@ -168,8 +165,25 @@
                                     <div class="drop-down menu-bg grid-col-5">
                                        <!--grid row-->
                                        <div class="grid-row">
+                                          <div class="row" style="border-bottom: 1px solid #00a8d9;" >
+                                             <h3>
+                                                <a href="/a/services" style="text-align:center; font-weight:bold;" >
+                                                   <spring:message code="label.accessservicepage" />
+                                                </a>
+                                             </h3>
+                                          </div>
                                           <!--grid column 3-->
+                                          <div class="grid-col-12" >
+                                             <h3 style="text-align:center;">
+                                                <spring:message
+                                                   code="label.servicegroup1" />
+                                             </h3>
+                                          </div>
                                           <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader1" />
+                                             </h3>
                                              <ul>
                                                 <li>
                                                    <a href="/apr">
@@ -178,22 +192,45 @@
                                                    </a>
                                                 </li>
                                                 <li>
-                                                   <a href="/leasing">
+                                                   <a href="/a/aprv">
                                                       <spring:message
-                                                         code="label.siteservice2" />
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="/offersconsulting">
-                                                      <spring:message
-                                                         code="label.siteservice3" />
+                                                         code="label.siteservice1-2" />
                                                    </a>
                                                 </li>
                                              </ul>
                                           </div>
                                           <!--grid column 3-->
                                           <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader2" />
+                                             </h3>
                                              <ul>
+                                                <li>
+                                                   <a href="/a/transactionaccount">
+                                                      <spring:message
+                                                         code="label.siteservice9" />
+                                                   </a>
+                                                </li>
+                                                <li>
+                                                   <a href="/a/deposits">
+                                                      <spring:message
+                                                         code="label.siteservice8" />
+                                                   </a>
+                                                </li>
+                                             </ul>
+                                          </div>
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message code="label.serviceheader3"/>
+                                             </h3>
+                                             <ul>
+                                             <li>
+                                                   <a href="/creditaccount">
+                                                      <spring:message
+                                                         code="label.siteservice7" />
+                                                   </a>
+                                                </li>
                                                 <li>
                                                    <a href="/loans">
                                                       <spring:message
@@ -206,28 +243,48 @@
                                                          code="label.siteservice5" />
                                                    </a>
                                                 </li>
-                                             </ul>
-                                          </div>
-                                          <div class="grid-col-4">
-                                             <ul>
+                                                <li>
+                                                   <a href="/leasing">
+                                                      <spring:message
+                                                         code="label.siteservice2" />
+                                                   </a>
+                                                </li>
                                                 <li>
                                                    <a href="/reversemortgage">
                                                       <spring:message
                                                          code="label.siteservice6" />
                                                    </a>
                                                 </li>
-                                                <li>
-                                                   <a href="/creditaccount">
-                                                      <spring:message
-                                                         code="label.siteservice7" />
-                                                   </a>
-                                                </li>
                                              </ul>
                                           </div>
                                        </div>
+                                       <div class="grid-row">
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader4" />
+                                             </h3>
+                                          </div>
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                   code="label.serviceheader5" />
+                                             </h3>
+                                          </div>
+                                       </div>
+                                       <div class="grid-row">
+                                          <h3 style="text-align:center;">
+                                             <spring:message
+                                                code="label.servicegroup2" />
+                                          </h3>
+                                          <a href="/offersconsulting" style="text-align:center;">
+                                                      <spring:message
+                                                         code="label.siteservice3access" />
+                                          </a>
+                                       </div>
                                     </div>
                                  </li>
-<!--                                  <li class="page-scroll"><a href="#blog">blog</a></li> -->
+                                 <!--                                  <li class="page-scroll"><a href="#blog">blog</a></li> -->
                                  <li class="page-scroll">
                                     <a href="#team">
                                        <spring:message
@@ -240,12 +297,12 @@
                                           code="label.sponsors" />
                                     </a>
                                  </li>
-<!--                                  <li class="page-scroll"> -->
-<!--                                     <a href="#links"> -->
-<%--                                        <spring:message --%>
-<%--                                           code="label.links" /> --%>
-<!--                                     </a> -->
-<!--                                  </li> -->
+                                 <!--                                  <li class="page-scroll"> -->
+                                 <!--                                     <a href="#links"> -->
+                                 <%--                                        <spring:message --%>
+                                 <%--                                           code="label.links" /> --%>
+                                 <!--                                     </a> -->
+                                 <!--                                  </li> -->
                                  <li class="page-scroll">
                                     <a href="#contact">
                                        <spring:message
@@ -272,14 +329,14 @@
                                     <ul class="drop-down-multilevel right-menu">
                                        <li>
                                           <a href="?language=en">
-                                             English
-                                             <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/>
+                                          English
+                                          <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/>
                                           </a>
                                        </li>
                                        <li>
                                           <a href="?language=es">
-                                             Español
-                                             <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/>
+                                          Español
+                                          <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/>
                                           </a>
                                        </li>
                                     </ul>
@@ -305,18 +362,20 @@
                                        </a>
                                        <div class="search-3-box not-click">
                                           <gcse:searchbox-only resultsUrl="/search"></gcse:searchbox-only>
-<!--                                           <form role="form" method="get" action="/search" -->
-<!--                                              id="searchengine"> -->
-<!--                                              <input type="text" class="not-click" placeholder="Search" -->
-<!--                                                 value="" name="q"> <i -->
-<!--                                                 class="fa fa-search" -->
-<!--                                                 onclick="document.getElementById('searchengine').submit()"></i> -->
-<!--                                           </form> -->
+                                          <!--                                           <form role="form" method="get" action="/search" -->
+                                          <!--                                              id="searchengine"> -->
+                                          <!--                                              <input type="text" class="not-click" placeholder="Search" -->
+                                          <!--                                                 value="" name="q"> <i -->
+                                          <!--                                                 class="fa fa-search" -->
+                                          <!--                                                 onclick="document.getElementById('searchengine').submit()"></i> -->
+                                          <!--                                           </form> -->
                                        </div>
                                     </div>
                                  </li>
                                  <li>
-                                 <a href="/o"><spring:message code="label.office"/></a>
+                                    <a href="/o">
+                                       <spring:message code="label.office"/>
+                                    </a>
                                  </li>
                               </ul>
                            </div>
@@ -461,9 +520,7 @@
             slider -->
          <!--=================================
             custom-content -->
-            
-            
-            <!--=================================
+         <!--=================================
             key-features (services) -->
          <!--  Estos son todos los simple line icons que se pueden usar  -->
          <!-- .icon-user-female, .icon-user-follow, .icon-user-following, .icon-user-unfollow, .icon-trophy, .icon-screen-smartphone,  -->
@@ -670,10 +727,7 @@
          </section>
          <!--=================================
             key-features (services) -->
-            
-            
-            
-                <!--=================================
+         <!--=================================
             video-background -->
          <section>
             <div id="video-background" class="video-content bg-opacity-black-30"
@@ -706,10 +760,6 @@
          </section>
          <!--=================================
             video-background -->
-            
-            
-            
-            
          <!-- About us -->
          <section id="links" class="about page-section-ptb">
             <div class="container">
@@ -844,8 +894,6 @@
             </div>
          </section>
          <!-- About us -->
-     
-         
          <!--=================================
             make the good decision -->
          <section id="blog"
@@ -993,117 +1041,92 @@
          </section>
          <!--=================================
             our-team -->
-         <!--=================================
-            our-clients -->
-         <section class="happy-clients white-bg page-section-ptb">
-            <div class="container">
-               <div class="row">
-                  <div class="col-lg-12 col-md-12">
-                     <div class="section-title-2 text-center">
-                        <h1 class="text-blue">Our Happy Clients (EXAMPLES NEED TO BE
-                           GIVEN)
-                        </h1>
-                        <div class="title-line"></div>
-                        <p>What Our Happy Clients say about us</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-lg-12 col-md-12">
-                     <div id="tabs">
-                        <div id="tab1" class="tabcontent">
-                           <p>" I would like to express my thanks and appreciation to
-                              you for understanding the subject matter and for your excellent
-                              writing. Good job and well done. I look forward to working with
-                              you in our next project Quae ratione, in ipsa.Class aptent
-                              taciti sociosqu ad litora torquent per conubia nostra, per
-                              inceptos himenaeos. mauris vitae erat consequat auctor eu in
-                              elit. Class aptent taciti sociosqu ad litora torquent per
-                              conubia nostra, per inceptos himenaeos ”
-                           </p>
-                        </div>
-                        <div id="tab2" class="tabcontent">
-                           <p>" We are very pleased with your service and the
-                              professional way all our queries and problems have been
-                              handled. I certainly would not hesitate to recommend your
-                              organisation to other people I come into contact with. Quae
-                              ratione, in ipsa.Class aptent taciti sociosqu ad litora
-                              torquent per conubia nostra, per inceptos himenaeos. mauris
-                              vitae erat consequat auctor eu in elit. Class aptent taciti
-                              sociosqu ad litora torquent per conubia nostra, per inceptos ”
-                           </p>
-                        </div>
-                        <div id="tab3" class="tabcontent">
-                           <p>" Our old site was very information-heavy; the Corps
-                              helped to capture and simplify the message we wanted to get
-                              across. It’s now more precise, easy to use and looks great!
-                              quos magnam cupiditate pariatur? Quae ratione, in ipsa.Class
-                              aptent taciti sociosqu ad litora torquent per conubia nostra,
-                              per inceptos himenaeos. mauris vitae erat consequat auctor eu
-                              in elit. Class aptent taciti sociosqu ad litora torquent per
-                              conubia nostra. ”
-                           </p>
-                        </div>
-                        <div id="tab4" class="tabcontent">
-                           <p>" We are very pleased with your service and the
-                              professional way all our queries and problems have been
-                              handled. I certainly would not hesitate to recommend your
-                              organisation to other people I come into contact with. Quae
-                              ratione, in ipsa.Class aptent taciti sociosqu ad litora
-                              torquent per conubia nostra, per inceptos himenaeos. mauris
-                              vitae erat consequat auctor eu in elit. Class aptent taciti
-                              sociosqu ad litora torquent per conubia nostra per inceptos. ”
-                           </p>
-                        </div>
-                        <div id="tab5" class="tabcontent">
-                           <p>" I would like to express my thanks and appreciation to
-                              you for understanding the subject matter and for your excellent
-                              writing. Good job and well done. I look forward to working with
-                              you in our next project Quae ratione, in ipsa.Class aptent
-                              taciti sociosqu ad litora torquent per conubia nostra, per
-                              inceptos himenaeos. mauris vitae erat consequat auctor eu in
-                              elit. Class aptent taciti sociosqu ad litora torquent per
-                              conubia nostra per inceptos. ”
-                           </p>
-                        </div>
-                        <div id="tab6" class="tabcontent">
-                           <p>" Our old site was very information-heavy; the Corps
-                              helped to capture and simplify the message we wanted to get
-                              across. It’s now more precise, easy to use and looks great!
-                              quos magnam cupiditate pariatur? Quae ratione, in ipsa.Class
-                              aptent taciti sociosqu ad litora torquent per conubia nostra,
-                              per inceptos himenaeos. mauris vitae erat consequat auctor eu
-                              in elit. Class aptent taciti sociosqu ad litora torquent per
-                              conubia nostra per inceptos. ”
-                           </p>
-                        </div>
-                        <ul class="tabs">
-                           <li data-tabs="tab1" class="animated-arrow active"><img
-                              class="img-responsive"
-                              src="resources/template/images/clients/01.png" alt=""></li>
-                           <li data-tabs="tab2" class="animated-arrow"><img
-                              class="img-responsive"
-                              src="resources/template/images/clients/02.png" alt=""></li>
-                           <li data-tabs="tab3" class="animated-arrow"><img
-                              class="img-responsive"
-                              src="resources/template/images/clients/03.png" alt=""></li>
-                           <li data-tabs="tab4" class="animated-arrow"><img
-                              class="img-responsive"
-                              src="resources/template/images/clients/04.png" alt=""></li>
-                           <li data-tabs="tab5" class="animated-arrow"><img
-                              class="img-responsive"
-                              src="resources/template/images/clients/05.png" alt=""></li>
-                           <li data-tabs="tab6" class="animated-arrow"><img
-                              class="img-responsive"
-                              src="resources/template/images/clients/02.png" alt=""></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!--=================================
-            our-clients -->
+            
+        
+               <!--=================================
+action box- -->
+
+<section class="action-box-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <h3 class="text-white"><spring:message code="label.happyclients"/></h3>
+        <p class="text-white"><spring:message code="label.happyclientssub"/></p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!--=================================
+action box- -->
+               
+ <!--=================================
+Our happy clients   -->              
+<section class="experience pt-40 pb-20 black-bg">
+ 
+
+   <div class="container">
+  
+    <div class="owl-carousel-20"> 
+      <div class="row item">
+         <div class="col-lg-3 col-md-3 col-sm-3">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient1.jpg">
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <h3 class="text-white uppercase">Front-End Development</h3>
+           <span> Modern website designers</span>
+           <p class="text-white">I have exercitation ullamco laboris nisi ut aliquip exea. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         </div>
+      </div>
+      <div class="row item">
+         <div class="col-lg-3 col-md-3 col-sm-3">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient2.jpg">
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <h3 class="text-white uppercase">UI/UX Design</h3>
+           <span> Modern website designers</span>
+           <p class="text-white"> At Modern website designers quis nostrud exercitation ullamco laboris nisi ut aliquip exea. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+         </div>
+      </div>
+      <div class="row item">
+         <div class="col-lg-3 col-md-3 col-sm-3">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient3.jpg">
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <h3 class="text-white uppercase">Website production</h3>
+           <span> Modern website designers</span>
+           <p class="text-white"> Working with Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.</p>
+         </div>
+      </div>
+       <div class="row item">
+         <div class="col-lg-3 col-md-3 col-sm-3">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient4.jpg">
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <h3 class="text-white uppercase">Website production</h3>
+           <span> Modern website designers</span>
+           <p class="text-white"> Working with Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.</p>
+         </div>
+      </div>
+       <div class="row item">
+         <div class="col-lg-3 col-md-3 col-sm-3">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient5.jpg">
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <h3 class="text-white uppercase">Website production</h3>
+           <span> Modern website designers</span>
+           <p class="text-white"> Working with Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.</p>
+         </div>
+      </div>
+   </div>
+   </div>
+</section>
+
+<!--=================================
+Our happy clients   -->
+            
+            <hr>
+            
          <!--=================================
             testimonial (sponsors) -->
          <section id="sponsors"
@@ -1253,20 +1276,18 @@
                      allowfullscreen></iframe>
                </div>
             </div>
-            
-               <div class="col-lg-12 col-md-12">
-                  <div class="section-title text-center">
-                     <h2 class="text-blue">
-                        <spring:message code="label.contactifyouprefer" />
-                     </h2>
-                     <h1 class="text-red">
-                        <a href="/contact">
-                           <spring:message code="label.contactform" />
-                        </a>
-                     </h1>
-                  </div>
+            <div class="col-lg-12 col-md-12">
+               <div class="section-title text-center">
+                  <h2 class="text-blue">
+                     <spring:message code="label.contactifyouprefer" />
+                  </h2>
+                  <h1 class="text-red">
+                     <a href="/contact">
+                        <spring:message code="label.contactform" />
+                     </a>
+                  </h1>
                </div>
-           
+            </div>
          </section>
          <!--=================================
             social -->
