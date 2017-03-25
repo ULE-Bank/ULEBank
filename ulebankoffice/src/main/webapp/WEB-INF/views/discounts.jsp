@@ -120,9 +120,9 @@
 						<spring:message code="label.siteservice5description" />
 					</p>
 					<ul class="page-breadcrumb">
-						<li><a href="./"><i class="fa fa-home"></i> <spring:message
+						<li><a href="/"><i class="fa fa-home"></i> <spring:message
 									code="label.sitehome" /></a> <i class="fa fa-angle-double-right"></i></li>
-						<li><a href="./#services"><spring:message
+						<li><a href="/#services"><spring:message
 									code="label.siteservices" /></a> <i
 							class="fa fa-angle-double-right"></i></li>
 						<li><span><spring:message code="label.siteservice5" /></span>

@@ -30,7 +30,7 @@
             <div class="pl-0 col-lg-2 col-md-2 col-sm-2">
                <p class="text-white mt-15">
                   <span id="copyright"></span> 
-                  <a href="./#contact">
+                  <a href="/#contact">
                      <spring:message
                         code="label.contact" />
                   </a>
