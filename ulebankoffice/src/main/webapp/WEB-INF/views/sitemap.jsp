@@ -94,7 +94,7 @@
                   </h1>
                   <ul class="page-breadcrumb">
                      <li>
-                        <a href="./">
+                        <a href="/">
                            <i class="fa fa-home"></i> 
                            <spring:message
                               code="label.sitehome" />
@@ -120,41 +120,41 @@
                   <div class="col-lg-3 col-md-4 col-sm-6">
                      <h4 class="text-blue">
                         <i class="fa fa-home"></i> 
-                        <a href="./">
+                        <a href="/">
                            <spring:message
                               code="label.sitehome" />
                         </a>
                      </h4>
                      <ul>
                         <li>
-                           <a href="./#services">
+                           <a href="/#services">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.siteservices" />
                            </a>
                         </li>
-                        <li><a href="./#blog"><i class="fa fa-angle-right"></i>
+                        <li><a href="/#blog"><i class="fa fa-angle-right"></i>
                            Blog</a>
                         </li>
                         <li>
-                           <a href="./#team">
+                           <a href="/#team">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.ourteam" />
                            </a>
                         </li>
                         <li>
-                           <a href="./#sponsors">
+                           <a href="/#sponsors">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.sponsors" />
                            </a>
                         </li>
                         <li>
-                           <a href="./#links">
+                           <a href="/#links">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.links" />
                            </a>
                         </li>
                         <li>
-                           <a href="./#contact">
+                           <a href="/#contact">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.contact" />
                            </a>
@@ -163,7 +163,7 @@
                            <spring:message code="label.language" />
                            <ul>
                               <li style="padding-left: 40px">
-                                 <a href="./?language=es">
+                                 <a href="/?language=es">
                                     <i
                                        class="fa fa-angle-right"></i> 
                                     <spring:message
@@ -171,7 +171,7 @@
                                  </a>
                               </li>
                               <li style="padding-left: 40px">
-                                 <a href="./?language=en">
+                                 <a href="/?language=en">
                                     <i
                                        class="fa fa-angle-right"></i> 
                                     <spring:message
@@ -185,7 +185,7 @@
                   <div class="col-lg-3 col-md-4 col-sm-6">
                      <h4 class="text-blue">
                         <i class="fa fa-check-circle-o"></i> 
-                        <a href="./#services">
+                        <a href="/#services">
                            <spring:message
                               code="label.siteservices" />
                         </a>

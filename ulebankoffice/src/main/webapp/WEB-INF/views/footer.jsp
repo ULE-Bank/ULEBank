@@ -14,7 +14,7 @@
                         				.getFullYear()))
                      </script>
                   </span>
-                  <a href="./"> ULe-Bank </a>
+                  <a href="/"> ULe-Bank </a>
                   <spring:message code="label.siterights" />
                </p>
             </div>
