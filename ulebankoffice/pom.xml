@@ -131,6 +131,11 @@
 			<artifactId>spring-security-saml2-core</artifactId>
 			<version>1.0.2.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.16-beta2</version>
+		</dependency>
 	</dependencies>
 
 	<build>

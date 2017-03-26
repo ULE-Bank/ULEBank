@@ -200,26 +200,26 @@
                                              </ul>
                                           </div>
                                           <!--grid column 3-->
-                                          <div class="grid-col-4">
-                                             <h3>
-                                                <spring:message
-                                                   code="label.serviceheader2" />
-                                             </h3>
-                                             <ul>
-                                                <li>
-                                                   <a href="/a/transactionaccount">
-                                                      <spring:message
-                                                         code="label.siteservice9" />
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="/a/deposits">
-                                                      <spring:message
-                                                         code="label.siteservice8" />
-                                                   </a>
-                                                </li>
-                                             </ul>
-                                          </div>
+<!--                                           <div class="grid-col-4"> -->
+<!--                                              <h3> -->
+<%--                                                 <spring:message --%>
+<%--                                                    code="label.serviceheader2" /> --%>
+<!--                                              </h3> -->
+<!--                                              <ul> -->
+<!--                                                 <li> -->
+<!--                                                    <a href="/a/transactionaccount"> -->
+<%--                                                       <spring:message --%>
+<%--                                                          code="label.siteservice9" /> --%>
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                                 <li> -->
+<!--                                                    <a href="/a/deposits"> -->
+<%--                                                       <spring:message --%>
+<%--                                                          code="label.siteservice8" /> --%>
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                              </ul> -->
+<!--                                           </div> -->
                                           <div class="grid-col-4">
                                              <h3>
                                                 <spring:message code="label.serviceheader3"/>
@@ -258,54 +258,54 @@
                                              </ul>
                                           </div>
                                        </div>
-                                       <div class="grid-row">
-                                          <div class="grid-col-4">
-                                             <h3>
-                                                <spring:message
-                                                   code="label.serviceheader4" />
-                                             </h3>
-                                             <ul>
-                                             <li>
-                                                   <a href="">
-                                                      Servicio
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="">
-                                                      Servicio
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="">
-                                                      Servicio
-                                                   </a>
-                                                </li>
-                                             </ul>
-                                          </div>
-                                          <div class="grid-col-4">
-                                             <h3>
-                                                <spring:message
-                                                   code="label.serviceheader5" />
-                                             </h3>
-                                             <ul>
-                                             <li>
-                                                   <a href="">
-                                                      Servicio
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="">
-                                                      Servicio
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="">
-                                                      Servicio
-                                                   </a>
-                                                </li>
-                                             </ul>
-                                          </div>
-                                       </div>
+<!--                                        <div class="grid-row"> -->
+<!--                                           <div class="grid-col-4"> -->
+<!--                                              <h3> -->
+<%--                                                 <spring:message --%>
+<%--                                                    code="label.serviceheader4" /> --%>
+<!--                                              </h3> -->
+<!--                                              <ul> -->
+<!--                                              <li> -->
+<!--                                                    <a href=""> -->
+<!--                                                       Servicio -->
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                                 <li> -->
+<!--                                                    <a href=""> -->
+<!--                                                       Servicio -->
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                                 <li> -->
+<!--                                                    <a href=""> -->
+<!--                                                       Servicio -->
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                              </ul> -->
+<!--                                           </div> -->
+<!--                                           <div class="grid-col-4"> -->
+<!--                                              <h3> -->
+<%--                                                 <spring:message --%>
+<%--                                                    code="label.serviceheader5" /> --%>
+<!--                                              </h3> -->
+<!--                                              <ul> -->
+<!--                                              <li> -->
+<!--                                                    <a href=""> -->
+<!--                                                       Servicio -->
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                                 <li> -->
+<!--                                                    <a href=""> -->
+<!--                                                       Servicio -->
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                                 <li> -->
+<!--                                                    <a href=""> -->
+<!--                                                       Servicio -->
+<!--                                                    </a> -->
+<!--                                                 </li> -->
+<!--                                              </ul> -->
+<!--                                           </div> -->
+<!--                                        </div> -->
                                        <div class="grid-row">
                                           <h3 style="text-align:center;">
                                              <spring:message
