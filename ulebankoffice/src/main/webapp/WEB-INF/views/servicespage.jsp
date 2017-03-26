@@ -138,16 +138,18 @@
  <section class="page-section-ptb">
             <div class="container">
             <div class="row">
-            <div class="col-md-12">
+            <div class="row">
             <h1><spring:message code="label.servicegroup1"/></h1>
             </div>
             <div class="row">
+            <div class="col-md-12">
             <div class="col-md-4">
-            <h3><spring:message code="label.serviceheader1"/></h3>
-            <div class="feature-11 text-center clearfix">
-                        <div class="feature-11 text-center mb-30 ">
+            <h3 class=" text-blue"><spring:message code="label.serviceheader1"/></h3>
+            <div class="col-md-12">
+            <div class="feature-11-uleservice  clearfix">
+                        <div class="feature-11-uleservice  mb-30 ">
                            <div class="feature-11-info">
-                              <h4 class="text-back pb-10">
+                              <h4 class="text-red pb-10">
                                  <a href="/apr">
                                     <spring:message code="label.siteservice1" />
                                  </a>
@@ -161,10 +163,12 @@
                            </div>
                         </div>
                      </div>
-                     <div class="feature-11 text-center clearfix">
-                        <div class="feature-11 text-center mb-30 ">
+                     </div>
+                     <div class="col-md-12">
+                     <div class="feature-11-uleservice  clearfix">
+                        <div class="feature-11-uleservice  mb-30 ">
                            <div class="feature-11-info">
-                              <h4 class="text-back pb-10">
+                              <h4 class="text-red pb-10">
                                  <a href="/a/aprv">
                                     <spring:message code="label.siteservice1-2" />
                                  </a>
@@ -178,20 +182,30 @@
                            </div>
                         </div>
                      </div>
+                     </div>
             </div>
-            <div class="col-md-4">
-            <h3><spring:message code="label.serviceheader2"/></h3>
+<!--             <div class="col-md-4"> -->
+<%--             <h3><spring:message code="label.serviceheader2"/></h3> --%>
+<!--               <a href="/a/transactionaccount"> -->
+<%--                       <spring:message --%>
+<%--                          code="label.siteservice9" /> --%>
+<!--                    </a> -->
             
+            
+<!--               <a href="/a/deposits"> -->
+<%--                         <spring:message --%>
+<%--                            code="label.siteservice8" /> --%>
+<!--                      </a> -->
            
             
-            </div>
-            <div class="col-md-4">
-            <h3><spring:message code="label.serviceheader3"/></h3>
-            
-             <div class="feature-11 text-center ">
+<!--             </div> -->
+            <div class="col-md-8">
+            <h3 class=" text-blue"><spring:message code="label.serviceheader3"/></h3>       
+             <div class="col-md-4">      
+             <div class="feature-11-uleservice">
                       
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pt-20 pb-10">
+                        <div class="feature-11-info">
+                           <h4 class="text-red  pb-10">
                               <a href="/loans">
                                  <spring:message code="label.siteservice4" />
                               </a>
@@ -204,11 +218,12 @@
                            </p>
                         </div>
                      </div>
-                     
-                       <div class="feature-11 text-center mb-30">
+                     </div>
+                     <div class="col-md-4">
+                       <div class="feature-11-uleservice mb-30">
                       
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pt-20 pb-10">
+                        <div class="feature-11-info">
+                           <h4 class="text-red  pb-10">
                               <a href="/discounts">
                                  <spring:message
                                     code="label.siteservice5" />
@@ -222,11 +237,13 @@
                            </p>
                         </div>
                      </div>
+                     </div>
                      
-                     <div class="feature-11 text-center mb-30">
+                     <div class="col-md-4">
+                     <div class="feature-11-uleservice  mb-30">
                         
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pt-20 pb-10">
+                        <div class="feature-11-info ">
+                           <h4 class="text-red  pb-10">
                               <a href="/reversemortgage">
                                  <spring:message
                                     code="label.siteservice6" />
@@ -240,11 +257,12 @@
                            </p>
                         </div>
                      </div>
-                     
-                        <div class="feature-11 text-centers">
+                     </div>
+                     <div class="col-md-4">  
+                        <div class="feature-11-uleservice ">
                         
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pt-20 pb-10">
+                        <div class="feature-11-info ">
+                           <h4 class="text-red  pb-10">
                               <a href="/creditaccount">
                                  <spring:message
                                     code="label.siteservice7" />
@@ -258,11 +276,12 @@
                            </p>
                         </div>
                      </div>
-                     
-                     <div class="feature-11 text-center">
+                     </div>
+                     <div class="col-md-4">  
+                     <div class="feature-11-uleservice ">
                        
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pb-10 ">
+                        <div class="feature-11-info ">
+                           <h4 class="text-red pb-10 ">
                               <a href="/leasing">
                                  <spring:message
                                     code="label.siteservice2" />
@@ -276,32 +295,50 @@
                            </p>
                         </div>
                      </div>
-            
+            </div>
             </div>
              </div>
-             <div class="row">
-            <div class="col-md-4">
-            <h3><spring:message code="label.serviceheader4"/></h3>
-            </div>
-            <div class="col-md-4">
-            <h3><spring:message code="label.serviceheader5"/></h3>
-            </div>
+<!--              <div class="row"> -->
+<!--             <div class="col-md-4"> -->
+<%--             <h3><spring:message code="label.serviceheader4"/></h3> --%>
+<!--             <a href=""> -->
+<!--                         Servicio -->
+<!--                      </a> -->
+<!--                      <a href=""> -->
+<!--                         Servicio -->
+<!--                      </a> -->
+<!--                      <a href=""> -->
+<!--                         Servicio -->
+<!--                      </a> -->
+<!--             </div> -->
+<!--             <div class="col-md-4"> -->
+<%--             <h3><spring:message code="label.serviceheader5"/></h3> --%>
+<!--             <a href=""> -->
+<!--                         Servicio -->
+<!--                      </a> -->
+<!--                      <a href=""> -->
+<!--                         Servicio -->
+<!--                      </a> -->
+<!--                      <a href=""> -->
+<!--                         Servicio -->
+<!--                      </a> -->
+<!--             </div> -->
             
             
+<!--             </div> -->
             </div>
             </div>
-            
             <div class="row">
-            <div class="col-md-12">
+            <div class="row">
             <h1><spring:message code="label.servicegroup2"/></h1>
             <div class="row">
-            <div class="feature-11 text-center">
-                        <div class="feature-11-icon mb-20">
-                           <a href="/offersconsulting"><span class="icon-book-open"
-                              aria-hidden="true"></span></a>
-                        </div>
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pb-10">
+            <div class="col-md-12">
+            <div class="col-md-12">
+            <div class="col-md-12">
+            <div class="col-md-12">
+            <div class="feature-11-uleservice ">
+                        <div class="feature-11-info ">
+                           <h4 class="text-red pb-10">
                               <a href="/offersconsulting">
                                  <spring:message
                                     code="label.siteservice3" />
@@ -315,6 +352,10 @@
                            </p>
                         </div>
                      </div>
+                      </div>
+            </div>
+             </div>
+            </div>
             </div>
             </div>
             </div>

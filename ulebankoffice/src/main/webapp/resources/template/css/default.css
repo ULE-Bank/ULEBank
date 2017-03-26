@@ -180,6 +180,9 @@ a.button-small:hover:after { width: 100%; }
 .text-blue { color: #00a9da; }
 .text-white { color: #fff; }
 .text-black { color: #363636; }
+/* Definicion de colores. Razvan Raducu */
+.text-red { color: #ff0000; }
+
  
 /*************************
 		Input
