@@ -123,33 +123,6 @@
                               <div class="section-field col-md-6">
                                  <label for="name">
                                     <spring:message
-                                       code="label.amount" />
-                                 </label>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <div class="field-widget">
-                                    <i class="fa fa-eur"></i>
-                                    <form:input type="text" name="name" path="cantidad" required="required"/>
-                                 </div>
-                              </div>
-                              <div class="section-field col-md-6">
-                                 <span class="tooltip-content text-blue"
-                                    data-original-title="<spring:message code="label.amountinfo"/>"
-                                 data-toggle="tooltip" data-placement="top"><i
-                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="cantidad"></form:errors>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="section-field col-md-6">
-                                 <label for="name">
-                                    <spring:message
                                        code="label.typeofperiod" />
                                  </label>
                               </div>
@@ -191,157 +164,122 @@
                            <div class="row">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 1
+                                 1 <form:errors style="color: red;" path="intereses[0].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input path="intereses[0].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[0].interes"></form:errors>
-                              </div>
+                              
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 2
+                                 2  <form:errors style="color: red;" path="intereses[1].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[1].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[1].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 3
+                                 3 <form:errors style="color: red;" path="intereses[2].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[2].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[2].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 4
+                                 4  <form:errors style="color: red;" path="intereses[3].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[3].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[3].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 5  
+                                 5 <form:errors style="color: red;" path="intereses[4].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[4].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[4].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 6   
+                                 6 <form:errors style="color: red;" path="intereses[5].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[5].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[5].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 7  
+                                 7 <form:errors style="color: red;" path="intereses[6].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[6].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[6].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 8 
+                                 8 <form:errors style="color: red;" path="intereses[7].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[7].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[7].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 9
+                                 9 <form:errors style="color: red;" path="intereses[8].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[8].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[8].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 10
+                                 10 <form:errors style="color: red;" path="intereses[9].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[9].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[9].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 11  
+                                 11 <form:errors style="color: red;" path="intereses[10].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[10].interes" required="required" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[10].interes"></form:errors>
-                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-6">
                                  <spring:message code="label.period"/>
-                                 12
+                                 12 <form:errors style="color: red;" path="intereses[11].interes"></form:errors>
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[11].interes" required="required" />
                                  </div>
-                              </div>
-                              <div class="section-field col-md-6">
-                                 <form:errors style="color: red;" path="intereses[11].interes"></form:errors>
                               </div>
                            </div>
                            <div class="bg-info">
@@ -430,37 +368,11 @@
                   </div>
                   <div class="modal-body">
                      <table class="table">
-                        <thead>
-                           <tr>
-                              <th>
-                                 <spring:message code="label.period" />
-                              </th>
-                              <th>
-                                 <spring:message code="label.interest" />
-                              </th>
-                              <th>
-                                 <spring:message code="label.flow" />
-                              </th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <c:forEach var="fila" items="${tabla}">
-                              <tr>
-                                 <c:forEach var="itemFila" items="${fila}">
-                                    <td>
-                                       <c:out value="${itemFila}" />
-                                    </td>
-                                 </c:forEach>
-                              </tr>
-                           </c:forEach>
-                        </tbody>
-                     </table>
-                     <table class="table">
                         <tr class="text-center">
                            <td>
                               <h3>
                                  <spring:message code="label.APR"/>
-                                 ${TAE}
+                                 ${TAE} %
                               </h3>
                            </td>
                         </tr>
