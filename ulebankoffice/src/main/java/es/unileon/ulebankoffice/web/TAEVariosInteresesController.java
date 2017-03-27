@@ -26,28 +26,37 @@ import es.unileon.ulebankoffice.service.TAEVariosIntereses;
  */
 @Controller
 public class TAEVariosInteresesController {
-	
-	@RequestMapping(value="/aprv", method=RequestMethod.GET)
-	public String getAprvView(@ModelAttribute("datosTaeVariosIntereses") TAEVariosIntereses taeVariosIntereses){
+
+	@RequestMapping(value = "/aprv", method = RequestMethod.GET)
+	public String getAprvView(@ModelAttribute("datosTaeVariosIntereses") TAEVariosIntereses taeVariosIntereses) {
 		return "aprv";
 	}
-	
-	@RequestMapping(value="/aprv", method=RequestMethod.POST)
-	public String calculateAprv(ModelMap model, @ModelAttribute("datosTaeVariosIntereses") @Valid TAEVariosIntereses taeVariosIntereses, BindingResult result, HttpServletResponse response){
-		
-		if(result.hasErrors()){
+
+	@RequestMapping(value = "/aprv", method = RequestMethod.POST)
+	public String calculateAprv(ModelMap model,
+			@ModelAttribute("datosTaeVariosIntereses") @Valid TAEVariosIntereses taeVariosIntereses,
+			BindingResult result, HttpServletResponse response) {
+
+		if (result.hasErrors()) {
 			return "aprv";
 		}
-		
-		TAEVariosInteresesDomain tae = new TAEVariosInteresesDomain(taeVariosIntereses.getCantidad(), taeVariosIntereses.getPeriodo(), taeVariosIntereses.getIntereses());
-		
-		
+
+		TAEVariosInteresesDomain tae = new TAEVariosInteresesDomain(taeVariosIntereses.getCantidad(),
+				taeVariosIntereses.getPeriodo(), taeVariosIntereses.getIntereses());
+
 		List<List<String>> tabla = tae.calcular();
+
+		// En la última posición de la tabla se encuentra el resultado, la TAE
+		int tamanioTabla = tabla.size();
+		// Obtengo el valor y lo elimino
+		String TAE = tabla.get(tamanioTabla - 1).get(0);
+		tabla.remove(tamanioTabla - 1);
+
 		model.addAttribute("tabla", tabla);
-		model.addAttribute("TAE", tabla.get(tabla.size()-1).get(0));
-		tabla.remove(tabla.size()-1);
+		model.addAttribute("TAE", TAE);
+
 		response.addCookie(new Cookie("resultados", "1"));
-		
+
 		return "aprv";
 	}
 }

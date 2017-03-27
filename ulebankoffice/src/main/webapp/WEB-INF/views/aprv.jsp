@@ -11,15 +11,12 @@
       <meta name="author"
          content="Alexis Gutiérrez, Camino Fernández, Razvan Raducu">
       <meta name="robots" content="index,follow">
-              <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
       <meta property="og:determiner" content="the" />
       <meta property="og:title" content="<spring:message code='label.siteservice1-2' />" />
       <meta property="og:url" content="http://ulebank.unileon.es/apr" />
       <meta property="og:description" content="<spring:message code='label.siteservice1-2description'/>"/>
-        
-        
       <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
       <!-- <link rel="stylesheet" href="/resources/services/css/bootstrap.min.css"> -->
       <link rel="stylesheet"
@@ -183,9 +180,8 @@
                                     class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
-                           
                            <div class="row">
-                                  <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <h2>
                                     <spring:message
                                        code="label.aprvariosinterestsinfo" />
@@ -193,160 +189,161 @@
                               </div>
                            </div>
                            <div class="row">
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 1
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 1
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input path="intereses[0].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[0].interes"></form:errors>
                               </div>
                            </div>
-                           
-                           <div class="row TAEVariosTipoInteres">      
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 2
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 2
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[1].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[1].interes"></form:errors>
                               </div>
                            </div>
-                           
-                           <div class="row TAEVariosTipoInteres">      
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 3
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 3
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[2].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[2].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">      
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 4
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 4
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[3].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[3].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">  
-                             
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 5  
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 5  
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[4].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[4].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">   
-                          
-                           <div class="section-field col-md-6">
-                            <spring:message code="label.period"/> 6   
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 6   
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[5].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[5].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">  
-                            
-                           <div class="section-field col-md-6">
-                            <spring:message code="label.period"/> 7  
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 7  
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[6].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[6].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">    
-                           
-                           <div class="section-field col-md-6">
-                            <spring:message code="label.period"/> 8 
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 8 
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[7].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[7].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">      
-                           
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 9
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 9
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[8].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[8].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">      
-                           
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 10
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 10
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[9].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[9].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">    
-                           
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 11  
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 11  
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[10].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[10].interes"></form:errors>
                               </div>
                            </div>
-                           <div class="row TAEVariosTipoInteres">      
-                           
-                           <div class="section-field col-md-6">
-                           <spring:message code="label.period"/> 12
+                           <div class="row TAEVariosTipoInteres">
+                              <div class="section-field col-md-6">
+                                 <spring:message code="label.period"/>
+                                 12
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[11].interes" required="required" />
                                  </div>
                               </div>
-                            <div class="section-field col-md-6">
+                              <div class="section-field col-md-6">
                                  <form:errors style="color: red;" path="intereses[11].interes"></form:errors>
                               </div>
                            </div>
-                
                            <div class="bg-info">
                               <h3>
                                  <c:out value="${model.resultado}" />
@@ -459,9 +456,14 @@
                         </tbody>
                      </table>
                      <table class="table">
-                     <tr class="text-center">
-                          <td> <h3><spring:message code="label.siteservice1"/> ${tae}</h3> </td>
-                          </tr>
+                        <tr class="text-center">
+                           <td>
+                              <h3>
+                                 <spring:message code="label.APR"/>
+                                 ${TAE}
+                              </h3>
+                           </td>
+                        </tr>
                      </table>
                   </div>
                </div>
@@ -474,68 +476,51 @@
          </div>
          <!-- FIN MODAL RESULTADOS -->
       </div>
-
-	<script>
-		/* Script para hacer visibles u ocultar los campos de los intereses */
-		var seleccion = $("#seleccionPeriodo");
-		//Selecciono todos los elementos de la clase TAEVarios... Son 11 en total porque el primero se va a ver siempre.
-		var arrayIntereses = $(".TAEVariosTipoInteres");
-		//Según carga la página compruebo el valor seleccionado y muestro sólo esos.
-		if(seleccion.val() > 1){
-		$.each(arrayIntereses, function(index) {
-					if (index >= seleccion.val()-1) {
-						arrayIntereses.eq(index).hide();
-					}
-				});
-		} else arrayIntereses.hide();
-		//Al haber algún cambio en la seleccion del periodo, miro el valor y muestro tantos campos.
-		seleccion.change(function() {
-			if (seleccion.val() == 12) {
-				arrayIntereses.show(500);
-			} else if (seleccion.val() == 1) {
-				arrayIntereses.hide(500);
-			} else if (seleccion.val() == 6) {
-				//El algoritmo está hecho de esta forma para que no de la sensación de que está mal hecho al recargar todos los elementos.
-				//Es mucho más óptimo hacer un .hide() a todo el array y mostrar los 2, 3, o 6 primeros pero se produce lo anteriormente
-				//mencionado
-				$.each(arrayIntereses, function(index) {
-					if (index < 5) {
-						arrayIntereses.eq(index).show(500);
-					} else {
-						arrayIntereses.eq(index).hide(500);
-					}
-				});
-			} else if (seleccion.val() == 2) {
-				$.each(arrayIntereses, function(index) {
-					if (index < 1) {
-						arrayIntereses.eq(index).show(500);
-					} else {
-						arrayIntereses.eq(index).hide(500);
-					}
-				});
-			} else if (seleccion.val() == 3) {
-				$.each(arrayIntereses, function(index) {
-					if (index < 2) {
-						arrayIntereses.eq(index).show(500);
-					} else {
-						arrayIntereses.eq(index).hide(500);
-					}
-				});
-			} else if (seleccion.val() == 4) {
-				$.each(arrayIntereses, function(index) {
-					if (index < 3) {
-						arrayIntereses.eq(index).show(500);
-					} else {
-						arrayIntereses.eq(index).hide(500);
-					}
-				});
-			}
-		})
-	</script>
-
-
-
-	<script src="/resources/services/js/tooltip-script.js"></script>
+      <script>
+         /* Script para hacer visibles u ocultar los campos de los intereses */
+         var seleccion = $("#seleccionPeriodo");
+         //Selecciono todos los elementos de la clase TAEVarios... Son 11 en total porque el primero se va a ver siempre.
+         var arrayIntereses = $(".TAEVariosTipoInteres");
+         //Según carga la página compruebo el valor seleccionado y muestro sólo esos.
+         if(seleccion.val() > 1){
+         $.each(arrayIntereses, function(index) {
+         			if (index >= seleccion.val()-1) {
+         				arrayIntereses.eq(index).hide();
+         			}
+         		});
+         } else arrayIntereses.hide();
+         //Al haber algún cambio en la seleccion del periodo, miro el valor y muestro tantos campos.
+         seleccion.change(function() {
+         	if (seleccion.val() == 12) {
+         		arrayIntereses.show(500);
+         	} else if (seleccion.val() == 1) {
+         		arrayIntereses.hide(500);
+         	} else if (seleccion.val() == 6) {
+         		ocultarMostrarCampos(5);
+         	} else if (seleccion.val() == 2) {
+         		ocultarMostrarCampos(1);
+         	} else if (seleccion.val() == 3) {
+         		ocultarMostrarCampos(2);
+         	} else if (seleccion.val() == 4) {
+         		ocultarMostrarCampos(3);
+         	}
+         })
+         
+         function ocultarMostrarCampos(num){
+         	//El algoritmo está hecho de esta forma para que no de la sensación de que está mal hecho al recargar todos los elementos.
+         	//Es mucho más óptimo hacer un .hide() a todo el array y mostrar los 2, 3, o 6 primeros pero se produce lo anteriormente
+         	//mencionado
+         	$.each(arrayIntereses, function(index) {
+         		if (index < num) {
+         			arrayIntereses.eq(index).show(500);
+         		} else {
+         			arrayIntereses.eq(index).hide(500);
+         		}
+         	});
+         }
+         
+      </script>
+      <script src="/resources/services/js/tooltip-script.js"></script>
       <!-- bootstrap -->
       <script type="text/javascript"
          src="resources/template/js/bootstrap.min.js"></script>

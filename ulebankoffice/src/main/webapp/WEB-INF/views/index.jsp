@@ -575,7 +575,7 @@
          <!-- .icon-lock, .icon-lock-open, .icon-magnifier, .icon-magnifier-add, .icon-magnifier-remove, .icon-paper-clip, .icon-paper-plane, .icon-plus, .icon-pointer,  -->
          <!-- .icon-power, .icon-refresh, .icon-reload, .icon-settings, .icon-star, .icon-symbol-female, .icon-symbol-male, .icon-target, .icon-volume-1, .icon-volume-2,  -->
          <!-- .icon-volume-off, .icon-users  -->
-         <section id="services" class="key-features white-bg page-section-ptb">
+         <section id="services" class="key-features white-bg pt-80 pb-20">
             <div class="container">
                <div class="row">
                   <div class="col-lg-12 col-md-12">
@@ -646,7 +646,7 @@
                               aria-hidden="true"></span></a>
                         </div>
                         <div class="feature-11-info text-center">
-<!--                            <h4 class="text-back pb-10"> -->
+                           <h4 class="text-back pb-10">
                               <a href="/offersconsulting">
                                  <spring:message
                                     code="label.siteservice3" />
@@ -733,28 +733,15 @@
                   </div>
                </div>
                <div class="row">
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                     <div class="feature-11 text-center wow fadeInUp"
-                        data-wow-delay="1.4s" data-wow-duration="1.5s">
-                        <div class="feature-11-icon mb-20">
-                           <a href="/creditaccount"><span class="icon-credit-card"
-                              aria-hidden="true"></span></a>
-                        </div>
-                        <div class="feature-11-info text-center">
-                           <h4 class="text-back pt-20 pb-10">
-                              <a href="/creditaccount">
-                                 <spring:message
-                                    code="label.siteservice7" />
-                              </a>
-                           </h4>
-                           <p>
-                              <a href="/creditaccount">
-                                 <spring:message
-                                    code="label.siteservice7description" />
-                              </a>
-                           </p>
-                        </div>
-                     </div>
+             
+                     <div class="section-title-2 text-center">
+                     ...
+                        <h1> 
+                           <a href="/a/services"><spring:message code="label.servicepageaccessmessage" /></a>
+                        </h1>
+						<p>
+                           <spring:message code="label.servicepageaccessmessagesub" />
+                        </p>
                   </div>
                </div>
             </div>
