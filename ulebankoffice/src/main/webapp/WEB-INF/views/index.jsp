@@ -200,12 +200,18 @@
                                              </ul>
                                           </div>
                                           <!--grid column 3-->
-<!--                                           <div class="grid-col-4"> -->
-<!--                                              <h3> -->
-<%--                                                 <spring:message --%>
-<%--                                                    code="label.serviceheader2" /> --%>
-<!--                                              </h3> -->
-<!--                                              <ul> -->
+                                          <div class="grid-col-4">
+                                             <h3>
+                                                <spring:message
+                                                    code="label.serviceheader2" />
+                                             </h3>
+                                             <ul>
+                                                <li>
+                                                   <a href="/reversemortgage">
+                                                      <spring:message
+                                                         code="label.siteservice6" />
+                                                   </a>
+                                                </li>
 <!--                                                 <li> -->
 <!--                                                    <a href="/a/transactionaccount"> -->
 <%--                                                       <spring:message --%>
@@ -218,8 +224,8 @@
 <%--                                                          code="label.siteservice8" /> --%>
 <!--                                                    </a> -->
 <!--                                                 </li> -->
-<!--                                              </ul> -->
-<!--                                           </div> -->
+                                             </ul>
+                                          </div>
                                           <div class="grid-col-4">
                                              <h3>
                                                 <spring:message code="label.serviceheader3"/>
@@ -249,12 +255,7 @@
                                                          code="label.siteservice2" />
                                                    </a>
                                                 </li>
-                                                <li>
-                                                   <a href="/reversemortgage">
-                                                      <spring:message
-                                                         code="label.siteservice6" />
-                                                   </a>
-                                                </li>
+
                                              </ul>
                                           </div>
                                        </div>
@@ -455,7 +456,7 @@
                                  <p class="animated3">
                                     <spring:message code="label.welcomesubmessage1" />
                                  </p>
-                                 <a href="#services" class="button animated8">
+                                 <a href="/a/services" class="button animated8">
                                     <span>
                                        <spring:message code="label.knowourservices" />
                                     </span>
@@ -492,7 +493,7 @@
                                  <p class="animated5">
                                     <spring:message code="label.welcomesubmessage2" />
                                  </p>
-                                 <a href="#services" class="button animated8">
+                                 <a href="/a/services" class="button animated8">
                                     <span>
                                        <spring:message code="label.knowourservices" />
                                     </span>
@@ -529,7 +530,7 @@
                                  <p class="animated7">
                                     <spring:message code="label.welcomesubmessage3" />
                                  </p>
-                                 <a href="#services" class="button animated8">
+                                 <a href="/a/services" class="button animated8">
                                     <span>
                                        <spring:message code="label.knowourservices" />
                                     </span>
@@ -802,106 +803,50 @@
                         <div class="owl-carousel-12">
                            <div class="item">
                               <div class="col-lg-6 col-md-6">
-                                 <img class="img-responsive"
-                                    src="resources/template/images/device/device-3.png" alt="">
+                                 <img class="img-responsive center-block"
+                                    src="resources/template/images/about/uleabout1.jpg" alt="">
                               </div>
                               <div class="col-lg-6 col-md-6">
-                                 <div class="custom-content">
-                                    <h2 class="text-blue mb-20">Who we are 1</h2>
-                                    <p>There are lots of reasons, but most importantly
-                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
+                                 <div class="custom-content uleaboutus">
+                                    <h2 class="text-blue mb-20"><spring:message code="label.aboutus1"/></h2>
+                                    <p><spring:message code="label.aboutus1sub1"/>
+                                    </p>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="custom-content uleaboutus">
+                                    <h2 class="text-blue mb-30"><spring:message code="label.aboutus2"/></h2>
+                                    <p><spring:message code="label.aboutus2sub1"/>
                                     </p>
                                     <ul class="mt-20">
-                                       <li><i class="fa fa-hand-o-right"></i> Proin gravida
-                                          nibh vel velit auctor aliquet. Aenean sollicitudin,
+                                       <li><i class="fa fa-hand-o-right"></i> <spring:message code="label.aboutus2sub2"/>
                                        </li>
-                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
-                                          bibendum auctor, nisi elit consequat ipsum,
+                                       <li><i class="fa fa-hand-o-right"></i> <spring:message code="label.aboutus2sub3"/>
                                        </li>
-                                       <li><i class="fa fa-hand-o-right"></i> nec sagittis sem
-                                          nibh id elit. Duis sed odio sit amet nibh vulputate
+                                       <li><i class="fa fa-hand-o-right"></i> <spring:message code="label.aboutus2sub4"/>
                                        </li>
-                                       <li><i class="fa fa-hand-o-right"></i> cursus a sit
-                                          amet mauris. Morbi accumsan ipsum velit.
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> cursus a sit
-                                          amet mauris. Morbi accumsan ipsum velit.
+                                       <li><i class="fa fa-hand-o-right"></i> <spring:message code="label.aboutus2sub5"/>
                                        </li>
                                     </ul>
                                  </div>
                               </div>
-                           </div>
-                           <div class="item">
                               <div class="col-lg-6 col-md-6">
-                                 <div class="custom-content">
-                                    <h2 class="text-blue mb-30">Who we are 2</h2>
-                                    <p>There are lots of reasons, but most importantly
-                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
-                                    </p>
-                                    <div class="feature-8 mt-30">
-                                       <div class="feature-8-title">
-                                          <span aria-hidden="true" class="icon-equalizer"></span>
-                                       </div>
-                                       <div class="feature-8-info">
-                                          <h4 class="text-back">Built with HTML5 and css3</h4>
-                                          <p>Dolor sit amet, consectetur conseqt quibusdam,
-                                             incidunt Vero quod conseqt quibusdam, enim expedita sed
-                                             quia nesciunt incidunt
-                                          </p>
-                                       </div>
-                                    </div>
-                                    <div class="feature-8 mt-30">
-                                       <div class="feature-8-title">
-                                          <span class="icon-picture" aria-hidden="true"></span>
-                                       </div>
-                                       <div class="feature-8-info">
-                                          <h4 class="text-back">Revolution Slider</h4>
-                                          <p>Dolor sit amet, consectetur conseqt quibusdam,
-                                             incidunt Vero quod conseqt quibusdam, enim expedita sed
-                                             quia nesciunt incidunt
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-6 col-md-6">
-                                 <img class="img-responsive"
-                                    src="resources/template/images/device/device-2.png" alt="">
+                                 <img class="img-responsive center-block"
+                                    src="resources/template/images/about/uleabout2.jpg" alt="">
                               </div>
                            </div>
                            <div class="item">
                               <div class="col-lg-6 col-md-6">
-                                 <img class="img-responsive center-block pt-60"
-                                    src="resources/template/images/device/device.png" alt="">
+                                 <img class="img-responsive center-block"
+                                    src="resources/template/images/about/uleabout3.jpg" alt="">
                               </div>
                               <div class="col-lg-6 col-md-6">
-                                 <div class="custom-content">
-                                    <h2 class="text-blue mb-30">Who we are 3</h2>
-                                    <p>There are lots of reasons, but most importantly
-                                       because. lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam.
-                                    </p>
-                                    <ul class="mt-20 mb-20">
-                                       <li><i class="fa fa-hand-o-right"></i> Proin gravida
-                                          nibh vel velit auctor aliquet. Aenean sollicitudin,
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
-                                          bibendum auctor, nisi elit consequat ipsum,
-                                       </li>
-                                       <li><i class="fa fa-hand-o-right"></i> lorem quis
-                                          bibendum auctor, nisi elit consequat ipsum,
-                                       </li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing
-                                       elit. At molestiae debitis quaerat nesciunt, aliquam
-                                       perferendis ab! Ut, nulla, illo. Fugit rerum, nisi quo nam
-                                       iste labore? Libero possimus excepturi, labore! At molestiae
-                                       debitis quaerat nesciunt, aliquam perferendis ab! Ut.
+                                 <div class="custom-content uleaboutus">
+                                    <h2 class="text-blue mb-30"><spring:message code="label.aboutus3"/></h2>
+                                    <p><spring:message code="label.aboutus3sub1"/>
                                     </p>
                                  </div>
                               </div>
@@ -1121,7 +1066,7 @@ Our happy clients   -->
       </div>
        <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient4.jpg">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient6.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
            <h3 class="text-white uppercase">Website production</h3>
@@ -1352,7 +1297,7 @@ Our happy clients   -->
                         <div class="contact-add">
                            <i class="fa fa-envelope-o"></i>
                            <p class="mt-15 mb-15 text-white">
-                              rraduc00@estudiantes.unileon.es
+                              <spring:message code="label.contactemail"/>
                            </p>
                         </div>
                      </div>

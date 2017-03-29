@@ -962,6 +962,11 @@ width: 20%; height: 2px; background: #00a9da;
 body.page-wrapper { overflow: inherit; }
 .page-wrapper.boxed-layout{ overflow: inherit; }
 .wrapper { overflow: hidden; }
+/* Modificación para hacer que about us se vea bien */
+.uleaboutus {text-align: justify;}
+.custom-content.uleaboutus b { font-weight: 700; font-size: 14px; display:inline;}
+.owl-custom .custom-content.uleaboutus li { font-size: 14px; line-height: 25px; color: #626262;}
+/* Modificación para hacer que about us se vea bien */
 .custom-content b { font-weight: 500; font-size: 18px; display: block;}
 .custom-content span { font-size: 15px; display: block; color: #626262; }
 .custom-content li { font-size: 14px; line-height: 32px; color: #626262; }
@@ -992,7 +997,8 @@ body.page-wrapper { overflow: inherit; }
 .owl-custom .custom-content li { line-height: 32px; }
 /*owl-carousel-12*/
 .owl-custom .owl-carousel-12.owl-carousel.owl-theme.owl-loaded { height: 430px; }
-.owl-carousel-12 .owl-dots { display: block; position: relative; text-indent: inherit; width: 100%; cursor: pointer; text-align: center; }
+/* Margen añadido para mejorar el AboutUs */
+.owl-carousel-12 .owl-dots { margin-top:50px; display: block; position: relative; text-indent: inherit; width: 100%; cursor: pointer; text-align: center; }
 .owl-carousel-12.owl-theme .owl-dots .owl-dot span { background: #d0d0d0; border-radius: 30px; display: block; height: 15px; margin: 0px 7px; transition: opacity 200ms ease 0s;
  width: 15px; cursor: pointer; }
 .owl-carousel-12.owl-theme .owl-dots .owl-dot.active span,  .owl-carousel-12.owl-theme .owl-dots .owl-dot:hover span { background: #00a9da; }

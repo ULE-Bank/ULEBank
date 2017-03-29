@@ -143,9 +143,9 @@
             </div>
             <div class="row">
             <div class="col-md-12">
-            <div class="col-md-4">
+            <div class="col-md-6">
             <h3 class=" text-blue"><spring:message code="label.serviceheader1"/></h3>
-            <div class="col-md-12">
+            <div class="col-md-6">
             <div class="feature-11-uleservice  clearfix">
                         <div class="feature-11-uleservice  mb-30 ">
                            <div class="feature-11-info">
@@ -164,7 +164,7 @@
                         </div>
                      </div>
                      </div>
-                     <div class="col-md-12">
+                     <div class="col-md-6">
                      <div class="feature-11-uleservice  clearfix">
                         <div class="feature-11-uleservice  mb-30 ">
                            <div class="feature-11-info">
@@ -184,12 +184,31 @@
                      </div>
                      </div>
             </div>
-<!--             <div class="col-md-4"> -->
-<%--             <h3><spring:message code="label.serviceheader2"/></h3> --%>
+            <div class="col-md-6">
+            <h3><spring:message code="label.serviceheader2"/></h3>
+                                 <div class="col-md-6">
+                     <div class="feature-11-uleservice  mb-30">
+                        
+                        <div class="feature-11-info ">
+                           <h4 class="text-red  pb-10">
+                              <a href="/reversemortgage">
+                                 <spring:message
+                                    code="label.siteservice6" />
+                              </a>
+                           </h4>
+                           <p>
+                              <a href="/reversemortgage">
+                                 <spring:message
+                                    code="label.siteservice6description" />
+                              </a>
+                           </p>
+                        </div>
+                     </div>
+                     </div>
 <!--               <a href="/a/transactionaccount"> -->
 <%--                       <spring:message --%>
-<%--                          code="label.siteservice9" /> --%>
-<!--                    </a> -->
+<%--                          code="label.siteservice9" />  --%>
+<!--                    </a>  -->
             
             
 <!--               <a href="/a/deposits"> -->
@@ -197,11 +216,12 @@
 <%--                            code="label.siteservice8" /> --%>
 <!--                      </a> -->
            
-            
-<!--             </div> -->
-            <div class="col-md-8">
+            </div>
+            </div>
+             <div class="col-md-12">
+            <div class="col-md-6">
             <h3 class=" text-blue"><spring:message code="label.serviceheader3"/></h3>       
-             <div class="col-md-4">      
+             <div class="col-md-6">      
              <div class="feature-11-uleservice">
                       
                         <div class="feature-11-info">
@@ -219,7 +239,7 @@
                         </div>
                      </div>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-6">
                        <div class="feature-11-uleservice mb-30">
                       
                         <div class="feature-11-info">
@@ -239,26 +259,8 @@
                      </div>
                      </div>
                      
-                     <div class="col-md-4">
-                     <div class="feature-11-uleservice  mb-30">
-                        
-                        <div class="feature-11-info ">
-                           <h4 class="text-red  pb-10">
-                              <a href="/reversemortgage">
-                                 <spring:message
-                                    code="label.siteservice6" />
-                              </a>
-                           </h4>
-                           <p>
-                              <a href="/reversemortgage">
-                                 <spring:message
-                                    code="label.siteservice6description" />
-                              </a>
-                           </p>
-                        </div>
-                     </div>
-                     </div>
-                     <div class="col-md-4">  
+
+                     <div class="col-md-6">  
                         <div class="feature-11-uleservice ">
                         
                         <div class="feature-11-info ">
@@ -277,7 +279,7 @@
                         </div>
                      </div>
                      </div>
-                     <div class="col-md-4">  
+                     <div class="col-md-6">  
                      <div class="feature-11-uleservice ">
                        
                         <div class="feature-11-info ">

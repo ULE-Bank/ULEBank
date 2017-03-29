@@ -167,7 +167,7 @@
              <div class="col-lg-4 col-md-4 col-sm-4">
              <div class="contact-add">
                <i class="fa fa-envelope-o"></i>
-               <p class="text-white"> rraduc00@estudiantes.unileon.es<br>  support@thecorps.com</p>
+               <p class="text-white"> <spring:message code="label.contactemail"/><br> </p>
              </div>
            </div>
           </div>

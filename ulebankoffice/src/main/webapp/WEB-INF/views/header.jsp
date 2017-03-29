@@ -67,10 +67,17 @@
                                              code="label.siteservice1-2" />
                                        </a>
                                     </li>
-<!--                                     <li class="uleserviceheader"> -->
-<%--                                        <spring:message --%>
-<%--                                           code="label.serviceheader2" /> --%>
-<!--                                     </li> -->
+                                    <li class="uleserviceheader">
+                                       <spring:message
+                                         code="label.serviceheader2" />
+                                    </li>
+                                    <li>
+                                       <a href="/reversemortgage">
+                                          <i class="fa fa-angle-double-right"></i>
+                                          <spring:message
+                                             code="label.siteservice6" />
+                                       </a>
+                                    </li>
 <!--                                     <li> -->
 <!--                                        <a href="/a/deposits"> -->
 <!--                                           <i class="fa fa-angle-double-right"></i> -->
@@ -115,13 +122,6 @@
                                           <i class="fa fa-angle-double-right"></i>
                                           <spring:message
                                              code="label.siteservice2" />
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="/reversemortgage">
-                                          <i class="fa fa-angle-double-right"></i>
-                                          <spring:message
-                                             code="label.siteservice6" />
                                        </a>
                                     </li>
 <!--                                     <li class="uleserviceheader"> -->

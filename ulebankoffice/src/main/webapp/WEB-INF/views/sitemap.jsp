@@ -127,7 +127,7 @@
                      </h4>
                      <ul>
                         <li>
-                           <a href="/#services">
+                           <a href="/a/services">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.siteservices" />
                            </a>
@@ -185,12 +185,22 @@
                   <div class="col-lg-3 col-md-4 col-sm-6">
                      <h4 class="text-blue">
                         <i class="fa fa-check-circle-o"></i> 
-                        <a href="/#services">
+                        <a href="/a/services">
                            <spring:message
                               code="label.siteservices" />
                         </a>
                      </h4>
                      <ul>
+                        <li class="text-blue">
+                     <b>
+                     <spring:message
+                                 code="label.servicegroup1" /></b>
+                     </li>
+                     <li>
+                     <b>
+                     <spring:message
+                                 code="label.serviceheader1" /></b>
+                     </li>
                         <li>
                            <a href="/apr">
                               <i class="fa fa-angle-right"></i> 
@@ -198,20 +208,40 @@
                                  code="label.siteservice1" />
                            </a>
                         </li>
+                         <li>
+                           <a href="/a/aprv">
+                              <i class="fa fa-angle-right"></i> 
+                              <spring:message
+                                 code="label.siteservice1-2" />
+                           </a>
+                        </li>
+                        <li>
+                     <b>
+                     <spring:message
+                                 code="label.serviceheader2" /></b>
+                     </li>
+                       <li>
+                           <a href="/reversemortgage">
+                              <i
+                                 class="fa fa-angle-right"></i> 
+                              <spring:message
+                                 code="label.siteservice6" />
+                           </a>
+                        </li>
+                         <li>
+                     <b>
+                     <spring:message
+                                 code="label.serviceheader3" /></b>
+                     </li>
+                     
+                     
                         <li>
                            <a href="/leasing">
                               <i class="fa fa-angle-right"></i>
                               <spring:message code="label.siteservice2" />
                            </a>
                         </li>
-                        <li>
-                           <a href="/offersconsulting">
-                              <i
-                                 class="fa fa-angle-right"></i> 
-                              <spring:message
-                                 code="label.siteservice3" />
-                           </a>
-                        </li>
+                       
                         <li>
                            <a href="/loans">
                               <i class="fa fa-angle-right"></i> 
@@ -255,14 +285,7 @@
                               <spring:message code="label.siteservice5" />
                            </a>
                         </li>
-                        <li>
-                           <a href="/reversemortgage">
-                              <i
-                                 class="fa fa-angle-right"></i> 
-                              <spring:message
-                                 code="label.siteservice6" />
-                           </a>
-                        </li>
+                      
                         <li>
                            <a href="/creditaccount">
                               <i
@@ -271,6 +294,22 @@
                                  code="label.siteservice7" />
                            </a>
                         </li>
+                        
+                        
+                           <li class="text-blue">
+                     <b>
+                     <spring:message
+                                 code="label.servicegroup2" /></b>
+                     </li>
+                         <li>
+                           <a href="/offersconsulting">
+                              <i
+                                 class="fa fa-angle-right"></i> 
+                              <spring:message
+                                 code="label.siteservice3" />
+                           </a>
+                        </li>
+                        
                      </ul>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-6">

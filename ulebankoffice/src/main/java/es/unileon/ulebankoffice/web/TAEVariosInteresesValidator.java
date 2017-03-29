@@ -31,13 +31,8 @@ public class TAEVariosInteresesValidator implements Validator{
 			double interesAux = interes.getInteres();
 			if(interesAux < 0 ){
 				errors.rejectValue("intereses[" + i + "].interes", "fieldIsLessThanZero");
-				System.out.println("he llegado en el less tan zero");
 			} 
 			i++;
-		}
-		
-		
-		
+		}	
 	}
-
 }
