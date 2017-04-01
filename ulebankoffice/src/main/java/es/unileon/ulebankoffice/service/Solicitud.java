@@ -15,18 +15,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  */
 
-@Document(collection="Solicitudes")
+
 public class Solicitud {
-	
-	@Id
-	private String id;
-	
+
 	@NotBlank @NotEmpty 
 	private String estado; //Se seleccionará estado de entre varios predefinidos
 //	private List<Documento> documents;
 	
-	@NotBlank @NotEmpty @Past
-	private Date fechaApertura;
+	@NotBlank @NotEmpty @Past 
+	private String fechaApertura;
 //	private Handler id;
 	
 	@NotBlank @NotNull
@@ -44,10 +41,10 @@ public class Solicitud {
 //	public void setDocuments(List<Documento> documents) {
 //		this.documents = documents;
 //	}
-	public Date getFechaApertura() {
+	public String getFechaApertura() {
 		return fechaApertura;
 	}
-	public void setFechaApertura(Date fechaApertura) {
+	public void setFechaApertura(String fechaApertura) {
 		this.fechaApertura = fechaApertura;
 	}
 //	public Handler getId() {
