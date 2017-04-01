@@ -9,7 +9,7 @@ import es.unileon.ulebankoffice.service.MovimientoCuentaCorriente;
  * @author Razvan Raducu
  *
  */
-public class MovimientoCuentaCorrienteDomain {
+public class MovimientoCuentaCorrienteDomain implements Movimiento{
 	
 	private Double cantidad;
 	private String concepto;

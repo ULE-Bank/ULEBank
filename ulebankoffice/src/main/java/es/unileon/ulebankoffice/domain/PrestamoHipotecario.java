@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.unileon.ulebankoffice.service;
+package es.unileon.ulebankoffice.domain;
 
 import java.util.Date;
 
@@ -14,8 +14,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * @author Razvi Razvan Raducu
+ * @author Razvan Raducu
  * @tipo Hipotecario
+ * ESTA CLASE ESTÁ AÚN INCOMPLETA
  */
 @Document(collection="Prestamos")
 public class PrestamoHipotecario implements ProductoFinanciero {
@@ -70,10 +71,45 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 //		return id;
 //	}
 
-	@Override
+	
 	public void setName(String name) {
 		// TODO Auto-generated method stub
 		this.name = name;
+	}
+
+
+	@Override
+	public Date getFechaSolicitud() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Date getFechaResolucion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Date getFechaFinalizacion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String getEstado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Object getDni() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 //	@Override
@@ -107,97 +143,6 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 //		return this.listaDocs;
 //	}
 
-	@Override
-	public void setFechaSolicitud(Date fecha) {
-		// TODO Auto-generated method stub
-		this.fechaSolicitud = fecha;
-	}
-
-	@Override
-	public Date getFechaSolicitud() {
-		// TODO Auto-generated method stub
-		return fechaSolicitud;
-	}
-
-	@Override
-	public void setFechaResolucion(Date fecha) {
-		// TODO Auto-generated method stub
-		this.fechaResolucion = fecha;
-	}
-
-	@Override
-	public Date getFechaResolucion() {
-		// TODO Auto-generated method stub
-		return fechaResolucion;
-	}
-
-	@Override
-	public void setFechaFinalizacion(Date fecha) {
-		// TODO Auto-generated method stub
-		this.fechaFinalizacion = fecha;
-	}
-
-	@Override
-	public Date getFechaFinalizacion() {
-		// TODO Auto-generated method stub
-		return fechaFinalizacion;
-	}
-
-	@Override
-	public void setEstado(String estado) {
-		// TODO Auto-generated method stub
-		this.estado = estado;
-	}
-
-	@Override
-	public String getestado() {
-		// TODO Auto-generated method stub
-		return estado;
-	}
-
-	public Double getInteres() {
-		return interes;
-	}
-
-	public void setInteres(Double interes) {
-		this.interes = interes;
-	}
-
-	public Double getCapital() {
-		return capital;
-	}
-
-	public void setCapital(Double capital) {
-		this.capital = capital;
-	}
-
-	public Double getAmortizacion() {
-		return amortizacion;
-	}
-
-	public void setAmortizacion(Double amortizacion) {
-		this.amortizacion = amortizacion;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	@Override
-	public void setDni(String dni) {
-		// TODO Auto-generated method stub
-		this.dni = dni;
-	}
-
-	@Override
-	public String getDni() {
-		// TODO Auto-generated method stub
-		return this.dni;
-	}
 
 	
 }

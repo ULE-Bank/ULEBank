@@ -17,24 +17,16 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author Razvan Raducu
  *
  */
-@Document(collection = "Clientes")
-public class Cliente {
 
-	/*
-	 * La propiedad ID no se puede acceder desde los beans o el modelo puesto
-	 * que no tiene getters ni setters asignados
-	 */
-	@Id
-	private String id;
+public class Cliente {
 
 	@NotEmpty
 	@NotBlank
 	private String name, lastname, email;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	@NotNull
 	@Past
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 
 	// private ExpedienteElectronico expedienteElectronico;
 
@@ -42,21 +34,9 @@ public class Cliente {
 
 	@NotEmpty
 	@NotBlank
-	@Indexed(unique = true)
 	private String dni;
 
 	private List<Direccion> direccion;
-
-	public Cliente() {
-	}
-
-	public Cliente(String name, String lastname, String email, Date fechaNacimiento, String dni) {
-		this.name = name;
-		this.lastname = lastname;
-		this.email = email;
-		this.fechaNacimiento = fechaNacimiento;
-		this.dni = dni;
-	}
 
 	public String getName() {
 		return name;
@@ -82,11 +62,11 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -125,7 +105,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", \nname=" + name + ", \nlastname=" + lastname + ", \nemail=" + email
+		return "Cliente [name=" + name + ", \nlastname=" + lastname + ", \nemail=" + email
 				+ ", \nfechaNacimiento=" + fechaNacimiento + ", \ndni=" + dni + ", \ndireccion=" + direccion + "]";
 	}
 

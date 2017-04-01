@@ -6,17 +6,19 @@ package es.unileon.ulebankoffice.service;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import es.unileon.ulebankoffice.domain.Movimiento;
+
 /**
  * @author Razvan Raducu
  *
  */
 public class MovimientoCuentaCorriente implements Movimiento {
 
-	@NotEmpty @NotBlank
+	@NotBlank
 	private Double cantidad;
-	@NotEmpty @NotBlank
+	@NotBlank
 	private String concepto;
-	@NotEmpty @NotBlank
+	@NotBlank
 	private String autor;
 	private String temporalidad;
 

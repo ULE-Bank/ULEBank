@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.unileon.ulebankoffice.service;
+package es.unileon.ulebankoffice.domain;
 
 /**
  * @author Razvi Razvan Raducu

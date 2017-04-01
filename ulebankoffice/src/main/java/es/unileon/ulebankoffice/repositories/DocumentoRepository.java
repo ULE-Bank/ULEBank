@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain;
-import es.unileon.ulebankoffice.service.DocumentoAdjunto;
 
 /**
  * @author Razvan Raducu
@@ -20,5 +19,5 @@ public interface DocumentoRepository extends MongoRepository<DocumentoAdjuntoDom
 	
 //	public List<DocumentoAdjuntoDomain> findBySolicitudId(String solicitudId);
 //	public List<DocumentoAdjuntoDomain> findByProductoFinancieroId(String productoFinancieroId);
-
+	public List<DocumentoAdjuntoDomain> findByRelevanciaEnIds(String id);
 }

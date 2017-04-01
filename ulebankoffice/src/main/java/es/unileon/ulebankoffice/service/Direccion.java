@@ -12,20 +12,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author Razvan Raducu
  *
  */
-@Document(collection="Direcciones")
 public class Direccion {
-	
-	@Id
-	private String id;
-	
+
 	@NotEmpty @NotBlank
 	private String calle;
 	
-	@NotNull @Min(0)
-	private int numero;
+	@NotEmpty
+	private String numero;
 //	private Handler dni;
 	
-	@NotNull @Min(0)
+	@NotEmpty @Min(0)
 	private int codigoPostal;
 	
 	@NotEmpty @NotBlank
@@ -45,11 +41,11 @@ public class Direccion {
 		this.calle = calle;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
@@ -87,7 +83,7 @@ public class Direccion {
 
 	@Override
 	public String toString() {
-		return "Direccion [id=" + id + ", calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal
+		return "Direccion [calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal
 				+ ", localidad=" + localidad + ", comunidadAutonoma=" + comunidadAutonoma + ", dni=" + dni + "]";
 	}
 

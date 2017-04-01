@@ -3,11 +3,13 @@
  */
 package es.unileon.ulebankoffice.domain;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,8 +28,10 @@ public class SolicitudDomain {
 	private Date fechaResolucion;
 	private List<DocumentoAdjuntoDomain> documentos;
 	
+	@Autowired
+	DateFormat dateFormat;
+	
 	public SolicitudDomain(String estado, String fechaApertura) throws ParseException{
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
 		this.fechaApertura = dateFormat.parse(fechaApertura);
 		this.estado = estado;
 	}
