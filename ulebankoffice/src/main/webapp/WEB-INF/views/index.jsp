@@ -1039,19 +1039,27 @@ Our happy clients   -->
            <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient1.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
-           <h3 class="text-white uppercase">Front-End Development</h3>
-           <span> Modern website designers</span>
-           <p class="text-white">I have exercitation ullamco laboris nisi ut aliquip exea. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         </div>
+           <h3 class="text-white uppercase"><spring:message code="label.happyclients1"/></h3>
+           <p class="text-white"><spring:message code="label.happyclients1sub"/>         
+           </div>
       </div>
       <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
            <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient2.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
-           <h3 class="text-white uppercase">UI/UX Design</h3>
-           <span> Modern website designers</span>
-           <p class="text-white"> At Modern website designers quis nostrud exercitation ullamco laboris nisi ut aliquip exea. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+           <h3 class="text-white uppercase"><spring:message code="label.happyclients2"/></h3>
+           <p class="text-white"> <spring:message code="label.happyclients2sub"/>
+           </div>
+           
+      </div>
+             <div class="row item">
+         <div class="col-lg-3 col-md-3 col-sm-3">
+           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient5.jpg">
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <h3 class="text-white uppercase"><spring:message code="label.happyclients3"/></h3>
+           <p class="text-white"> <spring:message code="label.happyclients3sub"/> 
          </div>
       </div>
       <div class="row item">
@@ -1059,30 +1067,18 @@ Our happy clients   -->
            <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient3.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
-           <h3 class="text-white uppercase">Website production</h3>
-           <span> Modern website designers</span>
-           <p class="text-white"> Working with Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.</p>
-         </div>
+           <h3 class="text-white uppercase"><spring:message code="label.happyclients2"/></h3>
+           <p class="text-white"><spring:message code="label.happyclients2sub"/>         
+           </div>
       </div>
        <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
            <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient6.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
-           <h3 class="text-white uppercase">Website production</h3>
-           <span> Modern website designers</span>
-           <p class="text-white"> Working with Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.</p>
-         </div>
-      </div>
-       <div class="row item">
-         <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient5.jpg">
-         </div>
-         <div class="col-lg-9 col-md-9 col-sm-9">
-           <h3 class="text-white uppercase">Website production</h3>
-           <span> Modern website designers</span>
-           <p class="text-white"> Working with Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim niam, quis nostrud exercitation ullamco laboris nisi ut aliquip exea.</p>
-         </div>
+           <h3 class="text-white uppercase"><spring:message code="label.happyclients3"/></h3>
+           <p class="text-white"> <spring:message code="label.happyclients3sub"/> 
+           </div>
       </div>
    </div>
    </div>

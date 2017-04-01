@@ -21,8 +21,6 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-
-	
 	<servlet-mapping>
 		<servlet-name>FrontalController</servlet-name>
 		<url-pattern>/*.htm</url-pattern>
@@ -58,7 +56,9 @@
 		<url-pattern>/e/*</url-pattern>
 		<url-pattern>/alldocs/*</url-pattern>
 		<url-pattern>/o/*</url-pattern>	
-		<url-pattern>/a/*</url-pattern>	
+		<url-pattern>/a/*</url-pattern>
+		<url-pattern>/tl</url-pattern>
+<!-- 		<url-pattern>/oops</url-pattern> -->
 	</servlet-mapping>
 
 	<servlet>
@@ -96,4 +96,10 @@ http://stackoverflow.com/questions/7066192/how-to-specify-the-default-error-page
 <!-- 		<location>/e/404</location> -->
 <!-- 	</error-page> -->
 <!-- Actualmente google no permite customizar el error 404 para páginas que no estén mapeadas -->
+
+<!-- 	<error-page> -->
+<!--         <exception-type>java.lang.Exception</exception-type> -->
+<!--         <location>/oops</location> -->
+<!--     </error-page> -->
+
 </web-app>
