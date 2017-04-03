@@ -1,0 +1,38 @@
+{
+   "clienteDomain":[
+      {
+         "_id":"clientetest0",
+         "name":"Razvan",
+         "lastname":"Raducu",
+         "email":"rraduc00@estudiantes.unileon.es",
+         "fechaNacimiento":"ISODATE(1994-12-05)",
+         "dni":{
+            "id":"x5526828c"
+         },
+         "direcciones":[
+            {
+               "id":"direccion1",
+               "calle":"calleEjemplo1",
+               "localidad":"leon",
+               "comunidadAutonoma":"Castilla y León",
+               "numero":"sin numero",
+               "dni":{
+                  "id":"x5526828c"
+               },
+               "codigoPostal":11223
+            },
+            {
+               "id":"direccion2",
+               "calle":"calleEjemplo2",
+               "localidad":"Cantabria",
+               "comunidadAutonoma":"Cantabria",
+               "numero":"sin numero",
+               "dni":{
+                  "id":"x5526828c"
+               },
+               "codigoPostal":11223
+            }
+         ]
+      }
+   ]
+}

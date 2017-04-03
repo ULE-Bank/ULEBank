@@ -135,7 +135,9 @@
 		credentials="razvan:ulerazvanule@ulebankoffice">
 		<mongo:client-options connect-timeout="5000" />
 	</mongo:mongo-client>
-
+	
+	<mongo:repositories base-package="es.unileon.ulebankoffice.repository" />
+		
 	<!-- ############### ↕↕↕↕↕↕ Son equivalentes ↕↕↕↕↕ ################## -->
 
 	<!-- Factory bean that creates the Mongo instance -->
@@ -152,5 +154,5 @@
 	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" 
 		/> -->
 
-	<mongo:repositories base-package="es.unileon.ulebankoffice.repositories" />
+	
 </beans>

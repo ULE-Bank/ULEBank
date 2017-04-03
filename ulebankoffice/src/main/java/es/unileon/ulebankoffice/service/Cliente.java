@@ -1,6 +1,5 @@
 package es.unileon.ulebankoffice.service;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -8,10 +7,6 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author Razvan Raducu

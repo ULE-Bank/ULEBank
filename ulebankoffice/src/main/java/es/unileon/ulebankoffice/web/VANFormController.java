@@ -20,7 +20,7 @@ public class VANFormController {
     public ModelAndView processAdd(@ModelAttribute("van") VAN van, BindingResult bindingResult) {
 		
         if (bindingResult.hasErrors())
-        	return new ModelAndView("van", null, null);
+        	return new ModelAndView("van");
         
         int n = van.getN();
         double k = van.getK();

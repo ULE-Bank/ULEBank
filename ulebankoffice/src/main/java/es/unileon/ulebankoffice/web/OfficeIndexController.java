@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.unileon.ulebankoffice.repositories.ClienteRepository;
+import es.unileon.ulebankoffice.domain.ClienteDomain;
+import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.service.Cliente;
 
 
@@ -57,7 +58,9 @@ public class OfficeIndexController {
 				return "officeindex";
 			}
 		try {
-			clienteRepository.insert(nuevoCliente);
+			
+//			PENDIENTE!!!!!!!!!!!!!!!!!!!!!!!!
+//			clienteRepository.insert(nuevoCliente);
 			System.out.println("Se ha registrado cliente sin errores");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -104,7 +107,7 @@ public class OfficeIndexController {
 		}
 		
 		/*Lo convierto a lowercase puesto que al guardarlo lo hago como lowercase*/
-		List<Cliente> clienteFound = clienteRepository.findByDni(dni.toLowerCase());
+		List<ClienteDomain> clienteFound = clienteRepository.findByDni(dni.toLowerCase());
 		System.out.println(clienteFound);
 		if(clienteFound.isEmpty()){
 			model.addAttribute("noClientFoundError", noClientFoundError);

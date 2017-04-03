@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.unileon.ulebankoffice.repositories.ClienteRepository;
+import es.unileon.ulebankoffice.domain.ClienteDomain;
+import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.service.Cliente;
 
 /**
@@ -29,7 +30,7 @@ public class OfficeClientPageController {
 	@RequestMapping(method = RequestMethod.GET, params = {"uin"})
 	public String showClientData(ModelMap model, @RequestParam("uin") String dni){
 		
-		List<Cliente> clientes = clienteRepository.findByDni(dni);
+		List<ClienteDomain> clientes = clienteRepository.findByDni(dni);
 		
 		
 		

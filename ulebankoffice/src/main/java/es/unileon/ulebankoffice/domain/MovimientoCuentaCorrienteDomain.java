@@ -3,8 +3,6 @@
  */
 package es.unileon.ulebankoffice.domain;
 
-import es.unileon.ulebankoffice.service.MovimientoCuentaCorriente;
-
 /**
  * @author Razvan Raducu
  *

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.unileon.ulebankoffice.repositories;
+package es.unileon.ulebankoffice.repository;
 
 import java.util.List;
 
