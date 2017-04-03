@@ -21,10 +21,10 @@ public class DNIHandler implements Handler {
 		if (!DNIValido(id)) {
 			throw new DNIException("Documento de identificación inválido");
 		} else {
-			this.id = id;
+			this.id = id.toUpperCase();
 		}
 	}
-
+	
 	public boolean compareTo(Handler handler) {
 		// TODO Auto-generated method stub
 		// return toString().equals(handler.toString());
@@ -33,7 +33,7 @@ public class DNIHandler implements Handler {
 
 	@Override
 	public String toString() {
-		return "id";
+		return id;
 	}
 
 	public String getId() {

@@ -6,6 +6,7 @@ package es.unileon.ulebankoffice.repository;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import es.unileon.ulebankoffice.domain.ClienteDomain;
@@ -16,7 +17,8 @@ import es.unileon.ulebankoffice.domain.ClienteDomain;
  */
 @Repository
 public interface ClienteRepository extends MongoRepository<ClienteDomain, String>{
-
-		public List<ClienteDomain> findByDni(String dni);
+	
+		@Query("{'dni._id':?0}")
+		public ClienteDomain findByDni(String dni);
 	
 }

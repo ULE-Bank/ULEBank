@@ -49,7 +49,7 @@ public class OfficeIndexController {
 		System.out.println("FECHA ->>>>[" + nuevoCliente.getFechaNacimiento());
 		
 		/* Lo convierto a lowerCase puesto que es un ensureIndex unique:true y así se soluciona el problema mayúsculas-minúsculas*/
-		nuevoCliente.setDni(nuevoCliente.getDni().toLowerCase());
+		nuevoCliente.setDni(nuevoCliente.getDni().toUpperCase());
 		
 //		model.addAttribute("mongoDocument", new MongoDBDocument());
 		if(clienteResult.hasErrors()){
@@ -106,10 +106,10 @@ public class OfficeIndexController {
 			noClientFoundError = "No hay ningún cliente con ese DNI/NIE";
 		}
 		
-		/*Lo convierto a lowercase puesto que al guardarlo lo hago como lowercase*/
-		List<ClienteDomain> clienteFound = clienteRepository.findByDni(dni.toLowerCase());
+		/*Lo convierto a uppercase puesto que al guardarlo lo hago como uppercase*/
+		ClienteDomain clienteFound = clienteRepository.findByDni(dni.toUpperCase());
 		System.out.println(clienteFound);
-		if(clienteFound.isEmpty()){
+		if(clienteFound == null){
 			model.addAttribute("noClientFoundError", noClientFoundError);
 			model.addAttribute("clients",  clienteRepository.findAll());
 		}else{

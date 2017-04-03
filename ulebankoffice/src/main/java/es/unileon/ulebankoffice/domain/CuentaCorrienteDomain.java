@@ -5,6 +5,7 @@ package es.unileon.ulebankoffice.domain;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -32,20 +33,22 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler>{
 	
 	private List<MovimientoCuentaCorrienteDomain> movimientos;
 	
-	@Autowired
-	DateFormat dateFormat;
 	
+	public CuentaCorrienteDomain() {}
+
 	public CuentaCorrienteDomain(String dni, String estado, double saldo, double interes, double tae, double comision) throws DNIException, ParseException{
+		
+		DateFormat userDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
 		this.dni = new DNIHandler(dni);
 		this.estado = estado;
 		this.saldo = saldo;
 		this.interes = interes;
 		this.tae = tae;
 		this.comision = comision;
-		this.fechaSolicitud = dateFormat.parse(new Date().toString());
+		this.fechaSolicitud = userDateFormat.parse(new Date().toString());
 		
 	}
-	
 	
 	public Date getFechaSolicitud() {
 		return fechaSolicitud;

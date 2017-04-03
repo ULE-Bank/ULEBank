@@ -1,0 +1,51 @@
+{
+   "CuentasCorrientes":[
+      {
+         "_class":"es.unileon.ulebankoffice.domain.CuentaCorrienteDomain",
+         "name":"Razvan",
+         "lastname":"Raducu",
+         "saldo" : 100.00,
+         "comision" : 1.0,
+         "tae" : 5.0,
+         "interes" : 7.0,
+         "estado" : "abierta",
+         "dni":{
+            "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
+            "_id":"X5526828C"
+         },
+         "email":"rraduc00@estudiantes.unileon.es",
+      },
+      
+       {
+         "_class":"es.unileon.ulebankoffice.domain.CuentaCorrienteDomain",
+         "name":"Razvan",
+         "lastname":"Raducu",
+          "saldo" : 100.00,
+         "comision" : 1.0,
+         "tae" : 5.0,
+         "interes" : 7.0,
+         "estado" : "cerrada",
+         "dni":{
+            "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
+            "_id":"X5526828C"
+         },
+         "email":"rraduc00@estudiantes.unileon.es",
+      },
+      
+       {
+         "_class":"es.unileon.ulebankoffice.domain.CuentaCorrienteDomain",
+         "name":"Razvan",
+         "lastname":"Raducu",
+          "saldo" : 100.00,
+         "comision" : 1.0,
+         "tae" : 5.0,
+         "interes" : 7.0,
+         "estado" : "abierta",
+         "dni":{
+            "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
+            "_id":"X4975127C"
+         },
+         "email":"rraduc00@estudiantes.unileon.es",
+      }
+   ]
+}

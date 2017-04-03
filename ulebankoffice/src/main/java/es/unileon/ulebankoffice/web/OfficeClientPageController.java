@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.unileon.ulebankoffice.domain.ClienteDomain;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
-import es.unileon.ulebankoffice.service.Cliente;
 
 /**
  * @author Razvi Razvan Raducu
@@ -30,7 +29,7 @@ public class OfficeClientPageController {
 	@RequestMapping(method = RequestMethod.GET, params = {"uin"})
 	public String showClientData(ModelMap model, @RequestParam("uin") String dni){
 		
-		List<ClienteDomain> clientes = clienteRepository.findByDni(dni);
+		ClienteDomain clientes = clienteRepository.findByDni(dni.toUpperCase());
 		
 		
 		

@@ -4,15 +4,12 @@
 package es.unileon.ulebankoffice.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.github.fakemongo.Fongo;
 import com.mongodb.Mongo;
-
-import es.unileon.ulebankoffice.repository.ClienteRepository;
 
 /**
  * @author Razvan Raducu
