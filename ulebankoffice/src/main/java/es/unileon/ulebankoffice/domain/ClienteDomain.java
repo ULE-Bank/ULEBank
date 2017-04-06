@@ -31,9 +31,7 @@ public class ClienteDomain {
 	private Handler dni;
 	
 	private List<DireccionDomain> direcciones;
-	
-	public ClienteDomain(){}
-	
+		
 //	public ClienteDomain(String name, String lastname, String dni) throws DNIException{
 //		this.name = name;
 //		this.lastname = lastname;
@@ -46,6 +44,9 @@ public class ClienteDomain {
 		System.out.println("Date format i received -> " + fechaNacimiento);
 		
 		DateFormat userDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		this.fechaNacimiento = userDateFormat.parse(fechaNacimiento);
+		
 //		DateFormat mongoDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
 //		
 //		Date userDate = userDateFormat.parse(fechaNacimiento);
@@ -61,7 +62,7 @@ public class ClienteDomain {
 		this.lastname = lastname;
 		this.email = email;
 		//this.fechaNacimiento = df.parse(fechaNacimiento);
-		this.fechaNacimiento = userDateFormat.parse(fechaNacimiento);
+		
 		setDni(dni);
 		
 	}

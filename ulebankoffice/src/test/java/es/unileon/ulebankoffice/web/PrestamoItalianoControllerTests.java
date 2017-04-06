@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 public class PrestamoItalianoControllerTests {
 	
@@ -23,61 +24,65 @@ public class PrestamoItalianoControllerTests {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(italianoController).build();
+        InternalResourceViewResolver vr = new InternalResourceViewResolver();
+        vr.setSuffix(".jsp");
+        this.mockMvc = MockMvcBuilders.standaloneSetup(italianoController)
+        		.setViewResolvers(vr)
+        		.build();
     }
 
     @Test
 	public void testGetRequest() throws Exception {
-		this.mockMvc.perform(get("/prestamo-metodo-italiano.htm"))
+		this.mockMvc.perform(get("/italianloan"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("prestamo-metodo-italiano"));
+	            .andExpect(forwardedUrl("italianloan.jsp"));
 	}
 	
 	@Test
 	public void testPostRequestWithoutErrors() throws Exception {
-		this.mockMvc.perform(post("/prestamo-metodo-italiano.htm")
+		this.mockMvc.perform(post("/italianloan")
 				.param("C0", "100000")
 	            .param("i", "5")
 	            .param("k", "3")
 	            .param("p", "1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("prestamo-metodo-italiano"))
+	            .andExpect(forwardedUrl("italianloan.jsp"))
 	            .andExpect(model().attributeExists("tabla"));
 	}
 	
 	@Test
 	public void testPostRequestCapInicialError() throws Exception {
-		this.mockMvc.perform(post("/prestamo-metodo-italiano.htm")
+		this.mockMvc.perform(post("/italianloan")
 				.param("C0", "0")
 	            .param("i", "5")
 	            .param("k", "3")
 	            .param("p", "1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("prestamo-metodo-italiano"))
+	            .andExpect(forwardedUrl("italianloan.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 	
 	@Test
 	public void testPostRequestTipoInteresError() throws Exception {
-		this.mockMvc.perform(post("/prestamo-metodo-italiano.htm")
+		this.mockMvc.perform(post("/italianloan")
 				.param("C0", "100000")
 	            .param("i", "-5")
 	            .param("k", "3")
 	            .param("p", "1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("prestamo-metodo-italiano"))
+	            .andExpect(forwardedUrl("italianloan.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 	
 	@Test
 	public void testPostRequestPeriodosError() throws Exception {
-		this.mockMvc.perform(post("/prestamo-metodo-italiano.htm")
+		this.mockMvc.perform(post("/italianloan")
 				.param("C0", "100000")
 	            .param("i", "5")
 	            .param("k", "0")
 	            .param("p", "1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("prestamo-metodo-italiano"))
+	            .andExpect(forwardedUrl("italianloan.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 

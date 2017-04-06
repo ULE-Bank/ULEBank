@@ -6,6 +6,7 @@ package es.unileon.ulebankoffice.repository;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain;
@@ -19,5 +20,8 @@ public interface DocumentoRepository extends MongoRepository<DocumentoAdjuntoDom
 	
 //	public List<DocumentoAdjuntoDomain> findBySolicitudId(String solicitudId);
 //	public List<DocumentoAdjuntoDomain> findByProductoFinancieroId(String productoFinancieroId);
-	public List<DocumentoAdjuntoDomain> findByRelevanciaEnIds(String id);
+	@Query("{'dni._id':?0}")
+	public List<DocumentoAdjuntoDomain> findByDniId(String id);
+	@Query("{'productid._id':?0}")
+	public List<DocumentoAdjuntoDomain> findByProductId(String id);
 }

@@ -17,7 +17,7 @@ import es.unileon.ulebankoffice.service.SimpleUserManager;
  */
 
 /**
- * @author Razvi Razvan Raducu
+ * @author Razvan Raducu
  *
  */
 public class UserLoginDataControllerTests {

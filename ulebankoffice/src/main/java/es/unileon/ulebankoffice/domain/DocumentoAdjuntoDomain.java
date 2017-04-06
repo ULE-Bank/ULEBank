@@ -22,7 +22,7 @@ public class DocumentoAdjuntoDomain {
 	private List<Handler> dni;
 //	private String solicitudId;
 //	private String productoFinancieroId;
-	private List<String> relevanciaEnIds;
+	private List<String> productId;
 	
 	
 	public DocumentoAdjuntoDomain(String ruta) throws DNIException{
@@ -61,15 +61,15 @@ public class DocumentoAdjuntoDomain {
 	}
 
 	public List<String> getRelevanciaEnIds() {
-		return relevanciaEnIds;
+		return productId;
 	}
 
 	public void setRelevanciaEnIds(List<String> relevanciaEnIds) {
-		this.relevanciaEnIds = relevanciaEnIds;
+		this.productId = relevanciaEnIds;
 	}
 	
 	public void addRelevanicaEnId(String id){
-		this.relevanciaEnIds.add(id);
+		this.productId.add(id);
 	}
 	
 }

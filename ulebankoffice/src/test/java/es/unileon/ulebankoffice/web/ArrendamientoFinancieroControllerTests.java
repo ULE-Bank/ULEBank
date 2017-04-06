@@ -11,8 +11,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 public class ArrendamientoFinancieroControllerTests {
 	
@@ -24,61 +26,68 @@ public class ArrendamientoFinancieroControllerTests {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(arrendamientoFinancieroController).build();
+        
+        //Necesario declarar el viewresolver para evitar ciruclar path
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//        viewResolver.setPrefix("/WEB-INF/jsp/view/");
+        viewResolver.setSuffix(".jsp");
+        this.mockMvc = MockMvcBuilders.standaloneSetup(arrendamientoFinancieroController)
+        		.setViewResolvers(viewResolver)
+        		.build();
     }
 
     @Test
 	public void testGetRequest() throws Exception {
-		this.mockMvc.perform(get("/arrendamiento-financiero.htm"))
+		this.mockMvc.perform(get("/leasing"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("arrendamiento-financiero"));
+	            .andExpect(forwardedUrl("leasing.jsp"));
 	}
 	
 	@Test
 	public void testPostRequestWithoutErrors() throws Exception {
-		this.mockMvc.perform(post("/arrendamiento-financiero.htm")
+		this.mockMvc.perform(post("/leasing")
 				.param("valorBien", "12000")
 	            .param("duracionContrato", "5")
 	            .param("fraccionamientoPagoCuota", "3")
 	            .param("tipoInteres", "2.50"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("arrendamiento-financiero"))
+	            .andExpect(forwardedUrl("leasing.jsp"))
 	            .andExpect(model().attributeExists("tabla"));
 	}
 	
 	@Test
 	public void testPostRequestValorBienError() throws Exception {
-		this.mockMvc.perform(post("/arrendamiento-financiero.htm")
+		this.mockMvc.perform(post("/leasing")
 				.param("valorBien", "0")
 	            .param("duracionContrato", "5")
 	            .param("fraccionamientoPagoCuota", "3")
 	            .param("tipoInteres", "2.50"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("arrendamiento-financiero"))
+	            .andExpect(forwardedUrl("leasing.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 	
 	@Test
 	public void testPostRequestDuracionContratoError() throws Exception {
-		this.mockMvc.perform(post("/arrendamiento-financiero.htm")
+		this.mockMvc.perform(post("/leasing")
 				.param("valorBien", "12000")
 	            .param("duracionContrato", "0")
 	            .param("fraccionamientoPagoCuota", "3")
 	            .param("tipoInteres", "2.50"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("arrendamiento-financiero"))
+	            .andExpect(forwardedUrl("leasing.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 	
 	@Test
 	public void testPostRequestTipoInteresError() throws Exception {
-		this.mockMvc.perform(post("/arrendamiento-financiero.htm")
+		this.mockMvc.perform(post("/leasing")
 				.param("valorBien", "12000")
 	            .param("duracionContrato", "5")
 	            .param("fraccionamientoPagoCuota", "3")
 	            .param("tipoInteres", "-1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("arrendamiento-financiero"))
+	            .andExpect(forwardedUrl("leasing.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 }

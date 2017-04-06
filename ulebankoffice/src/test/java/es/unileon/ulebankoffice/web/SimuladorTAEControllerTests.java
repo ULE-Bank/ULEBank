@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 public class SimuladorTAEControllerTests {
 
@@ -24,33 +25,37 @@ public class SimuladorTAEControllerTests {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(taeController).build();
+        InternalResourceViewResolver vr = new InternalResourceViewResolver();
+        vr.setSuffix(".jsp");
+        this.mockMvc = MockMvcBuilders.standaloneSetup(taeController)
+        		.setViewResolvers(vr)
+        		.build();
     }
 
 	@Test
 	public void testGetRequest() throws Exception {
-		this.mockMvc.perform(get("/simulador-calculos-tae.htm"))
+		this.mockMvc.perform(get("/apr"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("simulador-calculos-tae"));
+	            .andExpect(forwardedUrl("aprcalculation.jsp"));
 	}
 	
 	@Test
 	public void testPostRequestWithoutErrors() throws Exception {
-		this.mockMvc.perform(post("/simulador-calculos-tae.htm")
+		this.mockMvc.perform(post("/apr")
 				.param("i", "2.59")
 	            .param("p", "1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("simulador-calculos-tae"))
+	            .andExpect(forwardedUrl("aprcalculation.jsp"))
 	            .andExpect(model().attributeExists("tabla"));
 	}
 	
 	@Test
 	public void testPostRequestTipoInteresError() throws Exception {
-		this.mockMvc.perform(post("/simulador-calculos-tae.htm")
+		this.mockMvc.perform(post("/apr")
 				.param("i", "-1")
 	            .param("p", "1"))
 	            .andExpect(status().isOk())
-	            .andExpect(forwardedUrl("simulador-calculos-tae"))
+	            .andExpect(forwardedUrl("aprcalculation.jsp"))
 	            .andExpect(model().hasErrors());
 	}
 
