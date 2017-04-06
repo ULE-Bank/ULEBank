@@ -1,5 +1,5 @@
 /* 
- * Widgets for Social Network photo stream.
+ * Widgets for Social Network photo stream. 
  * 
  * Author: Pixel Industry
  * Website: http://pixel-industry.com

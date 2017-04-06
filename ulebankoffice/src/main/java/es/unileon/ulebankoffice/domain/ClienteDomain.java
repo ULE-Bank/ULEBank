@@ -10,6 +10,7 @@ import javax.validation.constraints.Past;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,56 +20,85 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "Clientes")
 public class ClienteDomain {
-	
+
 	@Id
 	private String id;
-	
+
 	private String name, lastname, email;
-	
+
 	private Date fechaNacimiento;
-	
+
 	@Indexed(unique = true)
 	private Handler dni;
-	
+
 	private List<DireccionDomain> direcciones;
-		
-//	public ClienteDomain(String name, String lastname, String dni) throws DNIException{
-//		this.name = name;
-//		this.lastname = lastname;
-//		this.dni = new DNIHandler(dni);
-//	}
-	
-	public ClienteDomain(String name, String lastname, String email, String fechaNacimiento, String dni) throws ParseException, DNIException {
-		
-		//SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-		System.out.println("Date format i received -> " + fechaNacimiento);
-		
-		DateFormat userDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		
-		this.fechaNacimiento = userDateFormat.parse(fechaNacimiento);
-		
-//		DateFormat mongoDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-//		
-//		Date userDate = userDateFormat.parse(fechaNacimiento);
-//		Date mongoDate = mongoDateFormat.parse(mongoDateFormat.format(userDate));
-//		System.out.println("----------------------");
-//		System.out.println(userDate.toString()); //Mon Dec 05 00:00:00 CET 1994
-//		System.out.println("........................");
-//		System.out.println(mongoDateFormat.format(userDate).toString()); //lun dic 05 00:00:00 CET 1994
-//		System.out.println("........................");
-//		System.out.println(userDateFormat.format(mongoDate).toString()); //05.12.1994
+
+	// public ClienteDomain(String name, String lastname, String dni) throws
+	// DNIException{
+	// this.name = name;
+	// this.lastname = lastname;
+	// this.dni = new DNIHandler(dni);
+	// }
+
+	/**
+	 * Constructor por defecto utilizado para instanciar objetos de esta clase
+	 * cuando se obtiene el DBObject a través de mongo repository. La
+	 * anotación @PersistanceConstructor indica que sea este el constructor que
+	 * ha de usarse para tal acción. <b>Ver también:</b>
+	 * http://docs.spring.io/spring-data/data-mongo/docs/1.1.0.RELEASE/reference
+	 * /html/#mapping-chapter
+	 * 
+	 * @param name
+	 * @param lastname
+	 * @param email
+	 * @param fechaNacimiento
+	 * @param dni
+	 * @param direcciones
+	 * @throws ParseException
+	 * @throws DNIException
+	 */
+	@PersistenceConstructor
+	public ClienteDomain(String name, String lastname, String email, Date fechaNacimiento, Handler dni,
+			List<DireccionDomain> direcciones) throws ParseException, DNIException {
+
+		this.name = name;
+		this.lastname = lastname;
+		this.email = email;
+		// this.fechaNacimiento = df.parse(fechaNacimiento);
+		this.fechaNacimiento = fechaNacimiento;
+		setDni(dni);
+		this.direcciones = direcciones;
+
+	}
+
+	/**
+	 * Constructor usado para instanciar manualmente objetos de la clase
+	 * ClienteDomain. Recibe como parámetros de tipo String la fecha y el dni
+	 * para que sea más fácul su declaración. Se comprueba si estos parámetros
+	 * son adecuados sintáctica y semánticamente.
+	 * 
+	 * @param name
+	 * @param lastname
+	 * @param email
+	 * @param fechaNacimiento
+	 * @param dni
+	 * @param direcciones
+	 * @throws ParseException
+	 * @throws DNIException
+	 */
+	public ClienteDomain(String name, String lastname, String email, String fechaNacimiento, String dni,
+			List<DireccionDomain> direcciones) throws ParseException, DNIException {
+		DateFormat df = new SimpleDateFormat("yyy-MM-dd");
+		Date userDate = df.parse(fechaNacimiento);
 		
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
-		//this.fechaNacimiento = df.parse(fechaNacimiento);
-		
+		this.fechaNacimiento = userDate;
 		setDni(dni);
-		
+		this.direcciones = direcciones;
 	}
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "ClienteDomain [id=" + id + ", name=" + name + ", lastname=" + lastname + ", email=" + email
@@ -114,7 +144,7 @@ public class ClienteDomain {
 	public void setDni(String dni) throws DNIException {
 		this.dni = new DNIHandler(dni);
 	}
-	
+
 	public void setDni(Handler dni) throws DNIException {
 		this.dni = dni;
 	}
@@ -127,5 +157,8 @@ public class ClienteDomain {
 		this.direcciones = direcciones;
 	}
 
-		
+	public void addDireccion(DireccionDomain direccion) {
+		this.direcciones.add(direccion);
+	}
+
 }

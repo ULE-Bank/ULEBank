@@ -2,13 +2,15 @@
    "Clientes":[
       {
          "_class":"es.unileon.ulebankoffice.domain.ClienteDomain",
+         
          "name":"Razvan",
          "lastname":"Raducu",
          "dni":{
             "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
             "_id":"X5526828C"
          },
-         "email":"rraduc00@estudiantes.unileon.es",
+         "fechaNacimiento" : {"$date":"1994-12-04T23:00:00.000Z"},
+         "email":"rraduc00@estudiantes.unileon.es"
       }
    ]
 }

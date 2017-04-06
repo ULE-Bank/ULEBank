@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -18,38 +19,66 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  */
 @Document(collection = "CuentasCorrientes")
-public class CuentaCorrienteDomain implements ProductoFinanciero<Handler>{
-	
+public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
+
 	@Id
 	private String id;
-	
-	private Date fechaSolicitud, fechaResolucion, fechaFinalizacion;
-	
-	private Double saldo, comision, tae, interes;
-	
-	private String estado;
-	
-	private Handler dni;
-	
-	private List<MovimientoCuentaCorrienteDomain> movimientos;
-	
-	
-	public CuentaCorrienteDomain() {}
 
-	public CuentaCorrienteDomain(String dni, String estado, double saldo, double interes, double tae, double comision) throws DNIException, ParseException{
-		
-		DateFormat userDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		
+	private Date fechaSolicitud, fechaResolucion, fechaFinalizacion;
+
+	private Double saldo, comision, tae, interes;
+
+	private String estado;
+
+	private Handler dni;
+
+	private List<MovimientoCuentaCorrienteDomain> movimientos;
+
+	public CuentaCorrienteDomain(String dni, String estado, double saldo, double interes, double tae, double comision)
+			throws DNIException, ParseException {
+
 		this.dni = new DNIHandler(dni);
 		this.estado = estado;
 		this.saldo = saldo;
 		this.interes = interes;
 		this.tae = tae;
 		this.comision = comision;
-		this.fechaSolicitud = userDateFormat.parse(new Date().toString());
-		
+		this.fechaSolicitud = new Date();
+
 	}
-	
+
+	/**
+	 * Constructor utilizado para instanciar objetos de esta clase desde MongoDB
+	 * y para traducirlos a mongo.
+	 * 
+	 * @param fechaSolicitud
+	 * @param fechaResolucion
+	 * @param fechaFinalizacion
+	 * @param saldo
+	 * @param comision
+	 * @param tae
+	 * @param interes
+	 * @param estado
+	 * @param dni
+	 * @param movimientos
+	 */
+	@PersistenceConstructor
+	public CuentaCorrienteDomain(Date fechaSolicitud, Date fechaResolucion, Date fechaFinalizacion, Double saldo,
+			Double comision, Double tae, Double interes, String estado, Handler dni,
+			List<MovimientoCuentaCorrienteDomain> movimientos) {
+		super();
+		this.fechaSolicitud = fechaSolicitud;
+		this.fechaResolucion = fechaResolucion;
+		this.fechaFinalizacion = fechaFinalizacion;
+		this.saldo = saldo;
+		this.comision = comision;
+		this.tae = tae;
+		this.interes = interes;
+		this.estado = estado;
+		this.dni = dni;
+		this.movimientos = movimientos;
+	}
+
 	public Date getFechaSolicitud() {
 		return fechaSolicitud;
 	}
@@ -129,13 +158,13 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler>{
 	public void setMovimientos(List<MovimientoCuentaCorrienteDomain> movimientos) {
 		this.movimientos = movimientos;
 	}
-	
-	public void addMovimiento(MovimientoCuentaCorrienteDomain movimiento){
+
+	public void addMovimiento(MovimientoCuentaCorrienteDomain movimiento) {
 		this.movimientos.add(movimiento);
 	}
-	
-	//Se supone que van a enviar la documentación más adelante
-	public Double realizarLiquidacion(){
+
+	// Se supone que van a enviar la documentación más adelante
+	public Double realizarLiquidacion() {
 		return null;
 	}
 

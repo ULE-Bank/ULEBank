@@ -1,6 +1,7 @@
 package es.unileon.ulebankoffice.repository;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 import java.text.ParseException;
@@ -57,8 +58,10 @@ public class CuentaCorrienteRepositoryTest {
 	public void testFindAll() throws ParseException, DNIException {
 		
 		assertEquals(3, repo.findAll().size());
-		repo.save(new CuentaCorrienteDomain());
-		repo.save(new CuentaCorrienteDomain());
+		CuentaCorrienteDomain cuenta = new CuentaCorrienteDomain("x5526828c", "abierta", 20.0, 5.0, 7.0, 3.0);
+		repo.save(cuenta);
+		cuenta = new CuentaCorrienteDomain("x5526828c", "abierta", 20500.0, 5.0, 7.0, 3.0);
+		repo.save(cuenta);
 		assertEquals(5, repo.findAll().size());
 //		System.out.println(mongo.toString() + "\n" + mongo.getServerAddressList());
 //		List <ClienteDomain> clientes = clienteRepository.findAll();
@@ -80,9 +83,12 @@ public class CuentaCorrienteRepositoryTest {
 		List<CuentaCorrienteDomain> cuentasR = repo.findByDni("X5526828C");
 		List<CuentaCorrienteDomain> cuentasO = repo.findByDni("X4975127C");
 		List<CuentaCorrienteDomain> cuentasW = repo.findByDni("X5526828D");
-		assertEquals(2, cuentasR.size());
-		assertEquals(1, cuentasO.size());
-		assertEquals(0, cuentasW.size());
+		
+		//Hamcrest notation
+		assertThat(cuentasR.size(), is(2));
+		assertThat(cuentasO.size(), is(1));
+		assertThat(cuentasW.size(), is(0));
+
 		
 	}
 
