@@ -6,13 +6,14 @@ package es.unileon.ulebankoffice.domain;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author Razvan Raducu
  *
  */
-@Document(collection="documents")
+@Document(collection="Documents")
 public class DocumentoAdjuntoDomain {
 
 	@Id
@@ -25,6 +26,14 @@ public class DocumentoAdjuntoDomain {
 	private List<String> productId;
 	
 	
+	@PersistenceConstructor
+	public DocumentoAdjuntoDomain(String ruta, List<Handler> dni, List<String> productId) {
+	super();
+	this.ruta = ruta;
+	this.dni = dni;
+	this.productId = productId;
+}
+
 	public DocumentoAdjuntoDomain(String ruta) throws DNIException{
 		this.ruta = ruta;
 	}

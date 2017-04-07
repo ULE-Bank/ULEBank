@@ -26,13 +26,17 @@ public class SolicitudDomain {
 	private Date fechaApertura;
 	private Date fechaResolucion;
 	private List<DocumentoAdjuntoDomain> documentos;
+	private String productId;
+		
 	
-	@Autowired
-	DateFormat dateFormat;
-	
-	public SolicitudDomain(String estado, String fechaApertura) throws ParseException{
-		this.fechaApertura = dateFormat.parse(fechaApertura);
+
+	public SolicitudDomain(String estado, Date fechaApertura, Date fechaResolucion,
+			List<DocumentoAdjuntoDomain> documentos, String productId) {
 		this.estado = estado;
+		this.fechaApertura = fechaApertura;
+		this.fechaResolucion = fechaResolucion;
+		this.documentos = documentos;
+		this.productId = productId;
 	}
 
 	public String getEstado() {
@@ -69,6 +73,25 @@ public class SolicitudDomain {
 	
 	public void addDocument(DocumentoAdjuntoDomain documento){
 		this.documentos.add(documento);
+	}
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	
+	public void addDocument(){
+		
+	}
+
+	@Override
+	public String toString() {
+		return "SolicitudDomain [id=" + id + ", estado=" + estado + ", fechaApertura=" + fechaApertura
+				+ ", fechaResolucion=" + fechaResolucion + ", documentos=" + documentos + ", productId=" + productId
+				+ "]";
 	}
 	
 	

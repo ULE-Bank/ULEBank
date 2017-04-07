@@ -4,6 +4,7 @@
 package es.unileon.ulebankoffice.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -25,7 +26,7 @@ public class DireccionDomain {
 	public DireccionDomain(String dni, String calle, String localidad, String comunidadAutonoma, int codigoPostal,
 			String numero) throws DNIException {
 
-		this.dni = new DNIHandler(dni);
+		setDni(dni);
 		this.calle = calle;
 		this.localidad = localidad;
 		this.comunidadAutonoma = comunidadAutonoma;
@@ -33,6 +34,21 @@ public class DireccionDomain {
 		this.numero = numero;
 
 	}
+	
+	
+	@PersistenceConstructor
+	public DireccionDomain(String calle, String localidad, String comunidadAutonoma, String numero, Handler dni,
+			int codigoPostal) {
+		super();
+		this.calle = calle;
+		this.localidad = localidad;
+		this.comunidadAutonoma = comunidadAutonoma;
+		this.numero = numero;
+		this.dni = dni;
+		this.codigoPostal = codigoPostal;
+	}
+
+
 
 	public String getCalle() {
 		return calle;
@@ -73,7 +89,12 @@ public class DireccionDomain {
 	public void setDni(Handler dni) {
 		this.dni = dni;
 	}
+	
+	public void setDni(String dni) throws DNIException {
+		this.dni = new DNIHandler(dni);
+	}
 
+	
 	public int getCodigoPostal() {
 		return codigoPostal;
 	}

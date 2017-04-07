@@ -12,6 +12,12 @@ public class InteresVariable {
 	private double interes;
 	
 	public InteresVariable(){}
+	
+	public InteresVariable(double interes){
+		
+		this.interes = interes;
+		
+	}
 
 	public double getInteres() {
 		return interes;

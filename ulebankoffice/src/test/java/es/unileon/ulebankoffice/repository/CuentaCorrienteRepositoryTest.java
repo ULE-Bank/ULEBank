@@ -1,7 +1,12 @@
 package es.unileon.ulebankoffice.repository;
+/**
+ * @author Razvan Raducu
+ *
+ */
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
 import java.text.ParseException;
@@ -90,6 +95,14 @@ public class CuentaCorrienteRepositoryTest {
 		assertThat(cuentasW.size(), is(0));
 
 		
+	}
+	
+	@Test
+	public void testFindByDniNonExistent(){
+		List<CuentaCorrienteDomain> cuentas = repo.findByDni("X5526828D");
+		assertThat(cuentas.size(), is(0));
+		cuentas = repo.findAll();
+		assertThat(cuentas.size(), is(0));
 	}
 
 }

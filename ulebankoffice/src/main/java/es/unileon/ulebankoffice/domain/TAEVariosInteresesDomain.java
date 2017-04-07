@@ -64,4 +64,36 @@ public class TAEVariosInteresesDomain {
 		return new BigDecimal(Double.toString(TAE)).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 	}
 
+	public double getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
+	}
+
+	public List<InteresVariable> getIntereses() {
+		return intereses;
+	}
+
+	public void setIntereses(List<InteresVariable> intereses) {
+		this.intereses = intereses;
+	}
+
+	@Override
+	public String toString() {
+		return "TAEVariosInteresesDomain [cantidad=" + cantidad + ", periodo=" + periodo + ", intereses=" + intereses
+				+ "]";
+	}
+
+	
+	
 }

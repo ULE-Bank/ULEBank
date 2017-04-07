@@ -14,5 +14,5 @@ import es.unileon.ulebankoffice.domain.SolicitudDomain;
  */
 @Repository
 public interface SolicitudRepository extends MongoRepository<SolicitudDomain, String>{
-
+		public SolicitudDomain findByProductId(String productId);
 }
