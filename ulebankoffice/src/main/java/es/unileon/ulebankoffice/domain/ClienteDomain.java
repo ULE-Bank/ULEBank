@@ -23,7 +23,7 @@ public class ClienteDomain {
 
 	@Id
 	private String id;
-
+	
 	private String name, lastname, email;
 
 	private Date fechaNacimiento;

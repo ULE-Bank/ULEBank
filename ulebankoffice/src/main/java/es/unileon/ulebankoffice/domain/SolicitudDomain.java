@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -27,9 +28,16 @@ public class SolicitudDomain {
 	private Date fechaResolucion;
 	private List<DocumentoAdjuntoDomain> documentos;
 	private String productId;
-		
 	
-
+	/**
+	 * 
+	 * @param estado
+	 * @param fechaApertura
+	 * @param fechaResolucion
+	 * @param documentos
+	 * @param productId
+	 */
+	@PersistenceConstructor
 	public SolicitudDomain(String estado, Date fechaApertura, Date fechaResolucion,
 			List<DocumentoAdjuntoDomain> documentos, String productId) {
 		this.estado = estado;
@@ -83,10 +91,6 @@ public class SolicitudDomain {
 		this.productId = productId;
 	}
 	
-	public void addDocument(){
-		
-	}
-
 	@Override
 	public String toString() {
 		return "SolicitudDomain [id=" + id + ", estado=" + estado + ", fechaApertura=" + fechaApertura

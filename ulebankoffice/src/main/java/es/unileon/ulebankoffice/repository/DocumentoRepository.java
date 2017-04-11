@@ -22,5 +22,6 @@ public interface DocumentoRepository extends MongoRepository<DocumentoAdjuntoDom
 //	public List<DocumentoAdjuntoDomain> findByProductoFinancieroId(String productoFinancieroId);
 	@Query("{'dni._id':?0}")
 	public List<DocumentoAdjuntoDomain> findByDni(String id);
+	@Query("{'productId._id':?0}")
 	public List<DocumentoAdjuntoDomain> findByProductId(String id);
 }

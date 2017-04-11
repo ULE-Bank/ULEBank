@@ -23,11 +23,11 @@ public class DocumentoAdjuntoDomain {
 	private List<Handler> dni;
 //	private String solicitudId;
 //	private String productoFinancieroId;
-	private List<String> productId;
+	private List<Handler> productId;
 	
 	
 	@PersistenceConstructor
-	public DocumentoAdjuntoDomain(String ruta, List<Handler> dni, List<String> productId) {
+	public DocumentoAdjuntoDomain(String ruta, List<Handler> dni, List<Handler> productId) {
 	super();
 	this.ruta = ruta;
 	this.dni = dni;
@@ -69,16 +69,17 @@ public class DocumentoAdjuntoDomain {
 		this.dni.add(new DNIHandler(dni));
 	}
 
-	public List<String> getRelevanciaEnIds() {
+	public List<Handler> getProductId() {
 		return productId;
 	}
 
-	public void setRelevanciaEnIds(List<String> relevanciaEnIds) {
-		this.productId = relevanciaEnIds;
+	public void setProductId(List<Handler> productId) {
+		this.productId = productId;
 	}
-	
-	public void addRelevanicaEnId(String id){
-		this.productId.add(id);
+
+	public void addProductId(String productId){
+		this.productId.add(new ProductIDHandler(productId));
 	}
+
 	
 }

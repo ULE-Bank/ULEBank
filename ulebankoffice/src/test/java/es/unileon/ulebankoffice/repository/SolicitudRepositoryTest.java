@@ -66,8 +66,8 @@ public class SolicitudRepositoryTest {
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFingByProductId() {
 		SolicitudDomain solicitud = repo.findByProductId("id1");
-		assertNotNull(solicitud);
 		System.out.println(solicitud);
+		assertNotNull(solicitud);
 		assertThat(solicitud.getEstado(), is("En trámite"));
 		assertThat(solicitud.getFechaResolucion(), is(notNull()));
 		solicitud = repo.findByProductId("id2");

@@ -21,28 +21,49 @@
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
 			"ruta": "etc/var/lib",
 			"productId": [
-				"id1",
-				"id2",
-				"id3"
+			{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id1"
+			},
+			{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id2"
+			},
+			{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id3"
+			}
 			]
 		}, {
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
 			"ruta": "etc/var/lib",
 			"productId": [
-				"id1",
-				"id2"
+				{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id1"
+			},
+			{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id2"
+			}
 			]
 		}, {
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
 			"ruta": "etc/var/lib",
 			"productId": [
-				"id1"
+				{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id1"
+			}
 			]
 		}, {
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
 			"ruta": "etc/var/lib",
 			"productId": [
-				"id1"
+				{
+				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
+				"_id": "id1"
+			}
 			]
 		},
 

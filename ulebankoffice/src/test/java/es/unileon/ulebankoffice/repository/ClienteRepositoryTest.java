@@ -61,15 +61,9 @@ public class ClienteRepositoryTest {
 	public void testNoRepeatedDNI() throws ParseException, DNIException {
 		try {
 			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", null);
-			
-			
 			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", null);
-			
-
 			clienteRepository.save(cliente);
 			clienteRepository.save(cliente2);
-			
-				
 		} catch (Exception e) {
 			assertEquals(e.getCause().getClass(), com.mongodb.DuplicateKeyException.class);
 			assertEquals(1, clienteRepository.findAll().size());
@@ -91,34 +85,13 @@ public class ClienteRepositoryTest {
 		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", null));
 		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", null));
 		assertEquals(3, clienteRepository.findAll().size());
-//		System.out.println(mongo.toString() + "\n" + mongo.getServerAddressList());
-//		List <ClienteDomain> clientes = clienteRepository.findAll();
-//		System.out.println("[");
-//		for (ClienteDomain clienteDomain : clientes) {
-//			System.out.println(clienteDomain);
-//		}
-//		System.out.println("]");
-		
-//		List<ClienteDomain> clientes = clienteRepository.findAll();
-//		System.out.println(clientes.size());
-//		fail("Not yet implemented");
 	}
 	
 	@Test
 	@UsingDataSet(locations = { "/testing/clienteRepositoryData.json" }, 
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindByDni(){
-		
-		try {
-			System.out.println(clienteRepository.findAll());
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			System.out.println(e.getCause());
-			System.out.println(e.getClass());
-			System.out.println(e.toString());
-		}
-		
-		
+		System.out.println(clienteRepository.findAll());
 		ClienteDomain cliente = clienteRepository.findByDni("X5526828C");
 		System.out.println(cliente);
 		assertEquals("Razvan", cliente.getName());

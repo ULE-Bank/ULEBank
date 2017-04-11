@@ -9,7 +9,6 @@ package es.unileon.ulebankoffice.domain;
  */
 public interface Handler {
 
-	
 	public String toString();
 	public boolean compareTo(Handler handler);
 	

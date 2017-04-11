@@ -20,7 +20,7 @@ import com.mongodb.Mongo;
 @EnableMongoRepositories(basePackages = "es.unileon.ulebankoffice.repository")
 public class MongoTestConfig extends AbstractMongoConfiguration{
 
-	private static final String DB_NAME = "ulebankofficetestdb";
+	private final String DB_NAME = "ulebankofficetestdb";
 	
 	@Override
 	protected String getDatabaseName() {
