@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.notNull;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -33,7 +34,7 @@ import es.unileon.ulebankoffice.domain.SolicitudDomain;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = MongoTestConfig.class)
 public class SolicitudRepositoryTest {
-	
+		
 	@Autowired
 	Mongo mongo;
 

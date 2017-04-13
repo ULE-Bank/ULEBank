@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,17 @@ import es.unileon.ulebankoffice.service.InteresVariable;
 
 public class TAEVariosInteresesDomainTest {
 	
+	Logger logger = Logger.getLogger("ulebankLogger");
+	
 	private TAEVariosInteresesDomain tae;
 			
 	@Test
 	public void testCalcularPeriodo12() {
+		logger.debug("Sample debug message. Funciona :D");
+        logger.info("Sample info message");
+        logger.warn("Sample warn message");
+        logger.error("Sample error message");
+        logger.fatal("Sample fatal message");
 		List<InteresVariable> intereses = new ArrayList<>();
 		intereses.add(new InteresVariable(1));
 		intereses.add(new InteresVariable(2));

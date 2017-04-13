@@ -153,6 +153,5 @@
 		@Repository annotated classes -->
 	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" 
 		/> -->
-
-	
+		
 </beans>
