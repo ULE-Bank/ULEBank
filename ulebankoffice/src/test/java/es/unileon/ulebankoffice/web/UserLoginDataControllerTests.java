@@ -93,7 +93,6 @@ public class UserLoginDataControllerTests {
 		assertEquals("registrousuarios", model.getViewName());
 		assertNotNull(value);
 		assertEquals(value,"Usuario registrado correctamente.");
-		System.out.println("GitHub Web Hook");
 	}
 
 }
