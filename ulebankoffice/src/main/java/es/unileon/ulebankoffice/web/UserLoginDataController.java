@@ -78,7 +78,7 @@ public class UserLoginDataController {
 	}
 	
 	@RequestMapping(value = "/usuarios", method = RequestMethod.GET)
-	public ModelAndView internacionalización(){
+	public ModelAndView internacionalizacion(){
 		Map<String, Object> myModel = new HashMap<>();
 		if(email != null && password != null){
 			
