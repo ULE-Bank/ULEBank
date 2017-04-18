@@ -307,7 +307,7 @@ because we want to be to able to execute mvn sonar:sonar without passing a profi
                   <encoding>UTF-8</encoding>
                   <inputEncoding>UTF-8</inputEncoding>
                   <outputEncoding>UTF-8</outputEncoding>
-                  <argLine>-Xms256m -Xmx512m -XX:MaxPermSize=128m -ea
+                  <argLine>${argLine} -Xms256m -Xmx512m -XX:MaxPermSize=128m -ea
 				        -Dfile.encoding=UTF-8</argLine>
                </configuration>
             </plugin>
@@ -324,6 +324,10 @@ because we want to be to able to execute mvn sonar:sonar without passing a profi
       <!-- coverage -->
       <profile>
          <id>coverage</id>
+         <properties>	
+         <argLineC>${argLine}</argLineC>
+         </properties>
+         
          <build>
             <plugins>
                <plugin>
@@ -334,7 +338,7 @@ because we want to be to able to execute mvn sonar:sonar without passing a profi
                   <encoding>UTF-8</encoding>
                   <inputEncoding>UTF-8</inputEncoding>
                   <outputEncoding>UTF-8</outputEncoding>
-                     <argLine>${jacoco.agent.ut.arg} -Dfile.encoding=UTF-8 @{argLine}</argLine>
+                     <argLine>${argLineC} ${jacoco.agent.ut.arg} -Dfile.encoding=UTF-8</argLine>
                      <!-- Specific to generate mapping between tests and covered code -->
                      <properties>
                         <property>
