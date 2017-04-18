@@ -204,7 +204,7 @@
       <!-- for hot reload of the web application -->
       <!--       <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory> -->
       <!--       Changed it in order to make SonarQube and JaCoCo coverage report easier to setup -->
-      <outputDirectory>${project.build.directory}/classes</outputDirectory>
+      <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
       <pluginManagement>
          <plugins>
             <plugin>
