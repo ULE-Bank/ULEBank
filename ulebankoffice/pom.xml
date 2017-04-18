@@ -1,294 +1,437 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-	<modelVersion>4.0.0</modelVersion>
-	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
-
-	<groupId>es.unileon.ulebank.office</groupId>
-	<artifactId>ulebankoffice</artifactId>
-
-	<properties>
-		<app.id>ulebankoffice</app.id>
-		<app.version>4</app.version>
-		<appengine.version>1.9.49</appengine.version>
-		<gcloud.plugin.version>2.0.9.133.v201611104</gcloud.plugin.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-		<archiveClasses>true</archiveClasses>
-		<org.springframework.version>4.3.7.RELEASE</org.springframework.version>
-	</properties>
-
-	<prerequisites>
-		<maven>3.3.9</maven>
-	</prerequisites>
-
-<!-- 	<parent> -->
-<!-- 		<groupId>org.springframework.boot</groupId> -->
-<!-- 		<artifactId>spring-boot-starter-parent</artifactId> -->
-<!-- 		<version>1.5.2.RELEASE</version> -->
-<!-- 	</parent> -->
-
-	<dependencies>
-		<!-- Compile/runtime dependencies -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>${appengine.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-		<!-- Test Dependencies -->
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-core</artifactId>
-			<version>1.3</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-library</artifactId>
-			<version>1.3</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<version>${appengine.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-stubs</artifactId>
-			<version>${appengine.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp.jstl</groupId>
-			<artifactId>jstl-api</artifactId>
-			<version>1.2-rev-1</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.4.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.9.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.8.0</version>
-		</dependency>
-		<!--Usado para descifrar el token.id enviado por parte de OAuth2 Google 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <packaging>war</packaging>
+   <version>1.0-SNAPSHOT</version>
+   <groupId>es.unileon.ulebank.office</groupId>
+   <artifactId>ulebankoffice</artifactId>
+   <properties>
+      <!--  This format is used by SonarQube. If you need another format see "buildnumber-maven-plugin" -->
+      <maven.build.timestamp.format>MM.yyyy</maven.build.timestamp.format>
+      <yearMonth>${maven.build.timestamp}</yearMonth>
+      <!-- ************************-->
+      <!-- Sonar/Reporting settings -->
+      <!-- ************************-->
+      <!-- Sonar/Jacoco integration. Note that these properties need to be defined outside the "coverage" profile
+because we want to be to able to execute mvn sonar:sonar without passing a profile -->
+      <!-- Tells Sonar to use jacoco for coverage results -->
+      <sonar.projectKey>UlebankOfficey</sonar.projectKey>
+      <sonar.projectName>ULeBank and ULeBank Office</sonar.projectName>
+      <sonar.projectVersion>${yearMonth}</sonar.projectVersion>
+      <sonar.language>java</sonar.language>
+      <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+      <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+      <!-- Jacoco version to use -->
+      <jacoco.version>0.7.2.201409121644</jacoco.version>
+      <!-- The Sonar Jacoco Listener for JUnit to extract coverage details per test -->
+      <sonar-jacoco-listeners.version>1.4</sonar-jacoco-listeners.version>
+      <!-- Don't let Sonar execute tests. We will ask it to Maven 'sonar.dynamicAnalysis' is deprecated since version 4.3 and should no longer be used. -->
+      <!-- <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis> -->
+      <!-- The system property jacoco.outputDir needs to be override on the command line
+    with an absolute path if you want to merge results from all modules.
+    Example in a Jenkisn build where ${WORKSPACE} is defined and your project in the root directory of the workspace :
+    mvn clean install -Prun-its,coverage -Djacoco.outputDir=${WORKSPACE}/target
+    Note that unfortunately using the following does not work because of
+    http://jira.codehaus.org/browse/SONAR-3427:
+<jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
+-->
+      <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
+      <!-- Jacoco output file for UTs -->
+      <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
+      <!-- Tells Sonar where the Jacoco coverage result file is located for Unit Tests -->
+      <sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
+      <!-- Jacoco output file for ITs -->
+      <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
+      <!-- Tells Sonar where the Jacoco coverage result file is located for Integration Tests -->
+      <sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
+      <!-- <sonar.junit.reportsPath>${project.build.directory}/surefire-reports/</sonar.junit.reportsPath> -->
+      <!-- <sonar.tests>src/test/java</sonar.tests> -->
+      <!-- === END of Sonar/Reporting settings === -->
+      <app.id>ulebankoffice</app.id>
+      <app.version>4</app.version>
+      <appengine.version>1.9.49</appengine.version>
+      <gcloud.plugin.version>2.0.9.133.v201611104</gcloud.plugin.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <maven.compiler.source>1.7</maven.compiler.source>
+      <maven.compiler.target>1.7</maven.compiler.target>
+      <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+      <archiveClasses>true</archiveClasses>
+      <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
+   </properties>
+   <prerequisites>
+      <maven>3.3.9</maven>
+   </prerequisites>
+   <!-- 	<parent> -->
+   <!-- 		<groupId>org.springframework.boot</groupId> -->
+   <!-- 		<artifactId>spring-boot-starter-parent</artifactId> -->
+   <!-- 		<version>1.5.2.RELEASE</version> -->
+   <!-- 	</parent> -->
+   <dependencies>
+      <!-- Compile/runtime dependencies -->
+      <dependency>
+         <groupId>com.google.appengine</groupId>
+         <artifactId>appengine-api-1.0-sdk</artifactId>
+         <version>${appengine.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>jstl</groupId>
+         <artifactId>jstl</artifactId>
+         <version>1.2</version>
+      </dependency>
+      <!-- Test Dependencies -->
+      <dependency>
+         <groupId>org.hamcrest</groupId>
+         <artifactId>hamcrest-core</artifactId>
+         <version>1.3</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.hamcrest</groupId>
+         <artifactId>hamcrest-library</artifactId>
+         <version>1.3</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.google.appengine</groupId>
+         <artifactId>appengine-testing</artifactId>
+         <version>${appengine.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.google.appengine</groupId>
+         <artifactId>appengine-api-stubs</artifactId>
+         <version>${appengine.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.12</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-core</artifactId>
+         <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-webmvc</artifactId>
+         <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet.jsp.jstl</groupId>
+         <artifactId>jstl-api</artifactId>
+         <version>1.2-rev-1</version>
+      </dependency>
+      <dependency>
+         <groupId>javax.validation</groupId>
+         <artifactId>validation-api</artifactId>
+         <version>1.1.0.Final</version>
+      </dependency>
+      <dependency>
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-validator</artifactId>
+         <version>5.2.4.Final</version>
+      </dependency>
+      <dependency>
+         <groupId>joda-time</groupId>
+         <artifactId>joda-time</artifactId>
+         <version>2.9.3</version>
+      </dependency>
+      <dependency>
+         <groupId>com.google.code.gson</groupId>
+         <artifactId>gson</artifactId>
+         <version>2.8.0</version>
+      </dependency>
+      <!--Usado para descifrar el token.id enviado por parte de OAuth2 Google 
 			SignIn -->
-		<dependency>
-			<groupId>com.google.api-client</groupId>
-			<artifactId>google-api-client</artifactId>
-			<version>1.22.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-			<version>1.13.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.10.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security.extensions</groupId>
-			<artifactId>spring-security-saml2-core</artifactId>
-			<version>1.0.2.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.16-beta2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.fakemongo</groupId>
-			<artifactId>fongo</artifactId>
-			<version>2.0.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${org.springframework.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.lordofthejars</groupId>
-			<artifactId>nosqlunit-mongodb</artifactId>
-			<version>0.7.7</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.mongodb</groupId>
-			<artifactId>mongo-java-driver</artifactId>
-			<version>3.4.2</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.9.5</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-core</artifactId>
-		    <version>2.5.2</version>
-		</dependency>
-		<dependency>
-		  <groupId>log4j</groupId>
-		  <artifactId>log4j</artifactId>
-		  <version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.25</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.25</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.7.9</version>
-			<type>maven-plugin</type>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<!-- for hot reload of the web application -->
-		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>versions-maven-plugin</artifactId>
-					<version>2.1</version>
-					<executions>
-						<execution>
-							<phase>compile</phase>
-							<goals>
-								<goal>display-dependency-updates</goal>
-								<goal>display-plugin-updates</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>2.6</version>
-					<configuration>
-						<archiveClasses>true</archiveClasses>
-						<webResources>
-							<!-- in order to interpolate version from pom into appengine-web.xml -->
-							<resource>
-								<directory>${basedir}/src/main/webapp/WEB-INF</directory>
-								<filtering>true</filtering>
-								<targetPath>WEB-INF</targetPath>
-							</resource>
-						</webResources>
-					</configuration>
-				</plugin>
-
-				<plugin>
-					<groupId>com.google.appengine</groupId>
-					<artifactId>appengine-maven-plugin</artifactId>
-					<version>${appengine.version}</version>
-					<configuration>
-						<enableJarClasses>false</enableJarClasses>
-						<version>${app.version}</version>
-						<!-- Comment in the below snippet to bind to all IPs instead of just 
+      <dependency>
+         <groupId>com.google.api-client</groupId>
+         <artifactId>google-api-client</artifactId>
+         <version>1.22.0</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-commons</artifactId>
+         <version>1.13.1.RELEASE</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-mongodb</artifactId>
+         <version>1.10.1.RELEASE</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.security.extensions</groupId>
+         <artifactId>spring-security-saml2-core</artifactId>
+         <version>1.0.2.RELEASE</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.poi</groupId>
+         <artifactId>poi</artifactId>
+         <version>3.16-beta2</version>
+      </dependency>
+      <dependency>
+         <groupId>com.github.fakemongo</groupId>
+         <artifactId>fongo</artifactId>
+         <version>2.0.12</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-test</artifactId>
+         <version>${org.springframework.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.lordofthejars</groupId>
+         <artifactId>nosqlunit-mongodb</artifactId>
+         <version>0.7.7</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.mongodb</groupId>
+         <artifactId>mongo-java-driver</artifactId>
+         <version>3.4.2</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.mockito</groupId>
+         <artifactId>mockito-all</artifactId>
+         <version>1.9.5</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <version>3.1.0</version>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>servlet-api</artifactId>
+         <version>2.5</version>
+      </dependency>
+      <dependency>
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-core</artifactId>
+         <version>2.5.2</version>
+      </dependency>
+      <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>1.2.17</version>
+      </dependency>
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>1.7.25</version>
+      </dependency>
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-log4j12</artifactId>
+         <version>1.7.25</version>
+      </dependency>
+      <dependency>
+         <groupId>org.jacoco</groupId>
+         <artifactId>jacoco-maven-plugin</artifactId>
+         <version>0.7.9</version>
+         <type>maven-plugin</type>
+      </dependency>
+   </dependencies>
+   <build>
+      <!-- for hot reload of the web application -->
+      <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>versions-maven-plugin</artifactId>
+               <version>2.1</version>
+               <executions>
+                  <execution>
+                     <phase>compile</phase>
+                     <goals>
+                        <goal>display-dependency-updates</goal>
+                        <goal>display-plugin-updates</goal>
+                     </goals>
+                  </execution>
+               </executions>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-war-plugin</artifactId>
+               <version>2.6</version>
+               <configuration>
+                  <archiveClasses>true</archiveClasses>
+                  <webResources>
+                     <!-- in order to interpolate version from pom into appengine-web.xml -->
+                     <resource>
+                        <directory>${basedir}/src/main/webapp/WEB-INF</directory>
+                        <filtering>true</filtering>
+                        <targetPath>WEB-INF</targetPath>
+                     </resource>
+                  </webResources>
+               </configuration>
+            </plugin>
+            <plugin>
+               <groupId>com.google.appengine</groupId>
+               <artifactId>appengine-maven-plugin</artifactId>
+               <version>${appengine.version}</version>
+               <configuration>
+                  <enableJarClasses>false</enableJarClasses>
+                  <version>${app.version}</version>
+                  <!-- Comment in the below snippet to bind to all IPs instead of just 
 							localhost -->
-						<!-- address>0.0.0.0</address> <port>8080</port -->
-						<!-- Comment in the below snippet to enable local debugging with a 
+                  <!-- address>0.0.0.0</address> <port>8080</port -->
+                  <!-- Comment in the below snippet to enable local debugging with a 
 							remote debugger like those included with Eclipse or IntelliJ -->
-						<!-- jvmFlags> <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag> 
+                  <!-- jvmFlags> <jvmFlag>-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n</jvmFlag> 
 							</jvmFlags -->
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>com.google.appengine</groupId>
-					<artifactId>gcloud-maven-plugin</artifactId>
-					<version>${gcloud.plugin.version}</version>
-					<configuration>
-						<set_default>true</set_default>
-					</configuration>
-				</plugin>
-				<plugin>
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-surefire-plugin</artifactId>
-				    <version>2.20</version>
-				    <configuration>
-				        <junitArtifactName>junit:junit</junitArtifactName>
-				        <encoding>UTF-8</encoding>
-				        <inputEncoding>UTF-8</inputEncoding>
-				        <outputEncoding>UTF-8</outputEncoding>
-				        <argLine>-Xms256m -Xmx512m -XX:MaxPermSize=128m -ea
+               </configuration>
+            </plugin>
+            <plugin>
+               <groupId>com.google.appengine</groupId>
+               <artifactId>gcloud-maven-plugin</artifactId>
+               <version>${gcloud.plugin.version}</version>
+               <configuration>
+                  <set_default>true</set_default>
+               </configuration>
+            </plugin>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>2.20</version>
+               <configuration>
+                  <junitArtifactName>junit:junit</junitArtifactName>
+                  <encoding>UTF-8</encoding>
+                  <inputEncoding>UTF-8</inputEncoding>
+                  <outputEncoding>UTF-8</outputEncoding>
+                  <argLine>-Xms256m -Xmx512m -XX:MaxPermSize=128m -ea
 				        -Dfile.encoding=UTF-8</argLine>
-				    </configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>	
+               </configuration>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+      <plugins>
+         <plugin>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+         </plugin>
+      </plugins>
+   </build>
+   <profiles>
+      <!-- coverage -->
+      <profile>
+         <id>coverage</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <configuration>
+                     <argLine>${jacoco.agent.ut.arg}</argLine>
+                     <!-- Specific to generate mapping between tests and covered code -->
+                     <properties>
+                        <property>
+                           <name>listener</name>
+                           <value>org.sonar.java.jacoco.JUnitListener</value>
+                        </property>
+                     </properties>
+                     <!-- test failure ignore -->
+                     <testFailureIgnore>true</testFailureIgnore>
+                  </configuration>
+               </plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-failsafe-plugin</artifactId>
+                  <configuration>
+                     <argLine>-Xmx1024m -XX:MaxPermSize=256m ${jacoco.agent.it.arg}</argLine>
+                     <!-- Specific to generate mapping between tests and covered code -->
+                     <properties>
+                        <property>
+                           <name>listener</name>
+                           <value>org.sonar.java.jacoco.JUnitListener</value>
+                        </property>
+                     </properties>
+                     <!-- Let's put failsafe reports with surefire to have access to tests 
+                        failures/success reports in sonar -->
+                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                  </configuration>
+               </plugin>
+               <plugin>
+                  <groupId>org.jacoco</groupId>
+                  <artifactId>jacoco-maven-plugin</artifactId>
+                  <version>${jacoco.version}</version>
+                  <executions>
+                     <!-- Prepares a variable, jacoco.agent.ut.arg, that contains the info 
+                        to be passed to the JVM hosting the code being tested. -->
+                     <execution>
+                        <id>prepare-ut-agent</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                           <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                           <destFile>${sonar.jacoco.reportPath}</destFile>
+                           <propertyName>jacoco.agent.ut.arg</propertyName>
+                           <append>true</append>
+                        </configuration>
+                     </execution>
+                     <!-- Prepares a variable, jacoco.agent.it.arg, that contains the info 
+                        to be passed to the JVM hosting the code being tested. -->
+                     <execution>
+                        <id>prepare-it-agent</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                           <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                           <destFile>${sonar.jacoco.itReportPath}</destFile>
+                           <propertyName>jacoco.agent.it.arg</propertyName>
+                           <append>true</append>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+         <dependencies>
+            <dependency>
+               <groupId>org.codehaus.sonar-plugins.java</groupId>
+               <artifactId>sonar-jacoco-listeners</artifactId>
+               <version>${sonar-jacoco-listeners.version}</version>
+               <scope>test</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <!-- Integraton tests -->
+      <profile>
+         <id>run-its</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-failsafe-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>integration-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                           <goal>integration-test</goal>
+                        </goals>
+                     </execution>
+                     <execution>
+                        <id>verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                           <goal>verify</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
 </project>
