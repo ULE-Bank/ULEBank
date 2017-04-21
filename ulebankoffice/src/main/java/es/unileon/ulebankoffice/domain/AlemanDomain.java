@@ -5,16 +5,26 @@ import java.util.List;
 
 public class AlemanDomain extends Prestamo {
 	
-	private double capInicial, tipoInteres;
-	private int periodos, tipoPeriodo;
+	private double capInicial;
+	private double tipoInteres;
+	private int periodos;
+	private int tipoPeriodo;
 	
+	/**
+	 * 
+	 * @param C0
+	 * @param i
+	 * @param k
+	 * @param p
+	 */
 	public AlemanDomain(double C0, double i, int k, int p) {
 		this.capInicial = C0;
 		this.tipoInteres = i / 100.0;
 		this.periodos = k;
 		this.tipoPeriodo = p;
 	}
-
+	
+	@Override
 	public List<List<String>> calcular() {
 		int numFilas = (periodos * tipoPeriodo) + 1;
 		
@@ -27,7 +37,7 @@ public class AlemanDomain extends Prestamo {
 		
 		anualidad[0] = interes[0];
 		
-		double anualidadCons = capInicial * (tipoInteres/tipoPeriodo) / (1-(Math.pow((1-(tipoInteres/tipoPeriodo)), (periodos*tipoPeriodo))));
+		double anualidadCons = capInicial * (tipoInteres/tipoPeriodo) / (1-(Math.pow(1-(tipoInteres/tipoPeriodo), periodos*tipoPeriodo)));
 		
 		for(int i=1; i<anualidad.length; i++)
 			anualidad[i] = anualidadCons;
@@ -46,7 +56,7 @@ public class AlemanDomain extends Prestamo {
 		for(int i=1; i<capitalPendiente.length; i++)
 			capitalPendiente[i] = capitalPendiente[i-1] - amortizacion[i];
 		
-		List<List<String>> tabla = new ArrayList<List<String>>();
+		List<List<String>> tabla = new ArrayList<>();
 		
 		List<String> itemTabla;
 		for(int i=0; i<numFilas; i++) {
@@ -65,7 +75,7 @@ public class AlemanDomain extends Prestamo {
 	}
 	
 	public List<String> getTableHeader() {
-		List<String> header = new ArrayList<String>();
+		List<String> header = new ArrayList<>();
 		
 		header.add("Periodo");
 		header.add("Anualidad");
@@ -76,34 +86,35 @@ public class AlemanDomain extends Prestamo {
 		return header;
 	}
 	
+	@Override
 	public double getCapInicial() {
 		return capInicial;
 	}
-	
+	@Override
 	public void setCapInicial(double capInicial) {
 		this.capInicial = capInicial;
 	}
-	
+	@Override
 	public double getTipoInteres() {
 		return tipoInteres;
 	}
-	
+	@Override
 	public void setTipoInteres(double tipoInteres) {
 		this.tipoInteres = tipoInteres / 100.0;
 	}
-
+	@Override
 	public int getPeriodos() {
 		return periodos;
 	}
-	
+	@Override
 	public void setPeriodos(int periodos) {
 		this.periodos = periodos;
 	}
-	
+	@Override
 	public int getTipoPeriodo() {
 		return tipoPeriodo;
 	}
-	
+	@Override
 	public void setTipoPeriodo(int tipoPeriodo) {
 		this.tipoPeriodo = tipoPeriodo;
 	}

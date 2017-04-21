@@ -60,7 +60,7 @@ public class Question {
 			datastore.updateEntity("Question", id, propertiesToUpdate, values);
 		} catch (NumberFormatException | EntityNotFoundException e1) {
 			// TODO Auto-generated catch block
-			logger.error("Error en :" + e1.getMessage() + this.getClass());
+			logger.error("Error en :" + e1.getMessage() + this.getClass() + e1);
 		}
 		
 		Email email = new Email(userMail, reply);
@@ -69,7 +69,7 @@ public class Question {
 			email.send();
 		} catch (UnsupportedEncodingException | MessagingException e) {
 			// TODO Auto-generated catch block
-			logger.error("Error en :" + e.getMessage() + this.getClass());
+			logger.error("Error en :" + e.getMessage() + this.getClass() + e);
 		}
 	}
 	
