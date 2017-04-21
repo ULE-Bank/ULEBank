@@ -20,53 +20,6 @@
 		scope="singleton">
 	</bean>
 
-	<bean id="productManager" class="es.unileon.ulebankoffice.service.SimpleProductManager">
-		<property name="products">
-			<list>
-				<bean class="es.unileon.ulebankoffice.domain.Product">
-					<property name="description" value="Lamp" />
-					<property name="price" value="5.75" />
-				</bean>
-				<bean class="es.unileon.ulebankoffice.domain.Product">
-					<property name="description" value="Table" />
-					<property name="price" value="75.25" />
-				</bean>
-				<bean class="es.unileon.ulebankoffice.domain.Product">
-					<property name="description" value="Chair" />
-					<property name="price" value="22.79" />
-				</bean>
-			</list>
-		</property>
-	</bean>
-
-	<!-- Declaración del bean que contrendrá los usuarios. Implementación del 
-		06.02.17. Para hacer pruebas y simular el incio de sesión / registro -->
-	<bean id="usuariosManager" class="es.unileon.ulebankoffice.service.SimpleUserManager">
-		<property name="usuarios">
-			<list>
-				<bean class="es.unileon.ulebankoffice.domain.User">
-					<property name="name" value="admin" />
-					<property name="lastname" value="admin" />
-					<property name="email" value="admin@ulebankoffice.com" />
-					<property name="password" value="password" />
-				</bean>
-				<bean class="es.unileon.ulebankoffice.domain.User">
-					<property name="name" value="nombre" />
-					<property name="lastname" value="apellido" />
-					<property name="email" value="nombre@ulebankoffice.com" />
-					<property name="password" value="password" />
-				</bean>
-				<bean class="es.unileon.ulebankoffice.domain.User">
-					<property name="name" value="Ejemplo1" />
-					<property name="lastname" value="Ejemplo1" />
-					<property name="email" value="Ejemplo1@ulebankoffice.com" />
-					<property name="password" value="password" />
-				</bean>
-			</list>
-		</property>
-
-	</bean>
-
 <!-- 	<bean id="userDateFormat" class="java.text.SimpleDateFormat"> -->
 <!-- 		<constructor-arg value="dd.MM.yyyy" /> -->
 <!-- 	</bean> -->

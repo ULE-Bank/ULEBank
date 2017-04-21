@@ -48,7 +48,7 @@ public class CreditosFormController {
 		
 		String descripcionMovimiento;
 		double importeMovimiento;
-		Date fechaMovimiento = null;
+		Date fechaMovimiento;
 		
 		for(MovimientosCreditos movimiento : movimientos) {
 			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());

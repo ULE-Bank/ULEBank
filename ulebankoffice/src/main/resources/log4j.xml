@@ -27,7 +27,8 @@
 	<logger name="ulebankLogger">
 		<level value="DEBUG" />
 		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE" />
+<!-- 		Comentado porque GAE Google AppEngine no permite el acceso al sistema de archivos. -->
+<!-- 		<appender-ref ref="FILE" /> -->
 	</logger>
 	
 	<!-- Root Logger -->

@@ -60,7 +60,7 @@ public class AdminQueryPageController {
         	
         	Map<String, Object> myModel = new HashMap<String, Object>();
         	
-        	String nombre = null, apellidos = null, titulo = null, url = null, comentarios = null, state = null, email = null;
+        	String nombre, apellidos, titulo, url, comentarios, state, email;
         	
         	String id = req.getParameter("id");
         	Entity result = Datastore.getDatastore().query("Question", id);

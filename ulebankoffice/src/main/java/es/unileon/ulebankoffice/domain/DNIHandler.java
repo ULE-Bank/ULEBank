@@ -17,19 +17,27 @@ public class DNIHandler implements Handler {
 	// La idea es que desde aquí se lance la excepción en caso de que el DNI sea
 	// incorrecto y donde corresponda se capture para añadirlo al objeto Errors
 	// que derivará en un hasErrors() de bindingResult
+	/**
+	 * La idea es que desde aquí se lance la excepción en caso de que el DNI sea
+	 * incorrecto y donde corresponda se capture para añadirlo al objeto Errors
+	 * que derivará en un hasErrors() de bindingResult
+	 * 
+	 * @param id
+	 * @throws DNIException
+	 */
 	public DNIHandler(String id) throws DNIException {
-		id = id.toUpperCase();
-		if (!DNIValido(id)) {
+		String idUpperCase = id.toUpperCase();
+		if (!dniValido(idUpperCase)) {
 			throw new DNIException("Documento de identificación inválido");
 		} else {
-			this.id = id;
+			this.id = idUpperCase;
 		}
 	}
-
+	
+	@Override
 	public boolean compareTo(Handler handler) {
-		// TODO Auto-generated method stub
 		return toString().equals(handler.toString());
-		
+
 	}
 
 	@Override
@@ -45,8 +53,9 @@ public class DNIHandler implements Handler {
 		this.id = id;
 	}
 
-	private boolean DNIValido(String nif) {
+	private boolean dniValido(String nifNie) {
 		StringBuilder aux;
+		String nif;
 		// Si es NIE, eliminar letra inicial para tratarlo como NIF
 		/*
 		 * Para el cálculo del dígito de control se sustituye:
@@ -55,22 +64,23 @@ public class DNIHandler implements Handler {
 		 * http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del
 		 * -digito-de-control-del-nif-nie
 		 */
-		if (nif.startsWith("L") || nif.startsWith("K") || nif.startsWith("M"))
-			nif = nif.substring(1);
-		else if (nif.startsWith("X")) {
-			aux = new StringBuilder(nif);
+		if (nifNie.startsWith("L") || nifNie.startsWith("K") || nifNie.startsWith("M"))
+			nif = nifNie.substring(1);
+		else if (nifNie.startsWith("X")) {
+			aux = new StringBuilder(nifNie);
 			aux.setCharAt(0, '0');
 			nif = aux.toString();
-		} else if (nif.startsWith("Y")) {
-			aux = new StringBuilder(nif);
+		} else if (nifNie.startsWith("Y")) {
+			aux = new StringBuilder(nifNie);
 			aux.setCharAt(0, '1');
 			nif = aux.toString();
-		} else if (nif.startsWith("Z")) {
-			aux = new StringBuilder(nif);
+		} else if (nifNie.startsWith("Z")) {
+			aux = new StringBuilder(nifNie);
 			aux.setCharAt(0, '2');
 			nif = aux.toString();
+		} else {
+			nif = nifNie;
 		}
-		System.out.println("nif resultante ->>>>" + nif);
 		// Compruebo que el patrón con 7 u 8 dígitos del 0-9 seguidos de una
 		// sola letra se cumple con la cadena "nif" resultante. Los paréntesis
 		// se usan para definir grupos. El blackslash se debe escapar
@@ -84,11 +94,7 @@ public class DNIHandler implements Handler {
 			int dni = Integer.parseInt(matcher.group(1));
 			dni = dni % 23;
 			String reference = letras.substring(dni, dni + 1);
-			if (reference.equalsIgnoreCase(letra)) {
-				return true;
-			} else {
-				return false;
-			}
+			return reference.equalsIgnoreCase(letra);
 		} else
 			return false;
 	}

@@ -36,7 +36,7 @@ public class TAEVariosInteresesDomain {
 			// income[i] = intereses.get(i).getInteres();
 			// System.out.println(income[i]);
 
-			flujos[i + 1] = Double.valueOf((intereses.get(i).getInteres() / (100)) * cantidad / periodo);
+			flujos[i + 1] = (intereses.get(i).getInteres() / (100)) * cantidad / periodo;
 
 		}
 

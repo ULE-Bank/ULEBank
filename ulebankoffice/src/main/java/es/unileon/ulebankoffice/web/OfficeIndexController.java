@@ -57,19 +57,19 @@ public class OfficeIndexController {
 			
 				return "officeindex";
 			}
-		try {
+//		try {
 			
 //			PENDIENTE!!!!!!!!!!!!!!!!!!!!!!!!
 //			clienteRepository.insert(nuevoCliente);
-			System.out.println("Se ha registrado cliente sin errores");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			System.out.println(e.getLocalizedMessage());
-			System.out.println("HA HABIDO ERRORES");
-			model.addAttribute("error", "HA HABIDO ERRORES");
-			return "officeindex";
-		}
-		
+//			System.out.println("Se ha registrado cliente sin errores");
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			System.out.println(e.getLocalizedMessage());
+//			System.out.println("HA HABIDO ERRORES");
+//			model.addAttribute("error", "HA HABIDO ERRORES");
+//			return "officeindex";
+//		}
+//		
 //		repository.insert(mongoDocument);
 		
 		return "redirect:/o";		

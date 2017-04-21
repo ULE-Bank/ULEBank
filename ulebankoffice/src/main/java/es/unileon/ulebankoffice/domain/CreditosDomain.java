@@ -141,7 +141,7 @@ public class CreditosDomain extends Operacion {
 		double totalSaldo = saldo.get(saldo.size()-1) + totalDisposiciones;
 		System.out.println("Total saldo: " + totalSaldo);
 		
-		itemTabla = new ArrayList<String>();
+		
 		
 		return tabla;
 	}

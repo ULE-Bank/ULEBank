@@ -17,7 +17,7 @@
       <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
       <archiveClasses>true</archiveClasses>
       <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
-      <!--       I declare argLine as a property so JaCoCo can set its agent proeprly. -->
+      <!--       I declare argLine as a property so JaCoCo can set its agent properly. -->
       <argLine>-Xms256m -Xmx512m -ea -Dfile.encoding=UTF-8 -Dtest=*</argLine>
    </properties>
    <prerequisites>

@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
 
+import org.apache.log4j.Logger;
+
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 
@@ -12,6 +14,8 @@ public class Question {
 	private String[] propertiesValues;
 	
 	private String id;
+	
+	private Logger logger = Logger.getLogger("ulebankLogger");
 	
 	private Datastore datastore;
 	
@@ -56,7 +60,7 @@ public class Question {
 			datastore.updateEntity("Question", id, propertiesToUpdate, values);
 		} catch (NumberFormatException | EntityNotFoundException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			logger.error("Error en :" + e1.getMessage() + this.getClass());
 		}
 		
 		Email email = new Email(userMail, reply);
@@ -65,7 +69,7 @@ public class Question {
 			email.send();
 		} catch (UnsupportedEncodingException | MessagingException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Error en :" + e.getMessage() + this.getClass());
 		}
 	}
 	
