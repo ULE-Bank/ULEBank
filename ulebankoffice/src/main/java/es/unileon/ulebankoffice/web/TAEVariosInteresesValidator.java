@@ -17,13 +17,11 @@ public class TAEVariosInteresesValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
 		return TAEVariosIntereses.class.equals(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
 		int i = 0;
 		TAEVariosIntereses tae = (TAEVariosIntereses) target;
 

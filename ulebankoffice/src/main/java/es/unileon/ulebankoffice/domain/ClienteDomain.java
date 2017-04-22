@@ -3,14 +3,17 @@ package es.unileon.ulebankoffice.domain;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.Past;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -23,22 +26,20 @@ public class ClienteDomain {
 
 	@Id
 	private String id;
-	
-	private String name, lastname, email;
 
-	private Date fechaNacimiento;
+	private String name, lastname, email, nacionalidad;
+
+	private Date fechaNacimiento, fechaDeAlta;
 
 	@Indexed(unique = true)
 	private Handler dni;
 
 	private List<DireccionDomain> direcciones;
 
-	// public ClienteDomain(String name, String lastname, String dni) throws
-	// DNIException{
-	// this.name = name;
-	// this.lastname = lastname;
-	// this.dni = new DNIHandler(dni);
-	// }
+	@Transient
+	private Documentos documentos;
+
+	private List<String> idDocumentos;
 
 	/**
 	 * Constructor por defecto utilizado para instanciar objetos de esta clase
@@ -59,16 +60,18 @@ public class ClienteDomain {
 	 */
 	@PersistenceConstructor
 	public ClienteDomain(String name, String lastname, String email, Date fechaNacimiento, Handler dni,
-			List<DireccionDomain> direcciones) throws ParseException, DNIException {
-
+			List<DireccionDomain> direcciones, List<String> idDocumentos, String nacionalidad)
+			throws ParseException, DNIException {
+		
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
-		// this.fechaNacimiento = df.parse(fechaNacimiento);
 		this.fechaNacimiento = fechaNacimiento;
+		this.nacionalidad = nacionalidad;
 		setDni(dni);
 		this.direcciones = direcciones;
-
+		this.idDocumentos = idDocumentos;
+		this.documentos = new Documentos();		
 	}
 
 	/**
@@ -87,23 +90,22 @@ public class ClienteDomain {
 	 * @throws DNIException
 	 */
 	public ClienteDomain(String name, String lastname, String email, String fechaNacimiento, String dni,
-			List<DireccionDomain> direcciones) throws ParseException, DNIException {
+			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos) throws ParseException, DNIException {
 		DateFormat df = new SimpleDateFormat("yyy-MM-dd");
 		Date userDate = df.parse(fechaNacimiento);
-		
+
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
 		this.fechaNacimiento = userDate;
 		setDni(dni);
 		this.direcciones = direcciones;
+		this.nacionalidad = nacionalidad;
+		this.idDocumentos = idDocumentos;
+		this.documentos = new Documentos();
 	}
 
-	@Override
-	public String toString() {
-		return "ClienteDomain [id=" + id + ", name=" + name + ", lastname=" + lastname + ", email=" + email
-				+ ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni + ", direcciones=" + direcciones + "]";
-	}
+	
 
 	public String getName() {
 		return name;
@@ -159,6 +161,44 @@ public class ClienteDomain {
 
 	public void addDireccion(DireccionDomain direccion) {
 		this.direcciones.add(direccion);
+	}
+
+	public void addDocumento(DocumentoAdjuntoDomain documento) {
+		// Se deben guardar las ids de los documentos que pertenecen a este
+		// cliente en su atributo idDocumentos. Para obtener esta ID que es
+		// automáticamente generada por MongoDB se debe hacer lo siguiente: 1-
+		// Guardar el documento en el repositorio. 2- Obtener la ID después de
+		// que se haya producido el guardado. Los TESTS dirán la verdad
+		documentos.addDocumento(documento);
+		idDocumentos.add(documento.getId());
+	}
+
+	public List<DocumentoAdjuntoDomain> getDocumentos() {
+		return documentos.getDocumentos(this.idDocumentos);
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
+
+	public Date getFechaDeAlta() {
+		return fechaDeAlta;
+	}
+
+	public void setFechaDeAlta(Date fechaDeAlta) {
+		this.fechaDeAlta = fechaDeAlta;
+	}
+
+	@Override
+	public String toString() {
+		return "ClienteDomain [name=" + name + ", lastname=" + lastname + ", email=" + email + ", nacionalidad="
+				+ nacionalidad + ", fechaNacimiento=" + fechaNacimiento + ", fechaDeAlta=" + fechaDeAlta + ", dni="
+				+ dni + ", direcciones=" + direcciones + ", documentos=" + documentos + ", idDocumentos=" + idDocumentos
+				+ "]";
 	}
 
 }

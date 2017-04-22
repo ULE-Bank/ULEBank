@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -33,6 +34,11 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	private Handler dni;
 
 	private List<MovimientoCuentaCorrienteDomain> movimientos;
+	
+	@Transient
+	private Documentos documentos;
+	
+	private List<String> idDocumentos;
 
 	public CuentaCorrienteDomain(String dni, String estado, double saldo, double interes, double tae, double comision)
 			throws DNIException, ParseException {
@@ -65,8 +71,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	@PersistenceConstructor
 	public CuentaCorrienteDomain(Date fechaSolicitud, Date fechaResolucion, Date fechaFinalizacion, Double saldo,
 			Double comision, Double tae, Double interes, String estado, Handler dni,
-			List<MovimientoCuentaCorrienteDomain> movimientos) {
-		super();
+			List<MovimientoCuentaCorrienteDomain> movimientos, List<String> idDocumentos) {
 		this.fechaSolicitud = fechaSolicitud;
 		this.fechaResolucion = fechaResolucion;
 		this.fechaFinalizacion = fechaFinalizacion;
@@ -77,6 +82,8 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.estado = estado;
 		this.dni = dni;
 		this.movimientos = movimientos;
+		this.idDocumentos = idDocumentos;
+		this.documentos = new Documentos();
 	}
 
 	public Date getFechaSolicitud() {
@@ -158,9 +165,26 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	public void setMovimientos(List<MovimientoCuentaCorrienteDomain> movimientos) {
 		this.movimientos = movimientos;
 	}
+	
+	public void ingresarSaldo(double saldo){
+		this.saldo += saldo;
+	}
+	
+	public void extraerSaldo(double saldo){
+		this.saldo -= saldo;
+	}
 
 	public void addMovimiento(MovimientoCuentaCorrienteDomain movimiento) {
 		this.movimientos.add(movimiento);
+	}
+	
+	public void addDocumento(DocumentoAdjuntoDomain documento) {
+		documentos.addDocumento(documento);
+		this.idDocumentos.add(documento.getId());
+	}
+
+	public List<DocumentoAdjuntoDomain> getDocumentos() {
+		return documentos.getDocumentos(this.idDocumentos);
 	}
 
 	// Se supone que van a enviar la documentación más adelante
@@ -168,4 +192,10 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		return null;
 	}
 
+	public String getId() {
+		return id;
+	}
+	
+	
+	
 }

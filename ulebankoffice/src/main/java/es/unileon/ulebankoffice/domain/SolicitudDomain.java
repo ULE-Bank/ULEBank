@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -26,8 +27,12 @@ public class SolicitudDomain {
 	private String estado;
 	private Date fechaApertura;
 	private Date fechaResolucion;
-	private List<DocumentoAdjuntoDomain> documentos;
 	private String productId;
+	
+	@Transient
+	private Documentos documentos;
+	
+	private List<String> idDocumentos;
 	
 	/**
 	 * 
@@ -39,12 +44,12 @@ public class SolicitudDomain {
 	 */
 	@PersistenceConstructor
 	public SolicitudDomain(String estado, Date fechaApertura, Date fechaResolucion,
-			List<DocumentoAdjuntoDomain> documentos, String productId) {
+			List<String> idDocumentos, String productId) {
 		this.estado = estado;
 		this.fechaApertura = fechaApertura;
 		this.fechaResolucion = fechaResolucion;
-		this.documentos = documentos;
 		this.productId = productId;
+		this.documentos = new Documentos();
 	}
 
 	public String getEstado() {
@@ -71,16 +76,10 @@ public class SolicitudDomain {
 		this.fechaResolucion = fechaResolucion;
 	}
 
-	public List<DocumentoAdjuntoDomain> getDocumentos() {
-		return documentos;
-	}
-
-	public void setDocumentos(List<DocumentoAdjuntoDomain> documentos) {
-		this.documentos = documentos;
-	}
 	
 	public void addDocument(DocumentoAdjuntoDomain documento){
-		this.documentos.add(documento);
+		this.documentos.addDocumento(documento);
+		this.idDocumentos.add(documento.getId());
 	}
 
 	public String getProductId() {
@@ -89,6 +88,15 @@ public class SolicitudDomain {
 
 	public void setProductId(String productId) {
 		this.productId = productId;
+	}
+	
+	public void addDocumento(DocumentoAdjuntoDomain documento) {
+		documentos.addDocumento(documento);
+		this.idDocumentos.add(documento.getId());
+	}
+
+	public List<DocumentoAdjuntoDomain> getDocumentos() {
+		return documentos.getDocumentos(this.idDocumentos);
 	}
 	
 	@Override

@@ -20,5 +20,7 @@ public interface ClienteRepository extends MongoRepository<ClienteDomain, String
 	
 		@Query("{'dni._id':?0}")
 		public ClienteDomain findByDni(String dni);
+		@Query(value="{'dni._id' : ?0}", delete = true)
+		public void deleteByDni(String dni);
 	
 }

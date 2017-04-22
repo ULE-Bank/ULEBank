@@ -1,80 +1,39 @@
 {
 	"Documents": [{
+	"_id": "documentId1",
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
-			"ruta": "c/ruta/de/ejemplo",
-			"dni": [{
-				"_class": "es.unileon.ulebankoffice.domain.DNIHandler",
-				"_id": "X5526828C"
-			}, {
-				"_class": "es.unileon.ulebankoffice.domain.DNIHandler",
-				"_id": "06152676S"
-			}, {
-				"_class": "es.unileon.ulebankoffice.domain.DNIHandler",
-				"_id": "X1788553G"
-			}, {
-				"_class": "es.unileon.ulebankoffice.domain.DNIHandler",
-				"_id": "76344720S"
-			}]
+			"ruta": "c/ruta/de/ejemplo"
+			
 		},
 
 		{
+		"_id": "documentId2",
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
-			"ruta": "etc/var/lib",
-			"productId": [
-			{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id1"
-			},
-			{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id2"
-			},
-			{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id3"
-			}
-			]
+			"ruta": "etc/var/lib"
+			
 		}, {
+		"_id": "documentId3",
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
-			"ruta": "etc/var/lib",
-			"productId": [
-				{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id1"
-			},
-			{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id2"
-			}
-			]
+			"ruta": "etc/var/lib"
+			
 		}, {
+		"_id": "documentId4",
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
-			"ruta": "etc/var/lib",
-			"productId": [
-				{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id1"
-			}
-			]
+			"ruta": "etc/var/lib"
+			
 		}, {
+		"_id": "documentId5",
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
-			"ruta": "etc/var/lib",
-			"productId": [
-				{
-				"_class": "es.unileon.ulebankoffice.domain.ProductIDHandler",
-				"_id": "id1"
-			}
-			]
+			"ruta": "etc/var/lib"
+			
 		},
 
 
 		{
+		"_id": "documentId6",
 			"_class": "es.unileon.ulebankoffice.domain.DocumentoAdjuntoDomain",
-			"ruta": "c/ruta/de/ejemplo2",
-			"dni": [{
-				"_class": "es.unileon.ulebankoffice.domain.DNIHandler",
-				"_id": "X5526828C"
-			}]
+			"ruta": "c/ruta/de/ejemplo2"
+			
 		}
 	]
 }

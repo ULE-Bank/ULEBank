@@ -20,24 +20,17 @@ public class DocumentoAdjuntoDomain {
 	private String id;
 	
 	private String ruta;
-	private List<Handler> dni;
+//	private List<Handler> dni;
 //	private String solicitudId;
 //	private String productoFinancieroId;
-	private List<Handler> productId;
+//	private List<Handler> productId;
 	
 	
 	@PersistenceConstructor
-	public DocumentoAdjuntoDomain(String ruta, List<Handler> dni, List<Handler> productId) {
-	super();
+	public DocumentoAdjuntoDomain(String ruta) {
 	this.ruta = ruta;
-	this.dni = dni;
-	this.productId = productId;
 }
 
-	public DocumentoAdjuntoDomain(String ruta) throws DNIException{
-		this.ruta = ruta;
-	}
-	
 	public String getRuta() {
 		return ruta;
 	}
@@ -57,29 +50,34 @@ public class DocumentoAdjuntoDomain {
 //		this.productoFinancieroId = productoFinancieroID;
 //	}
 
-	public List<Handler> getDni() {
-		return dni;
-	}
+//	public List<Handler> getDni() {
+//		return dni;
+//	}
+//
+//	public void setDni(List<Handler> dni) {
+//		this.dni = dni;
+//	}
+//	
+//	public void addDni(String dni) throws DNIException{
+//		this.dni.add(new DNIHandler(dni));
+//	}
+//
+//	public List<Handler> getProductId() {
+//		return productId;
+//	}
+//
+//	public void setProductId(List<Handler> productId) {
+//		this.productId = productId;
+//	}
+//
+//	public void addProductId(String productId){
+//		this.productId.add(new ProductIDHandler(productId));
+//	}
 
-	public void setDni(List<Handler> dni) {
-		this.dni = dni;
+	public String getId() {
+		return id;
 	}
 	
-	public void addDni(String dni) throws DNIException{
-		this.dni.add(new DNIHandler(dni));
-	}
-
-	public List<Handler> getProductId() {
-		return productId;
-	}
-
-	public void setProductId(List<Handler> productId) {
-		this.productId = productId;
-	}
-
-	public void addProductId(String productId){
-		this.productId.add(new ProductIDHandler(productId));
-	}
-
+	
 	
 }

@@ -103,6 +103,13 @@ public class DireccionDomain {
 		this.codigoPostal = codigoPostal;
 	}
 
+
+	@Override
+	public String toString() {
+		return "DireccionDomain [id=" + id + ", calle=" + calle + ", localidad=" + localidad + ", comunidadAutonoma="
+				+ comunidadAutonoma + ", numero=" + numero + ", dni=" + dni + ", codigoPostal=" + codigoPostal + "]";
+	}
+
 	
 	
 }

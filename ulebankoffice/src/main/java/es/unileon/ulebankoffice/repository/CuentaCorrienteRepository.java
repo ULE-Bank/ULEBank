@@ -20,5 +20,9 @@ public interface CuentaCorrienteRepository extends MongoRepository<CuentaCorrien
 	
 		@Query("{'dni._id':?0}")
 		public List<CuentaCorrienteDomain> findByDni(String dni);
+		@Query(value="{'dni._id' : ?0}", delete = true)
+		public void deleteByDni(String id);
+		
+		public CuentaCorrienteDomain findById(String id);
 	
 }

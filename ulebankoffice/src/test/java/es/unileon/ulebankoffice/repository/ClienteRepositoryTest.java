@@ -11,8 +11,11 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,16 +55,19 @@ public class ClienteRepositoryTest {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+
+	
 	@After
 	public void afterEachMethod(){
 		clienteRepository.deleteAll();
 	}
 	
+
 	@Test
 	public void testNoRepeatedDNI() throws ParseException, DNIException {
 		try {
-			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", null);
-			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", null);
+			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", null, "español", null);
+			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", null, "español", null);
 			clienteRepository.save(cliente);
 			clienteRepository.save(cliente2);
 		} catch (Exception e) {
@@ -82,8 +88,8 @@ public class ClienteRepositoryTest {
 	public void testFindAll() throws ParseException, DNIException {
 		
 		assertEquals(1, clienteRepository.findAll().size());
-		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", null));
-		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", null));
+		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", null, "español", null));
+		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", null, "español", null));
 		assertEquals(3, clienteRepository.findAll().size());
 	}
 	
@@ -91,9 +97,7 @@ public class ClienteRepositoryTest {
 	@UsingDataSet(locations = { "/testing/clienteRepositoryData.json" }, 
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindByDni(){
-		System.out.println(clienteRepository.findAll());
 		ClienteDomain cliente = clienteRepository.findByDni("X5526828C");
-		System.out.println(cliente);
 		assertEquals("Razvan", cliente.getName());
 		assertEquals("Raducu", cliente.getLastname());
 		
@@ -113,5 +117,34 @@ public class ClienteRepositoryTest {
 		
 	}
 	
+
+	@Test
+	@UsingDataSet(locations = { "/testing/clienteRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testDeleteByDni(){
+		
+		assertThat(clienteRepository.findAll().size(), is(1));
+		
+		clienteRepository.deleteByDni("X5526828C");
+		
+		assertThat(clienteRepository.findAll().size(), is(0));
+		
+		ClienteDomain cliente = clienteRepository.findByDni("X5526828C");
+		
+		assertNull(cliente);
+		
+	}
 	
+	@Test
+	@UsingDataSet(locations = { "/testing/clienteRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testSave(){
+		
+		ClienteDomain cliente = clienteRepository.findByDni("X5526828C");
+		assertThat(cliente.getEmail(), is("rraduc00@estudiantes.unileon.es"));
+		cliente.setEmail("email@example.com");
+		clienteRepository.save(cliente);
+		cliente = clienteRepository.findByDni("X5526828C");
+		assertThat(cliente.getEmail(), is("email@example.com"));
+	}
 }

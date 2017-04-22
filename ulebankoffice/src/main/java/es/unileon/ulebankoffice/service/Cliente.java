@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Cliente {
 
-	@NotEmpty
+//	@NotEmpty
 	@NotBlank
 	private String name, lastname, email;
 
@@ -27,7 +27,7 @@ public class Cliente {
 
 	// private Handler dni;
 
-	@NotEmpty
+//	@NotEmpty
 	@NotBlank
 	private String dni;
 
