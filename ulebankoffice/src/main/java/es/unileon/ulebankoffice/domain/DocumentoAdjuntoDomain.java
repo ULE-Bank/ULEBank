@@ -4,7 +4,6 @@
 package es.unileon.ulebankoffice.domain;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;

@@ -3,11 +3,7 @@
  */
 package es.unileon.ulebankoffice.service;
 
-import java.util.Date;
-
 import org.hibernate.validator.constraints.NotBlank;
-
-import es.unileon.ulebankoffice.domain.Movimiento;
 
 /**
  * @author Razvan Raducu

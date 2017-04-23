@@ -6,8 +6,8 @@ package es.unileon.ulebankoffice.repository;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
 import java.util.List;
@@ -27,7 +27,6 @@ import com.lordofthejars.nosqlunit.mongodb.MongoDbRule;
 import com.mongodb.Mongo;
 
 import es.unileon.ulebankoffice.configuration.MongoTestConfig;
-import es.unileon.ulebankoffice.domain.ClienteDomain;
 import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
 import es.unileon.ulebankoffice.domain.DNIException;
 

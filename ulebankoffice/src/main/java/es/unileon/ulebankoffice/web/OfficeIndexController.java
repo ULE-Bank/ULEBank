@@ -1,6 +1,5 @@
 package es.unileon.ulebankoffice.web;
 
-import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -86,7 +85,7 @@ public class OfficeIndexController {
 		return "officeindex";
 	}
 	/*Opcional para desplegar en el servidor de producción. Así los usuarios no tienen acceso a la DB
-	 * hasta que no esté todo implementado*/
+	 * hasta que no esté to-do implementado*/
 	@RequestMapping(value= "/o", method = RequestMethod.GET)
 	public String comingSoon(){
 		return "coming-soon-1";

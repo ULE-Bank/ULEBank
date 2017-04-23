@@ -3,14 +3,9 @@ package es.unileon.ulebankoffice.domain;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.validation.constraints.Past;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
@@ -55,6 +50,8 @@ public class ClienteDomain {
 	 * @param fechaNacimiento
 	 * @param dni
 	 * @param direcciones
+	 * @param idDocumentos
+	 * @param nacionalidad
 	 * @throws ParseException
 	 * @throws DNIException
 	 */
@@ -62,7 +59,7 @@ public class ClienteDomain {
 	public ClienteDomain(String name, String lastname, String email, Date fechaNacimiento, Handler dni,
 			List<DireccionDomain> direcciones, List<String> idDocumentos, String nacionalidad)
 			throws ParseException, DNIException {
-		
+
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
@@ -71,7 +68,7 @@ public class ClienteDomain {
 		setDni(dni);
 		this.direcciones = direcciones;
 		this.idDocumentos = idDocumentos;
-		this.documentos = new Documentos();		
+		this.documentos = new Documentos();
 	}
 
 	/**
@@ -86,11 +83,14 @@ public class ClienteDomain {
 	 * @param fechaNacimiento
 	 * @param dni
 	 * @param direcciones
+	 * @param nacionalidad
+	 * @param idDocumentos
 	 * @throws ParseException
 	 * @throws DNIException
 	 */
 	public ClienteDomain(String name, String lastname, String email, String fechaNacimiento, String dni,
-			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos) throws ParseException, DNIException {
+			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
+			throws ParseException, DNIException {
 		DateFormat df = new SimpleDateFormat("yyy-MM-dd");
 		Date userDate = df.parse(fechaNacimiento);
 
@@ -104,8 +104,6 @@ public class ClienteDomain {
 		this.idDocumentos = idDocumentos;
 		this.documentos = new Documentos();
 	}
-
-	
 
 	public String getName() {
 		return name;

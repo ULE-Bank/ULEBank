@@ -11,11 +11,8 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;

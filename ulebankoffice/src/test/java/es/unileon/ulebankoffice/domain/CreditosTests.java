@@ -1,6 +1,6 @@
 package es.unileon.ulebankoffice.domain;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
