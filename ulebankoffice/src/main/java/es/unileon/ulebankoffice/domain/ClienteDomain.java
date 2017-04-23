@@ -16,15 +16,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author Razvan Raducu
  *
  */
+/**
+ * @author Razvan Raducu
+ *
+ */
 @Document(collection = "Clientes")
 public class ClienteDomain {
 
 	@Id
 	private String id;
 
-	private String name, lastname, email, nacionalidad;
+	private String name;
+	private String lastname;
+	private String email;
+	private String nacionalidad;
 
-	private Date fechaNacimiento, fechaDeAlta;
+	private Date fechaNacimiento;
+	private Date fechaDeAlta;
 
 	@Indexed(unique = true)
 	private Handler dni;
@@ -157,10 +165,24 @@ public class ClienteDomain {
 		this.direcciones = direcciones;
 	}
 
+	/**
+	 * Método que añade una dirección al atributo de clase lista de direcciones.
+	 * List<DireccionDomain>
+	 * 
+	 * @param direccion
+	 */
 	public void addDireccion(DireccionDomain direccion) {
 		this.direcciones.add(direccion);
 	}
 
+	/**
+	 * Método que añade un documento al atributo de clase lista de id de
+	 * documentos asignados a este cliente List<String> idDocumentos y que
+	 * delega la inserción en la base de datos del documento a la clase agregada
+	 * Documentos
+	 * 
+	 * @param documento
+	 */
 	public void addDocumento(DocumentoAdjuntoDomain documento) {
 		// Se deben guardar las ids de los documentos que pertenecen a este
 		// cliente en su atributo idDocumentos. Para obtener esta ID que es

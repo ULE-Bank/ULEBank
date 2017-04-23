@@ -17,12 +17,27 @@ public class DireccionDomain {
 	@Id
 	private String id;
 
-	private String calle, localidad, comunidadAutonoma, numero;
+	private String calle;
+	private String localidad;
+	private String comunidadAutonoma;
+	private String numero;
 
 	private Handler dni;
 
 	private int codigoPostal;
 
+	/**
+	 * Constructor utilizado para instanciar objetos manualmente pasando el DNI
+	 * como una string.
+	 * 
+	 * @param dni
+	 * @param calle
+	 * @param localidad
+	 * @param comunidadAutonoma
+	 * @param codigoPostal
+	 * @param numero
+	 * @throws DNIException
+	 */
 	public DireccionDomain(String dni, String calle, String localidad, String comunidadAutonoma, int codigoPostal,
 			String numero) throws DNIException {
 
@@ -34,8 +49,18 @@ public class DireccionDomain {
 		this.numero = numero;
 
 	}
-	
-	
+
+	/**
+	 * Persistence constructor usado para instanciar objetos a partir de la base
+	 * de datos.
+	 * 
+	 * @param calle
+	 * @param localidad
+	 * @param comunidadAutonoma
+	 * @param numero
+	 * @param dni
+	 * @param codigoPostal
+	 */
 	@PersistenceConstructor
 	public DireccionDomain(String calle, String localidad, String comunidadAutonoma, String numero, Handler dni,
 			int codigoPostal) {
@@ -47,8 +72,6 @@ public class DireccionDomain {
 		this.dni = dni;
 		this.codigoPostal = codigoPostal;
 	}
-
-
 
 	public String getCalle() {
 		return calle;
@@ -89,12 +112,11 @@ public class DireccionDomain {
 	public void setDni(Handler dni) {
 		this.dni = dni;
 	}
-	
+
 	public void setDni(String dni) throws DNIException {
 		this.dni = new DNIHandler(dni);
 	}
 
-	
 	public int getCodigoPostal() {
 		return codigoPostal;
 	}
@@ -103,13 +125,10 @@ public class DireccionDomain {
 		this.codigoPostal = codigoPostal;
 	}
 
-
 	@Override
 	public String toString() {
 		return "DireccionDomain [id=" + id + ", calle=" + calle + ", localidad=" + localidad + ", comunidadAutonoma="
 				+ comunidadAutonoma + ", numero=" + numero + ", dni=" + dni + ", codigoPostal=" + codigoPostal + "]";
 	}
 
-	
-	
 }

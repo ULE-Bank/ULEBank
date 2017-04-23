@@ -22,19 +22,40 @@ public class Documentos {
 	@Autowired
 	DocumentoRepository repo;
 
+	/**
+	 * Método utilizado para guardar en la base de datos.
+	 * 
+	 * @param documento
+	 *            El documento ya instanciado a guardar.
+	 */
 	public void addDocumento(DocumentoAdjuntoDomain documento) {
-		//this.documentos.add(documento);
 		repo.save(documento);
 	}
 
+	/**
+	 * Método utilizado para obtener todos los documentos cuyas ids coinciden
+	 * con las especificadas como parámetro
+	 * 
+	 * @param idDocumentos
+	 *            Lista de ids de documentos a obtener
+	 * @return La lista de los documentos encontrados
+	 */
 	public List<DocumentoAdjuntoDomain> getDocumentos(List<String> idDocumentos) {
-		
+
 		return repo.findByIdIn(idDocumentos);
 	}
-	
-public List<DocumentoAdjuntoDomain> getDocumentosByDateAsc(List<String> idDocumentos) {
-		
+
+	/**
+	 * Devuelve la lista de documentos cuyas ids coinciden con las epsecificadas
+	 * como parámetro ordenada por fecha ascendentemente
+	 * 
+	 * @param idDocumentos
+	 *            Lista de ids de documentos a obtener
+	 * @return La lista de los documentos encontrados ordenados por fecha ascendentemente
+	 */
+	public List<DocumentoAdjuntoDomain> getDocumentosByDateAsc(List<String> idDocumentos) {
+
 		return repo.findByIdInOrderByFechaCreacionAsc(idDocumentos);
 	}
-
+	
 }

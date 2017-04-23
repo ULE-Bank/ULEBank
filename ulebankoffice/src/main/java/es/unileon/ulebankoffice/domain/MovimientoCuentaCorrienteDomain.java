@@ -5,8 +5,6 @@ package es.unileon.ulebankoffice.domain;
 
 import java.util.Date;
 
-import javax.validation.constraints.Past;
-
 /**
  * @author Razvan Raducu
  *
@@ -18,9 +16,18 @@ public class MovimientoCuentaCorrienteDomain implements Movimiento {
 	private String emisor;
 	private String receptor;
 	private int temporalidad;
-	@Past
 	private Date fecha;
 
+	
+	/**
+	 * Recibe la fecha en formato Date.
+	 * 
+	 * @param cantidad
+	 * @param concepto
+	 * @param emisor
+	 * @param receptor
+	 * @param fecha
+	 */
 	public MovimientoCuentaCorrienteDomain(Double cantidad, String concepto, String emisor, String receptor,
 			Date fecha) {
 		this.cantidad = cantidad;
@@ -39,7 +46,8 @@ public class MovimientoCuentaCorrienteDomain implements Movimiento {
 	public String getConcepto() {
 		return concepto;
 	}
-
+	
+	
 	public int getTemporalidad() {
 		return temporalidad;
 	}
@@ -59,4 +67,17 @@ public class MovimientoCuentaCorrienteDomain implements Movimiento {
 		return receptor;
 	}
 
+	public void setTemporalidad(int temporalidad) {
+		this.temporalidad = temporalidad;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	
+	
 }

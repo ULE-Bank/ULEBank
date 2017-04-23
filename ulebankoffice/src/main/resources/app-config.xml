@@ -20,14 +20,14 @@
 		scope="singleton">
 	</bean>
 
-<!-- 	<bean id="userDateFormat" class="java.text.SimpleDateFormat"> -->
-<!-- 		<constructor-arg value="dd.MM.yyyy" /> -->
-<!-- 	</bean> -->
-	
-<!-- 	<bean id="mongoDateFormat" class="java.text.SimpleDateFormat"> -->
-<!-- 		<constructor-arg value="EEE MMM dd HH:mm:ss zzz yyyy" /> -->
-<!-- 	</bean> -->
-	
+	<!-- <bean id="userDateFormat" class="java.text.SimpleDateFormat"> -->
+	<!-- <constructor-arg value="dd.MM.yyyy" /> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="mongoDateFormat" class="java.text.SimpleDateFormat"> -->
+	<!-- <constructor-arg value="EEE MMM dd HH:mm:ss zzz yyyy" /> -->
+	<!-- </bean> -->
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:messages" />
@@ -88,9 +88,9 @@
 		credentials="razvan:ulerazvanule@ulebankoffice">
 		<mongo:client-options connect-timeout="5000" />
 	</mongo:mongo-client>
-	
+
 	<mongo:repositories base-package="es.unileon.ulebankoffice.repository" />
-		
+
 	<!-- ############### ↕↕↕↕↕↕ Son equivalentes ↕↕↕↕↕ ################## -->
 
 	<!-- Factory bean that creates the Mongo instance -->
@@ -106,5 +106,5 @@
 		@Repository annotated classes -->
 	<!-- <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" 
 		/> -->
-		
+
 </beans>
