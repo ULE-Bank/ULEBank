@@ -6,6 +6,7 @@ package es.unileon.ulebankoffice.repository;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -60,7 +61,6 @@ public class DireccionRepositoryTest {
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindByDni() {
 		List<DireccionDomain> direcciones = repo.findByDni("X5526828C");
-		System.out.println(direcciones.size());
 		assertThat(direcciones.size(), is(3));
 	}
 	
@@ -77,8 +77,45 @@ public class DireccionRepositoryTest {
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindAll() {
 	List<DireccionDomain> direcciones = repo.findAll();
-	System.out.println("all-> " + direcciones.size());
 	assertThat(direcciones.size(), is(3));
 	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/direccionRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testDelete() {
+		List<DireccionDomain> direcciones = repo.findByDni("X5526828C");
+		assertThat(direcciones.size(), is(3));
+		repo.delete(direcciones.get(0));
+		assertThat(repo.findByDni("X5526828C").size(), is(2));
+	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/direccionRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testDeleteById() {
+		List<DireccionDomain> direcciones = repo.findByDni("X5526828C");
+		assertThat(direcciones.size(), is(3));
+		repo.deleteByDni("X5526828C");
+		assertThat(repo.findByDni("X5526828C").size(), is(0));
+	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/direccionRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testSave() {
+		List<DireccionDomain> direcciones = repo.findByDni("X5526828C");
+		assertThat(direcciones.size(), is(3));
+		assertThat(direcciones.get(0).getComunidadAutonoma(), is("CastillaLeón"));
+		direcciones.get(0).setComunidadAutonoma("Castilla y León");
+		repo.save(direcciones.get(0));
+		direcciones = repo.findByDni("X5526828C");
+		for (DireccionDomain direccionDomain : direcciones) {
+			assertThat(direccionDomain.getComunidadAutonoma(), is(not("León")));
+		}
+				
+	}
+	
+	
 	
 }

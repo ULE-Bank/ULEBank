@@ -20,4 +20,7 @@ public interface DireccionRepository extends MongoRepository<DireccionDomain, St
 	
 	@Query("{'dni._id':?0}")
 	public List<DireccionDomain> findByDni(String dni);
+	
+	@Query(value="{'dni._id' : ?0}", delete = true)
+	public void deleteByDni(String dni);
 }

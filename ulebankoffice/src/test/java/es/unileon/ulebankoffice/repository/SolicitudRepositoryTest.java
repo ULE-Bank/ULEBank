@@ -8,6 +8,8 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.notNull;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -65,9 +67,8 @@ public class SolicitudRepositoryTest {
 	@Test
 	@UsingDataSet(locations = { "/testing/solicitudRepositoryData.json" }, 
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testFingByProductId() {
+	public void testFindByProductId() {
 		SolicitudDomain solicitud = repo.findByProductId("id1");
-		System.out.println(solicitud);
 		assertNotNull(solicitud);
 		assertThat(solicitud.getEstado(), is("En trámite"));
 		assertThat(solicitud.getFechaResolucion(), is(notNull()));
@@ -88,10 +89,52 @@ public class SolicitudRepositoryTest {
 	@Test
 	@UsingDataSet(locations = { "/testing/solicitudRepositoryData.json" }, 
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testFingByProductIdNonExistent() {
+	public void testFindByProductIdNonExistent() {
 		SolicitudDomain solicitud = repo.findByProductId("id5");
 		assertThat(solicitud, is(nullValue()));
 		assertNull(solicitud);
+	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/solicitudRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testDelete() {
+		List<SolicitudDomain> solicitudes = repo.findAll();
+		assertThat(solicitudes.size(), is(4));
+		repo.delete(solicitudes.get(0));
+		assertThat(repo.findAll().size(), is(3));
+	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/solicitudRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testDeleteByProductId() {
+		List<SolicitudDomain> solicitudes = repo.findAll();
+		assertThat(solicitudes.size(), is(4));
+		repo.deleteByProductId("id1");
+		repo.deleteByProductId("id2");
+		assertThat(repo.findAll().size(), is(2));
+		repo.deleteByProductId("id8");
+		assertThat(repo.findAll().size(), is(2));
+	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/solicitudRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testSave() {
+		SolicitudDomain solicitud = repo.findByProductId("id1");
+		assertNotNull(solicitud);
+		SolicitudDomain solicitud2 = repo.findByProductId("id6");
+		assertNull(solicitud2);
+		assertThat(repo.findAll().size(), is(4));
+		solicitud.setProductId("id6");
+		
+		repo.save(solicitud);
+		assertThat(repo.findAll().size(), is(4));
+		solicitud = repo.findByProductId("id1");
+		assertNull(solicitud);
+		solicitud2 = repo.findByProductId("id6");
+		assertNotNull(solicitud2);
 	}
 
 }

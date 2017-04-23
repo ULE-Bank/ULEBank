@@ -53,12 +53,12 @@ public class CreditosDomain extends Operacion {
 			if(saldo.isEmpty()) {
 				saldo.add(movimiento.getImporteMovimiento());
 				itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento())));
-				System.out.println(movimiento.getImporteMovimiento());
+				
 			}
 			else {
 				saldo.add(movimiento.getImporteMovimiento() + saldo.get(index-1));
 				itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento() + saldo.get(index-1))));
-				System.out.println(movimiento.getImporteMovimiento() + saldo.get(index-1));
+				
 			}
 			
 			DateTime thisDay, nextDay;
@@ -78,7 +78,7 @@ public class CreditosDomain extends Operacion {
 			
 			if(saldo.get(index) > limiteCredito) {
 				numerosDeudores.add(limiteCredito * dias.get(index));
-				System.out.println(limiteCredito * dias.get(index));
+				
 				double diferencia = saldo.get(index) - limiteCredito;
 				numerosExcedidos.add(diferencia * dias.get(index));
 				itemTabla.add("-");
@@ -90,59 +90,21 @@ public class CreditosDomain extends Operacion {
 				itemTabla.add("-");
 				itemTabla.add("-");
 				itemTabla.add(Double.toString(dias.get(index) * saldo.get(index) * (-1)));
-				System.out.println(dias.get(index) * saldo.get(index) * (-1));
+				
 			}
 			else {
 				numerosDeudores.add(saldo.get(index) * dias.get(index));
 				itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
 				itemTabla.add("-");
 				itemTabla.add("-");
-				System.out.println(saldo.get(index) * dias.get(index));
+				
 			}
 			
 			tabla.add(itemTabla);
 			
 			index++;
 		}
-		
-		double sumatorioDeudores = 0, sumatorioExcedidos = 0, sumatorioAcreedores = 0;
-		int sumatorioDias = 0;
-		
-		for(double deudor : numerosDeudores)
-			sumatorioDeudores += deudor;
-		
-		for(double excedido : numerosExcedidos)
-			sumatorioExcedidos += excedido;
-		
-		for(double acreedor : numerosAcreedores)
-			sumatorioAcreedores += acreedor;
-		
-		for(int dia : dias)
-			sumatorioDias += dia;
-		
-		System.out.println("Deudores: " + sumatorioDeudores + "\nExcedidos: " + sumatorioExcedidos + "\nAcreedores: " + sumatorioAcreedores);
-		
-		double interesesDeudores = (interesDeudor * sumatorioDeudores) / 360;
-		System.out.println("Intereses deudores: " + interesesDeudores);
-		
-		double interesesExcedidos = (interesExcedido * sumatorioExcedidos) / 360;
-		System.out.println("Intereses excedidos: " + interesesExcedidos);
-		
-		double interesesAcreedores = (interesAcreedor * sumatorioAcreedores) / 360;
-		System.out.println("Intereses acreedores: " + interesesAcreedores);
-		
-		double saldoMedioDispuesto = sumatorioDeudores / sumatorioDias;
-		double saldoMedioNoDispuesto = (limiteCredito - saldoMedioDispuesto) * comisionSMND;
-		System.out.println("SMND: " + saldoMedioNoDispuesto);
-		
-		double totalDisposiciones = interesesDeudores + interesesExcedidos + saldoMedioNoDispuesto - interesesAcreedores;
-		System.out.println("Total disposiciones: " + totalDisposiciones);
-		
-		double totalSaldo = saldo.get(saldo.size()-1) + totalDisposiciones;
-		System.out.println("Total saldo: " + totalSaldo);
-		
-		
-		
+			
 		return tabla;
 	}
 

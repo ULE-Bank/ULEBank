@@ -4,7 +4,7 @@
          "_class":"es.unileon.ulebankoffice.domain.DireccionDomain",
          "calle":"ejemploStreet",
          "localidad":"León",
-         "comunidadAutonoma" : "León",
+         "comunidadAutonoma" : "CastillaLeón",
          "numero" : "S/N",
          "codigoPostal" : 39400,
          "dni":{

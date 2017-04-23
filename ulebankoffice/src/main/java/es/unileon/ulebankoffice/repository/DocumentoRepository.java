@@ -27,4 +27,9 @@ public interface DocumentoRepository extends MongoRepository<DocumentoAdjuntoDom
 	
 	public DocumentoAdjuntoDomain findById(String id);
 	
+	public void deleteByIdIn(List<String> id);
+	
+	public List<DocumentoAdjuntoDomain> findByIdIn(List<String> id);
+	
+	public List<DocumentoAdjuntoDomain> findByIdInOrderByFechaCreacionAsc(List<String> id);
 }

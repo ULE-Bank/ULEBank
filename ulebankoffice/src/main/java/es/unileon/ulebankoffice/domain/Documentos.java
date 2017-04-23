@@ -23,31 +23,19 @@ public class Documentos {
 	@Autowired
 	DocumentoRepository repo;
 
-	private List<DocumentoAdjuntoDomain> documentos;
-
 	public void addDocumento(DocumentoAdjuntoDomain documento) {
 		//this.documentos.add(documento);
 		repo.save(documento);
-		System.out.println("Me han invocado, lol");
 	}
 
 	public List<DocumentoAdjuntoDomain> getDocumentos(List<String> idDocumentos) {
 		
-		List<DocumentoAdjuntoDomain> listaDocumentos = new ArrayList<>();
-		
-		for (String idDoc : idDocumentos) {
-
-			listaDocumentos.add(repo.findById(idDoc));
-		
-			}
-		return listaDocumentos;
-	}
-
-	@Override
-	public String toString() {
-		return "Documentos [documentos=" + documentos + "]";
+		return repo.findByIdIn(idDocumentos);
 	}
 	
-	
+public List<DocumentoAdjuntoDomain> getDocumentosByDateAsc(List<String> idDocumentos) {
+		
+		return repo.findByIdInOrderByFechaCreacionAsc(idDocumentos);
+	}
 
 }

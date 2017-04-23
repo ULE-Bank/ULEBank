@@ -17,4 +17,5 @@ public interface SolicitudRepository extends MongoRepository<SolicitudDomain, St
 	
 		public SolicitudDomain findByProductId(String productId);
 		
+		public void deleteByProductId(String productId);
 }
