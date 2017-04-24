@@ -12,15 +12,15 @@
       <meta name="author"
          content="Alexis Gutiérrez, Camino Fernández, Razvan Raducu">
       <meta name="robots" content="index,follow">
-              <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-        <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
+      <meta name="viewport"
+         content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <jsp:include page="/WEB-INF/views/OpenGraph.jsp" />
       <meta property="og:determiner" content="the" />
-      <meta property="og:title" content="<spring:message code='label.siteservice2' />" />
+      <meta property="og:title"
+         content="<spring:message code='label.siteservice2' />" />
       <meta property="og:url" content="http://ulebank.unileon.es/leasing" />
-      <meta property="og:description" content="<spring:message code='label.siteservice2description'/>"/> 
-        
-        
+      <meta property="og:description"
+         content="<spring:message code='label.siteservice2description'/>" />
       <link rel="alternate" hreflang="es" href="http://ule-bank.appspot.com/" />
       <!-- <link rel="stylesheet" href="resources/services/css/bootstrap.min.css"> -->
       <link rel="stylesheet"
@@ -55,7 +55,7 @@
       <link href="resources/template/css/custom.css" rel="stylesheet"
          type="text/css" />
       <title>
-         <spring:message code="label.siteservice2"/>
+         <spring:message code="label.siteservice2" />
       </title>
       <!-- GOOGLE ANALYTICS TRACKER -->
       <script>
@@ -117,8 +117,7 @@
                            <spring:message
                               code="label.siteservices" />
                         </a>
-                        <i
-                           class="fa fa-angle-double-right"></i>
+                        <i class="fa fa-angle-double-right"></i>
                      </li>
                      <li>
                         <span>
@@ -134,40 +133,40 @@
          <section class="white-bg page-section-ptb">
             <div class="container">
                <div class="row">
-                  <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-6 col-md-offset-2">
                      <form:form role="form" method="post"
                         modelAttribute="arrendamientoFinanciero" id="servicesform">
                         <div id="register-form" class="register-form">
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <label for="name">
-                                    <spring:message code="label.valueofproperty"/>
+                                    <spring:message
+                                       code="label.valueofproperty" />
                                     :
                                  </label>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="field-widget">
                                     <i class="fa fa-eur"></i>
-                                    <form:input type="text" value=""
-                                       path="valorBien" />
+                                    <form:input type="text" value="" path="valorBien" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-1">
                                  <span class="tooltip-content text-blue"
                                     data-original-title='<spring:message code="label.valueofpropertyinfo"/>'
-                                 data-toggle="tooltip" data-placement="top"><i
+                                    data-toggle="tooltip" data-placement="top"><i
                                     class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <form:errors style="color: red;" path="valorBien"></form:errors>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <label for="name">
                                     <spring:message
                                        code="label.typeofinterest" />
@@ -175,14 +174,13 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
-                                    <form:input type="text" 
-                                       path="tipoInteres" />
+                                    <form:input type="text" path="tipoInteres" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-1">
                                  <span class="tooltip-content text-blue"
                                     data-original-title="<spring:message code="label.nominaltaxinfo"/>"
                                  data-toggle="tooltip" data-placement="top"><i
@@ -190,27 +188,27 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <form:errors style="color: red;" path="tipoInteres"></form:errors>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <label for="name">
-                                    <spring:message code="label.contractduration"/>
+                                    <spring:message
+                                       code="label.contractduration" />
                                     :
                                  </label>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="field-widget">
                                     <i class="fa fa-clock-o"></i>
-                                    <form:input type="text" name="name"
-                                       path="duracionContrato" />
+                                    <form:input type="text" name="name" path="duracionContrato" />
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-1">
                                  <span class="tooltip-content text-blue"
                                     data-original-title="<spring:message code="label.contractdurationinfo"/>"
                                  data-toggle="tooltip" data-placement="top"><i
@@ -218,20 +216,21 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <form:errors style="color: red;" path="duracionContrato"></form:errors>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <label for="name">
-                                    <spring:message code="label.sharepayment"/>
+                                    <spring:message
+                                       code="label.sharepayment" />
                                     :
                                  </label>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="field-widget">
                                     <spring:message code="label.annual" var="variable1" />
                                     <spring:message code="label.biannual" var="variable2" />
@@ -247,7 +246,7 @@
                                     </form:select>
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-1">
                                  <span class="tooltip-content text-blue"
                                     data-original-title="<spring:message code="label.annualpaymentfrac"/>"
                                  data-toggle="tooltip" data-placement="top"><i
@@ -255,7 +254,7 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <form:errors style="color: red;"
                                     path="fraccionamientoPagoCuota"></form:errors>
                               </div>
@@ -266,12 +265,13 @@
                               </h3>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="row text-center intro-title">
                                     <p class="modal-link last-element">
                                        <a href="" data-toggle="modal"
                                           data-target="#modalExplicativo">
-                                          <spring:message code="label.whatisleasing"/>
+                                          <spring:message
+                                             code="label.whatisleasing" />
                                        </a>
                                     </p>
                                  </div>
@@ -280,8 +280,7 @@
                                     <span>
                                        <spring:message code="label.calculate" />
                                     </span>
-                                    <i
-                                       class="fa fa-calculator"></i>
+                                    <i class="fa fa-calculator"></i>
                                  </a>
                                  <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
                                  <noscript>
@@ -292,6 +291,10 @@
                            </div>
                         </div>
                      </form:form>
+                  </div>
+                  <!-- 					Descripción lateral  -->
+                  <div class="col-md-4" style="text-align: justify;">
+                     <spring:message code="label.siteservice2lateral" />
                   </div>
                </div>
             </div>
@@ -312,42 +315,29 @@
                      <span aria-hidden="true">&times;</span>
                      </button>
                      <h4 class="modal-title" id="modalExplicativoLabel">
-                        <spring:message code="label.siteservice2"/>
+                        <spring:message code="label.siteservice2" />
                      </h4>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body" style="text-align: justify;">
                      <p>
-                        <spring:message code="label.s2i1"/>
+                        <spring:message code="label.s2i1" />
                      </p>
-                     <br>
                      <p>
-                        <spring:message code="label.s2i2"/>
+                        <spring:message code="label.s2i2" />
                      </p>
-                     <br>
-                     <ul>
-                        <li>
-                           <spring:message code="label.s2i3"/>
-                        </li>
-                        <li>
-                           <spring:message code="label.s2i4"/>
-                        </li>
-                        <li>
-                           <spring:message code="label.s2i5"/>
-                        </li>
-                        <li>
-                           <spring:message code="label.s2i6"/>
-                        </li>
-                        <li>
-                           <spring:message code="label.s2i7"/>
-                        </li>
-                        <li>
-                           <spring:message code="label.s2i8"/>
-                        </li>
-                     </ul>
+                     <p>
+                        <spring:message code="label.s2i3" />
+                     </p>
+                     <p>
+                        <spring:message code="label.s2i4" />
+                     </p>
+                     <p>
+                        <spring:message code="label.s2i5" />
+                     </p>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <spring:message code="label.close"/>
+                        <spring:message code="label.close" />
                      </button>
                   </div>
                </div>
@@ -373,19 +363,19 @@
                         <thead>
                            <tr>
                               <th>
-                                 <spring:message code="label.period"/>
+                                 <spring:message code="label.period" />
                               </th>
                               <th>
-                                 <spring:message code="label.annuality"/>
+                                 <spring:message code="label.annuality" />
                               </th>
                               <th>
-                                 <spring:message code="label.interest"/>
+                                 <spring:message code="label.interest" />
                               </th>
                               <th>
-                                 <spring:message code="label.amortization"/>
+                                 <spring:message code="label.amortization" />
                               </th>
                               <th>
-                                 <spring:message code="label.pendingcapital"/>
+                                 <spring:message code="label.pendingcapital" />
                               </th>
                            </tr>
                         </thead>
@@ -404,7 +394,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <spring:message code="label.close"/>
+                        <spring:message code="label.close" />
                      </button>
                   </div>
                </div>

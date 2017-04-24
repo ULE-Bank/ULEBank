@@ -139,27 +139,30 @@
 		<section class="white-bg page-section-ptb">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-12">
+						
 						<form:form role="form" method="post" modelAttribute="creditos"
 							id="servicesform">
+							<div class="col-md-12">
+							<div class="col-md-6 col-md-offset-2">
 							<div id="register-form" class="register-form">
 
 								<!-- --------- -->
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c4" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-eur"></i>
 											<form:input type="text" value="" path="limiteCredito" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i1"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -168,7 +171,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="limiteCredito"></form:errors>
 									</div>
 								</div>
@@ -180,19 +183,19 @@
 
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c5" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-clock-o"></i> <input type="date"
 												id="fechaApertura" name="fechaApertura" required="required" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i2"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -201,7 +204,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="fechaApertura"></form:errors>
 									</div>
 								</div>
@@ -211,20 +214,20 @@
 								<!-- --------- -->
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c6" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-clock-o"></i> <input type="date"
 												id="fechaVencimiento" name="fechaVencimiento"
 												required="required" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i3"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -233,7 +236,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="fechaVencimiento"></form:errors>
 									</div>
 								</div>
@@ -242,19 +245,19 @@
 
 								<!-- --------- -->
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c7" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i>&#8240;</i>
 											<form:input type="text" path="comisionApertura" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i4"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -262,7 +265,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="comisionApertura"></form:errors>
 									</div>
 								</div>
@@ -272,19 +275,19 @@
 
 								<!-- --------- -->
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c8" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i>&#8240;</i>
 											<form:input type="text" path="corretaje" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i5"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -292,7 +295,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="corretaje"></form:errors>
 									</div>
 								</div>
@@ -302,19 +305,19 @@
 
 								<!-- --------- -->
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c9" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-percent"></i>
 											<form:input type="text" path="interesDeudor" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i6"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -322,7 +325,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="interesDeudor"></form:errors>
 									</div>
 								</div>
@@ -332,19 +335,19 @@
 
 								<!-- --------- -->
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c10" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-percent"></i>
 											<form:input type="text" path="interesExcedido" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i7"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -352,7 +355,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="interesExcedido"></form:errors>
 									</div>
 								</div>
@@ -362,19 +365,19 @@
 
 								<!-- --------- -->
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c11" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-percent"></i>
 											<form:input type="text" path="interesAcreedor" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i8"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -382,7 +385,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="interesAcreedor"></form:errors>
 									</div>
 								</div>
@@ -392,19 +395,19 @@
 
 								<!-- --------- -->
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.s7c12" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i>&#8240;</i>
 											<form:input type="text" path="comisionSMND" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s7i9"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -412,7 +415,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="comisionSMND"></form:errors>
 									</div>
 								</div>
@@ -421,7 +424,15 @@
 								<!-- --------- -->
 								
 							
-								
+						</div>
+							
+				</div>
+				<div class="col-md-4">
+						<spring:message code="label.s7lateral" />
+					</div>
+					</div>
+					
+							<div class="section-field col-md-12 register-form">
 								<div class="row">
 									
 									<div class="section-field col-md-4">
@@ -516,7 +527,9 @@
 										</div>
 									</div>
 								</div>
-
+									
+			
+	
 								
 
 								<p>
@@ -529,6 +542,14 @@
 										class="fa fa-minus-square"></span></a>
 								</p>
 
+										<div class="row text-center intro-title">
+											<p class="modal-link last-element">
+												<a href="#" data-toggle="modal"
+													data-target="#modalExplicativo"> <spring:message
+														code="label.whatiscreditaccount" /></a>
+											</p>
+										</div>
+										
 									<input type="submit" class="button mt-20" value="<spring:message code='label.calculate' />">
 									
 								
@@ -537,10 +558,12 @@
 									<input type="submit"
 										value="<spring:message code="label.calculate"/>" />
 								</noscript>
-							</div>
-				
+								</div>
 				</form:form>
-			</div>
+				
+		
+		
+	
 	</div>
 	</div>
 	</section>
@@ -563,12 +586,15 @@
 					</button>
 					<h4 class="modal-title" id="modalExplicativoLabel"><spring:message code="label.credit"/></h4>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body" style="text-align: justify;">
 					<p><spring:message code="label.s7i10"/></p>
-					<br>
 					<p><spring:message code="label.s7i11"/></p>
-					<br>
 					<p><spring:message code="label.s7i12"/></p>
+					<p><spring:message code="label.s7i13"/></p>
+					<p><spring:message code="label.s7i14"/></p>
+					<p><spring:message code="label.s7i15"/></p>
+					<p><spring:message code="label.s7i16"/></p>
+					<p><spring:message code="label.s7i17"/></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="label.close"/></button>

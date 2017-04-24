@@ -140,23 +140,24 @@
 		<section class="white-bg page-section-ptb">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-12">
+					<div class="col-md-6 col-md-offset-2">
 						<form:form role="form" method="post" modelAttribute="descuentos"
 							id="servicesform">
 							<div id="register-form" class="register-form">
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message code="label.s5c1" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-eur"></i>
 											<form:input type="text" name="name" path="importeDescuento" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s5i3"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -164,23 +165,23 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="importeDescuento"></form:errors>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message code="label.s5c2" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-clock-o"></i>
 											<form:input type="text" name="name" path="periodoDescuento" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s5i4"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -188,7 +189,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="periodoDescuento"></form:errors>
 									</div>
 								</div>
@@ -196,19 +197,19 @@
 
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.typeofinterest" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-percent"></i>
 											<form:input type="text" name="name" path="tipoInteres" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s5i5"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -216,7 +217,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="tipoInteres"></form:errors>
 									</div>
 								</div>
@@ -226,12 +227,12 @@
 
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message code="label.s5c3" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<spring:message code="label.365days" var="variable1" />
 											<spring:message code="label.360days" var="variable2" />
@@ -241,7 +242,7 @@
 											</form:select>
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s5i6"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -250,18 +251,18 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message code="label.s5c4" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-eur"></i>
 											<form:input type="text" name="name" path="otrosGastos" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s5i7"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -269,7 +270,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="otrosGastos"></form:errors>
 									</div>
 								</div>
@@ -277,18 +278,18 @@
 
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message code="label.s5c5" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-eur"></i>
 											<form:input type="text" name="name" path="comisiones" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s5i8"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -296,7 +297,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="comisiones"></form:errors>
 									</div>
 								</div>
@@ -308,7 +309,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="row text-center intro-title">
 											<p class="modal-link last-element">
 												<a href="#" data-toggle="modal"
@@ -330,6 +331,11 @@
 								</div>
 							</div>
 						</form:form>
+						</div>
+						<!-- 					Descripción lateral  -->
+					<div class="col-md-4">
+						<spring:message code="label.s5lateral" />
+					</div>
 					</div>
 				</div>
 			</div>
@@ -358,7 +364,7 @@
 							<spring:message code="label.siteservice5" />
 						</h4>
 					</div>
-					<div class="modal-body">
+					<div class="modal-body" style="text-align: justify;">
 						<p>
 							<spring:message code="label.s5i1" />
 						</p>
@@ -366,6 +372,15 @@
 						<p>
 							<spring:message code="label.s5i2" />
 						</p>
+						
+						<p>
+							<spring:message code="label.s5i9" />
+						</p>
+						
+						<p>
+							<spring:message code="label.s5i10" />
+						</p>
+						
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">

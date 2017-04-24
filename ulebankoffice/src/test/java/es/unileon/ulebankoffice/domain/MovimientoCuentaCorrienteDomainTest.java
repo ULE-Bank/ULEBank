@@ -13,9 +13,6 @@ import org.springframework.validation.Validator;
 
 public class MovimientoCuentaCorrienteDomainTest {
 	
-	@Autowired
-    private Validator validator;
-	
 	private MovimientoCuentaCorrienteDomain movimiento;
 
 	@Before

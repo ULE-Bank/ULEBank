@@ -92,7 +92,7 @@
                         <i class="fa fa-angle-double-right"></i>
                      </li>
                      <li>
-                        <a href="./#services">
+                        <a href="/a/services">
                            <spring:message
                               code="label.siteservices" />
                         </a>
@@ -115,12 +115,12 @@
          <section class="white-bg page-section-ptb">
             <div class="container">
                <div class="row">
-                  <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-6 col-md-offset-2">
                      <form:form role="form" method="post" modelAttribute="datosTaeVariosIntereses"
                         id="servicesform">
                         <div id="register-form" class="register-form">
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <label for="name">
                                     <spring:message
                                        code="label.typeofperiod" />
@@ -128,7 +128,7 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="field-widget">
                                     <spring:message code="label.annual" var="variable1" />
                                     <spring:message code="label.biannual" var="variable2" />
@@ -146,7 +146,7 @@
                                     </form:select>
                                  </div>
                               </div>
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-1">
                                  <span class="tooltip-content text-blue"
                                     data-original-title="<spring:message code="label.typeofperiodinfo"/>"
                                  data-toggle="tooltip" data-placement="top"><i
@@ -154,7 +154,7 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <h2>
                                     <spring:message
                                        code="label.aprvariosinterestsinfo" />
@@ -162,7 +162,7 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  1 <form:errors style="color: red;" path="intereses[0].interes"></form:errors>
                                  <div class="field-widget">
@@ -173,7 +173,7 @@
                               
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  2  <form:errors style="color: red;" path="intereses[1].interes"></form:errors>
                                  <div class="field-widget">
@@ -183,7 +183,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  3 <form:errors style="color: red;" path="intereses[2].interes"></form:errors>
                                  <div class="field-widget">
@@ -193,7 +193,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  4  <form:errors style="color: red;" path="intereses[3].interes"></form:errors>
                                  <div class="field-widget">
@@ -203,7 +203,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  5 <form:errors style="color: red;" path="intereses[4].interes"></form:errors>
                                  <div class="field-widget">
@@ -213,7 +213,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  6 <form:errors style="color: red;" path="intereses[5].interes"></form:errors>
                                  <div class="field-widget">
@@ -223,7 +223,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  7 <form:errors style="color: red;" path="intereses[6].interes"></form:errors>
                                  <div class="field-widget">
@@ -233,7 +233,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  8 <form:errors style="color: red;" path="intereses[7].interes"></form:errors>
                                  <div class="field-widget">
@@ -243,7 +243,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  9 <form:errors style="color: red;" path="intereses[8].interes"></form:errors>
                                  <div class="field-widget">
@@ -253,7 +253,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  10 <form:errors style="color: red;" path="intereses[9].interes"></form:errors>
                                  <div class="field-widget">
@@ -263,7 +263,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  11 <form:errors style="color: red;" path="intereses[10].interes"></form:errors>
                                  <div class="field-widget">
@@ -273,7 +273,7 @@
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  12 <form:errors style="color: red;" path="intereses[11].interes"></form:errors>
                                  <div class="field-widget">
@@ -288,7 +288,7 @@
                               </h3>
                            </div>
                            <div class="row">
-                              <div class="section-field col-md-6">
+                              <div class="section-field col-md-8">
                                  <div class="row text-center intro-title">
                                     <p class="modal-link last-element">
                                        <a href="#" data-toggle="modal"
@@ -316,6 +316,10 @@
                         </div>
                      </form:form>
                   </div>
+                  <!-- 					Descripción lateral  -->
+					<div class="col-md-4" style="text-align: justify;">
+						<spring:message code="label.aprlateral" />
+					</div>
                </div>
             </div>
          </section>
@@ -340,8 +344,11 @@
                         <spring:message code="label.whatisaprtitle" />
                      </h4>
                   </div>
-                  <div class="modal-body">
-                     <spring:message code="label.whatisaprbody" />
+                  <div class="modal-body" style="text-align: justify;">
+                     <p><spring:message code="label.whatisaprbody" /></p>
+                     <p><spring:message code="label.whatisapr1" /></p>
+                     <p><spring:message code="label.whatisapr2" /></p>
+                     <p><spring:message code="label.whatisapr3" /></p>
                   </div>
                   <div class="modal-footer">
                      <button type="button" data-dismiss="modal">

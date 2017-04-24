@@ -192,24 +192,24 @@
 		<section class="white-bg page-section-ptb">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-6 col-md-offset-2">
 						<form:form role="form" method="post"
 							modelAttribute="prestamoMetodoItaliano" id="servicesform">
 							<div id="register-form" class="register-form">
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.initialcapital" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-eur"></i>
 											<form:input type="text" value="" path="C0" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.initialcapitalinfo"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -217,25 +217,25 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="C0"></form:errors>
 									</div>
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.typeofinterest" /></label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-percent"></i>
 											<form:input type="text" path="i" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s4typeofinterestinfo"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -243,24 +243,24 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="i"></form:errors>
 									</div>
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message code="label.periods" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<i class="fa fa-clock-o"></i>
 											<form:input type="text" name="name" path="k" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.periodsinfo"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -268,19 +268,19 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="k"></form:errors>
 									</div>
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<label for="name"><spring:message
 												code="label.typeofperiod" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="field-widget">
 											<spring:message code="label.annual" var="variable1" />
 											<spring:message code="label.biannual" var="variable2" />
@@ -296,7 +296,7 @@
 											</form:select>
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-1">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.s4typeofperiodinfo"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -304,7 +304,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<form:errors style="color: red;" path="p"></form:errors>
 									</div>
 								</div>
@@ -316,7 +316,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-8">
 										<div class="row text-center intro-title">
 											<p class="modal-link last-element">
 												<a href="" data-toggle="modal"
@@ -338,6 +338,10 @@
 								</div>
 							</div>
 						</form:form>
+					</div>
+					<!-- 					Descripción lateral  -->
+					<div class="col-md-4">
+						<spring:message code="label.s4italianlateral" />
 					</div>
 				</div>
 			</div>
@@ -363,9 +367,24 @@
 							<spring:message code="label.s4italian" />
 						</h4>
 					</div>
-					<div class="modal-body">
+					<div class="modal-body" style="text-align: justify;">
 						<p>
 							<spring:message code="label.italianmethodloaninfo" />
+						</p>
+						<p>
+							<spring:message code="label.imi2" />
+						</p>
+						<p>
+							<spring:message code="label.imi3" />
+						</p>
+						<p>
+							<spring:message code="label.imi4" />
+						</p>
+						<p style="text-align: center;">
+						<img src="resources/template/images/prestamos/formulaprestamoitaliano.png"/>
+						</p>
+						<p>
+							<spring:message code="label.imi5" />
 						</p>
 
 						<canvas id="myChart" width="600" height="300"></canvas>
