@@ -64,8 +64,8 @@ public class SolicitudDomainTest {
 		Calendar fecha = new GregorianCalendar(2017, 12, 05);
 		solicitud.setFechaApertura(fecha.getTime());
 		assertThat(solicitud.getFechaApertura().equals(fechaApertura), is(not(true)));
-		
-		assertThat(solicitud.getFechaApertura().equals(fecha), is(true));
+		Calendar fechaAux = new GregorianCalendar(2017, 12, 05);
+		assertThat(solicitud.getFechaApertura().equals(fechaAux.getTime()), is(true));
 	}
 
 	@Test
@@ -78,13 +78,13 @@ public class SolicitudDomainTest {
 		Calendar fecha = new GregorianCalendar(2017, 12, 05);
 		solicitud.setFechaResolucion(fecha.getTime());
 		assertThat(solicitud.getFechaResolucion().equals(fechaResolucion), is(not(true)));
-		
-		assertThat(solicitud.getFechaResolucion().equals(fecha), is(true));
+		Calendar fechaAux = new GregorianCalendar(2017, 12, 05);
+		assertThat(solicitud.getFechaResolucion().equals(fechaAux.getTime()), is(true));
 	}
 
 	@Test
 	public void testSetProductId() {
-		assertThat(solicitud.getProductId(), is("productID"));
+		assertThat(solicitud.getProductId(), is("productoID"));
 		solicitud.setProductId("anotherProduct");
 		assertThat(solicitud.getProductId(), is("anotherProduct"));
 	}
