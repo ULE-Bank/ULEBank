@@ -3,6 +3,13 @@ package es.unileon.ulebankoffice.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Clase encargada de realizar la lógica de negocio relacionada con el préstamo método alemán
+ * 
+ * @author Razvan Raducu, Alexis Gutierres
+ *
+ */
 public class AlemanDomain extends Prestamo {
 	
 	private double capInicial;
@@ -37,7 +44,7 @@ public class AlemanDomain extends Prestamo {
 		
 		anualidad[0] = interes[0];
 		
-		double anualidadCons = capInicial * (tipoInteres/tipoPeriodo) / (1-(Math.pow(1-(tipoInteres/tipoPeriodo), periodos*tipoPeriodo)));
+		double anualidadCons = capInicial * (tipoInteres/tipoPeriodo) / (1-(Math.pow(1-(tipoInteres/tipoPeriodo), (double)periodos*tipoPeriodo)));
 		
 		for(int i=1; i<anualidad.length; i++)
 			anualidad[i] = anualidadCons;
@@ -60,7 +67,7 @@ public class AlemanDomain extends Prestamo {
 		
 		List<String> itemTabla;
 		for(int i=0; i<numFilas; i++) {
-			itemTabla = new ArrayList<String>();
+			itemTabla = new ArrayList<>();
 			
 			itemTabla.add(Integer.toString(i));
 			itemTabla.add(Double.toString(redondear(anualidad[i])));

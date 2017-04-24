@@ -31,12 +31,12 @@ public class SolicitudDomain {
 	
 	private List<String> idDocumentos;
 	
+
 	/**
-	 * 
 	 * @param estado
 	 * @param fechaApertura
 	 * @param fechaResolucion
-	 * @param documentos
+	 * @param idDocumentos
 	 * @param productId
 	 */
 	@PersistenceConstructor
@@ -74,6 +74,11 @@ public class SolicitudDomain {
 	}
 
 	
+	/**
+	 * Este método delega la función de guardar en la base de datos el documento al atributo Documentos y, además, inserta en el atributo List<String> idDocs la id del documento recién guardado.
+	 * 
+	 * @param documento
+	 */
 	public void addDocument(DocumentoAdjuntoDomain documento){
 		this.documentos.addDocumento(documento);
 		this.idDocumentos.add(documento.getId());
@@ -87,10 +92,6 @@ public class SolicitudDomain {
 		this.productId = productId;
 	}
 	
-	public void addDocumento(DocumentoAdjuntoDomain documento) {
-		documentos.addDocumento(documento);
-		this.idDocumentos.add(documento.getId());
-	}
 
 	public List<DocumentoAdjuntoDomain> getDocumentos() {
 		return documentos.getDocumentos(this.idDocumentos);

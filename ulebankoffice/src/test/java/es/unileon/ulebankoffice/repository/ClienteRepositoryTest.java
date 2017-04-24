@@ -52,8 +52,6 @@ public class ClienteRepositoryTest {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
-
-	
 	@After
 	public void afterEachMethod(){
 		clienteRepository.deleteAll();

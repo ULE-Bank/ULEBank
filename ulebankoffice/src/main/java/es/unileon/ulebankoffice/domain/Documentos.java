@@ -4,6 +4,7 @@ package es.unileon.ulebankoffice.domain;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import es.unileon.ulebankoffice.repository.DocumentoRepository;
 
@@ -20,7 +21,7 @@ import es.unileon.ulebankoffice.repository.DocumentoRepository;
 public class Documentos {
 
 	@Autowired
-	DocumentoRepository repo;
+	private DocumentoRepository repo;
 
 	/**
 	 * Método utilizado para guardar en la base de datos.
