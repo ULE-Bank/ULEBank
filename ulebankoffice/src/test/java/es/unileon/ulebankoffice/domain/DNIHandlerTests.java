@@ -51,4 +51,30 @@ public class DNIHandlerTests {
 	public void testToString() {
 		assertThat(dni.toString(), is("X5526828C"));
 	}
+	
+	@Test
+	public void testRightWithZ() throws DNIException{
+		dni = new DNIHandler("z8197195t");
+		assertThat(dni.getId(), is("Z8197195T"));
+	}
+	
+	@Test (expected = DNIException.class)
+	public void testWrongWithZ() throws DNIException{
+		dni = new DNIHandler("z8157195t");
+	}
+	
+	@Test
+	public void startsWithLKM() throws DNIException{
+		dni = new DNIHandler("L61380818M");
+		assertThat(dni.getId(), is("L61380818M"));
+		dni = new DNIHandler("K61380818M");
+		assertThat(dni.getId(), is("K61380818M"));
+		dni = new DNIHandler("M61380818M");
+		assertThat(dni.getId(), is("M61380818M"));
+	}
+	
+	@Test (expected = DNIException.class)
+	public void wrongFormatDni() throws DNIException{
+		dni = new DNIHandler("X5526828995511C");
+	}
 }

@@ -71,11 +71,8 @@ public class MovimientoCuentaCorrienteDomain implements Movimiento {
 		this.temporalidad = temporalidad;
 	}
 
-	public Date getFecha() {
-		return fecha;
-	}
 
-	public void setFecha(Date fecha) {
+	public void setDate(Date fecha) {
 		this.fecha = fecha;
 	}
 	

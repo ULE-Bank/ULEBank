@@ -17,6 +17,16 @@ public class TAEVariosInteresesDomain {
 	private int periodo;
 	private List<InteresVariable> intereses;
 
+	/**
+	 * Para calcular el tae en función de varios intereses distintos es
+	 * necesario especificar todos esos intereses y el numero de preiodos que
+	 * hay. El número de intereses debe coincidir con el número de periodos. En
+	 * caso de no hacerlo se recorrerá la lsita de intereses desde index = 0
+	 * hasta index < periodo
+	 * 
+	 * @param periodo
+	 * @param intereses
+	 */
 	public TAEVariosInteresesDomain(int periodo, List<InteresVariable> intereses) {
 		// La cantidad no es necesaria. La TAE es independiente de la cantidad,
 		// se utiliza sólo para poder obtener la solución.
@@ -25,6 +35,12 @@ public class TAEVariosInteresesDomain {
 		this.intereses = intereses;
 	}
 
+	
+	/**
+	 * Realizar el cálculo del tae teniendo en cuenta el periodo e intereses especificados a través del el cosntrucor
+	 * 
+	 * @return
+	 */
 	public String calcular() {
 
 		// Hay que sumar 1 puesto que la cantidad ha de introducirse en los
@@ -33,8 +49,6 @@ public class TAEVariosInteresesDomain {
 
 		flujos[0] = -cantidad;
 		for (int i = 0; i < periodo; i++) {
-			// income[i] = intereses.get(i).getInteres();
-			// System.out.println(income[i]);
 
 			flujos[i + 1] = (intereses.get(i).getInteres() / (100)) * cantidad / periodo;
 
@@ -46,22 +60,19 @@ public class TAEVariosInteresesDomain {
 		new Irr();
 		double irr = Irr.irr(flujos, 0.1d);
 
-		double TAE = (Math.pow((1.0 + irr), periodo) - 1.0) * 100;
+		double tae = (Math.pow(1.0 + irr, periodo) - 1.0) * 100;
 
 		// Después de hacer todas las operaciones y antes de añadir a la tabla,
 		// redondeo sus valores.
-		new BigDecimal(Double.toString(TAE)).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
+		new BigDecimal(Double.toString(tae)).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 
 		// En las últimas dos posiciones de la tabla se encuentra el IRR y el
 		// TAE, resultado final. Estas posiciones se borrarán para imprimir la
 		// tabla en la vista con un foreach, de esto se encarga el controlador.
-		// itemTabla = new ArrayList<String>();
-		// itemTabla.add(Double.toString(irr*100) + " %");
-		// tabla.add(itemTabla);
-		
+
 		// Después de hacer todas las operaciones y antes de añadir a la tabla,
 		// redondeo sus valores.
-		return new BigDecimal(Double.toString(TAE)).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
+		return new BigDecimal(Double.toString(tae)).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 	}
 
 	public double getCantidad() {
@@ -94,6 +105,4 @@ public class TAEVariosInteresesDomain {
 				+ "]";
 	}
 
-	
-	
 }

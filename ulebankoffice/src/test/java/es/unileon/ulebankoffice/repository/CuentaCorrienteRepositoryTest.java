@@ -7,6 +7,7 @@ package es.unileon.ulebankoffice.repository;
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
@@ -99,6 +100,7 @@ public class CuentaCorrienteRepositoryTest {
 	@Test
 	public void testFindByDniNonExistent(){
 		List<CuentaCorrienteDomain> cuentas = repo.findByDni("X5526828D");
+		assertNotNull(repo.findByDni("X5526828D"));
 		assertThat(cuentas.size(), is(0));
 		cuentas = repo.findAll();
 		assertThat(cuentas.size(), is(0));
@@ -151,7 +153,7 @@ public class CuentaCorrienteRepositoryTest {
 		
 		repo.save(cuenta);
 		
-		cuenta = repo.findById(cuenta.getId());
+		cuenta = repo.findOne(cuenta.getId());
 		
 		
 		assertThat(cuenta.getSaldo(), is(600.00));

@@ -27,7 +27,7 @@ public class ClienteDomain {
 	private String id;
 
 	private String name;
-	private String lastname;
+	private String lastName;
 	private String email;
 	private String nacionalidad;
 
@@ -58,18 +58,18 @@ public class ClienteDomain {
 	 * @param fechaNacimiento
 	 * @param dni
 	 * @param direcciones
-	 * @param idDocumentos
 	 * @param nacionalidad
+	 * @param idDocumentos
 	 * @throws ParseException
 	 * @throws DNIException
 	 */
 	@PersistenceConstructor
 	public ClienteDomain(String name, String lastname, String email, Date fechaNacimiento, Handler dni,
-			List<DireccionDomain> direcciones, List<String> idDocumentos, String nacionalidad)
+			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
 			throws ParseException, DNIException {
 
 		this.name = name;
-		this.lastname = lastname;
+		this.lastName = lastname;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
 		this.nacionalidad = nacionalidad;
@@ -99,11 +99,11 @@ public class ClienteDomain {
 	public ClienteDomain(String name, String lastname, String email, String fechaNacimiento, String dni,
 			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
 			throws ParseException, DNIException {
-		DateFormat df = new SimpleDateFormat("yyy-MM-dd");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date userDate = df.parse(fechaNacimiento);
 
 		this.name = name;
-		this.lastname = lastname;
+		this.lastName = lastname;
 		this.email = email;
 		this.fechaNacimiento = userDate;
 		setDni(dni);
@@ -121,12 +121,12 @@ public class ClienteDomain {
 		this.name = name;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastname) {
+		this.lastName = lastname;
 	}
 
 	public String getEmail() {
@@ -139,10 +139,6 @@ public class ClienteDomain {
 
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
-	}
-
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public Handler getDni() {
@@ -159,10 +155,6 @@ public class ClienteDomain {
 
 	public List<DireccionDomain> getDirecciones() {
 		return direcciones;
-	}
-
-	public void setDirecciones(List<DireccionDomain> direcciones) {
-		this.direcciones = direcciones;
 	}
 
 	/**
@@ -215,7 +207,7 @@ public class ClienteDomain {
 
 	@Override
 	public String toString() {
-		return "ClienteDomain [name=" + name + ", lastname=" + lastname + ", email=" + email + ", nacionalidad="
+		return "ClienteDomain [name=" + name + ", lastname=" + lastName + ", email=" + email + ", nacionalidad="
 				+ nacionalidad + ", fechaNacimiento=" + fechaNacimiento + ", fechaDeAlta=" + fechaDeAlta + ", dni="
 				+ dni + ", direcciones=" + direcciones + ", documentos=" + documentos + ", idDocumentos=" + idDocumentos
 				+ "]";

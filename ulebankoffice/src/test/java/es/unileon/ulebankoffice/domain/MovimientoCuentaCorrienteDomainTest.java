@@ -1,23 +1,24 @@
 package es.unileon.ulebankoffice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.Validator;
 
 public class MovimientoCuentaCorrienteDomainTest {
 	
 	private MovimientoCuentaCorrienteDomain movimiento;
+	private Calendar fecha;
 
 	@Before
 	public void setUp() throws Exception {
-		Calendar fecha = new GregorianCalendar(2017, 04, 23);
+		fecha = new GregorianCalendar(2017, 04, 23);
 		movimiento = new MovimientoCuentaCorrienteDomain(150.00, "Ingreso", "UNILEON", "Razvan", fecha.getTime());
 	}
 
@@ -47,12 +48,18 @@ public class MovimientoCuentaCorrienteDomainTest {
 
 	@Test
 	public void testGetDate() {
-		assertThat(movimiento.getDate().getTime(), is(new GregorianCalendar(2017, 04, 23).getTime().getTime()));
+		assertThat(movimiento.getDate().getTime(), is(fecha.getTime().getTime()));
 	}
 
 	@Test
 	public void testGetReceptor() {
 		assertThat(movimiento.getReceptor(), is("Razvan"));
+	}
+	
+	@Test 
+	public void testSetDate(){
+		movimiento.setDate(new Date());
+		assertThat(movimiento.getDate().getTime(), is(not(fecha.getTime().getTime())));
 	}
 
 }

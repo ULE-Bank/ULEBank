@@ -31,16 +31,10 @@ public class OfficeIndexController {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+	private String officeindex = "officeindex";
+	private String clients = "clients";
 	
-	
-//	@InitBinder
-//	public void bindingPreparation(WebDataBinder binder) {
-//
-//	  DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-//	  CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, false);
-//	  binder.registerCustomEditor(Date.class, orderDateEditor);
-//	}
-	
+		
 	/*Método para guardar un nuevo documento. Se comprueba que los campos no sean nulos, vacíos o blancos*/
 	@RequestMapping(value = "/o", method = RequestMethod.POST)
 	public String saveDoc(@ModelAttribute("nuevoCliente") @Valid Cliente nuevoCliente, BindingResult clienteResult, HttpServletRequest req, HttpServletResponse resp, ModelMap model) {
@@ -50,30 +44,15 @@ public class OfficeIndexController {
 		/* Lo convierto a lowerCase puesto que es un ensureIndex unique:true y así se soluciona el problema mayúsculas-minúsculas*/
 		nuevoCliente.setDni(nuevoCliente.getDni().toUpperCase());
 		
-//		model.addAttribute("mongoDocument", new MongoDBDocument());
 		if(clienteResult.hasErrors()){
 			System.out.println(clienteResult.toString() + " \n-########## ");
 			
-				return "officeindex";
+				return officeindex;
 			}
-//		try {
-			
-//			PENDIENTE!!!!!!!!!!!!!!!!!!!!!!!!
-//			clienteRepository.insert(nuevoCliente);
-//			System.out.println("Se ha registrado cliente sin errores");
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//			System.out.println(e.getLocalizedMessage());
-//			System.out.println("HA HABIDO ERRORES");
-//			model.addAttribute("error", "HA HABIDO ERRORES");
-//			return "officeindex";
-//		}
-//		
-//		repository.insert(mongoDocument);
+
 		
 		return "redirect:/o";		
 		
-//		return "redirect:/o";
 	}
 	
 	/*Método para mostrar todos los documentos. Con el foreach en el jsp puedo acceder a todos los
@@ -81,8 +60,8 @@ public class OfficeIndexController {
 	@RequestMapping(value = "/2", method = RequestMethod.GET)
 	public String showMeAllDocs(ModelMap model, @ModelAttribute("nuevoCliente") Cliente nuevoCliente, HttpServletRequest req) {
 		System.out.println("Petición get " + req.getRemoteHost() + " || " + req.getRemoteAddr());
-		model.addAttribute("clients",  clienteRepository.findAll());
-		return "officeindex";
+		model.addAttribute(clients,  clienteRepository.findAll());
+		return officeindex;
 	}
 	/*Opcional para desplegar en el servidor de producción. Así los usuarios no tienen acceso a la DB
 	 * hasta que no esté to-do implementado*/
@@ -110,20 +89,13 @@ public class OfficeIndexController {
 		System.out.println(clienteFound);
 		if(clienteFound == null){
 			model.addAttribute("noClientFoundError", noClientFoundError);
-			model.addAttribute("clients",  clienteRepository.findAll());
+			model.addAttribute(clients,  clienteRepository.findAll());
 		}else{
-			model.addAttribute("clients",  clienteFound);
+			model.addAttribute(clients,  clienteFound);
 		}
 		
 	
-		return "officeindex";
+		return officeindex;
 	}
 	
-	
-	/*Método para borrar un documento de la base de datos.*/
-//	@RequestMapping(value = "/alldocs/delete", method = RequestMethod.GET)
-//	public String deleteDoc(ModelMap model, @ModelAttribute("document") MongoDBDocument document){
-//		repository.delete(document);
-//		return "alldocs";
-//	}
 }

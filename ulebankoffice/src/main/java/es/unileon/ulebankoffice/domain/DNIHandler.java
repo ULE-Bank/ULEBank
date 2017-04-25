@@ -49,10 +49,6 @@ public class DNIHandler implements Handler {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	private boolean dniValido(String nifNie) {
 		StringBuilder aux;
 		String nif;
@@ -63,6 +59,9 @@ public class DNIHandler implements Handler {
 		 * X → 0 Y → 1 Z → 2 y se aplica el mismo algoritmo que para el NIF.
 		 * http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del
 		 * -digito-de-control-del-nif-nie
+		 * 
+		 * Para ver qué son las letras L, K y M -> https://es.wikipedia.org/wiki/N%C3%BAmero_de_identificaci%C3%B3n_fiscal
+		 * 
 		 */
 		if (nifNie.startsWith("L") || nifNie.startsWith("K") || nifNie.startsWith("M"))
 			nif = nifNie.substring(1);

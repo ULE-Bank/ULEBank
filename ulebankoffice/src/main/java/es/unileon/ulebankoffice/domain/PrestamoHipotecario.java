@@ -50,13 +50,13 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 	}
 //	@Override
 //	public void crearSolicitud() {
-//		// TODO Auto-generated method stub
+//		
 //		this.solicitud = new Solicitud();
 //	}
 //
 //	@Override
 //	public Solicitud getSolicitud() {
-//		// TODO Auto-generated method stub
+//		
 //		return this.solicitud;
 //	}
 //
@@ -67,54 +67,47 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 //
 //	@Override
 //	public Handler getId() {
-//		// TODO Auto-generated method stub
+//		
 //		return id;
 //	}
 
 	
 	public void setName(String name) {
-		// TODO Auto-generated method stub
 		this.name = name;
 	}
 
 
 	@Override
 	public Date getFechaSolicitud() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public Date getFechaResolucion() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public Date getFechaFinalizacion() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public String getEstado() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
 	public Object getDni() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 //	@Override
 //	public void addDocument(Documento documento) {
-//		// TODO Auto-generated method stub
 //		this.listaDocs.add(documento);
 //	}
 //
@@ -125,7 +118,7 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 //		 */
 //	@Override
 //	public void removeDocument(String name) {
-//		// TODO Auto-generated method stub
+//		
 //		int index = -1;
 //		for (Documento documento : listaDocs) {
 //			if(documento.getName().equals(name)){
@@ -139,7 +132,7 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 //
 //	@Override
 //	public List<Documento> getListaDocs() {
-//		// TODO Auto-generated method stub
+//		
 //		return this.listaDocs;
 //	}
 

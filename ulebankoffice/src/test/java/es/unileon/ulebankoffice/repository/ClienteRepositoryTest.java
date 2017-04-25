@@ -94,7 +94,7 @@ public class ClienteRepositoryTest {
 	public void testFindByDni(){
 		ClienteDomain cliente = clienteRepository.findByDni("X5526828C");
 		assertEquals("Razvan", cliente.getName());
-		assertEquals("Raducu", cliente.getLastname());
+		assertEquals("Raducu", cliente.getLastName());
 		
 	}
 	

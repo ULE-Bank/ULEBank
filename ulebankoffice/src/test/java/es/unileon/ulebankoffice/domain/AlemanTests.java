@@ -1,6 +1,10 @@
 package es.unileon.ulebankoffice.domain;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,5 +53,11 @@ public class AlemanTests {
 	public void testCalcular() {
 		assertEquals(14143.98, Double.parseDouble(aleman.calcular().get(10).get(1)), delta);
 		assertEquals(0, Double.parseDouble(aleman.calcular().get(10).get(4)), delta);
+	}
+	
+	@Test
+	public void testGetTableHeader(){
+		List <String> header = aleman.getTableHeader();
+		assertThat(header, containsInAnyOrder("Capital pendiente","Periodo","Anualidad","Interés","Amortización"));
 	}
 }

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Clase encargada de realizar la lógica de negocio relacionada con el préstamo método alemán
  * 
- * @author Razvan Raducu, Alexis Gutierres
+ * @author Razvan Raducu, Alexis Gutierrez
  *
  */
 public class AlemanDomain extends Prestamo {
