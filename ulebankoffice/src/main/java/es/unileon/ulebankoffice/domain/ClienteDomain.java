@@ -64,12 +64,12 @@ public class ClienteDomain {
 	 * @throws DNIException
 	 */
 	@PersistenceConstructor
-	public ClienteDomain(String name, String lastname, String email, Date fechaNacimiento, Handler dni,
+	public ClienteDomain(String name, String lastName, String email, Date fechaNacimiento, Handler dni,
 			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
 			throws ParseException, DNIException {
 
 		this.name = name;
-		this.lastName = lastname;
+		this.lastName = lastName;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
 		this.nacionalidad = nacionalidad;
@@ -96,14 +96,14 @@ public class ClienteDomain {
 	 * @throws ParseException
 	 * @throws DNIException
 	 */
-	public ClienteDomain(String name, String lastname, String email, String fechaNacimiento, String dni,
+	public ClienteDomain(String name, String lastName, String email, String fechaNacimiento, String dni,
 			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
 			throws ParseException, DNIException {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date userDate = df.parse(fechaNacimiento);
 
 		this.name = name;
-		this.lastName = lastname;
+		this.lastName = lastName;
 		this.email = email;
 		this.fechaNacimiento = userDate;
 		setDni(dni);

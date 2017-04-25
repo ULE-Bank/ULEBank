@@ -65,8 +65,11 @@ public class ClienteDomainTest {
 
 	@Test
 	public void testGetFechaNacimiento() {
-		Calendar fecha = new GregorianCalendar(1994, 12, 05);
-		assertThat(cliente.getFechaNacimiento().getTime(), is(fecha.getTime().getTime()));
+		/*
+		 * ATENCIÓN: Los meses en java se numeran en índice 0, es decir, de 0 - Enero a 11 - Diciembre
+		 */
+		Calendar fecha = new GregorianCalendar(1994, 11, 05);
+		assertThat(cliente.getFechaNacimiento(), is(fecha.getTime()));
 	}
 
 	@Test

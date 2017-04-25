@@ -3,7 +3,7 @@
 			"_class": "es.unileon.ulebankoffice.domain.ClienteDomain",
 
 			"name": "Razvan",
-			"lastname": "Raducu",
+			"lastName": "Raducu",
 			"dni": {
 				"_class": "es.unileon.ulebankoffice.domain.DNIHandler",
 				"_id": "X5526828C"
