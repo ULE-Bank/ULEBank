@@ -4,6 +4,20 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
+	<!-- location of log4j config file -->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/logging.properties</param-value>
+	</context-param>
+
+	<!-- applies log4j configuration -->
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 	<!-- Mapeado a modo de prueba, para que no aparezca /index...html si no 
 		/incio -->
 	<servlet>
@@ -20,7 +34,7 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>FrontalController</servlet-name>
 		<url-pattern>/*.htm</url-pattern>
@@ -55,21 +69,19 @@
 		<url-pattern>/tokensignin</url-pattern>
 		<url-pattern>/e/*</url-pattern>
 		<url-pattern>/alldocs/*</url-pattern>
-		<url-pattern>/o/*</url-pattern>	
+		<url-pattern>/o/*</url-pattern>
 		<url-pattern>/a/*</url-pattern>
 		<url-pattern>/tl</url-pattern>
-<!-- 		<url-pattern>/oops</url-pattern> -->
+		<!-- <url-pattern>/oops</url-pattern> -->
 	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>inicio</welcome-file>
 	</welcome-file-list>
 
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 
-<!-- Solución para los caracteres UTF-8. Funciona :) -->
+
+	<!-- Solución para los caracteres UTF-8. Funciona :) -->
 
 	<jsp-config>
 		<jsp-property-group>
@@ -78,17 +90,17 @@
 		</jsp-property-group>
 	</jsp-config>
 
-<!-- Manejor de errores HTTP
-http://stackoverflow.com/questions/7066192/how-to-specify-the-default-error-page-in-web-xml  -->
-<!-- 	<error-page> -->
-<!-- 		<error-code>404</error-code> -->
-<!-- 		<location>/e/404</location> -->
-<!-- 	</error-page> -->
-<!-- Actualmente google no permite customizar el error 404 para páginas que no estén mapeadas -->
+	<!-- Manejor de errores HTTP http://stackoverflow.com/questions/7066192/how-to-specify-the-default-error-page-in-web-xml -->
+	<!-- <error-page> -->
+	<!-- <error-code>404</error-code> -->
+	<!-- <location>/e/404</location> -->
+	<!-- </error-page> -->
+	<!-- Actualmente google no permite customizar el error 404 para páginas 
+		que no estén mapeadas -->
 
-<!-- 	<error-page> -->
-<!--         <exception-type>java.lang.Exception</exception-type> -->
-<!--         <location>/oops</location> -->
-<!--     </error-page> -->
+	<!-- <error-page> -->
+	<!-- <exception-type>java.lang.Exception</exception-type> -->
+	<!-- <location>/oops</location> -->
+	<!-- </error-page> -->
 
 </web-app>

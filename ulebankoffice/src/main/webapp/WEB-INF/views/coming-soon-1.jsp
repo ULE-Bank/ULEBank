@@ -224,7 +224,7 @@
 <script type="text/javascript" src="/resources/template/js/custom.js"></script>
  <script class="source" type="text/javascript">
         $('.countdown').downCount({
-            date: '04/26/2017 12:00:00',
+            date: '05/07/2017 12:00:00',
             offset: +2
         }, function () {
             //alert('WOOT WOOT, done!');

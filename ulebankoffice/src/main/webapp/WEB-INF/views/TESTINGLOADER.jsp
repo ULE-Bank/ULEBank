@@ -58,11 +58,7 @@
       <div class="page-wrapper">
          <!--=================================
             preloader -->
-         <div id="preloader">
-            <div class="clear-loading loading-effect uletest">
-               <span></span>
-            </div>
-         </div>
+        <jsp:include page="/WEB-INF/views/loader.jsp" />
          <!--=================================
             preloader -->      
       
