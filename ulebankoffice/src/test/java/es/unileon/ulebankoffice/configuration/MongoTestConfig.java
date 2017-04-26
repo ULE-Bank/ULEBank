@@ -3,6 +3,9 @@
  */
 package es.unileon.ulebankoffice.configuration;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
@@ -17,7 +20,7 @@ import com.mongodb.Mongo;
  */
 
 @Configuration
-@EnableMongoRepositories(basePackages = "es.unileon.ulebankoffice.repository")
+@EnableMongoRepositories(basePackages = {"es.unileon.ulebankoffice.repository"})
 public class MongoTestConfig extends AbstractMongoConfiguration{
 
 	private final String DB_NAME = "ulebankofficetestdb";
@@ -29,15 +32,17 @@ public class MongoTestConfig extends AbstractMongoConfiguration{
 	}
 
 	@Override
-	@Bean
+	@Bean(destroyMethod = "close")
 	public Mongo mongo() {
 		// TODO Auto-generated method stub
 		return new Fongo(getDatabaseName()).getMongo();
 	}
 	
 	@Override
-	protected String getMappingBasePackage() {
-		return "es.unileon.ulebankoffice.domain";
+	protected Collection<String> getMappingBasePackages() {
+		Collection<String> packages = new ArrayList<>();
+		packages.add("es.unileon.ulebankoffice.domain");
+		return packages;
 	}
 
 }
