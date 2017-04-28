@@ -219,7 +219,7 @@
                   </div>
                   <!-- 					Descripción lateral  -->
 					<div class="col-md-4" style="text-align: justify;">
-						<spring:message code="label.aprlateral" />
+						<p style="text-align: justify;"><spring:message code="label.aprlateral" /></p>
 					</div>
                </div>
             </div>

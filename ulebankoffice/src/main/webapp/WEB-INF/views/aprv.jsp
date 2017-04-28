@@ -317,8 +317,9 @@
                      </form:form>
                   </div>
                   <!-- 					Descripción lateral  -->
-					<div class="col-md-4" style="text-align: justify;">
-						<spring:message code="label.aprlateral" />
+					<div class="col-md-4" >
+					<p style="text-align: justify;"><spring:message code="label.aprlateral" /></p>
+						
 					</div>
                </div>
             </div>
