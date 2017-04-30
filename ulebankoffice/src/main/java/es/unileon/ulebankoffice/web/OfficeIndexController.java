@@ -28,41 +28,6 @@ import es.unileon.ulebankoffice.service.Cliente;
 @Controller
 public class OfficeIndexController {
 
-	@Autowired
-	private ClienteRepository clienteRepository;
-	
-	private String officeindex = "officeindex";
-	private String clients = "clients";
-	
-		
-	/*Método para guardar un nuevo documento. Se comprueba que los campos no sean nulos, vacíos o blancos*/
-	@RequestMapping(value = "/o", method = RequestMethod.POST)
-	public String saveDoc(@ModelAttribute("nuevoCliente") @Valid Cliente nuevoCliente, BindingResult clienteResult, HttpServletRequest req, HttpServletResponse resp, ModelMap model) {
-			
-		System.out.println("FECHA ->>>>[" + nuevoCliente.getFechaNacimiento());
-		
-		/* Lo convierto a lowerCase puesto que es un ensureIndex unique:true y así se soluciona el problema mayúsculas-minúsculas*/
-		nuevoCliente.setDni(nuevoCliente.getDni().toUpperCase());
-		
-		if(clienteResult.hasErrors()){
-			System.out.println(clienteResult.toString() + " \n-########## ");
-			
-				return officeindex;
-			}
-
-		
-		return "redirect:/o";		
-		
-	}
-	
-	/*Método para mostrar todos los documentos. Con el foreach en el jsp puedo acceder a todos los
-	 * campos del documento*/
-	@RequestMapping(value = "/2", method = RequestMethod.GET)
-	public String showMeAllDocs(ModelMap model, @ModelAttribute("nuevoCliente") Cliente nuevoCliente, HttpServletRequest req) {
-		System.out.println("Petición get " + req.getRemoteHost() + " || " + req.getRemoteAddr());
-		model.addAttribute(clients,  clienteRepository.findAll());
-		return officeindex;
-	}
 	/*Opcional para desplegar en el servidor de producción. Así los usuarios no tienen acceso a la DB
 	 * hasta que no esté to-do implementado*/
 	@RequestMapping(value= "/o", method = RequestMethod.GET)
@@ -70,32 +35,5 @@ public class OfficeIndexController {
 		return "coming-soon-1";
 	}
 	
-	
-	/*Método para mostrar buscar un cliente en concreto por dni*/
-	@RequestMapping(value = "/o", method = RequestMethod.GET, params="uin")
-	public String showMeAclient(ModelMap model, @RequestParam("uin") String dni, HttpServletRequest req, @ModelAttribute("nuevoCliente") Cliente nuevoCliente) {
-		/*Es mucho más sensato capturar el idioma que el país ya que puede ser es_ES o es_EN. El idioma es el mismo
-		 * pero el país no. De cara al futuro puede suponer problemas si se captura sólo el país.*/
-		String locale = req.getLocale().getLanguage();
-		String noClientFoundError = "";
-		if(locale.equals(new Locale("en").getLanguage())){
-			noClientFoundError = "No client found with such DNI/NIE";
-		} else if(locale.equals(new Locale("es").getLanguage())){
-			noClientFoundError = "No hay ningún cliente con ese DNI/NIE";
-		}
-		
-		/*Lo convierto a uppercase puesto que al guardarlo lo hago como uppercase*/
-		ClienteDomain clienteFound = clienteRepository.findByDni(dni.toUpperCase());
-		System.out.println(clienteFound);
-		if(clienteFound == null){
-			model.addAttribute("noClientFoundError", noClientFoundError);
-			model.addAttribute(clients,  clienteRepository.findAll());
-		}else{
-			model.addAttribute(clients,  clienteFound);
-		}
-		
-	
-		return officeindex;
-	}
 	
 }

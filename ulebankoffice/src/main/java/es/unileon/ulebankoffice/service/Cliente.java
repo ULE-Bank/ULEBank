@@ -22,11 +22,6 @@ public class Cliente {
 	@Past
 	private String fechaNacimiento;
 
-	// private ExpedienteElectronico expedienteElectronico;
-
-	// private Handler dni;
-
-//	@NotEmpty
 	@NotBlank
 	private String dni;
 
@@ -64,19 +59,6 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	// public ExpedienteElectronico getExpedienteElectronico() {
-	// return expedienteElectronico;
-	// }
-	// public void setExpedienteElectronico(ExpedienteElectronico
-	// expedienteElectronico) {
-	// this.expedienteElectronico = expedienteElectronico;
-	// }
-	// public Handler getDni() {
-	// return dni;
-	// }
-	// public void setDni(Handler dni) {
-	// this.dni = dni;
-	// }
 	public List<Direccion> getDireccion() {
 		return direccion;
 	}

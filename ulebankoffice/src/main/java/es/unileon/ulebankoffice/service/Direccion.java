@@ -16,7 +16,6 @@ public class Direccion {
 	
 	@NotEmpty
 	private String numero;
-//	private Handler dni;
 	
 	@NotEmpty @Min(0)
 	private int codigoPostal;
@@ -82,18 +81,6 @@ public class Direccion {
 	public String toString() {
 		return "Direccion [calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal
 				+ ", localidad=" + localidad + ", comunidadAutonoma=" + comunidadAutonoma + ", dni=" + dni + "]";
-	}
-
-	
-//	public Handler getDni() {
-//		return dni;
-//	}
-//
-//	public void setDni(Handler dni) {
-//		this.dni = dni;
-//	}
-
-	
-	
+	}	
 	
 }

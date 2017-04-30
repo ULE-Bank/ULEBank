@@ -55,6 +55,5 @@ public class HipotecaInversaFormController {
         model.addAttribute("hipotecaInversa", new HipotecaInversa());
         
         return "reversemortgage";
-//        return "coming-soon-1";
     }
 }

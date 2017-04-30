@@ -40,7 +40,7 @@ public class CreditosFormController {
         	return model;
 		
 		List<MovimientosCreditos> movimientos = creditos.getMovimientos();
-		List<MovimientosCreditosDomain> myMovimientos = new ArrayList<MovimientosCreditosDomain>();
+		List<MovimientosCreditosDomain> myMovimientos = new ArrayList<>();
 		
 		response.addCookie(new Cookie("movimientos", new Gson().toJson(movimientos)));
 		response.addCookie(new Cookie("fechaApertura", creditos.getFechaApertura()));
@@ -84,7 +84,6 @@ public class CreditosFormController {
 	@RequestMapping(value = "/creditaccount", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("creditos", new Creditos());
-//        return "coming-soon-1";
         return "creditaccount";
     }
 }

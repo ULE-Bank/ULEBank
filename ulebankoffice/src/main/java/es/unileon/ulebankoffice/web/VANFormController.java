@@ -33,12 +33,12 @@ public class VANFormController {
         
         for(int j=1; j<=n; j++) {
         	double flujo = Double.parseDouble(flujos[j-1]);
-        	resultadoParcial += flujo / Math.pow((1+k), j);
+        	resultadoParcial += flujo / Math.pow(1+k, j);
         }
         
         double resultado = resultadoParcial + Q0;
         
-        Map<String, Object> myModel = new HashMap<String, Object>();
+        Map<String, Object> myModel = new HashMap<>();
         myModel.put("resultado", resultado);
 
         return new ModelAndView("van", "model", myModel);

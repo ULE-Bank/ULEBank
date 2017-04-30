@@ -22,21 +22,40 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	@Id
 	private String id;
 
-	private Date fechaSolicitud, fechaResolucion, fechaFinalizacion;
+	private Date fechaSolicitud;
+	private Date fechaResolucion;
+	private Date fechaFinalizacion;
 
-	private Double saldo, comision, tae, interes;
+	private Double saldo;
+	private Double comision;
+	private Double tae;
+	private Double interes;
 
 	private String estado;
 
 	private Handler dni;
 
 	private List<MovimientoCuentaCorrienteDomain> movimientos;
-	
+
 	@Transient
 	private Documentos documentos;
-	
+
 	private List<String> idDocumentos;
 
+	/**
+	 * Constructor utilizado para instanciar manualmente objetos
+	 * CuentaCorrienteDomain, pasándole el DNI como string y sin especificar sus
+	 * documentos, que tendrán que ser añadidos más adelante.
+	 * 
+	 * @param dni
+	 * @param estado
+	 * @param saldo
+	 * @param interes
+	 * @param tae
+	 * @param comision
+	 * @throws DNIException
+	 * @throws ParseException
+	 */
 	public CuentaCorrienteDomain(String dni, String estado, double saldo, double interes, double tae, double comision)
 			throws DNIException, ParseException {
 
@@ -64,6 +83,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	 * @param estado
 	 * @param dni
 	 * @param movimientos
+	 * @param idDocumentos
 	 */
 	@PersistenceConstructor
 	public CuentaCorrienteDomain(Date fechaSolicitud, Date fechaResolucion, Date fechaFinalizacion, Double saldo,
@@ -83,6 +103,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.documentos = new Documentos();
 	}
 
+	@Override
 	public Date getFechaSolicitud() {
 		return fechaSolicitud;
 	}
@@ -91,6 +112,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.fechaSolicitud = fechaSolicitud;
 	}
 
+	@Override
 	public Date getFechaResolucion() {
 		return fechaResolucion;
 	}
@@ -99,6 +121,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.fechaResolucion = fechaResolucion;
 	}
 
+	@Override
 	public Date getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
@@ -139,6 +162,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.interes = interes;
 	}
 
+	@Override
 	public String getEstado() {
 		return estado;
 	}
@@ -147,6 +171,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.estado = estado;
 	}
 
+	@Override
 	public Handler getDni() {
 		return dni;
 	}
@@ -162,19 +187,34 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	public void setMovimientos(List<MovimientoCuentaCorrienteDomain> movimientos) {
 		this.movimientos = movimientos;
 	}
-	
-	public void ingresarSaldo(double saldo){
+
+	/**
+	 * Añade la cantidad indicada al saldo actual de la cuenta
+	 * 
+	 * @param saldo
+	 */
+	public void ingresarSaldo(double saldo) {
 		this.saldo += saldo;
 	}
-	
-	public void extraerSaldo(double saldo){
+
+	/**
+	 * Extrae la cantidad indicada del saldo actual de la cuenta
+	 * 
+	 * @param saldo
+	 */
+	public void extraerSaldo(double saldo) {
 		this.saldo -= saldo;
 	}
 
+	/**
+	 * Añade a la lista de movimientos el movimiento especificado
+	 * 
+	 * @param movimiento
+	 */
 	public void addMovimiento(MovimientoCuentaCorrienteDomain movimiento) {
 		this.movimientos.add(movimiento);
 	}
-	
+
 	public void addDocumento(DocumentoAdjuntoDomain documento) {
 		documentos.addDocumento(documento);
 		this.idDocumentos.add(documento.getId());
@@ -192,7 +232,5 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	public String getId() {
 		return id;
 	}
-	
-	
-	
+
 }

@@ -53,7 +53,7 @@ public class ClienteDomain {
 	 * /html/#mapping-chapter
 	 * 
 	 * @param name
-	 * @param lastname
+	 * @param lastName
 	 * @param email
 	 * @param fechaNacimiento
 	 * @param dni
@@ -86,7 +86,7 @@ public class ClienteDomain {
 	 * son adecuados sintáctica y semánticamente.
 	 * 
 	 * @param name
-	 * @param lastname
+	 * @param lastName
 	 * @param email
 	 * @param fechaNacimiento
 	 * @param dni

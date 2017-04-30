@@ -37,7 +37,7 @@ public class AdminQuestionsController {
         	if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
         		return new ModelAndView("redirect:/offersconsulting");
         	
-        	List<QuestionInfo> list = new ArrayList<QuestionInfo>();
+        	List<QuestionInfo> list = new ArrayList<>();
         	
         	List<Entity> results = datastore.query("Question");
         	for (Entity result : results) {

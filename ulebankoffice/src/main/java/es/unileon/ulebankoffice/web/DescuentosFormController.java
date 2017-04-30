@@ -52,10 +52,6 @@ public class DescuentosFormController {
         model.addAttribute("descuentos", new Descuentos());
         
         return "discounts";
-    }
-	
-	private double redondear(double r) {
-		return Math.rint(r*100) / 100;
-	}
+    }	
 
 }

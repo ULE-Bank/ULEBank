@@ -37,7 +37,7 @@ public class AdminQueryPageController {
     public ModelAndView processAdd(@Valid @ModelAttribute("adminAnswer")
     		AdminAnswer adminAnswer, BindingResult bindingResult) {
 		
-		Map<String, Object> myModel = new HashMap<String, Object>();
+		Map<String, Object> myModel = new HashMap<>();
 		
 		if (bindingResult.hasErrors())
         	return new ModelAndView("adminquerypage", "model", myModel);
@@ -58,7 +58,7 @@ public class AdminQueryPageController {
         
         if (authenticator.isAuthenticated(req)) {
         	
-        	Map<String, Object> myModel = new HashMap<String, Object>();
+        	Map<String, Object> myModel = new HashMap<>();
         	
         	String nombre, apellidos, titulo, url, comentarios, state, email;
         	
