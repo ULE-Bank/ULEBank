@@ -1,5 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
+
+<!--Start Cookie Script-->
+      <script type="text/javascript"
+         src="resources/template/js/cookie-bar-master/cookiebar-latest.js?tracking=1&thirdparty=1&scrolling=1&always=1&blocking=1&privacyPage=cookies"></script>
+      <!--End Cookie Script-->
+
 <header id="header" class="header-4">
    <!--=================================
       mega menu -->

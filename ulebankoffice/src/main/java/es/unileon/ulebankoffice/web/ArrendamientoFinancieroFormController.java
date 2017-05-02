@@ -37,7 +37,7 @@ public class ArrendamientoFinancieroFormController {
 		ArrendamientoFinancieroDomain myArrendamientoFinanciero = 
 				new ArrendamientoFinancieroDomain(valorBien, duracionContrato, fraccionamientoPagoCuota, tipoInteres);
 		
-		List<List<String>> tabla = myArrendamientoFinanciero.calcular();
+		List<List<String>> tabla = myArrendamientoFinanciero.calcularTabla();
 		
 		model.addObject("tabla", tabla);
         

@@ -17,7 +17,7 @@ public class ArrendamientoFinancieroDomain extends Operacion {
 		this.tipoInteres = tipoInteres / 100.0;
 	}
 	
-	public List<List<String>> calcular() {
+	public List<List<String>> calcularTabla() {
 		double aux = 1 + (tipoInteres / fraccionamientoPagoCuota);
 		double arriba = Math.pow(aux, (duracionContrato*fraccionamientoPagoCuota)) * (tipoInteres / fraccionamientoPagoCuota);
 		double abajo = Math.pow(aux, ((duracionContrato*fraccionamientoPagoCuota)+1)) - 1;

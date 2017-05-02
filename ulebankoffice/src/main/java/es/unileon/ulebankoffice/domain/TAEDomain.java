@@ -12,7 +12,7 @@ public class TAEDomain extends Operacion {
 		this.tipoPeriodo = p;
 	}
 
-	public List<List<String>> calcular() {
+	public List<List<String>> calcularTabla() {
 		double ip = tipoInteres / tipoPeriodo;
         
         double resultado = Math.pow((1+ip), tipoPeriodo) - 1;

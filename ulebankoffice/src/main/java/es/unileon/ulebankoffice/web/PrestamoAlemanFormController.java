@@ -36,7 +36,7 @@ public class PrestamoAlemanFormController {
 		
 		AlemanDomain myAleman = new AlemanDomain(C0, i, k, p);
 		
-		List<List<String>> tabla = myAleman.calcular();
+		List<List<String>> tabla = myAleman.calcularTabla();
 		
         model.addObject("tabla", tabla);
         

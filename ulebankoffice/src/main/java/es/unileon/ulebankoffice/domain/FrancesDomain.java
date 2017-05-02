@@ -15,7 +15,7 @@ public class FrancesDomain extends Prestamo {
 		this.tipoPeriodo = p;
 	}
 	
-	public List<List<String>> calcular() {
+	public List<List<String>> calcularTabla() {
 		int numFilas = periodos * tipoPeriodo + 1;
 		
 		double[] anualidad = new double[numFilas];

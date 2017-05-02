@@ -45,7 +45,7 @@ public class ItalianoTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(4484.38, Double.parseDouble(italiano.calcular().get(8).get(1)), delta);
-		assertEquals(0, Double.parseDouble(italiano.calcular().get(8).get(4)), delta);
+		assertEquals(4484.38, Double.parseDouble(italiano.calcularTabla().get(8).get(1)), delta);
+		assertEquals(0, Double.parseDouble(italiano.calcularTabla().get(8).get(4)), delta);
 	}
 }

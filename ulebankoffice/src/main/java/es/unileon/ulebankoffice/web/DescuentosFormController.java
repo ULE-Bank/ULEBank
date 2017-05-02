@@ -38,7 +38,7 @@ public class DescuentosFormController {
 		DescuentosDomain myDescuentos = 
 				new DescuentosDomain(importeDescuento, periodoDescuento, tipoInteres, base, otrosGastos, comisiones);
 		
-		List<List<String>> tabla = myDescuentos.calcular();
+		List<List<String>> tabla = myDescuentos.calcularTabla();
 		
 		model.addObject("tabla", tabla);
         

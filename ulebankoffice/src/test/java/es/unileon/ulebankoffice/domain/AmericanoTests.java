@@ -46,6 +46,6 @@ public class AmericanoTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(52500, Double.parseDouble(americano.calcular().get(10).get(1)), delta);
+		assertEquals(52500, Double.parseDouble(americano.calcularTabla().get(10).get(1)), delta);
 	}
 }

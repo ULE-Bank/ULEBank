@@ -32,6 +32,6 @@ public class TAETests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals("5.06 %", tae.calcular().get(0).get(2));
+		assertEquals("5.06 %", tae.calcularTabla().get(0).get(2));
 	}
 }

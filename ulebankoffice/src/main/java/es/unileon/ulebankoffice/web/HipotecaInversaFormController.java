@@ -41,7 +41,7 @@ public class HipotecaInversaFormController {
 		HipotecaInversaDomain myHipotecaInversa = 
 				new HipotecaInversaDomain(vT, e, pST, tIP, cA, rR, cT, gF);
 		
-		List<List<String>> tabla = myHipotecaInversa.calcular();
+		List<List<String>> tabla = myHipotecaInversa.calcularTabla();
 		
 		model.addObject("tabla", tabla);
 		

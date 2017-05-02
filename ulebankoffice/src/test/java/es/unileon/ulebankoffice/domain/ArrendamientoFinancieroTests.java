@@ -46,7 +46,7 @@ public class ArrendamientoFinancieroTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(5732.80, Double.parseDouble(arrendamientoFinanciero.calcular().get(10).get(1)), delta);
-		assertEquals(0.0, Double.parseDouble(arrendamientoFinanciero.calcular().get(10).get(4)), delta);
+		assertEquals(5732.80, Double.parseDouble(arrendamientoFinanciero.calcularTabla().get(10).get(1)), delta);
+		assertEquals(0.0, Double.parseDouble(arrendamientoFinanciero.calcularTabla().get(10).get(4)), delta);
 	}
 }

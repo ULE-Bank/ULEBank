@@ -36,7 +36,7 @@ public class PrestamoFrancesCuotaConsFormController {
 		
 		FrancesDomain myFrances = new FrancesDomain(i, C0, k, p);
 		
-		List<List<String>> tabla = myFrances.calcular();
+		List<List<String>> tabla = myFrances.calcularTabla();
 		
 		model.addObject("tabla", tabla);
 		

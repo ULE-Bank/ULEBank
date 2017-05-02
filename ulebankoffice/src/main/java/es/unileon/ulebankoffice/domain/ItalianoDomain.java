@@ -15,7 +15,7 @@ public class ItalianoDomain extends Prestamo {
 		this.tipoPeriodo = p;
 	}
 	
-	public List<List<String>> calcular() {
+	public List<List<String>> calcularTabla() {
 		double amortizacionCons = capInicial / (periodos * tipoPeriodo);
 		
 		int numFilas = (periodos * tipoPeriodo) + 1;

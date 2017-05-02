@@ -30,7 +30,7 @@ public class SimuladorTAEFormController {
         
         TAEDomain myTAE = new TAEDomain(tae.getI(), tae.getP());
         
-        List<List<String>> tabla = myTAE.calcular();
+        List<List<String>> tabla = myTAE.calcularTabla();
         
         model.addObject("tabla", tabla);
         

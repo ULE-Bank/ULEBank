@@ -35,7 +35,7 @@ public class PrestamoItalianoFormController {
 		
 		ItalianoDomain myItaliano = new ItalianoDomain(C0, i, k, p);
 		
-		List<List<String>> tabla = myItaliano.calcular();
+		List<List<String>> tabla = myItaliano.calcularTabla();
 		
         model.addObject("tabla", tabla);
         

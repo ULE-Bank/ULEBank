@@ -36,7 +36,7 @@ public class PrestamoAmericanoFormController {
 		
 		AmericanoDomain myAmericano = new AmericanoDomain(C0, i, k, p);
 		
-		List<List<String>> tabla = myAmericano.calcular();
+		List<List<String>> tabla = myAmericano.calcularTabla();
 		
         model.addObject("tabla", tabla);
         

@@ -17,7 +17,7 @@ public class DescuentosDomain extends Operacion {
 		this.comisiones = comisiones / 100.0;
 	}
 	
-	public List<List<String>> calcular() {
+	public List<List<String>> calcularTabla() {
 		double intereses = (importeDescuento * periodoDescuento * tipoInteres) / base;
 		double importeComisiones = comisiones * importeDescuento;
 		double totalGastos = intereses + importeComisiones + otrosGastos;

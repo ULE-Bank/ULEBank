@@ -5,32 +5,49 @@ import java.util.List;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+/**
+ * POJO plantilla para transmitir datos de la interfaz web a la instanciación
+ * del objeto de dominio. Cuenta de crédito
+ * 
+ * @author Razvan Raducu, Alexis Gutierrez
+ *
+ */
 public class Creditos {
-	
-	@NotNull @Min(1)
-	private double limiteCredito;
-	
+
 	@NotNull
-	private String fechaApertura, fechaVencimiento;
-	
-	@NotNull @Min(0)
+	@Min(1)
+	private double limiteCredito;
+
+	@NotNull
+	private String fechaApertura;
+
+	@NotNull
+	private String fechaVencimiento;
+
+	@NotNull
+	@Min(0)
 	private double comisionApertura;
-	
-	@NotNull @Min(0)
+
+	@NotNull
+	@Min(0)
 	private double corretaje;
-	
-	@NotNull @Min(0)
+
+	@NotNull
+	@Min(0)
 	private double interesDeudor;
-	
-	@NotNull @Min(0)
+
+	@NotNull
+	@Min(0)
 	private double interesExcedido;
-	
-	@NotNull @Min(0)
+
+	@NotNull
+	@Min(0)
 	private double interesAcreedor;
-	
-	@NotNull @Min(0)
+
+	@NotNull
+	@Min(0)
 	private double comisionSMND;
-	
+
 	private List<MovimientosCreditos> movimientos;
 
 	public double getLimiteCredito() {

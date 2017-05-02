@@ -46,7 +46,7 @@ public class FrancesTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(4881.36, Double.parseDouble(frances.calcular().get(8).get(1)), delta);
-		assertEquals(0, Double.parseDouble(frances.calcular().get(8).get(4)), delta);
+		assertEquals(4881.36, Double.parseDouble(frances.calcularTabla().get(8).get(1)), delta);
+		assertEquals(0, Double.parseDouble(frances.calcularTabla().get(8).get(4)), delta);
 	}
 }

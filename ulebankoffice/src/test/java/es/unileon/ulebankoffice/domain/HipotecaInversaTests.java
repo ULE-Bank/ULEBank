@@ -74,6 +74,6 @@ public class HipotecaInversaTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(535.60, Double.parseDouble(hipotecaInversa.calcular().get(0).get(4)), delta);
+		assertEquals(535.60, Double.parseDouble(hipotecaInversa.calcularTabla().get(0).get(4)), delta);
 	}
 }

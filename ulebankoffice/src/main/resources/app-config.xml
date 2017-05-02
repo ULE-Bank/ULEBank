@@ -41,7 +41,9 @@
 
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
-
+	
+	<mvc:default-servlet-handler/>
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"

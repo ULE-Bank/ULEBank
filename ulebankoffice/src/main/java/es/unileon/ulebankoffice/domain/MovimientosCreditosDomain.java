@@ -7,13 +7,15 @@ public class MovimientosCreditosDomain {
 	private String descripcionMovimiento;
 	private double importeMovimiento;
 	private Date fechaMovimiento;
+	private String operacion;
 	
 	private boolean procesado = false;
 	
-	public MovimientosCreditosDomain(String descripcionMovimiento, double importeMovimiento, Date fechaMovimiento) {
+	public MovimientosCreditosDomain(String descripcionMovimiento, double importeMovimiento, Date fechaMovimiento, String operacion) {
 		this.descripcionMovimiento = descripcionMovimiento;
 		this.importeMovimiento = importeMovimiento;
 		this.fechaMovimiento = fechaMovimiento;
+		this.operacion = operacion;
 	}
 
 	public String getDescripcionMovimiento() {
@@ -47,4 +49,19 @@ public class MovimientosCreditosDomain {
 	public void setProcesado(boolean procesado) {
 		this.procesado = procesado;
 	}
+
+	/**
+	 * Devuelve el signo de la operació del movimiento
+	 * @return D - Disposición, I - Ingreso
+	 */
+	public String getOperacion() {
+		return operacion;
+	}
+
+	public void setOperacion(String operacion) {
+		this.operacion = operacion;
+	}
+	
+	
+	
 }

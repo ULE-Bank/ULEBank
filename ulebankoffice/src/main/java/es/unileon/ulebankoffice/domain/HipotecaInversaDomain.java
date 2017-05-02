@@ -25,7 +25,7 @@ public class HipotecaInversaDomain extends Operacion {
 		this.gastosFormalizacion = gF;
 	}
 	
-	public List<List<String>> calcular() {
+	public List<List<String>> calcularTabla() {
 		double valorPrestamo = valorTasacion * porcentajeSobreTasacion;
 		double comiApertura = valorPrestamo * comisionApertura;
 		

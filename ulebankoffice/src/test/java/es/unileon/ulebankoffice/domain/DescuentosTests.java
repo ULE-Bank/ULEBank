@@ -53,6 +53,6 @@ public class DescuentosTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(298186.75, Double.parseDouble(descuentos.calcular().get(0).get(3)), delta);
+		assertEquals(298186.75, Double.parseDouble(descuentos.calcularTabla().get(0).get(3)), delta);
 	}
 }

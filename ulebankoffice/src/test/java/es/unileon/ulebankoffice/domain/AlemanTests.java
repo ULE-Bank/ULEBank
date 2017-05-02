@@ -51,8 +51,8 @@ public class AlemanTests {
 	
 	@Test
 	public void testCalcular() {
-		assertEquals(14143.98, Double.parseDouble(aleman.calcular().get(10).get(1)), delta);
-		assertEquals(0, Double.parseDouble(aleman.calcular().get(10).get(4)), delta);
+		assertEquals(14143.98, Double.parseDouble(aleman.calcularTabla().get(10).get(1)), delta);
+		assertEquals(0, Double.parseDouble(aleman.calcularTabla().get(10).get(4)), delta);
 	}
 	
 	@Test

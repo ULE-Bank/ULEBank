@@ -40,6 +40,7 @@ public class CreditosFormController {
         	return model;
 		
 		List<MovimientosCreditos> movimientos = creditos.getMovimientos();
+		
 		List<MovimientosCreditosDomain> myMovimientos = new ArrayList<>();
 		
 		response.addCookie(new Cookie("movimientos", new Gson().toJson(movimientos)));
@@ -49,12 +50,15 @@ public class CreditosFormController {
 		String descripcionMovimiento;
 		double importeMovimiento;
 		Date fechaMovimiento;
+		String operacion;
+		
 		
 		for(MovimientosCreditos movimiento : movimientos) {
 			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());
 			descripcionMovimiento = movimiento.getDescripcionMovimiento();
 			importeMovimiento = movimiento.getImporteMovimiento();
-			myMovimientos.add(new MovimientosCreditosDomain(descripcionMovimiento, importeMovimiento, fechaMovimiento));
+			operacion = movimiento.getOperacion();
+			myMovimientos.add(new MovimientosCreditosDomain(descripcionMovimiento, importeMovimiento, fechaMovimiento,operacion));
 		}
 		
 		double limiteCredito = creditos.getLimiteCredito();
@@ -72,18 +76,19 @@ public class CreditosFormController {
 		
 		myCreditos.incluirComsionAperturaYCorretaje(comisionApertura, corretaje);
 		
-		List<List<String>> tabla = myCreditos.calcular();
+		List<List<String>> tabla = myCreditos.calcularTabla();
 		
 		model.addObject("tabla", tabla);
-        
+        model.addObject("liquidacion", myCreditos.obtenerLiquidacion());
+		
         response.addCookie(new Cookie("resultados", "1"));
-
+        
+        
         return model;
 	}
 	
 	@RequestMapping(value = "/creditaccount", method = RequestMethod.GET)
-    public String add(Model model) {
-        model.addAttribute("creditos", new Creditos());
+    public String add(Model model, @ModelAttribute("creditos") Creditos creditos) {
         return "creditaccount";
     }
 }
