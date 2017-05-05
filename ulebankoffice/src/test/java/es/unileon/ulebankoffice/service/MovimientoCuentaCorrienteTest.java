@@ -1,10 +1,9 @@
 package es.unileon.ulebankoffice.service;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;

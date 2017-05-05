@@ -4,12 +4,12 @@
 package es.unileon.ulebankoffice.domain;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -37,15 +37,12 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 
 	private List<MovimientoCuentaCorrienteDomain> movimientos;
 
-	@Transient
 	private Documentos documentos;
 
-	private List<String> idDocumentos;
-
 	/**
-	 * Constructor utilizado para instanciar manualmente objetos
-	 * CuentaCorrienteDomain, pasándole el DNI como string y sin especificar sus
-	 * documentos, que tendrán que ser añadidos más adelante.
+	 * Constructor utilizado para instanciar manualmente objetos e instanciar
+	 * por primera vez una CuentaCorrienteDomain, pasándole el DNI y sin
+	 * especificar sus documentos, que tendrán que ser añadidos más adelante.
 	 * 
 	 * @param dni
 	 * @param estado
@@ -53,25 +50,26 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	 * @param interes
 	 * @param tae
 	 * @param comision
+	 * @param fechaSolicitud
 	 * @throws DNIException
 	 * @throws ParseException
 	 */
-	public CuentaCorrienteDomain(String dni, String estado, double saldo, double interes, double tae, double comision)
-			throws DNIException, ParseException {
+	public CuentaCorrienteDomain(Handler dni, String estado, Double saldo, Double interes, Double tae, Double comision,
+			Date fechaSolicitud) throws DNIException, ParseException {
 
-		this.dni = new DNIHandler(dni);
+		this.dni = dni;
 		this.estado = estado;
 		this.saldo = saldo;
 		this.interes = interes;
 		this.tae = tae;
 		this.comision = comision;
-		this.fechaSolicitud = new Date();
+		this.fechaSolicitud = fechaSolicitud;
+		this.documentos = new Documentos(new ArrayList<String>());
 
 	}
 
 	/**
 	 * Constructor utilizado para instanciar objetos de esta clase desde MongoDB
-	 * y para traducirlos a mongo.
 	 * 
 	 * @param fechaSolicitud
 	 * @param fechaResolucion
@@ -83,12 +81,12 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 	 * @param estado
 	 * @param dni
 	 * @param movimientos
-	 * @param idDocumentos
+	 * @param documentos
 	 */
 	@PersistenceConstructor
 	public CuentaCorrienteDomain(Date fechaSolicitud, Date fechaResolucion, Date fechaFinalizacion, Double saldo,
 			Double comision, Double tae, Double interes, String estado, Handler dni,
-			List<MovimientoCuentaCorrienteDomain> movimientos, List<String> idDocumentos) {
+			List<MovimientoCuentaCorrienteDomain> movimientos, Documentos documentos) {
 		this.fechaSolicitud = fechaSolicitud;
 		this.fechaResolucion = fechaResolucion;
 		this.fechaFinalizacion = fechaFinalizacion;
@@ -99,8 +97,7 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.estado = estado;
 		this.dni = dni;
 		this.movimientos = movimientos;
-		this.idDocumentos = idDocumentos;
-		this.documentos = new Documentos();
+		this.documentos = documentos;
 	}
 
 	@Override
@@ -215,13 +212,28 @@ public class CuentaCorrienteDomain implements ProductoFinanciero<Handler> {
 		this.movimientos.add(movimiento);
 	}
 
+	/**
+	 * Añade el documento a la base de datos así como a la lista de ids de
+	 * documentos asociada a esta cuenta corriente.
+	 * 
+	 * @param documento
+	 */
 	public void addDocumento(DocumentoAdjuntoDomain documento) {
-		documentos.addDocumento(documento);
-		this.idDocumentos.add(documento.getId());
+		documentos.add(documento);
 	}
 
 	public List<DocumentoAdjuntoDomain> getDocumentos() {
-		return documentos.getDocumentos(this.idDocumentos);
+		// Este código sustituye a return documentos.getDocumentos() 
+		
+		Iterator iterator = documentos.createIterator();
+		List<DocumentoAdjuntoDomain> listaDocs = new ArrayList<>();
+
+		for (iterator.firstElement(); iterator.hasMoreElements(); iterator.nextElement()) {
+
+			listaDocs.add((DocumentoAdjuntoDomain) iterator.currentElement());
+
+		}
+		return listaDocs;
 	}
 
 	// Se supone que van a enviar la documentación más adelante

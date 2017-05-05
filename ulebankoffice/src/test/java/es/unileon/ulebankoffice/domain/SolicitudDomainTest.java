@@ -39,7 +39,7 @@ public class SolicitudDomainTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		solicitud = new SolicitudDomain("cerrada", fechaApertura, fechaResolucion, idDocumentos ,"productoID");
+		solicitud = new SolicitudDomain("cerrada", fechaApertura, fechaResolucion,"productoID");
 	}
 
 	@Test

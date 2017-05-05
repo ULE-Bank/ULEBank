@@ -3,12 +3,12 @@ package es.unileon.ulebankoffice.domain;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -39,10 +39,7 @@ public class ClienteDomain {
 
 	private List<DireccionDomain> direcciones;
 
-	@Transient
 	private Documentos documentos;
-
-	private List<String> idDocumentos;
 
 	/**
 	 * Constructor por defecto utilizado para instanciar objetos de esta clase
@@ -59,31 +56,30 @@ public class ClienteDomain {
 	 * @param dni
 	 * @param direcciones
 	 * @param nacionalidad
-	 * @param idDocumentos
+	 * @param documentos
 	 * @throws ParseException
-	 * @throws DNIException
 	 */
 	@PersistenceConstructor
 	public ClienteDomain(String name, String lastName, String email, Date fechaNacimiento, Handler dni,
-			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
-			throws ParseException, DNIException {
+			List<DireccionDomain> direcciones, String nacionalidad, Documentos documentos) throws ParseException {
 
 		this.name = name;
 		this.lastName = lastName;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
 		this.nacionalidad = nacionalidad;
-		setDni(dni);
+		this.dni = dni;
 		this.direcciones = direcciones;
-		this.idDocumentos = idDocumentos;
-		this.documentos = new Documentos();
+		this.documentos = documentos;
 	}
 
 	/**
 	 * Constructor usado para instanciar manualmente objetos de la clase
-	 * ClienteDomain. Recibe como parámetros de tipo String la fecha y el dni
+	 * ClienteDomain. <b>Su función principal es la creación de un cliente por
+	 * primer vez</b> Recibe como parámetros de tipo String la fecha y el dni
 	 * para que sea más fácul su declaración. Se comprueba si estos parámetros
-	 * son adecuados sintáctica y semánticamente.
+	 * son adecuados sintáctica y semánticamente. Crea la instancia de
+	 * Documentos que se persistirá.
 	 * 
 	 * @param name
 	 * @param lastName
@@ -97,8 +93,7 @@ public class ClienteDomain {
 	 * @throws DNIException
 	 */
 	public ClienteDomain(String name, String lastName, String email, String fechaNacimiento, String dni,
-			List<DireccionDomain> direcciones, String nacionalidad, List<String> idDocumentos)
-			throws ParseException, DNIException {
+			List<DireccionDomain> direcciones, String nacionalidad) throws ParseException, DNIException {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date userDate = df.parse(fechaNacimiento);
 
@@ -109,8 +104,7 @@ public class ClienteDomain {
 		setDni(dni);
 		this.direcciones = direcciones;
 		this.nacionalidad = nacionalidad;
-		this.idDocumentos = idDocumentos;
-		this.documentos = new Documentos();
+		this.documentos = new Documentos(new ArrayList<String>());
 	}
 
 	public String getName() {
@@ -176,17 +170,28 @@ public class ClienteDomain {
 	 * @param documento
 	 */
 	public void addDocumento(DocumentoAdjuntoDomain documento) {
-		// Se deben guardar las ids de los documentos que pertenecen a este
-		// cliente en su atributo idDocumentos. Para obtener esta ID que es
-		// automáticamente generada por MongoDB se debe hacer lo siguiente: 1-
-		// Guardar el documento en el repositorio. 2- Obtener la ID después de
-		// que se haya producido el guardado. Los TESTS dirán la verdad
-		documentos.addDocumento(documento);
-		idDocumentos.add(documento.getId());
+		documentos.add(documento);
 	}
 
+	/**
+	 * Método que obtiene el iterador concreto de la instancia de la clase
+	 * agregada y que, uno por uno, obtiene todos los elementos de la colección
+	 * y los devuelve en forma de lista.
+	 * 
+	 * @return Una lista con todos los documentos de la colección.
+	 */
 	public List<DocumentoAdjuntoDomain> getDocumentos() {
-		return documentos.getDocumentos(this.idDocumentos);
+		// Este código sustituye al documentos.getDocumentos que había antes y
+		// que hacía un repo.findByIdIn
+		Iterator iterator = documentos.createIterator();
+		List<DocumentoAdjuntoDomain> listaDocs = new ArrayList<>();
+
+		for (iterator.firstElement(); iterator.hasMoreElements(); iterator.nextElement()) {
+
+			listaDocs.add((DocumentoAdjuntoDomain) iterator.currentElement());
+
+		}
+		return listaDocs;
 	}
 
 	public String getNacionalidad() {
@@ -209,8 +214,7 @@ public class ClienteDomain {
 	public String toString() {
 		return "ClienteDomain [name=" + name + ", lastname=" + lastName + ", email=" + email + ", nacionalidad="
 				+ nacionalidad + ", fechaNacimiento=" + fechaNacimiento + ", fechaDeAlta=" + fechaDeAlta + ", dni="
-				+ dni + ", direcciones=" + direcciones + ", documentos=" + documentos + ", idDocumentos=" + idDocumentos
-				+ "]";
+				+ dni + ", direcciones=" + direcciones + ", documentos=" + documentos + "]";
 	}
 
 }

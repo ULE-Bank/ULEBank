@@ -11,9 +11,11 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +32,8 @@ import com.mongodb.Mongo;
 import es.unileon.ulebankoffice.configuration.MongoTestConfig;
 import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
 import es.unileon.ulebankoffice.domain.DNIException;
+import es.unileon.ulebankoffice.domain.DNIHandler;
+import es.unileon.ulebankoffice.domain.Handler;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = MongoTestConfig.class)
@@ -40,12 +44,19 @@ public class CuentaCorrienteRepositoryTest {
 
 	@Autowired
 	private ApplicationContext applicationContext;
+	
+	private static Handler dni;
 
 	@Rule
 	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
 
 	@Autowired
 	private CuentaCorrienteRepository repo;
+	
+	@BeforeClass
+	public static void beforeClass() throws DNIException{
+		dni = new DNIHandler("x5526828c");
+	}
 	
 	@After
 	public void afterEachMethod(){
@@ -61,24 +72,12 @@ public class CuentaCorrienteRepositoryTest {
 	@UsingDataSet(locations = { "/testing/cuentaCorrienteRepositoryData.json" }, 
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindAll() throws ParseException, DNIException {
-		
 		assertEquals(3, repo.findAll().size());
-		CuentaCorrienteDomain cuenta = new CuentaCorrienteDomain("x5526828c", "abierta", 20.0, 5.0, 7.0, 3.0);
+		CuentaCorrienteDomain cuenta = new CuentaCorrienteDomain(dni, "abierta", 20.0, 5.0, 7.0, 3.0, new Date());
 		repo.save(cuenta);
-		cuenta = new CuentaCorrienteDomain("x5526828c", "abierta", 20500.0, 5.0, 7.0, 3.0);
+		cuenta = new CuentaCorrienteDomain(dni, "abierta", 20500.0, 5.0, 7.0, 3.0, new Date());
 		repo.save(cuenta);
 		assertEquals(5, repo.findAll().size());
-//		System.out.println(mongo.toString() + "\n" + mongo.getServerAddressList());
-//		List <ClienteDomain> clientes = clienteRepository.findAll();
-//		System.out.println("[");
-//		for (ClienteDomain clienteDomain : clientes) {
-//			System.out.println(clienteDomain);
-//		}
-//		System.out.println("]");
-		
-//		List<ClienteDomain> clientes = clienteRepository.findAll();
-//		System.out.println(clientes.size());
-//		fail("Not yet implemented");
 	}
 	
 	@Test
@@ -148,7 +147,7 @@ public class CuentaCorrienteRepositoryTest {
 		List<CuentaCorrienteDomain> cuentasR = repo.findByDni("X5526828C");
 		
 		CuentaCorrienteDomain cuenta = cuentasR.get(0);
-		
+
 		cuenta.ingresarSaldo(500.00);
 		
 		repo.save(cuenta);
@@ -177,7 +176,7 @@ public class CuentaCorrienteRepositoryTest {
 		//Hamcrest notation
 		assertThat(cuentasR.size(), is(2));
 	
-		CuentaCorrienteDomain nuevaCuenta = new CuentaCorrienteDomain("X5526828C", "abierta", 200.00, 300.00, 150.0, 2.0);
+		CuentaCorrienteDomain nuevaCuenta = new CuentaCorrienteDomain(dni, "abierta", 200.00, 300.00, 150.0, 2.0, new Date());
 		repo.save(nuevaCuenta);
 		
 		cuentasR = repo.findByDni("X5526828C");

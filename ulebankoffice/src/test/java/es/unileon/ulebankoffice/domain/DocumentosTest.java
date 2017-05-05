@@ -2,6 +2,8 @@ package es.unileon.ulebankoffice.domain;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.isA;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -40,14 +42,13 @@ public class DocumentosTest {
 	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
 	
 	private Documentos documentos;
-	
-	
+
 	@Autowired
 	private DocumentoRepository repo;
 
 	@Before
 	public void setUp() throws Exception { 
-		documentos = new Documentos();
+		documentos = new Documentos(new ArrayList<String>());
 		ReflectionTestUtils.setField(documentos, "repo", repo);
 
 	}
@@ -59,45 +60,78 @@ public class DocumentosTest {
 
 	@Test
 	@UsingDataSet(locations = { "/testing/documentoRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-
 	public void testAddDocumento() {
 		assertThat(repo.findAll().size(), is(6));
-		documentos.addDocumento(new DocumentoAdjuntoDomain("rutaEjemplo", "NombreEjemplo"));
+		assertThat(documentos.getSize(), is(0));
+		documentos.add(new DocumentoAdjuntoDomain("rutaEjemplo", "NombreEjemplo"));
 		assertThat(repo.findAll().size(), is(7));
+		assertThat(documentos.getSize(), is(1));
 	}
 
 	@Test
-	@UsingDataSet(locations = { "/testing/documentoRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testGetDocumentos() {
-		List<String> idDocumentos = new ArrayList<>();
-		idDocumentos.add("documentId1");
-		assertThat(documentos.getDocumentos(idDocumentos).size(), is(1));
-		idDocumentos.add("documentId2");
-		idDocumentos.add("documentId3");
-		assertThat(documentos.getDocumentos(idDocumentos).size(), is(3));
-		idDocumentos.add("documentId4");
-		idDocumentos.add("documentId5");
-		idDocumentos.add("documentId6");
-		assertThat(documentos.getDocumentos(idDocumentos).size(), is(6));
-	}
-
-	@Test
-	@UsingDataSet(locations = { "/testing/documentoRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testGetDocumentosByDateAsc() {
+	public void testGetSize(){
 		List<String> idDocumentos = new ArrayList<>();
 		idDocumentos.add("documentId1");
 		idDocumentos.add("documentId2");
 		idDocumentos.add("documentId3");
+		
+		documentos = new Documentos(idDocumentos);
+		
+		assertThat(documentos.getSize(), is(3));
+		
 		idDocumentos.add("documentId4");
 		idDocumentos.add("documentId5");
 		idDocumentos.add("documentId6");
-		List<DocumentoAdjuntoDomain> listaDocumentos = documentos.getDocumentosByDateAsc(idDocumentos);
-		assertThat(listaDocumentos.get(0).getName(), is("documento3"));
-		assertThat(listaDocumentos.get(1).getName(), is("documento5"));
-		assertThat(listaDocumentos.get(2).getName(), is("documento6"));
-		assertThat(listaDocumentos.get(3).getName(), is("documento4"));
-		assertThat(listaDocumentos.get(4).getName(), is("documento2"));
-		assertThat(listaDocumentos.get(5).getName(), is("documento1"));
+		
+		assertThat(documentos.getSize(), is(6));
 	}
-
+	
+	@Test
+	public void testGetElement(){
+		assertThat(documentos.getSize(), is(0));
+		documentos.add(new DocumentoAdjuntoDomain("ruta1","nombre1"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta3","nombre3"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta2","nombre2"));
+		assertThat(documentos.getSize(), is(3));
+		DocumentoAdjuntoDomain documento = (DocumentoAdjuntoDomain) documentos.getElement(0);
+		assertThat(documento.getRuta(), is("ruta1"));
+		documento = (DocumentoAdjuntoDomain) documentos.getElement(1);
+		assertThat(documento.getName(), is("nombre3"));
+		documento = (DocumentoAdjuntoDomain) documentos.getElement(2);
+		assertThat(documento.getRuta(), is("ruta2"));
+	}
+	
+	@Test
+	public void testRemove(){
+		assertThat(documentos.getSize(), is(0));
+		documentos.add(new DocumentoAdjuntoDomain("ruta1","nombre1"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta3","nombre3"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta2","nombre2"));
+		assertThat(documentos.getSize(), is(3));
+		DocumentoAdjuntoDomain documento = (DocumentoAdjuntoDomain) documentos.getElement(0);
+		assertThat(documento.getRuta(), is("ruta1"));
+		documentos.remove(0);
+		documento = (DocumentoAdjuntoDomain) documentos.getElement(0);
+		assertThat(documento.getRuta(), is("ruta3"));
+	}
+	
+	@Test
+	public void testCreateIterator(){
+		assertThat(documentos.createIterator(), isA(Iterator.class));
+		assertThat(documentos.createIterator(), is(instanceOf(ListIterator.class)));
+	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/documentoRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testAdd(){
+		assertThat(documentos.getSize(), is(0));
+		
+		documentos.add(new DocumentoAdjuntoDomain("ruta", "name"));
+		assertThat(documentos.getSize(), is(1));
+		
+		documentos.add(new DocumentoAdjuntoDomain("ruta", "name"));
+		assertThat(documentos.getSize(), is(2));
+		
+	}
+	
 }

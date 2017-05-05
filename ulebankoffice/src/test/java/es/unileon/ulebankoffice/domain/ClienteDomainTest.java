@@ -2,7 +2,7 @@ package es.unileon.ulebankoffice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,7 +27,7 @@ public class ClienteDomainTest {
 		idDocumentos.add("id1");
 		idDocumentos.add("id2");
 		
-		cliente = new ClienteDomain("Razvan", "Raducu", "rraduc00@estudiantes.unileon.es", "1994-12-05", "x5526828C", direcciones, "español", idDocumentos);
+		cliente = new ClienteDomain("Razvan", "Raducu", "rraduc00@estudiantes.unileon.es", "1994-12-05", "x5526828C", direcciones, "español");
 	}
 
 	@Test

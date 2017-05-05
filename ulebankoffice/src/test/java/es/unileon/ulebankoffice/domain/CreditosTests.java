@@ -12,8 +12,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.appengine.repackaged.com.google.common.collect.HashBasedTable_CustomFieldSerializer;
-
 public class CreditosTests {
 
 	private CreditosDomain creditos;

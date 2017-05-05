@@ -18,7 +18,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -61,8 +60,8 @@ public class ClienteRepositoryTest {
 	@Test
 	public void testNoRepeatedDNI() throws ParseException, DNIException {
 		try {
-			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", null, "español", null);
-			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", null, "español", null);
+			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", null, "español");
+			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", null, "español");
 			clienteRepository.save(cliente);
 			clienteRepository.save(cliente2);
 		} catch (Exception e) {
@@ -83,8 +82,8 @@ public class ClienteRepositoryTest {
 	public void testFindAll() throws ParseException, DNIException {
 		
 		assertEquals(1, clienteRepository.findAll().size());
-		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", null, "español", null));
-		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", null, "español", null));
+		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", null, "español"));
+		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", null, "español"));
 		assertEquals(3, clienteRepository.findAll().size());
 	}
 	
