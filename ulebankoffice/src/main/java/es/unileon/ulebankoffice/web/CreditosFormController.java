@@ -54,9 +54,9 @@ public class CreditosFormController {
 		
 		
 		for(MovimientosCreditos movimiento : movimientos) {
-			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());
-			descripcionMovimiento = movimiento.getDescripcionMovimiento();
-			importeMovimiento = movimiento.getImporteMovimiento();
+			fechaMovimiento = sdf.parse(movimiento.getFecha());
+			descripcionMovimiento = movimiento.getDescripcion();
+			importeMovimiento = movimiento.getImporte();
 			operacion = movimiento.getOperacion();
 			myMovimientos.add(new MovimientosCreditosDomain(descripcionMovimiento, importeMovimiento, fechaMovimiento,operacion));
 		}

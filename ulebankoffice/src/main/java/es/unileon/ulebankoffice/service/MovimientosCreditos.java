@@ -25,27 +25,27 @@ public class MovimientosCreditos {
 	// I -> Ingreso. D -> Disposicion
 	private String operacion;
 
-	public String getDescripcionMovimiento() {
+	public String getDescripcion() {
 		return descripcionMovimiento;
 	}
 
-	public void setDescripcionMovimiento(String descripcionMovimiento) {
+	public void setDescripcion(String descripcionMovimiento) {
 		this.descripcionMovimiento = descripcionMovimiento;
 	}
 
-	public double getImporteMovimiento() {
+	public double getImporte() {
 		return importeMovimiento;
 	}
 
-	public void setImporteMovimiento(double importeMovimiento) {
+	public void setImporte(double importeMovimiento) {
 		this.importeMovimiento = importeMovimiento;
 	}
 
-	public String getFechaMovimiento() {
+	public String getFecha() {
 		return fechaMovimiento;
 	}
 
-	public void setFechaMovimiento(String fechaMovimiento) {
+	public void setFecha(String fechaMovimiento) {
 		this.fechaMovimiento = fechaMovimiento;
 	}
 
