@@ -108,7 +108,7 @@ public class SolicitudDomain {
 		this.productId = productId;
 	}
 
-	public List<DocumentoAdjuntoDomain> getDocumentos() {
+	public List<DocumentoAdjuntoDomain> getDocumentos() throws EmptyCollectionException {
 		// Este código sustituye a return documentos.getDocumentos()
 		
 		Iterator iterator = documentos.createIterator();

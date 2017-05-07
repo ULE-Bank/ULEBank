@@ -169,7 +169,7 @@ public class ClienteDomain {
 	 * 
 	 * @param documento
 	 */
-	public void addDocumento(DocumentoAdjuntoDomain documento) {
+	public void addDocument(DocumentoAdjuntoDomain documento) {
 		documentos.add(documento);
 	}
 
@@ -179,8 +179,9 @@ public class ClienteDomain {
 	 * y los devuelve en forma de lista.
 	 * 
 	 * @return Una lista con todos los documentos de la colección.
+	 * @throws EmptyCollectionException 
 	 */
-	public List<DocumentoAdjuntoDomain> getDocumentos() {
+	public List<DocumentoAdjuntoDomain> getDocumentos() throws EmptyCollectionException {
 		// Este código sustituye al documentos.getDocumentos que había antes y
 		// que hacía un repo.findByIdIn
 		Iterator iterator = documentos.createIterator();

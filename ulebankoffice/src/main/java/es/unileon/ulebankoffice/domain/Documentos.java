@@ -86,7 +86,10 @@ public class Documentos implements Aggregate {
 //	}
 
 	@Override
-	public Object getElement(int index) {
+	public Object getElement(int index) throws EmptyCollectionException {
+		if(getSize() == 0){
+			throw new EmptyCollectionException("La colección está vacía. No se puede obtener un elemento de una colección que tiene tamaño 0");
+		}
 		return repo.findById(idDocumentos.get(index));
 	}
 

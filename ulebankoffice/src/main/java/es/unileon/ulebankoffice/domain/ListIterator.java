@@ -43,7 +43,7 @@ public class ListIterator implements Iterator {
 	}
 
 	@Override
-	public Object currentElement() {
+	public Object currentElement() throws EmptyCollectionException {
 		return aggregate.getElement(current);
 	}
 }

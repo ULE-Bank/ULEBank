@@ -50,6 +50,9 @@ public interface Aggregate {
 	 * @return El elemento del índica indicado. <b>Importante. No olvidar hacer
 	 *         casting a la implementación concreta ya que aquí se devuelve un
 	 *         objeto del tipo Object</b>
+	 * @throws EmptyCollectionException
+	 *             Se lanza la excepción cuando se trata de iterar sobre una
+	 *             colección que tiene 0 elementos.
 	 */
-	Object getElement(int index);
+	Object getElement(int index) throws EmptyCollectionException;
 }

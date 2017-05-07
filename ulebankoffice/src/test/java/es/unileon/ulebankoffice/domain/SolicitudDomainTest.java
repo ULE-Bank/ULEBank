@@ -1,5 +1,6 @@
 package es.unileon.ulebankoffice.domain;
 
+import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
@@ -12,25 +13,43 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 
+import com.lordofthejars.nosqlunit.mongodb.MongoDbRule;
+import com.mongodb.Mongo;
+
+import es.unileon.ulebankoffice.configuration.MongoTestConfig;
+import es.unileon.ulebankoffice.repository.DocumentoRepository;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = MongoTestConfig.class)
 public class SolicitudDomainTest {
+	
+	@Autowired
+	Mongo mongo;
+
+	@Autowired
+	private ApplicationContext applicationContext;
+
+	@Rule
+	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
+	
+	@Autowired
+	private DocumentoRepository repo;
 
 	private SolicitudDomain solicitud;
-	private static List<String> idDocumentos;
 	private static Date fechaApertura;
 	private static Date fechaResolucion;
 	
 	@BeforeClass
 	public static void beforeClass(){
-		idDocumentos = new ArrayList<>();
-		idDocumentos.add("documentId1");
-		idDocumentos.add("documentId2");
-		idDocumentos.add("documentId3");
-		idDocumentos.add("documentId4");
-		idDocumentos.add("documentId5");
-		idDocumentos.add("documentId6");
-		
 		Calendar fecha = new GregorianCalendar(2017, 04, 23);
 		fechaApertura = fecha.getTime(); 
 		fecha = new GregorianCalendar(2017, 04, 24);
@@ -87,6 +106,44 @@ public class SolicitudDomainTest {
 		assertThat(solicitud.getProductId(), is("productoID"));
 		solicitud.setProductId("anotherProduct");
 		assertThat(solicitud.getProductId(), is("anotherProduct"));
+	}
+	
+	@Test
+	public void testAddDocument() throws EmptyCollectionException{
+
+		Documentos docus = new Documentos(new ArrayList<String>());
+		ReflectionTestUtils.setField(docus, "repo", repo);
+		
+		ReflectionTestUtils.setField(solicitud, "documentos", docus);
+		
+		assertThat(solicitud.getDocumentos().size(), is(0));
+		solicitud.addDocument(new DocumentoAdjuntoDomain("ruta11", "name11"));
+		assertThat(solicitud.getDocumentos().size(), is(1));
+		assertThat(solicitud.getDocumentos().get(0).getName(), is("name11"));
+	}
+	
+	@Test
+	public void getDocumentos() throws EmptyCollectionException{
+
+		Documentos docus = new Documentos(new ArrayList<String>());
+		ReflectionTestUtils.setField(docus, "repo", repo);
+		
+		ReflectionTestUtils.setField(solicitud, "documentos", docus);
+		
+		assertThat(solicitud.getDocumentos().size(), is(0));
+		solicitud.addDocument(new DocumentoAdjuntoDomain("ruta11", "name11"));
+		solicitud.addDocument(new DocumentoAdjuntoDomain("ruta12", "name11"));
+		solicitud.addDocument(new DocumentoAdjuntoDomain("ruta13", "name11"));
+		solicitud.addDocument(new DocumentoAdjuntoDomain("ruta14", "name11"));
+		solicitud.addDocument(new DocumentoAdjuntoDomain("ruta15", "name11"));
+		assertThat(solicitud.getDocumentos().size(), is(5));
+		assertThat(solicitud.getDocumentos().get(0).getName(), is("name11"));
+	}
+	
+	@Test
+	public void testToString(){	
+		assertThat(solicitud.toString().contains("estado=cerrada"), is(true));
+		assertThat(solicitud.toString().contains("productId=productoID"), is(true));
 	}
 
 }

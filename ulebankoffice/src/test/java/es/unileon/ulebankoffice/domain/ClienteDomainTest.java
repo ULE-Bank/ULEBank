@@ -1,5 +1,6 @@
 package es.unileon.ulebankoffice.domain;
 
+import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
@@ -10,23 +11,45 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 
+import com.lordofthejars.nosqlunit.mongodb.MongoDbRule;
+import com.mongodb.Mongo;
+
+import es.unileon.ulebankoffice.configuration.MongoTestConfig;
+import es.unileon.ulebankoffice.repository.DocumentoRepository;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = MongoTestConfig.class)
 public class ClienteDomainTest {
+	
+	@Autowired
+	Mongo mongo;
+
+	@Autowired
+	private ApplicationContext applicationContext;
+
+	@Rule
+	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
+	
+	@Autowired
+	private DocumentoRepository repo;
 
 	private ClienteDomain cliente;
 	private List<DireccionDomain> direcciones;
-	private List<String> idDocumentos;
 	
 	@Before
 	public void setUp() throws Exception {
 		direcciones = new ArrayList<>();
 		direcciones.add(new DireccionDomain("calle", "localidad", "comunidad", "numero", new DNIHandler("X5526828C"), 24195));
-		
-		idDocumentos = new ArrayList<>();
-		idDocumentos.add("id1");
-		idDocumentos.add("id2");
-		
+				
 		cliente = new ClienteDomain("Razvan", "Raducu", "rraduc00@estudiantes.unileon.es", "1994-12-05", "x5526828C", direcciones, "español");
 	}
 
@@ -122,6 +145,49 @@ public class ClienteDomainTest {
 		Calendar fecha = new GregorianCalendar(1994, 12, 05);
 		cliente.setFechaDeAlta(fecha.getTime());
 		assertThat(cliente.getFechaDeAlta().getTime(), is(fecha.getTime().getTime()));
+	}
+	
+	@Test
+	public void testAddDocumento() throws EmptyCollectionException{
+		
+		Documentos docus = new Documentos(new ArrayList<String>());
+		ReflectionTestUtils.setField(docus, "repo", repo);
+		
+		ReflectionTestUtils.setField(cliente, "documentos", docus);
+		
+		assertThat(cliente.getDocumentos().size(), is(0));
+		cliente.addDocument(new DocumentoAdjuntoDomain("ruta11", "name11"));
+		assertThat(cliente.getDocumentos().size(), is(1));
+		assertThat(cliente.getDocumentos().get(0).getName(), is("name11"));
+		
+		
+	}
+	
+	@Test
+	public void getDocumentos() throws EmptyCollectionException{
+
+		Documentos docus = new Documentos(new ArrayList<String>());
+		ReflectionTestUtils.setField(docus, "repo", repo);
+		
+		ReflectionTestUtils.setField(cliente, "documentos", docus);
+		
+		assertThat(cliente.getDocumentos().size(), is(0));
+		cliente.addDocument(new DocumentoAdjuntoDomain("ruta11", "name11"));
+		cliente.addDocument(new DocumentoAdjuntoDomain("ruta12", "name11"));
+		cliente.addDocument(new DocumentoAdjuntoDomain("ruta13", "name11"));
+		cliente.addDocument(new DocumentoAdjuntoDomain("ruta14", "name11"));
+		cliente.addDocument(new DocumentoAdjuntoDomain("ruta15", "name11"));
+		assertThat(cliente.getDocumentos().size(), is(5));
+		assertThat(cliente.getDocumentos().get(0).getName(), is("name11"));
+	}
+	
+	@Test
+	public void testToString(){
+		assertThat(cliente.toString().contains("name=Razvan"), is(true));
+		assertThat(cliente.toString().contains("lastname=Raducu"), is(true));
+		assertThat(cliente.toString().contains("email=rraduc00@estudiantes.unileon.es"), is(true));
+		assertThat(cliente.toString().contains("nacionalidad=español"), is(true));
+		assertThat(cliente.toString().contains("dni=X5526828C"), is(true));
 	}
 
 }

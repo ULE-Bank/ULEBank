@@ -1,13 +1,17 @@
-
+/**
+ * 
+ */
 package es.unileon.ulebankoffice.domain;
 
 /**
- * Excepción que se produce cuando el DNI introducido es incorrecto.
+ * Excepcón que se produce cuando se está tratando de iterar sobre una colección
+ * vacía.
  * 
  * @author Razvan Raducu
  *
  */
-public class DNIException extends Exception {
+public class EmptyCollectionException extends Exception {
+
 	/**
 	 * Recibe el mensaje que se expandirá a lo largo de la traza de la
 	 * Excepción. the detail message. The detail message is saved for later
@@ -15,7 +19,7 @@ public class DNIException extends Exception {
 	 * 
 	 * @param message
 	 */
-	public DNIException(String message) {
+	public EmptyCollectionException(String message) {
 		super(message);
 	}
 

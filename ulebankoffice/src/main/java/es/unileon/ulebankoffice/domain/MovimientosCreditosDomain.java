@@ -2,16 +2,30 @@ package es.unileon.ulebankoffice.domain;
 
 import java.util.Date;
 
+/**
+ * Clare que representa la lógica de negocio de los movimientos asociados a la
+ * cuenta de crédito.
+ * 
+ * @author Razvan Raducu, Alexis Gutierrez
+ *
+ */
 public class MovimientosCreditosDomain {
-	
+
 	private String descripcionMovimiento;
 	private double importeMovimiento;
 	private Date fechaMovimiento;
 	private String operacion;
-	
+
 	private boolean procesado = false;
-	
-	public MovimientosCreditosDomain(String descripcionMovimiento, double importeMovimiento, Date fechaMovimiento, String operacion) {
+
+	/**
+	 * @param descripcionMovimiento
+	 * @param importeMovimiento
+	 * @param fechaMovimiento
+	 * @param operacion
+	 */
+	public MovimientosCreditosDomain(String descripcionMovimiento, double importeMovimiento, Date fechaMovimiento,
+			String operacion) {
 		this.descripcionMovimiento = descripcionMovimiento;
 		this.importeMovimiento = importeMovimiento;
 		this.fechaMovimiento = fechaMovimiento;
@@ -52,6 +66,7 @@ public class MovimientosCreditosDomain {
 
 	/**
 	 * Devuelve el signo de la operació del movimiento
+	 * 
 	 * @return D - Disposición, I - Ingreso
 	 */
 	public String getOperacion() {
@@ -61,7 +76,5 @@ public class MovimientosCreditosDomain {
 	public void setOperacion(String operacion) {
 		this.operacion = operacion;
 	}
-	
-	
-	
+
 }

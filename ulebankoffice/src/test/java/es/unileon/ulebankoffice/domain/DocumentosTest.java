@@ -87,7 +87,7 @@ public class DocumentosTest {
 	}
 	
 	@Test
-	public void testGetElement(){
+	public void testGetElement() throws EmptyCollectionException{
 		assertThat(documentos.getSize(), is(0));
 		documentos.add(new DocumentoAdjuntoDomain("ruta1","nombre1"));
 		documentos.add(new DocumentoAdjuntoDomain("ruta3","nombre3"));
@@ -102,7 +102,7 @@ public class DocumentosTest {
 	}
 	
 	@Test
-	public void testRemove(){
+	public void testRemove() throws EmptyCollectionException{
 		assertThat(documentos.getSize(), is(0));
 		documentos.add(new DocumentoAdjuntoDomain("ruta1","nombre1"));
 		documentos.add(new DocumentoAdjuntoDomain("ruta3","nombre3"));

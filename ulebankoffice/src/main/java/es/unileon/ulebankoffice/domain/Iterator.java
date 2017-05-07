@@ -32,7 +32,10 @@ public interface Iterator {
 	 *         <b>Importante no olvidar hacer cast al elemento que se esté
 	 *         obteniendo. Este método devuelve un objeto de tipo Object
 	 *         (superclase)</b>
+	 * @throws EmptyCollectionException
+	 *             Se lanza la excepción cuando se trata de iterar sobre una
+	 *             colección vacía.
 	 */
-	public Object currentElement();
+	public Object currentElement() throws EmptyCollectionException;
 
 }
