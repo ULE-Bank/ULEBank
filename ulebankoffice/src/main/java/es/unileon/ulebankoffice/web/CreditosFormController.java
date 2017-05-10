@@ -3,13 +3,17 @@ package es.unileon.ulebankoffice.web;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -54,9 +58,9 @@ public class CreditosFormController {
 		
 		
 		for(MovimientosCreditos movimiento : movimientos) {
-			fechaMovimiento = sdf.parse(movimiento.getFecha());
-			descripcionMovimiento = movimiento.getDescripcion();
-			importeMovimiento = movimiento.getImporte();
+			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());
+			descripcionMovimiento = movimiento.getDescripcionMovimiento();
+			importeMovimiento = movimiento.getImporteMovimiento();
 			operacion = movimiento.getOperacion();
 			myMovimientos.add(new MovimientosCreditosDomain(descripcionMovimiento, importeMovimiento, fechaMovimiento,operacion));
 		}
@@ -77,9 +81,44 @@ public class CreditosFormController {
 		myCreditos.incluirComsionAperturaYCorretaje(comisionApertura, corretaje);
 		
 		List<List<String>> tabla = myCreditos.calcularTabla();
+		List<Double> totalLiquidacion = myCreditos.obtenerLiquidacion();
+		
+		/* El último elemento de esta tabla es la Liquidación per se */
+		List<String> itemTabla = new ArrayList<>();
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(fechaVencimiento);
+		itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
+		itemTabla.add("Liquidación");
+		itemTabla.add(String.valueOf(totalLiquidacion.get(5)));
+		itemTabla.add("-");
+		itemTabla.add(String.valueOf(Double.parseDouble(tabla.get(tabla.size()-1).get(4))+totalLiquidacion.get(5)));
+		itemTabla.add(String.valueOf(totalLiquidacion.get(4).intValue()));
+		itemTabla.add(String.valueOf(totalLiquidacion.get(0)));
+		itemTabla.add(String.valueOf(totalLiquidacion.get(1)));
+		itemTabla.add(String.valueOf(totalLiquidacion.get(2)));
+		
+		tabla.add(itemTabla);
+		
+		
 		
 		model.addObject("tabla", tabla);
-        model.addObject("liquidacion", myCreditos.obtenerLiquidacion());
+		
+		/* Tabla de la Liquidación */
+		
+		
+		model.addObject("iDeudores1",String.valueOf(interesDeudor));
+		model.addObject("iDeudores2",String.valueOf(totalLiquidacion.get(0)));
+		
+		model.addObject("iExcedidos1",String.valueOf(interesExcedido));
+		model.addObject("iExcedidos2",String.valueOf(totalLiquidacion.get(1)));
+		
+		model.addObject("iAcreedores1",String.valueOf(interesAcreedor));
+		model.addObject("iAcreedores2",String.valueOf(totalLiquidacion.get(2)));
+		
+		model.addObject("CSMND1",String.valueOf(comisionSMND));
+		model.addObject("CSMND2",String.valueOf(totalLiquidacion.get(3)));
+		
+		model.addObject("total", totalLiquidacion.get(5));
 		
         response.addCookie(new Cookie("resultados", "1"));
         

@@ -19,7 +19,7 @@ import es.unileon.ulebankoffice.repository.DocumentoRepository;
  * @author Razvan Raducu
  *
  */
-public class Documentos implements Aggregate {
+public class Documentos implements Aggregate<DocumentoAdjuntoDomain> {
 
 	@Autowired
 	private DocumentoRepository repo;
@@ -49,9 +49,8 @@ public class Documentos implements Aggregate {
 	 *            El documento ya instanciado a guardar.
 	 */
 	@Override
-	public void add(Object documento) {
-			DocumentoAdjuntoDomain aux = (DocumentoAdjuntoDomain) documento;
-			repo.save(aux);
+	public void add(DocumentoAdjuntoDomain documento) {
+			repo.save(documento);
 	
 		
 		// Para obtener esta ID que es
@@ -59,7 +58,7 @@ public class Documentos implements Aggregate {
 		// Guardar el documento en el repositorio. 2- Obtener la ID después de
 		// que se haya producido el guardado. Los TESTS dirán la verdad
 		
-		idDocumentos.add(aux.getId());
+		idDocumentos.add(documento.getId());
 	}
 
 //	/**
@@ -86,7 +85,7 @@ public class Documentos implements Aggregate {
 //	}
 
 	@Override
-	public Object getElement(int index) throws EmptyCollectionException {
+	public DocumentoAdjuntoDomain getElement(int index) throws EmptyCollectionException {
 		if(getSize() == 0){
 			throw new EmptyCollectionException("La colección está vacía. No se puede obtener un elemento de una colección que tiene tamaño 0");
 		}
@@ -94,8 +93,8 @@ public class Documentos implements Aggregate {
 	}
 
 	@Override
-	public Iterator createIterator() {
-		return new ListIterator(this);
+	public Iterator<DocumentoAdjuntoDomain> createIterator() {
+		return new ListIterator<>(this);
 	}
 
 	@Override

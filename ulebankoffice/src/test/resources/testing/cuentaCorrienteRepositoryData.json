@@ -2,50 +2,54 @@
    "CuentasCorrientes":[
       {
          "_class":"es.unileon.ulebankoffice.domain.CuentaCorrienteDomain",
-         "name":"Razvan",
-         "lastname":"Raducu",
-         "saldo" : 100.00,
-         "comision" : 1.0,
-         "tae" : 5.0,
-         "interes" : 7.0,
          "estado" : "abierta",
+         "interesesAcreedores": 1.0,
+         "interesDeudorSobreSaldosNegativos" : 1.0,
+         "retencionRendimientosCapital" : 1.0,
+         "comisionMantenimiento" : 1.0,
+         "comisionDescubierto" : 1.0,
+         "minimoComisionDescubierto" : 1.0,
+         "diasAnuales" : 360,
+         "periodoLiquidacion" : 4,
+         "saldo" : 100.0,
          "dni":{
             "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
             "_id":"X5526828C"
          },
-         "email":"rraduc00@estudiantes.unileon.es",
       },
       
        {
          "_class":"es.unileon.ulebankoffice.domain.CuentaCorrienteDomain",
-         "name":"Razvan",
-         "lastname":"Raducu",
-          "saldo" : 100.00,
-         "comision" : 1.0,
-         "tae" : 5.0,
-         "interes" : 7.0,
          "estado" : "cerrada",
+          "interesesAcreedores": 1.0,
+         "interesDeudorSobreSaldosNegativos" : 1.0,
+         "retencionRendimientosCapital" : 1.0,
+         "comisionMantenimiento" : 1.0,
+         "comisionDescubierto" : 1.0,
+         "minimoComisionDescubierto" : 1.0,
+         "diasAnuales" : 360,
+         "periodoLiquidacion" : 4,
          "dni":{
             "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
             "_id":"X5526828C"
          },
-         "email":"rraduc00@estudiantes.unileon.es",
       },
       
        {
          "_class":"es.unileon.ulebankoffice.domain.CuentaCorrienteDomain",
-         "name":"Razvan",
-         "lastname":"Raducu",
-          "saldo" : 100.00,
-         "comision" : 1.0,
-         "tae" : 5.0,
-         "interes" : 7.0,
          "estado" : "abierta",
+         "interesesAcreedores": 1.0,
+         "interesDeudorSobreSaldosNegativos" : 1.0,
+         "retencionRendimientosCapital" : 1.0,
+         "comisionMantenimiento" : 1.0,
+         "comisionDescubierto" : 1.0,
+         "minimoComisionDescubierto" : 1.0,
+         "diasAnuales" : 360,
+         "periodoLiquidacion" : 4,
          "dni":{
             "_class":"es.unileon.ulebankoffice.domain.DNIHandler",
             "_id":"X4975127C"
          },
-         "email":"rraduc00@estudiantes.unileon.es",
       }
    ]
 }

@@ -1,9 +1,11 @@
 package es.unileon.ulebankoffice.domain;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.joda.time.DateTime;
@@ -88,63 +90,93 @@ public class CreditosDomain extends Operacion {
 
 		tabla = new ArrayList<>();
 		List<String> itemTabla;
+		Calendar calendar = new GregorianCalendar();
 
 		int index = 0;
 
 		for (MovimientosCreditosDomain movimiento : movimientos) {
 
-			itemTabla = new ArrayList<>();
+			// Puesto que un bucle foreach no se puede terminar con un break
+			// (las fechas están en orden) simplemente compruebo que el
+			// movmiento actual ocurre antes que la fecha de vencimiento.
+			if (movimiento.getFechaMovimiento().before(fechaVencimiento)) {
 
-			if (saldo.isEmpty()) {
-				saldo.add(movimiento.getImporteMovimiento());
-				itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento())));
+				itemTabla = new ArrayList<>();
 
-			} else {
-				saldo.add(movimiento.getImporteMovimiento() + saldo.get(index - 1));
-				itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento() + saldo.get(index - 1))));
+				/* Fecha valor */
 
+				calendar.setTime(movimiento.getFechaMovimiento());
+
+				itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
+
+				/* Concepto */
+
+				itemTabla.add(movimiento.getDescripcionMovimiento());
+
+				/* Disposiciones o ingresos */
+				if (movimiento.getOperacion().equals(INGRESO)) {
+					itemTabla.add("-");
+					/*
+					 * Atención. Le vuelvo a cambiar de signo para que no se
+					 * muestra en la tabla como un número negativo.
+					 */
+					itemTabla.add(String.valueOf(-movimiento.getImporteMovimiento()));
+				} else {
+					itemTabla.add(String.valueOf(movimiento.getImporteMovimiento()));
+					itemTabla.add("-");
+				}
+
+				if (saldo.isEmpty()) {
+					saldo.add(movimiento.getImporteMovimiento());
+					itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento())));
+
+				} else {
+					saldo.add(movimiento.getImporteMovimiento() + saldo.get(index - 1));
+					itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento() + saldo.get(index - 1))));
+
+				}
+
+				DateTime thisDay;
+				DateTime nextDay;
+				Days days;
+				thisDay = new DateTime(movimiento.getFechaMovimiento());
+				if (index + 1 < movimientos.size()) {
+					nextDay = new DateTime(movimientos.get(index + 1).getFechaMovimiento());
+					days = Days.daysBetween(thisDay, nextDay);
+					dias.add(days.getDays());
+				} else {
+					nextDay = new DateTime(fechaVencimiento);
+					days = Days.daysBetween(thisDay, nextDay);
+					dias.add(days.getDays());
+				}
+				itemTabla.add(Integer.toString(days.getDays()));
+
+				if (saldo.get(index) > limiteCredito) {
+					numerosDeudores.add(limiteCredito * dias.get(index));
+					itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
+					double diferencia = saldo.get(index) - limiteCredito;
+					numerosExcedidos.add(diferencia * dias.get(index));
+
+					itemTabla.add(Double.toString(diferencia * dias.get(index)));
+					itemTabla.add("-");
+				} else if (saldo.get(index) < 0) {
+					numerosAcreedores.add(dias.get(index) * saldo.get(index) * (-1));
+					itemTabla.add("-");
+					itemTabla.add("-");
+					itemTabla.add(Double.toString(dias.get(index) * saldo.get(index) * (-1)));
+
+				} else {
+					numerosDeudores.add(saldo.get(index) * dias.get(index));
+					itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
+					itemTabla.add("-");
+					itemTabla.add("-");
+
+				}
+
+				tabla.add(itemTabla);
+
+				index++;
 			}
-
-			DateTime thisDay;
-			DateTime nextDay;
-			Days days;
-			thisDay = new DateTime(movimiento.getFechaMovimiento());
-			if (index + 1 < movimientos.size()) {
-				nextDay = new DateTime(movimientos.get(index + 1).getFechaMovimiento());
-				days = Days.daysBetween(thisDay, nextDay);
-				dias.add(days.getDays());
-			} else {
-				nextDay = new DateTime(fechaVencimiento);
-				days = Days.daysBetween(thisDay, nextDay);
-				dias.add(days.getDays());
-			}
-			itemTabla.add(Integer.toString(days.getDays()));
-
-			if (saldo.get(index) > limiteCredito) {
-				numerosDeudores.add(limiteCredito * dias.get(index));
-				itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
-				double diferencia = saldo.get(index) - limiteCredito;
-				numerosExcedidos.add(diferencia * dias.get(index));
-
-				itemTabla.add(Double.toString(diferencia * dias.get(index)));
-				itemTabla.add("-");
-			} else if (saldo.get(index) < 0) {
-				numerosAcreedores.add(dias.get(index) * saldo.get(index) * (-1));
-				itemTabla.add("-");
-				itemTabla.add("-");
-				itemTabla.add(Double.toString(dias.get(index) * saldo.get(index) * (-1)));
-
-			} else {
-				numerosDeudores.add(saldo.get(index) * dias.get(index));
-				itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
-				itemTabla.add("-");
-				itemTabla.add("-");
-
-			}
-
-			tabla.add(itemTabla);
-
-			index++;
 		}
 
 		return tabla;
@@ -158,9 +190,24 @@ public class CreditosDomain extends Operacion {
 	 * movimientos. Este método hace uso de todos los parámetros generados por
 	 * los mencionados anteriormente.
 	 * 
-	 * @return La liquidación final de la cuenta.
+	 * <b>Edit:</b> 10.05.2017. Puesto que, tras hablar con Javier, la salida
+	 * que se debe mostrar al hacer la simulación de liquidación ha de ser de
+	 * una determinada forma, distinta a lo que hay ahora, este método pasa a
+	 * devolver una lista de todos los cálculos a mostrar. El orden de lo
+	 * cálculos dentro de la lista, su índice, es siempre el mismo:
+	 * <ul>
+	 * <li>0 - Intereses deudores</li>
+	 * <li>1 - Intereses excedidos</li>
+	 * <li>2 - Intereses acreedores</li>
+	 * <li>3 - CSMND</li>
+	 * <li>4 - Total días</li>
+	 * <li>5 - Liquidacion total</li>
+	 * </ul>
+	 * 
+	 * @return La liquidación final de la cuenta junto a varios parámetros que
+	 *         se han usado para obtener ésta.
 	 */
-	public double obtenerLiquidacion() {
+	public List<Double> obtenerLiquidacion() {
 		double interesesDeudores = 0;
 		double interesesExcedidos = 0;
 		double interesesAcreedores = 0;
@@ -184,11 +231,22 @@ public class CreditosDomain extends Operacion {
 
 		double comisionSaldoMedioNoDispuesto = (this.limiteCredito - (interesesDeudores / totalDias))
 				* this.comisionSMND;
-		interesesDeudores = interesesDeudores * this.interesDeudor / 360;
-		interesesAcreedores = interesesAcreedores * this.interesAcreedor / 360;
-		interesesExcedidos = interesesExcedidos * this.interesExcedido / 360;
+		double interesesDeudoresFinales = interesesDeudores * this.interesDeudor / 360;
+		double interesesAcreedoresFinales = interesesAcreedores * this.interesAcreedor / 360;
+		double interesesExcedidosFinales = interesesExcedidos * this.interesExcedido / 360;
 
-		return redondear(interesesDeudores + interesesAcreedores + interesesExcedidos + comisionSaldoMedioNoDispuesto);
+		double liquidacionTotal = redondear(interesesDeudoresFinales + interesesAcreedoresFinales
+				+ interesesExcedidosFinales + comisionSaldoMedioNoDispuesto);
+
+		List<Double> listaResultados = new ArrayList<>();
+		listaResultados.add(redondear(interesesDeudores));
+		listaResultados.add(redondear(interesesExcedidos));
+		listaResultados.add(redondear(interesesAcreedores));
+		listaResultados.add(redondear(comisionSaldoMedioNoDispuesto));
+		listaResultados.add((double) totalDias);
+		listaResultados.add(redondear(liquidacionTotal));
+
+		return listaResultados;
 	}
 
 	private void ordenarMovimientosPorFecha() {

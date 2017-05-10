@@ -73,9 +73,9 @@ public class CuentaCorrienteRepositoryTest {
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindAll() throws ParseException, DNIException {
 		assertEquals(3, repo.findAll().size());
-		CuentaCorrienteDomain cuenta = new CuentaCorrienteDomain(dni, "abierta", 20.0, 5.0, 7.0, 3.0, new Date());
+		CuentaCorrienteDomain cuenta = new CuentaCorrienteDomain(new Date(), 2d, 1d, 25d, 20d, 20d, 20d, new Date(), 150d, "abierta", dni, 360,  6);
 		repo.save(cuenta);
-		cuenta = new CuentaCorrienteDomain(dni, "abierta", 20500.0, 5.0, 7.0, 3.0, new Date());
+		cuenta = new CuentaCorrienteDomain(new Date(), 2d, 1d, 25d, 20d, 20d, 20d, new Date(), 150d, "abierta", dni, 360,  6);
 		repo.save(cuenta);
 		assertEquals(5, repo.findAll().size());
 	}
@@ -176,7 +176,7 @@ public class CuentaCorrienteRepositoryTest {
 		//Hamcrest notation
 		assertThat(cuentasR.size(), is(2));
 	
-		CuentaCorrienteDomain nuevaCuenta = new CuentaCorrienteDomain(dni, "abierta", 200.00, 300.00, 150.0, 2.0, new Date());
+		CuentaCorrienteDomain nuevaCuenta = new CuentaCorrienteDomain(new Date(), 2d, 1d, 25d, 20d, 20d, 20d, new Date(), 150d, "abierta", dni, 360,  6);
 		repo.save(nuevaCuenta);
 		
 		cuentasR = repo.findByDni("X5526828C");

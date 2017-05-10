@@ -111,7 +111,7 @@ public class SolicitudDomain {
 	public List<DocumentoAdjuntoDomain> getDocumentos() throws EmptyCollectionException {
 		// Este código sustituye a return documentos.getDocumentos()
 		
-		Iterator iterator = documentos.createIterator();
+		Iterator<DocumentoAdjuntoDomain> iterator = documentos.createIterator();
 		List<DocumentoAdjuntoDomain> listaDocs = new ArrayList<>();
 
 		for (iterator.firstElement(); iterator.hasMoreElements(); iterator.nextElement()) {

@@ -184,7 +184,7 @@ public class ClienteDomain {
 	public List<DocumentoAdjuntoDomain> getDocumentos() throws EmptyCollectionException {
 		// Este código sustituye al documentos.getDocumentos que había antes y
 		// que hacía un repo.findByIdIn
-		Iterator iterator = documentos.createIterator();
+		Iterator<DocumentoAdjuntoDomain> iterator = documentos.createIterator();
 		List<DocumentoAdjuntoDomain> listaDocs = new ArrayList<>();
 
 		for (iterator.firstElement(); iterator.hasMoreElements(); iterator.nextElement()) {

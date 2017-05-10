@@ -98,7 +98,7 @@ public class CreditosTests {
 	public void testCalcularTabla() {
 
 		List<List<String>> resultado = creditos.calcularTabla();
-		assertEquals(-300.0, Double.parseDouble(resultado.get(4).get(0)), delta);
+		assertEquals(-300.0, Double.parseDouble(resultado.get(4).get(4)), delta);
 
 		for (List<String> list : resultado) {
 			System.out.println(list);
@@ -132,8 +132,8 @@ public class CreditosTests {
 		creditos.incluirComsionAperturaYCorretaje(5, 2);
 
 		List<List<String>> resultado = creditos.calcularTabla();
-		assertThat(Double.parseDouble(resultado.get(resultado.size() - 1).get(0)), is(1900000.0));
-		assertEquals(60584.7, creditos.obtenerLiquidacion(), delta);
+		assertThat(Double.parseDouble(resultado.get(resultado.size() - 1).get(4)), is(1900000.0));
+		assertEquals(60584.7, creditos.obtenerLiquidacion().get(5), delta);
 	}
 
 	@Test

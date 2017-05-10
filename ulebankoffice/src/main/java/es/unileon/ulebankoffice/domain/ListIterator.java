@@ -8,10 +8,13 @@ package es.unileon.ulebankoffice.domain;
  * 
  * @author Razvan Raducu
  *
+ * @param <E>
+ *            El uso de genéricos evita el casting explícito a partir de Object.
+ *            Explicación más detallada en la interface Aggregate.
  */
-public class ListIterator implements Iterator {
+public class ListIterator<E> implements Iterator<E> {
 
-	private Aggregate aggregate;
+	private Aggregate<E> aggregate;
 	private int current;
 
 	/**
@@ -22,7 +25,7 @@ public class ListIterator implements Iterator {
 	 *            Un objeto que implementa la interface Aggregate cuya colección
 	 *            ha de iterarse, o sobre ella.
 	 */
-	public ListIterator(Aggregate aggregate) {
+	public ListIterator(Aggregate<E> aggregate) {
 		this.aggregate = aggregate;
 		current = 0;
 	}
@@ -43,7 +46,7 @@ public class ListIterator implements Iterator {
 	}
 
 	@Override
-	public Object currentElement() throws EmptyCollectionException {
+	public E currentElement() throws EmptyCollectionException {
 		return aggregate.getElement(current);
 	}
 }

@@ -9,72 +9,58 @@ import java.util.Date;
  * @author Razvan Raducu
  *
  */
-public class MovimientoCuentaCorrienteDomain implements Movimiento {
+public class MovimientoCuentaCorrienteDomain {
 
-	private Double cantidad;
+	private Double importe;
 	private String concepto;
-	private String emisor;
-	private String receptor;
-	private int temporalidad;
-	private Date fecha;
+	private Date fechaValor;
+	private String operacion;
 
-	
 	/**
 	 * Recibe la fecha en formato Date.
 	 * 
 	 * @param cantidad
 	 * @param concepto
-	 * @param emisor
-	 * @param receptor
 	 * @param fecha
+	 * @param operacion
 	 */
-	public MovimientoCuentaCorrienteDomain(Double cantidad, String concepto, String emisor, String receptor,
-			Date fecha) {
-		this.cantidad = cantidad;
+	public MovimientoCuentaCorrienteDomain(Double cantidad, String concepto, Date fecha, String operacion) {
+		this.importe = cantidad;
 		this.concepto = concepto;
-		this.emisor = emisor;
-		this.receptor = receptor;
-		this.fecha = fecha;
+		this.fechaValor = fecha;
+		this.operacion = operacion;
 	}
 
-	@Override
-	public Double getCantidad() {
-		return cantidad;
+	public Double getImporte() {
+		return importe;
 	}
 
-	@Override
+	public void setImporte(Double importe) {
+		this.importe = importe;
+	}
+
 	public String getConcepto() {
 		return concepto;
 	}
-	
-	
-	public int getTemporalidad() {
-		return temporalidad;
+
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
 	}
 
-	@Override
-	public String getEmisor() {
-		return emisor;
+	public String getOperacion() {
+		return operacion;
 	}
 
-	@Override
-	public Date getDate() {
-		return fecha;
+	public void setOperacion(String operacion) {
+		this.operacion = operacion;
 	}
 
-	@Override
-	public String getReceptor() {
-		return receptor;
+	public Date getFechaValor() {
+		return fechaValor;
 	}
 
-	public void setTemporalidad(int temporalidad) {
-		this.temporalidad = temporalidad;
+	public void setFechaValor(Date fecha) {
+		this.fechaValor = fecha;
 	}
 
-
-	public void setDate(Date fecha) {
-		this.fecha = fecha;
-	}
-	
-	
 }

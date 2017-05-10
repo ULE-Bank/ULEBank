@@ -102,7 +102,7 @@ public class PrestamoHipotecario implements ProductoFinanciero {
 
 
 	@Override
-	public Object getDni() {
+	public Handler getDni() {
 		return null;
 	}
 

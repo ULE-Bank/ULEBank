@@ -36,9 +36,9 @@ import es.unileon.ulebankoffice.repository.DocumentoRepository;
 @ContextConfiguration(classes = MongoTestConfig.class)
 public class ListIteratorTest {
 
-	private ListIterator iterator;
+	private ListIterator<DocumentoAdjuntoDomain> iterator;
 	private Documentos docus;
-	private Iterator iteratorAux;
+	private Iterator<DocumentoAdjuntoDomain> iteratorAux;
 
 	@Autowired
 	Mongo mongo;
@@ -55,7 +55,7 @@ public class ListIteratorTest {
 	@Before
 	public void setUp() throws Exception {
 		docus = new Documentos(new ArrayList<String>());
-		iterator = new ListIterator(docus);
+		iterator = new ListIterator<>(docus);
 		iteratorAux = docus.createIterator();
 		ReflectionTestUtils.setField(docus, "repo", repo);
 	}

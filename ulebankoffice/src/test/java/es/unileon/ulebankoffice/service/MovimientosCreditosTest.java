@@ -36,26 +36,26 @@ public class MovimientosCreditosTest {
 	@Before
 	public void setUp() throws Exception {
 		movimiento = new MovimientosCreditos();
-		movimiento.setDescripcion("Movimiento test");
-		movimiento.setFecha("1994-12-05");
-		movimiento.setImporte(150000d);
+		movimiento.setDescripcionMovimiento("Movimiento test");
+		movimiento.setFechaMovimiento("1994-12-05");
+		movimiento.setImporteMovimiento(150000d);
 		movimiento.setOperacion("I");
 	}
 
 
 	@Test
 	public void testGetDescripcionMovimiento() {
-		assertThat(movimiento.getDescripcion(), is("Movimiento test"));
+		assertThat(movimiento.getDescripcionMovimiento(), is("Movimiento test"));
 	}
 
 	@Test
 	public void testGetImporteMovimiento() {
-		assertThat(movimiento.getImporte(), is(150000.0));
+		assertThat(movimiento.getImporteMovimiento(), is(150000.0));
 	}
 
 	@Test
 	public void testGetFechaMovimiento() {
-		assertThat(movimiento.getFecha(), is("1994-12-05"));
+		assertThat(movimiento.getFechaMovimiento(), is("1994-12-05"));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class MovimientosCreditosTest {
 	public void testAnnotationDescription(){
 		constraintViolations = validator.validate(movimiento);
 		assertThat(constraintViolations.size(), is(0));
-		movimiento.setDescripcion("");
+		movimiento.setDescripcionMovimiento("");
 		constraintViolations = validator.validate(movimiento);
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("descripcionMovimiento"));
@@ -77,7 +77,7 @@ public class MovimientosCreditosTest {
 	public void testAnnotationImporte(){
 		constraintViolations = validator.validate(movimiento);
 		assertThat(constraintViolations.size(), is(0));
-		movimiento.setImporte(-150d);
+		movimiento.setImporteMovimiento(-150d);
 		constraintViolations = validator.validate(movimiento);
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("importeMovimiento"));
@@ -87,7 +87,7 @@ public class MovimientosCreditosTest {
 	public void testAnnotatioFechan(){
 		constraintViolations = validator.validate(movimiento);
 		assertThat(constraintViolations.size(), is(0));
-		movimiento.setFecha("");
+		movimiento.setFechaMovimiento("");
 		constraintViolations = validator.validate(movimiento);
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("fechaMovimiento"));

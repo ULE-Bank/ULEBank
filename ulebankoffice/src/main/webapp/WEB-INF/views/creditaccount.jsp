@@ -589,6 +589,10 @@
 						<table class="table">
 							<thead>
 								<tr>
+									<th><spring:message code="label.fecha"/></th>
+									<th><spring:message code="label.concepto"/></th>
+									<th><spring:message code="label.disposicion"/></th>
+									<th><spring:message code="label.ingreso"/></th>		
 									<th><spring:message code="label.balance" /></th>
 									<th><spring:message code="label.days" /></th>
 									<th><spring:message code="label.debtornumbers" /></th>
@@ -600,14 +604,50 @@
 								<c:forEach var="fila" items="${tabla}">
 									<tr>
 										<c:forEach var="itemFila" items="${fila}">
-											<td><c:out value="${itemFila}" /></td>
+											<td style="font-size:15px"><c:out value="${itemFila}" /></td>
 										</c:forEach>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 						<div style="text-align: center">
-						<h2><spring:message code="label.totalliquidacion" />:</h2><h4>${liquidacion}</h4>
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+						<tbody>
+									<tr>
+										<td><spring:message code="label.s7c9" /></td>
+										<td>${iDeudores1}</td>
+										<td>${iDeudores2}</td>
+									</tr>
+									<tr>
+										<td><spring:message code="label.s7c10" /></td>
+										<td>${iExcedidos1}</td>
+										<td>${iExcedidos2}</td>
+									</tr>
+									<tr>
+										<td><spring:message code="label.s7c11" /></td>
+										<td>${iAcreedores1}</td>
+										<td>${iAcreedores2}</td>
+									</tr>
+									<tr>
+										<td><spring:message code="label.s7c12" /></td>
+										<td>${CSMND1}</td>
+										<td>${CSMND2}</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><b>TOTAL</b></td>
+										<td>${total}</td>
+									</tr>
+								</tbody>
+						</table>
+						
 						</div>
 					</div>
 					<div class="modal-footer">

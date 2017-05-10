@@ -3,12 +3,15 @@ package es.unileon.ulebankoffice.domain;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.isA;
 import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import org.hamcrest.number.IsCloseTo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,7 +37,8 @@ public class DocumentoAdjuntoDomainTest {
 	public void testDocumentoAdjuntoDomainStringString() {
 		documento = new DocumentoAdjuntoDomain("ruta","nombre");
 		assertThat(documento.getFechaCreacion(), isA(Date.class));
-		assertThat(documento.getFechaCreacion().getTime(), lessThan(new Date().getTime()));
+		assertNotNull(documento.getFechaCreacion().getTime());
+		assertThat((double)documento.getFechaCreacion().getTime(), closeTo(new Date().getTime(), 10.0));
 	}
 
 	@Test
