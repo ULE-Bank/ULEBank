@@ -100,7 +100,9 @@ public class CreditosTests {
 		List<List<String>> resultado = creditos.calcularTabla();
 		String resultadoToString = resultado.get(4).get(4);
 		resultadoToString = resultadoToString.substring(0, resultadoToString.length()-1);
-		assertEquals(-300.0, Double.parseDouble(resultadoToString), delta);
+		resultadoToString = resultadoToString.replaceAll("\\.", "");
+		resultadoToString = resultadoToString.replaceAll(",", ".");
+		assertEquals(5100.0, Double.parseDouble(resultadoToString), delta);
 	}
 	/**
 	 * Prueba para comprobar que el método devuelve la liquidación

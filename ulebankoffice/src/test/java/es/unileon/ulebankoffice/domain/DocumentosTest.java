@@ -12,6 +12,7 @@ import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -53,6 +54,11 @@ public class DocumentosTest {
 		documentos = new Documentos(new ArrayList<String>());
 		ReflectionTestUtils.setField(documentos, "repo", repo);
 
+	}
+	
+	@After
+	public void afterEachTest(){
+		repo.deleteAll();
 	}
 	
 	@Test
