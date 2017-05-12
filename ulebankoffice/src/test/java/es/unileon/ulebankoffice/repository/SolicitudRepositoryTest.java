@@ -55,10 +55,6 @@ public class SolicitudRepositoryTest {
 		repo.deleteAll();
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
 	@Test
 	public void isUsingFongo() {
 		assertEquals("Fongo (ulebankofficetestdb)", mongo.toString());

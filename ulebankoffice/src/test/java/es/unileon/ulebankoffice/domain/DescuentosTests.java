@@ -15,7 +15,7 @@ public class DescuentosTests {
 	public void setUp() throws Exception {
 		descuentos = new DescuentosDomain(300000, 14, 5.25, 360, 0.75, 0.4);
 	}
-
+	
 	@Test
 	public void testSetAndGetImporteDescuento() {
 		assertEquals(300000, descuentos.getImporteDescuento(), noDelta);

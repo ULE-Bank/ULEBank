@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -51,6 +52,11 @@ public class ClienteDomainTest {
 		direcciones.add(new DireccionDomain("calle", "localidad", "comunidad", "numero", new DNIHandler("X5526828C"), 24195));
 				
 		cliente = new ClienteDomain("Razvan", "Raducu", "rraduc00@estudiantes.unileon.es", "1994-12-05", "x5526828C", direcciones, "español");
+	}
+	
+	@After
+	public void afterEachTest(){
+		repo.deleteAll();
 	}
 
 	@Test

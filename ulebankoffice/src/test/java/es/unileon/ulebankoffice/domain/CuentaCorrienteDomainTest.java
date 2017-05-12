@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -58,6 +59,11 @@ public class CuentaCorrienteDomainTest {
 		cuenta.addMovimiento(new MovimientoCuentaCorrienteDomain(600d, "Recibo hipoteca", df.parse("2017-04-02"), "D"));
 		cuenta.addMovimiento(new MovimientoCuentaCorrienteDomain(1200d, "Nómina", df.parse("2017-04-30"), "I"));
 		cuenta.addMovimiento(new MovimientoCuentaCorrienteDomain(300d, "Ingreso IRPF", df.parse("2017-06-18"), "I"));
+	}
+	
+	@After
+	public void afterEachTest(){
+		repo.deleteAll();
 	}
 
 	@Test

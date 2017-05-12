@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -53,6 +54,11 @@ public class SolicitudDomainTest {
 		fechaApertura = fecha.getTime(); 
 		fecha = new GregorianCalendar(2017, 04, 24);
 		fechaResolucion = fecha.getTime();
+	}
+	
+	@After
+	public void afterEachTest(){
+		repo.deleteAll();
 	}
 	
 	@Before

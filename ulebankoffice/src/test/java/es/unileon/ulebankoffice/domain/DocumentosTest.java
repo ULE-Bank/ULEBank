@@ -47,18 +47,18 @@ public class DocumentosTest {
 	private Documentos documentos;
 
 	@Autowired
-	private DocumentoRepository repo;
+	private DocumentoRepository repository;
 
 	@Before
 	public void setUp() throws Exception { 
 		documentos = new Documentos(new ArrayList<String>());
-		ReflectionTestUtils.setField(documentos, "repo", repo);
+		ReflectionTestUtils.setField(documentos, "repo", repository);
 
 	}
 	
 	@After
 	public void afterEachTest(){
-		repo.deleteAll();
+		repository.deleteAll();
 	}
 	
 	@Test
@@ -69,25 +69,33 @@ public class DocumentosTest {
 	@Test
 	@UsingDataSet(locations = { "/testing/documentoRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testAddDocumento() {
-		assertThat(repo.findAll().size(), is(6));
+		assertThat(repository.findAll().size(), is(6));
 		assertThat(documentos.getSize(), is(0));
 		documentos.add(new DocumentoAdjuntoDomain("rutaEjemplo", "NombreEjemplo"));
-		assertThat(repo.findAll().size(), is(7));
+		assertThat(repository.findAll().size(), is(7));
 		assertThat(documentos.getSize(), is(1));
 	}
 	
 	@Test
 	public void testMongoIdAssignment(){
-		assertThat(repo.findAll().size(), is(0));
+		
+		//Al hacer maven test el tamaño es 7, otherwise es 0.
+		
+		assertThat(repository.findAll().size(), is(0));
 		assertThat(documentos.getSize(), is(0));
+		
+		for (DocumentoAdjuntoDomain documentos : repository.findAll()) {
+			System.out.println(documentos + ":D");
+		}
 		
 		DocumentoAdjuntoDomain documento = new DocumentoAdjuntoDomain("rutaE", "nameE");
 		
 		assertNull(documento.getId());
 		documentos.add(documento);
 		assertNotNull(documento.getId());
+		assertThat(repository.findAll().size(), is(1));
 		
-		assertThat(documento.getId(), is(repo.findAll().get(0).getId()));
+		assertThat(documento.getId(), is(repository.findAll().get(0).getId()));
 		
 	}
 
