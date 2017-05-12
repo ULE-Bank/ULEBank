@@ -92,7 +92,7 @@ window.onload = function() {
 }
 
 function replicarImportes() {
-    $("#importe-cero").val($("#limiteCredito").val() * ($("#comisionApertura").val() / 1000.0));
+    $("#importe-cero").val($("#limiteCredito").val() * ($("#comisionApertura").val() / 100.0));
     $("#importe-uno").val($("#limiteCredito").val() * ($("#corretaje").val() / 1000.0));
 }
 

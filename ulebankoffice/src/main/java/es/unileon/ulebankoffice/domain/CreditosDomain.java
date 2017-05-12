@@ -1,5 +1,7 @@
 package es.unileon.ulebankoffice.domain;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -7,6 +9,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -34,6 +37,12 @@ public class CreditosDomain extends Operacion {
 	private List<Double> numerosExcedidos;
 	private List<Double> numerosAcreedores;
 
+	/*
+	 * Se hace uso de un decimalFormatter para qvitar la notación científica ya
+	 * que la gente de finanzas expresamente lo quiere así.
+	 */
+	private static final DecimalFormat DECIMALFORMATTER = new DecimalFormat("#,##0.00");
+	private static final String MONEDA = "€";
 	private static final String INGRESO = "I";
 
 	/**
@@ -56,8 +65,10 @@ public class CreditosDomain extends Operacion {
 		this.interesDeudor = interesDeudor / 100.0;
 		this.interesExcedido = interesExcedido / 100.0;
 		this.interesAcreedor = interesAcreedor / 100.0;
-		this.comisionSMND = comisionSMND / 1000.0;
+		this.comisionSMND = comisionSMND / 100.0;
 		this.movimientos = movimientos;
+
+		DECIMALFORMATTER.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMAN));
 	}
 
 	/**
@@ -68,7 +79,7 @@ public class CreditosDomain extends Operacion {
 	 * @param corretaje
 	 */
 	public void incluirComsionAperturaYCorretaje(double comisionApertura, double corretaje) {
-		double importeComisionApertura = limiteCredito * (comisionApertura / 1000.0);
+		double importeComisionApertura = limiteCredito * (comisionApertura / 100);
 		double importeCorretaje = limiteCredito * (corretaje / 1000.0);
 
 		movimientos.add(0, new MovimientosCreditosDomain("Corretaje", importeCorretaje, fechaApertura, "D"));
@@ -76,7 +87,15 @@ public class CreditosDomain extends Operacion {
 				new MovimientosCreditosDomain("Comision de apertura", importeComisionApertura, fechaApertura, "D"));
 	}
 
-	@Override
+	/**
+	 * Método que devuelve le cálculo de toda la tabla de movimientos a
+	 * excepción de la última fila, que es la liquidación.
+	 * 
+	 * @required Es necesario haber incluido la comision de apertura y el
+	 *           corretaje antes de utilizar este método.
+	 * @return La lista de todas las filas que componen los movimientos y los
+	 *         cálculos asociados a estos.
+	 */
 	public List<List<String>> calcularTabla() {
 
 		ordenarMovimientosPorFecha();
@@ -120,19 +139,21 @@ public class CreditosDomain extends Operacion {
 					 * Atención. Le vuelvo a cambiar de signo para que no se
 					 * muestra en la tabla como un número negativo.
 					 */
-					itemTabla.add(String.valueOf(-movimiento.getImporteMovimiento()));
+					itemTabla.add(String.valueOf(DECIMALFORMATTER.format(-movimiento.getImporteMovimiento())) + MONEDA);
 				} else {
-					itemTabla.add(String.valueOf(movimiento.getImporteMovimiento()));
+					itemTabla.add(String.valueOf(DECIMALFORMATTER.format(movimiento.getImporteMovimiento())) + MONEDA);
 					itemTabla.add("-");
 				}
 
 				if (saldo.isEmpty()) {
 					saldo.add(movimiento.getImporteMovimiento());
-					itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento())));
+					itemTabla.add(DECIMALFORMATTER.format(redondear(movimiento.getImporteMovimiento())) + MONEDA);
 
 				} else {
 					saldo.add(movimiento.getImporteMovimiento() + saldo.get(index - 1));
-					itemTabla.add(Double.toString(redondear(movimiento.getImporteMovimiento() + saldo.get(index - 1))));
+					itemTabla.add(
+							DECIMALFORMATTER.format(redondear(movimiento.getImporteMovimiento() + saldo.get(index - 1)))
+									+ MONEDA);
 
 				}
 
@@ -153,21 +174,21 @@ public class CreditosDomain extends Operacion {
 
 				if (saldo.get(index) > limiteCredito) {
 					numerosDeudores.add(limiteCredito * dias.get(index));
-					itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
+					itemTabla.add(DECIMALFORMATTER.format(saldo.get(index) * dias.get(index)) + MONEDA);
 					double diferencia = saldo.get(index) - limiteCredito;
 					numerosExcedidos.add(diferencia * dias.get(index));
 
-					itemTabla.add(Double.toString(diferencia * dias.get(index)));
+					itemTabla.add(DECIMALFORMATTER.format(diferencia * dias.get(index)) + MONEDA);
 					itemTabla.add("-");
 				} else if (saldo.get(index) < 0) {
 					numerosAcreedores.add(dias.get(index) * saldo.get(index) * (-1));
 					itemTabla.add("-");
 					itemTabla.add("-");
-					itemTabla.add(Double.toString(dias.get(index) * saldo.get(index) * (-1)));
+					itemTabla.add(DECIMALFORMATTER.format(dias.get(index) * saldo.get(index) * (-1)) + MONEDA);
 
 				} else {
 					numerosDeudores.add(saldo.get(index) * dias.get(index));
-					itemTabla.add(Double.toString(saldo.get(index) * dias.get(index)));
+					itemTabla.add(DECIMALFORMATTER.format(saldo.get(index) * dias.get(index)) + MONEDA);
 					itemTabla.add("-");
 					itemTabla.add("-");
 

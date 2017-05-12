@@ -1,5 +1,7 @@
 package es.unileon.ulebankoffice.web;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,13 +9,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,6 +34,7 @@ import es.unileon.ulebankoffice.service.MovimientosCreditos;
 public class CreditosFormController {
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private static final String MONEDA = "€";
 
 	@RequestMapping(value = "/creditaccount", method = RequestMethod.POST)
     public ModelAndView processAdd(@Valid @ModelAttribute("creditos")
@@ -55,7 +57,8 @@ public class CreditosFormController {
 		double importeMovimiento;
 		Date fechaMovimiento;
 		String operacion;
-		
+		DecimalFormat decimalFormatter = new DecimalFormat("#,##0.00");
+		decimalFormatter.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMAN));
 		
 		for(MovimientosCreditos movimiento : movimientos) {
 			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());
@@ -87,15 +90,33 @@ public class CreditosFormController {
 		List<String> itemTabla = new ArrayList<>();
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(fechaVencimiento);
+		
+		double interesesDeudores = totalLiquidacion.get(0);
+		double interesesExcedidos = totalLiquidacion.get(1);
+		double interesesAcreedores = totalLiquidacion.get(2);
+		
+		String totalInteresesDeudores = decimalFormatter.format(interesesDeudores)+ MONEDA;
+		String totalInteresesExcedidos = decimalFormatter.format(interesesExcedidos)+ MONEDA;
+		String totalInteresesAcreedores = decimalFormatter.format(interesesAcreedores)+ MONEDA;
+		String comisionSMNDtoString = decimalFormatter.format(totalLiquidacion.get(3))+ MONEDA;
+		String totalLiquidacionToString = decimalFormatter.format(totalLiquidacion.get(5))+ MONEDA;
+		String totalSaldo = tabla.get(tabla.size()-1).get(4);
+		
+		String totalSaldoToString = totalSaldo.substring(0, totalSaldo.length()-1);
+		totalSaldoToString = totalSaldoToString.replaceAll("\\.", "");
+		totalSaldoToString = totalSaldoToString.replaceAll(",", ".");
+		
+		Double saldoFinal = Double.parseDouble(totalSaldoToString);
+		
 		itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
 		itemTabla.add("Liquidación");
-		itemTabla.add(String.valueOf(totalLiquidacion.get(5)));
+		itemTabla.add(totalLiquidacionToString);
 		itemTabla.add("-");
-		itemTabla.add(String.valueOf(Double.parseDouble(tabla.get(tabla.size()-1).get(4))+totalLiquidacion.get(5)));
+		itemTabla.add(decimalFormatter.format(saldoFinal + totalLiquidacion.get(5)));
 		itemTabla.add(String.valueOf(totalLiquidacion.get(4).intValue()));
-		itemTabla.add(String.valueOf(totalLiquidacion.get(0)));
-		itemTabla.add(String.valueOf(totalLiquidacion.get(1)));
-		itemTabla.add(String.valueOf(totalLiquidacion.get(2)));
+		itemTabla.add(totalInteresesDeudores);
+		itemTabla.add(totalInteresesExcedidos);
+		itemTabla.add(totalInteresesAcreedores);
 		
 		tabla.add(itemTabla);
 		
@@ -106,19 +127,19 @@ public class CreditosFormController {
 		/* Tabla de la Liquidación */
 		
 		
-		model.addObject("iDeudores1",String.valueOf(interesDeudor));
-		model.addObject("iDeudores2",String.valueOf(totalLiquidacion.get(0)));
+		model.addObject("iDeudores1",decimalFormatter.format(interesDeudor) + "%");
+		model.addObject("iDeudores2",decimalFormatter.format(interesesDeudores*myCreditos.getInteresDeudor()/360)+ MONEDA);
 		
-		model.addObject("iExcedidos1",String.valueOf(interesExcedido));
-		model.addObject("iExcedidos2",String.valueOf(totalLiquidacion.get(1)));
+		model.addObject("iExcedidos1",decimalFormatter.format(interesExcedido) + "%");
+		model.addObject("iExcedidos2",decimalFormatter.format(interesesExcedidos*myCreditos.getInteresExcedido()/360)+ MONEDA);
 		
-		model.addObject("iAcreedores1",String.valueOf(interesAcreedor));
-		model.addObject("iAcreedores2",String.valueOf(totalLiquidacion.get(2)));
+		model.addObject("iAcreedores1",decimalFormatter.format(interesAcreedor) + "%");
+		model.addObject("iAcreedores2",decimalFormatter.format(interesesAcreedores*myCreditos.getInteresAcreedor()/360)+ MONEDA);
 		
-		model.addObject("CSMND1",String.valueOf(comisionSMND));
-		model.addObject("CSMND2",String.valueOf(totalLiquidacion.get(3)));
+		model.addObject("CSMND1",decimalFormatter.format(comisionSMND) + "%");
+		model.addObject("CSMND2",comisionSMNDtoString);
 		
-		model.addObject("total", totalLiquidacion.get(5));
+		model.addObject("total", totalLiquidacionToString);
 		
         response.addCookie(new Cookie("resultados", "1"));
         

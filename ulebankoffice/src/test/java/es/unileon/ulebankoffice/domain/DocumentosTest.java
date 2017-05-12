@@ -1,10 +1,12 @@
 package es.unileon.ulebankoffice.domain;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.isA;
-import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -66,6 +68,21 @@ public class DocumentosTest {
 		documentos.add(new DocumentoAdjuntoDomain("rutaEjemplo", "NombreEjemplo"));
 		assertThat(repo.findAll().size(), is(7));
 		assertThat(documentos.getSize(), is(1));
+	}
+	
+	@Test
+	public void testMongoIdAssignment(){
+		assertThat(repo.findAll().size(), is(0));
+		assertThat(documentos.getSize(), is(0));
+		
+		DocumentoAdjuntoDomain documento = new DocumentoAdjuntoDomain("rutaE", "nameE");
+		
+		assertNull(documento.getId());
+		documentos.add(documento);
+		assertNotNull(documento.getId());
+		
+		assertThat(documento.getId(), is(repo.findAll().get(0).getId()));
+		
 	}
 
 	@Test

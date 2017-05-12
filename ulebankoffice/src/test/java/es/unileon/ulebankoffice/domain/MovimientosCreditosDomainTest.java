@@ -1,7 +1,7 @@
 package es.unileon.ulebankoffice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -217,7 +217,7 @@
 										<div class="row">
 											<div class="section-field col-md-8">
 												<div class="field-widget">
-													<i>&#8240;</i>
+													<i class="fa fa-percent"></i>
 													<form:input type="text" path="comisionApertura" />
 												</div>
 											</div>
@@ -355,7 +355,7 @@
 										<div class="row">
 											<div class="section-field col-md-8">
 												<div class="field-widget">
-													<i>&#8240;</i>
+													<i class="fa fa-percent"></i>
 													<form:input type="text" path="comisionSMND" />
 												</div>
 											</div>
@@ -600,11 +600,11 @@
 									<th><spring:message code="label.creditornumbers" /></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody  style="font-size:13px; text-align:right;">
 								<c:forEach var="fila" items="${tabla}">
 									<tr>
 										<c:forEach var="itemFila" items="${fila}">
-											<td style="font-size:15px"><c:out value="${itemFila}" /></td>
+											<td><c:out value="${itemFila}" /></td>
 										</c:forEach>
 									</tr>
 								</c:forEach>
@@ -619,7 +619,7 @@
 									<th></th>
 								</tr>
 							</thead>
-						<tbody>
+						<tbody style=" text-align:right;">
 									<tr>
 										<td><spring:message code="label.s7c9" /></td>
 										<td>${iDeudores1}</td>

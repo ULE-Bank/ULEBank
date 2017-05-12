@@ -31,7 +31,6 @@ public class AlemanDomain extends Prestamo {
 		this.tipoPeriodo = p;
 	}
 	
-	@Override
 	public List<List<String>> calcularTabla() {
 		int numFilas = (periodos * tipoPeriodo) + 1;
 		

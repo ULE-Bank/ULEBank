@@ -77,7 +77,7 @@ public class CreditosTests {
 
 	@Test
 	public void testSetAndGetComisionSMND() {
-		assertEquals(0.0015, creditos.getComisionSMND(), noDelta);
+		assertEquals(0.015, creditos.getComisionSMND(), noDelta);
 		creditos.setComisionSMND(2.1);
 		assertEquals(0.0021, creditos.getComisionSMND(), delta);
 	}
@@ -98,14 +98,10 @@ public class CreditosTests {
 	public void testCalcularTabla() {
 
 		List<List<String>> resultado = creditos.calcularTabla();
-		assertEquals(-300.0, Double.parseDouble(resultado.get(4).get(4)), delta);
-
-		for (List<String> list : resultado) {
-			System.out.println(list);
-		}
-		System.out.println("________________________________");
+		String resultadoToString = resultado.get(4).get(4);
+		resultadoToString = resultadoToString.substring(0, resultadoToString.length()-1);
+		assertEquals(-300.0, Double.parseDouble(resultadoToString), delta);
 	}
-
 	/**
 	 * Prueba para comprobar que el método devuelve la liquidación
 	 * correctamente. Se ha usado uno de los enunciados que me han enviado las
@@ -126,13 +122,15 @@ public class CreditosTests {
 		movimientos.add(new MovimientosCreditosDomain("1", 230000, sdf.parse("2017-05-12"), "D"));
 		movimientos.add(new MovimientosCreditosDomain("1", 24000, sdf.parse("2017-06-07"), "I"));
 
-		creditos = new CreditosDomain(2000000, sdf.parse("2017-03-10"), sdf.parse("2017-06-10"), 17, 21, 1, 1.5,
+		creditos = new CreditosDomain(2000000.00, sdf.parse("2017-03-10"), sdf.parse("2017-06-10"), 17, 21, 1, 0.15,
 				movimientos);
 
-		creditos.incluirComsionAperturaYCorretaje(5, 2);
+		creditos.incluirComsionAperturaYCorretaje(0.5, 2);
 
 		List<List<String>> resultado = creditos.calcularTabla();
-		assertThat(Double.parseDouble(resultado.get(resultado.size() - 1).get(4)), is(1900000.0));
+				
+		String resultadoToString = resultado.get(resultado.size() - 1).get(4);
+		assertThat(resultadoToString, is("1.900.000,00€"));
 		assertEquals(60584.7, creditos.obtenerLiquidacion().get(5), delta);
 	}
 

@@ -14,12 +14,14 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class Cliente {
 
-//	@NotEmpty
 	@NotBlank
-	private String name, lastname, email;
+	private String name; 
+	@NotBlank
+	private String lastName; 
+	@NotBlank
+	private String email;
 
-	@NotNull
-	@Past
+	@NotBlank
 	private String fechaNacimiento;
 
 	@NotBlank
@@ -35,12 +37,12 @@ public class Cliente {
 		this.name = name;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
 	public void setLastname(String lastname) {
-		this.lastname = lastname;
+		this.lastName = lastname;
 	}
 
 	public String getEmail() {
@@ -67,6 +69,11 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
+	/**
+	 * Añadre una dirección a la lista de direcciones.
+	 * 
+	 * @param direccion. Instancia POJO
+	 */
 	public void addDireccion(Direccion direccion) {
 		this.direccion.add(direccion);
 	}
@@ -81,8 +88,8 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [name=" + name + ", \nlastname=" + lastname + ", \nemail=" + email
-				+ ", \nfechaNacimiento=" + fechaNacimiento + ", \ndni=" + dni + ", \ndireccion=" + direccion + "]";
+		return "Cliente [name=" + name + ", lastname=" + lastName + ", email=" + email
+				+ ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni + ", direccion=" + direccion + "]";
 	}
 
 }

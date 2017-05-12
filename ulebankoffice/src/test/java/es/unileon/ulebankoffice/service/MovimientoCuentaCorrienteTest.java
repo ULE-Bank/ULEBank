@@ -15,21 +15,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 public class MovimientoCuentaCorrienteTest {
-	
+
 	private static Validator validator;
 	private MovimientoCuentaCorriente movimiento;
 	private Set<ConstraintViolation<MovimientoCuentaCorriente>> constraintViolations;
 
 	@BeforeClass
-	   public static void setUp() {
-	      ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-	      validator = factory.getValidator();
-	   }
-	
+	public static void setUp() {
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		validator = factory.getValidator();
+	}
+
 	@Before
-	public void setUpBeforeEach(){
+	public void setUpBeforeEach() {
 		movimiento = new MovimientoCuentaCorriente();
 	}
 
@@ -58,7 +57,7 @@ public class MovimientoCuentaCorrienteTest {
 	public void testDate() {
 		assertNull(movimiento.getDate());
 		movimiento.setDate("1994-12-05");
-		assertThat(movimiento.getDate(), is("1994-12-05"));	
+		assertThat(movimiento.getDate(), is("1994-12-05"));
 	}
 
 	@Test
@@ -67,26 +66,30 @@ public class MovimientoCuentaCorrienteTest {
 		movimiento.setReceptor("Receptor");
 		assertThat(movimiento.getReceptor(), is("Receptor"));
 	}
-	
+
 	@Test
-	public void testCanitdadAnnotation(){
-		constraintViolations = validator.validate(movimiento);
+	public void testCanitdadAnnotation() {
+		validate();
 		assertThat(constraintViolations.size(), is(4));
 		movimiento.setConcepto("c");
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(3));
 		movimiento.setDate("fecha");
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(2));
 		movimiento.setReceptor("recpetor");
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(1));
 		movimiento.setEmisor("emisor");
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(0));
 		movimiento.setCantidad(-5d);
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("cantidad"));
+	}
+	
+	private void validate(){
+		constraintViolations = validator.validate(movimiento);
 	}
 }

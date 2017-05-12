@@ -30,7 +30,7 @@ public class Documentos implements Aggregate<DocumentoAdjuntoDomain> {
 	private List<String> idDocumentos;
 
 	/**
-	 * Método utilizad para instanciar Documentos desde la abse de datos y
+	 * Método utilizado para instanciar Documentos desde la abse de datos y
 	 * viceversa. También se utiliza la primera vez que se crea cualquier clase
 	 * que utiliza la clase agregada Documentos ya que se pasa como parámetro un
 	 * ArrayList vació.
@@ -49,15 +49,14 @@ public class Documentos implements Aggregate<DocumentoAdjuntoDomain> {
 	 *            El documento ya instanciado a guardar.
 	 */
 	@Override
-	public void add(DocumentoAdjuntoDomain documento) {
-			repo.save(documento);
-	
-		
-		// Para obtener esta ID que es
-		// automáticamente generada por MongoDB se debe hacer lo siguiente: 1-
-		// Guardar el documento en el repositorio. 2- Obtener la ID después de
-		// que se haya producido el guardado. Los TESTS dirán la verdad
-		
+	public void add(DocumentoAdjuntoDomain documento) {	
+		/*
+		 * Para obtener esta ID que es automáticamente generada por MongoDB se
+		 * debe hacer lo siguiente: 1- Guardar el documento en el repositorio.
+		 * 2- Obtener la ID después de que se haya producido el guardado. Los
+		 * TESTS confirman el correcto funcionamiento
+		 */
+		repo.save(documento);
 		idDocumentos.add(documento.getId());
 	}
 

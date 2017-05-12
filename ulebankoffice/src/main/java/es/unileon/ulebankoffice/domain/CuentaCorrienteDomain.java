@@ -3,15 +3,17 @@
  */
 package es.unileon.ulebankoffice.domain;
 
-import java.text.ParseException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,7 +23,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  */
 @Document(collection = "CuentasCorrientes")
-public class CuentaCorrienteDomain implements ProductoFinanciero {
+public class CuentaCorrienteDomain extends Operacion implements ProductoFinanciero {
 
 	@Id
 	private String id;
@@ -51,7 +53,8 @@ public class CuentaCorrienteDomain implements ProductoFinanciero {
 	/**
 	 * Constructor utilizado para instanciar manualmente objetos e instanciar
 	 * por primera vez una CuentaCorrienteDomain, pasándole el DNI y sin
-	 * especificar sus documentos, que tendrán que ser añadidos más adelante.
+	 * especificar sus documentos ni sus movimientos, que tendrán que ser
+	 * añadidos más adelante.
 	 * 
 	 * @param fechaApertura
 	 * @param interesesAcreedores
@@ -136,25 +139,181 @@ public class CuentaCorrienteDomain implements ProductoFinanciero {
 	/**
 	 * Método para obtener la liquidación entre los periodos indicados. La
 	 * liquidación se realizará teniendo en cuenta los movimientos entre las dos
-	 * fechas indicadas, exclusive. Si se quiere hacer la liqudiación entre el 2
-	 * y el 10 de mayo, por ejemplo, se deberá indicar como parámetros el 1 y el
-	 * 11 de mayo.
+	 * fechas indicadas.
 	 * 
-	 * @param fechaInicio
-	 * @param fechaFinal
-	 * @return El total de la liquidación
+	 * @param fechaInicioLiquidacion
+	 * @param fechaFinalLiquidacion
+	 * @return La tabla que deberá mostrarse.Por petición explícita de Javier,
+	 *         el cliente, los números deben expresarse en notación europea.
+	 *         12,345.67€. <b>Protip:</b> El resultado de este método es una
+	 *         lista de filas donde ya se han formateado los números y se ha
+	 *         añadido la moneda, por defecto €. Lo ideal sería poder
+	 *         seleccionar la moneda en la página web y que se le pase desde el
+	 *         controlador como parámetro a esta clase.
 	 */
-	public Double realizarLiquidacion(Date fechaInicio, Date fechaFinal) {
+	public List<List<String>> realizarLiquidacion(Date fechaInicioLiquidacion, Date fechaFinalLiquidacion) {
 
 		ordenarMovimientosPorFecha();
-		List<MovimientoCuentaCorrienteDomain> movimientosLiquidacion = obtenerMovimientosLiquidacion(fechaInicio,
-				fechaFinal);
+		List<MovimientoCuentaCorrienteDomain> movimientosLiquidacion = obtenerMovimientosLiquidacion(
+				fechaInicioLiquidacion, fechaFinalLiquidacion);
+
+		List<List<String>> tabla = new ArrayList<>();
+
+		List<String> itemTabla;
+		List<Double> listaSaldos = new ArrayList<>();
+		List<Integer> listaDias = new ArrayList<>();
+		List<Double> listaNumerosAcreedores = new ArrayList<>();
+		List<Double> listaNumerosDeudores = new ArrayList<>();
+		int index = 0;
+		DecimalFormat decimalFormatter = new DecimalFormat("#,##0.00");
+		decimalFormatter.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMAN));
+		String ingreso = "I";
+		String moneda = "€";
+
+		/*
+		 * La lógica de esto es imprimir la tabla que se debe mostrar por filas
+		 */
 
 		for (MovimientoCuentaCorrienteDomain movimientoCuentaCorrienteDomain : movimientosLiquidacion) {
 
+			itemTabla = new ArrayList<>();
+
+			/* Primera columna: La fecha */
+			DateTime fecha = new DateTime(movimientoCuentaCorrienteDomain.getFechaValor());
+			itemTabla.add(fecha.getDayOfMonth() + "-" + fecha.getMonthOfYear());
+
+			/* Segunda columan: El concepto */
+			itemTabla.add(movimientoCuentaCorrienteDomain.getConcepto());
+
+			/* Tercera y cuarta columna: Ingresos o disposiciones */
+			if (movimientoCuentaCorrienteDomain.getOperacion().equals(ingreso)) {
+				itemTabla.add(decimalFormatter.format(movimientoCuentaCorrienteDomain.getImporte()) + moneda);
+				itemTabla.add("-");
+			} else {
+				itemTabla.add("-");
+				itemTabla.add(decimalFormatter.format(movimientoCuentaCorrienteDomain.getImporte()) + moneda);
+			}
+
+			/* Quinta Columna: El saldo tras computar el movimiento */
+			Double saldoConcreto = movimientoCuentaCorrienteDomain.getImporte();
+
+			Double saldoConcretoOperar = movimientoCuentaCorrienteDomain.getOperacion().equals(ingreso) ? saldoConcreto
+					: -saldoConcreto;
+
+			if (listaSaldos.isEmpty()) {
+				listaSaldos.add(saldoConcretoOperar);
+				itemTabla.add(decimalFormatter.format(redondear(listaSaldos.get(index))) + moneda);
+			} else {
+				listaSaldos.add(saldoConcretoOperar + listaSaldos.get(index - 1));
+				itemTabla.add(decimalFormatter.format(redondear(listaSaldos.get(index))) + moneda);
+			}
+
+			/* Sexta columna: Los días respecto al siguiente movimiento */
+			DateTime nextDay;
+			Days days;
+			if (index + 1 < movimientosLiquidacion.size()) {
+				// Si entra aquí es que no es el último movimiento
+				nextDay = new DateTime(movimientosLiquidacion.get(index + 1).getFechaValor());
+				days = Days.daysBetween(fecha, nextDay);
+				listaDias.add(days.getDays());
+			} else {
+				nextDay = new DateTime(fechaFinalLiquidacion);
+				days = Days.daysBetween(fecha, nextDay);
+				listaDias.add(days.getDays());
+			}
+			itemTabla.add(Integer.toString(days.getDays()));
+
+			/*
+			 * Séptima y octava columna: Números Acreedores y Números Deudores
+			 */
+			Double saldoActual = listaSaldos.get(index);
+			if (saldoActual >= 0) {
+				listaNumerosAcreedores.add(saldoActual * listaDias.get(index));
+				itemTabla.add(decimalFormatter
+						.format(redondear(listaNumerosAcreedores.get(listaNumerosAcreedores.size() - 1))) + moneda);
+				itemTabla.add("-");
+			} else {
+				listaNumerosDeudores.add(saldoActual * listaDias.get(index));
+				itemTabla.add("-");
+				itemTabla.add(
+						decimalFormatter.format(redondear(listaNumerosDeudores.get(listaNumerosDeudores.size() - 1)))
+								+ moneda);
+			}
+
+			tabla.add(itemTabla);
+			index++;
 		}
 
-		return null;
+		/* Se obtiene la liquidación a partir de los datos computados */
+		int totalDias = 0;
+		double totalNumerosAcreedores = 0;
+		double totalNumerosDeudores = 0;
+		double mayorSaldoNegativo = 0;
+
+		for (Integer dias : listaDias) {
+			totalDias += dias;
+		}
+
+		for (Double nAcreedor : listaNumerosAcreedores) {
+			totalNumerosAcreedores += nAcreedor;
+		}
+
+		for (Double nDeudores : listaNumerosDeudores) {
+			totalNumerosDeudores += nDeudores;
+		}
+
+		for (Double saldoAux : listaSaldos) {
+			if (saldoAux < 0 && saldoAux < mayorSaldoNegativo) {
+				mayorSaldoNegativo = saldoAux;
+			}
+		}
+
+		double interesesAcreedoresFinal = (totalNumerosAcreedores * interesesAcreedores) / (diasAnuales * 100);
+		double retencionRendimientosFinal = (retencionRendimientosCapital * interesesAcreedoresFinal) / 100;
+		double interesesDeudoresFinal = (totalNumerosDeudores * interesDeudorSobreSaldosNegativos)
+				/ (diasAnuales * 100);
+		double comisionDescubiertoFinal = mayorSaldoNegativo * comisionDescubierto;
+		comisionDescubiertoFinal = comisionDescubiertoFinal < minimoComisionDescubierto ? minimoComisionDescubierto
+				: comisionDescubiertoFinal;
+
+		interesesAcreedoresFinal = redondear(interesesAcreedoresFinal);
+		retencionRendimientosFinal = redondear(retencionRendimientosFinal);
+		/*
+		 * Al ser un número negativo, lo convierto en positivo para más adelante
+		 * hacer la resta normal.
+		 */
+		interesesDeudoresFinal = redondear(-interesesDeudoresFinal);
+
+		double totalLiquidacionFinal = interesesAcreedoresFinal - retencionRendimientosFinal - interesesDeudoresFinal
+				- comisionDescubiertoFinal - comisionMantenimiento;
+
+		/* El último movimiento es la liquidación */
+		itemTabla = new ArrayList<>();
+		DateTime fechaLiquidacion = new DateTime(fechaFinalLiquidacion);
+		itemTabla.add(fechaLiquidacion.getDayOfMonth() + "-" + fechaLiquidacion.getMonthOfYear());
+		itemTabla.add("Liquidacion");
+		if (totalLiquidacionFinal >= 0) {
+			itemTabla.add(decimalFormatter.format(redondear(totalLiquidacionFinal)) + moneda);
+			itemTabla.add("-");
+		} else {
+			itemTabla.add("-");
+			/*
+			 * Le cambio el signo para que en la tabla no aparezca como negativo
+			 */
+			itemTabla.add(decimalFormatter.format(redondear(-totalLiquidacionFinal)) + moneda);
+		}
+
+		itemTabla
+				.add(decimalFormatter.format(redondear(listaSaldos.get(listaSaldos.size() - 1) + totalLiquidacionFinal))
+						+ moneda);
+
+		itemTabla.add(Integer.toString(totalDias));
+		itemTabla.add(decimalFormatter.format(redondear(totalNumerosAcreedores)) + moneda);
+		itemTabla.add(decimalFormatter.format(redondear(totalNumerosDeudores)) + moneda);
+
+		tabla.add(itemTabla);
+
+		return tabla;
 	}
 
 	/*
@@ -170,7 +329,16 @@ public class CuentaCorrienteDomain implements ProductoFinanciero {
 		List<MovimientoCuentaCorrienteDomain> movimientosLiquidacion = new ArrayList<>();
 		for (MovimientoCuentaCorrienteDomain movimientoCuentaCorrienteDomain : movimientos) {
 			Date fechaMovimiento = movimientoCuentaCorrienteDomain.getFechaValor();
-			if (fechaMovimiento.after(fechaInicio) && fechaMovimiento.before(fechaFinal)) {
+			if (!fechaMovimiento.after(fechaFinal) && !fechaMovimiento.before(fechaInicio)) {
+				/*
+				 * Puesto que before y after no incluyen los "endpoints", es
+				 * decir que after 2017-05-10 es true a partir de 2017-05-11 y
+				 * before 2017-05-10 es true a partir de 2017-05-09 y hacia
+				 * atrás, es preciso hacer lo siguiente: En lugar de
+				 * after(FechaInicio) y before(fechaFinal) que serían exclusive,
+				 * no se incluirían las propias fechas, se hace
+				 * !after(fechaFinal) y !before(fechaInicio).
+				 */
 				movimientosLiquidacion.add(movimientoCuentaCorrienteDomain);
 			}
 		}

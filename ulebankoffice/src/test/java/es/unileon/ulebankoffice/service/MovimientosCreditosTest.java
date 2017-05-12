@@ -4,7 +4,7 @@
 package es.unileon.ulebankoffice.service;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import java.util.Set;
 
@@ -65,32 +65,37 @@ public class MovimientosCreditosTest {
 	
 	@Test
 	public void testAnnotationDescription(){
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(0));
 		movimiento.setDescripcionMovimiento("");
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("descripcionMovimiento"));
 	}
 	
 	@Test
 	public void testAnnotationImporte(){
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(0));
 		movimiento.setImporteMovimiento(-150d);
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("importeMovimiento"));
 	}
 	
 	@Test
 	public void testAnnotatioFechan(){
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(0));
 		movimiento.setFechaMovimiento("");
-		constraintViolations = validator.validate(movimiento);
+		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("fechaMovimiento"));
+	}
+	
+	
+	private void validate(){
+		constraintViolations = validator.validate(movimiento);
 	}
 	
 }
