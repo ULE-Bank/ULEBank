@@ -29,12 +29,15 @@ public class OffersConsultingController {
 	@Autowired
 	private Datastore datastore;
 	
+	@RequestMapping(value= "/consuLogin", method = RequestMethod.GET) 
+	public String getLogin(){
+		return "offersConsultingLogin";
+	}
+
 	@RequestMapping(value = "/offersconsulting", method = RequestMethod.GET)
 	public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-		if (authenticator.isAuthenticated(req)) {
-			if (authenticator.isAdmin(req))
-				return new ModelAndView("redirect:/adminoffersconsulting");
+		
 
 			ModelAndView Model = new ModelAndView("offersconsulting");
 
@@ -55,9 +58,7 @@ public class OffersConsultingController {
 			return Model;
 		}
 
-		else {
-			return new ModelAndView(authenticator.login(req));
-		}
+		
 
-	}
+	
 }

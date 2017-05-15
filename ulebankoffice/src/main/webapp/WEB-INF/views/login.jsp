@@ -1,6 +1,7 @@
 <%@ include file="/WEB-INF/views/include.jsp"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -132,7 +133,24 @@
          <div class="container">
             <div class="row col-md-6 col-md-offset-3">
                <div class="login-2-form clearfix">
-                  <form name="f" action="<c:url value="j_spring_security_check"></c:url>" method="POST">
+
+					<!--                Definición de contenido -->
+					<sec:authorize access="hasRole('ROLE_ADVISORUSER')" var="isUser" />
+					<sec:authorize
+						access="hasAnyRole('ROLE_EMPLEADO','ROLE_ADMIN','ROLE_SUPERVISOR')"
+						var="isUlebankEmployee" />
+					<c:choose>
+						<c:when test="${isUser}">Para acceder a la oficina debe cerrar sesión en el consultor financiero<br>
+						
+
+<form:form action="/o/logout" method="POST">
+    <input type="submit" value="Logout" />
+</form:form>
+</c:when>
+						<c:when test="${isUlebankEmployee}">Ya has iniciado sesión.
+						<a href="/o">Volver a la oficina</a>
+						<a href="/o/logout">Cerrar sesión</a></c:when>
+						<c:otherwise><form name="f" action="<c:url value="j_spring_security_check"></c:url>" method="POST">
                      <c:if test="${not empty param.login_error}">
                         <div style="color: red">
                            <spring:message code="label.failedLoginMessage" />
@@ -164,7 +182,10 @@
                               value="Reset" name="reset" type="reset">
                         </div>
                      </div>
-                  </form>
+                  </form></c:otherwise>
+					</c:choose>
+					<!--                Definición de contenido -->
+					
                </div>
             </div>
          </div>

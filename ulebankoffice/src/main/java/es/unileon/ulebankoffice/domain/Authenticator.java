@@ -2,23 +2,17 @@ package es.unileon.ulebankoffice.domain;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 public class Authenticator {
 	
-	/*
-	private static Authenticator authenticator;
-	
-	public static Authenticator getAuthenticator() {
-		if(authenticator == null)
-			authenticator = new Authenticator();
-		
-		return authenticator;
-	}
-	*/
+	private static final Logger logger = Logger.getLogger("ulebankLogger");
 	
 	public boolean isAuthenticated(HttpServletRequest request) {
+		logger.debug("Se está comrpobando si alguien que está deseando entrar en el consultor financiero está logeado ya.");
 		return request.getUserPrincipal() != null;
 	}
 	
@@ -26,7 +20,7 @@ public class Authenticator {
 		UserService userService = UserServiceFactory.getUserService();
 		
 		return "redirect:" + userService.createLoginURL(request.getRequestURI());
-		//return "redirect:/login";
+		
 	}
 	
 	public String logout() {
