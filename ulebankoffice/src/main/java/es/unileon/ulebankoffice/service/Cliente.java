@@ -2,9 +2,6 @@ package es.unileon.ulebankoffice.service;
 
 import java.util.List;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -26,7 +23,10 @@ public class Cliente {
 
 	@NotBlank
 	private String dni;
-
+	
+	@NotBlank
+	private String nacionalidad;
+	
 	private List<Direccion> direccion;
 
 	public String getName() {
@@ -85,11 +85,21 @@ public class Cliente {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Cliente [name=" + name + ", lastname=" + lastName + ", email=" + email
 				+ ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni + ", direccion=" + direccion + "]";
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
 
 }

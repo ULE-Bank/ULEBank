@@ -87,15 +87,6 @@ public class CreditosDomain extends Operacion {
 				new MovimientosCreditosDomain("Comision de apertura", importeComisionApertura, fechaApertura, "D"));
 	}
 
-	/**
-	 * Método que devuelve le cálculo de toda la tabla de movimientos a
-	 * excepción de la última fila, que es la liquidación.
-	 * 
-	 * @required Es necesario haber incluido la comision de apertura y el
-	 *           corretaje antes de utilizar este método.
-	 * @return La lista de todas las filas que componen los movimientos y los
-	 *         cálculos asociados a estos.
-	 */
 	public List<List<String>> calcularTabla() {
 
 		ordenarMovimientosPorFecha();
@@ -151,9 +142,8 @@ public class CreditosDomain extends Operacion {
 
 				} else {
 					saldo.add(movimiento.getImporteMovimiento() + saldo.get(index - 1));
-					itemTabla.add(
-							DECIMALFORMATTER.format(redondear(movimiento.getImporteMovimiento() + saldo.get(index - 1)))
-									+ MONEDA);
+					itemTabla.add(DECIMALFORMATTER
+							.format(redondear(movimiento.getImporteMovimiento() + saldo.get(index - 1))) + MONEDA);
 
 				}
 
@@ -255,7 +245,7 @@ public class CreditosDomain extends Operacion {
 		double interesesDeudoresFinales = interesesDeudores * this.interesDeudor / 360;
 		double interesesAcreedoresFinales = interesesAcreedores * this.interesAcreedor / 360;
 		double interesesExcedidosFinales = interesesExcedidos * this.interesExcedido / 360;
-
+		
 		double liquidacionTotal = redondear(interesesDeudoresFinales + interesesAcreedoresFinales
 				+ interesesExcedidosFinales + comisionSaldoMedioNoDispuesto);
 

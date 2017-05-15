@@ -20,6 +20,7 @@
 		<org.springframework.version>4.3.7.RELEASE</org.springframework.version>
 		<!-- I declare argLine as a property so JaCoCo can set its agent properly. -->
 		<argLine>-Xms256m -Xmx512m -ea -Dfile.encoding=UTF-8 -Dtest=*</argLine>
+		<spring.security.core.version>3.1.4.RELEASE</spring.security.core.version>
 	</properties>
 	<prerequisites>
 		<maven>3.3.9</maven>
@@ -173,6 +174,37 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.25</version>
 		</dependency>
+		
+<!-- 		Spring security  -->
+		<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security.core.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.core.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.core.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.security.core.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+		
 	</dependencies>
 	<build>
 		<!-- for hot reload of the web application -->

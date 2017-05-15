@@ -28,7 +28,7 @@ public class OffersConsultingController {
 
 	@Autowired
 	private Datastore datastore;
-
+	
 	@RequestMapping(value = "/offersconsulting", method = RequestMethod.GET)
 	public ModelAndView add(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 

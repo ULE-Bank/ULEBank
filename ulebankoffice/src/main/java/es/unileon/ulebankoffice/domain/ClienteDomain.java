@@ -210,6 +210,8 @@ public class ClienteDomain {
 	public void setFechaDeAlta(Date fechaDeAlta) {
 		this.fechaDeAlta = fechaDeAlta;
 	}
+	
+	
 
 	@Override
 	public String toString() {

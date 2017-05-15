@@ -1,6 +1,7 @@
 <%@ include file="/WEB-INF/views/include.jsp"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -46,7 +47,7 @@
       <!-- custom style -->
       <link href="/resources/template/css/custom.css" rel="stylesheet"
          type="text/css" />
-      <title>Bienvenido a la oficina ulebank</title>
+      <title>Oficina ulebank</title>
       <!-- GOOGLE ANALYTICS TRACKER -->
       <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -56,6 +57,12 @@
          
          ga('create', 'UA-72492123-1', 'auto');
          ga('send', 'pageview');
+         
+         
+         
+        
+         
+     
       </script>
    </head>
    <body>
@@ -81,7 +88,7 @@
             <div class="container">
                <div class="row text-center intro-title">
                   <h1 class="text-blue">
-                     Bienvenido a la oficina 
+                     Sucursal bancaria
                   </h1>
                   <ul class="page-breadcrumb">
                      <li>
@@ -93,24 +100,8 @@
                         <i class="fa fa-angle-double-right"></i>
                      </li>
                      <li>
-                        <a href="./#services">
-                           <spring:message
-                              code="label.siteservices" />
-                        </a>
-                        <i
-                           class="fa fa-angle-double-right"></i>
-                     </li>
-                     <li>
-                        <a href="/loans">
-                           <spring:message
-                              code="label.siteservice4" />
-                        </a>
-                        <i
-                           class="fa fa-angle-double-right"></i>
-                     </li>
-                     <li>
                         <span>
-                           Oficina
+                        Oficina
                         </span>
                      </li>
                   </ul>
@@ -122,296 +113,202 @@
          <section class="white-bg page-section-ptb" id="clientes">
             <div class="container">
                <div class="row">
-                  <div class="col-md-10 col-md-offset-1">
-<%--                      <form:form role="form" method="post" --%>
-<%--                         modelAttribute="mongoDocument" id="servicesform"> --%>
-<!--                         <div id="register-form" class="register-form"> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <label for="name">Serie:</label> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <div class="field-widget"> -->
-<!--                                     <i class="fa fa-eur"></i> -->
-<%--                                     <form:input type="text" value="" path="serie" /> --%>
-<!--                                  </div> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<%--                                  <form:errors style="color: red;" path="serie"></form:errors> --%>
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <label for="name">Nombre</label> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <div class="field-widget"> -->
-<!--                                     <i class="fa fa-percent"></i> -->
-<%--                                     <form:input type="text" path="name" /> --%>
-<!--                                  </div> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<%--                                  <form:errors style="color: red;" path="name"></form:errors> --%>
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <label for="name">DNI:</label> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <div class="field-widget"> -->
-<!--                                     <i class="fa fa-clock-o"></i> -->
-<%--                                     <form:input type="text" name="name" path="DNI" /> --%>
-<!--                                  </div> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<%--                                  <form:errors style="color: red;" path="DNI"></form:errors> --%>
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <label for="name">Ruta:</label> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<!--                                  <div class="field-widget"> -->
-<!--                                     <i class="fa fa-clock-o"></i> -->
-<%--                                     <form:input type="text" name="name" path="ruta" /> --%>
-<!--                                  </div> -->
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                            <div class="row"> -->
-<!--                               <div class="section-field col-md-6"> -->
-<%--                                  <form:errors style="color: red;" path="ruta"></form:errors> --%>
-<!--                               </div> -->
-<!--                            </div> -->
-<!--                         </div> -->
-<!--                         <div class="row"> -->
-<!--                            <a class="button mt-20" id="submitservices" -->
-<!--                               onclick="document.getElementById('servicesform').submit()"> -->
-<!--                               <span> -->
-<%--                                  <spring:message code="label.calculate" /> --%>
-<!--                               </span> -->
-<!--                               <i -->
-<!--                                  class="fa fa-calculator"></i> -->
-<!--                            </a> -->
-<!--                            En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
-<!--                            <noscript> -->
-<!--                               <input type="submit" -->
-<%--                                  value="<spring:message code="label.calculate"/>" /> --%>
-<!--                            </noscript> -->
-<!--                         </div> -->
-<%--                      </form:form> --%>
-
-	<h2>${error}</h2>
-					<div class="row"> 
-			
-					
-					<form method=get>
-                      <div id="register-form" class="register-form"> 
-                    <div class="section-field col-md-12">
-                     DNI/NIE:
-                     <div class="field-widget">
-                      
-                          <i class="fa fa-home"></i> 
-                          <input class="" type="text" required name="uin" placeholder="Identificación fiscal del cliente" >
-                     </div> 
-                     </div> 
-                     
-                 
-                     <input class="col-md-3 col-md-offset-2" type="submit" value="Buscar cliente">
-                     <a href="./o#clientes"><input class="col-md-3 col-md-offset-2" type="button" value="Limpiar búsqueda" onclick="history.go(0)"></a> 
-                    <div class="col-md-12" style="text-align:center; color:red;"> <h2>${noClientFoundError}</h2> </div>
-                      </div>
-                     </form>
+                  <div class="col-md-12">
+                     <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        <fieldset style="border: 1px solid #ff0000">
+                           <legend>Controles administrador</legend>
+                           <h3>Empleados de la sucursal</h3>
+                           <c:if test="${param.errorRegistroEmpleado != null}"> <h2 style="color:red">${param.errorRegistroEmpleado}</h2></c:if>
+                           <div style="height:150px; overflow:auto;">
+                              <table border="1"  class="col-md-12" >
+                                 <tr style="color:white;background-color:rgb(0,169,218);">
+                                    <th>Nombre</th>
+                                    <th>Privilegios</th>
+                                    <th></th>
+                                 </tr>
+                                 <c:forEach var="employee" items="${employees}">
+                                    <tr>
+                                       <td>${employee.userName}</td>
+                                       <td>${employee.role}</td>
+                                       <c:if test="${employee.role != 'admin' }"><td><a href="/o/admin/d?ein=${employee.userName}">Eliminar</a></td></c:if>
+                                    </tr>
+                                 </c:forEach>
+                              </table>
+                           </div>
+                           <div class="row col-md-12">
+                        <a class="button mt-20"  id="mostrarFomrularioNuevoEmpleado"> <span> Crear empleado </span> <i class ="fa fa-send"></i></a>
+                        <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
                      </div>
-                     
+                     <div class="row col-md-12">
+                           <form:form style="display: none;" id="formularioNuevoEmpleado" method="post" action="/o/admin/submitEmployee" modelAttribute="nuevoEmpleado">
+                              <div id="register-form" class="register-form">
+                                 <div class="row">
+                                    <div class="section-field col-md-12">
+                                       <div class="row col-md-12">
+                                          <h2>Datos nuevo empleado:</h2>
+                                       </div>
+                                       <div class="row">
+                                          <div class="col-md-4">
+                                             Usuario 
+                                             <div class="field-widget">
+                                                <i class="fa fa-user"></i> 
+                                                <form:input path="userName" type="text" required="required"/>
+                                                <form:errors style="color: red;" path="userName"></form:errors>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                             Contraseña: 
+                                             <div class="field-widget">
+                                                <i class="fa fa-unlock-alt"></i> 
+                                                <form:input path="password" class="" type="password" required="required"/>
+                                                <form:errors style="color: red;" path="password"></form:errors>
+                                             </div>
+                                          </div>
+                                     
+                                          <div class="col-md-4">
+                                             Privilegios: 
+                                             <div class="field-widget">
+                                                <form:select path="role" id="rol">
+                                                   <form:option value="empleado" label="Empleado" />
+                                                   <form:option value ="supervisor" label="Supervisor" />
+                                                </form:select>
+                                             </div>
+                                          </div>
+                                          </div>
+                                          
+                                          <div class="row col-md-12">
+                                             <a class="button mt-20"  onclick="darDeAltaEmployee()"> <span> Dar de alta empleado </span> <i class ="fa fa-send"></i></a>
+                                             <input id="submit_handle_employee" type="submit" style="display: none" />
+                                          </div>
+                                       
+                                    </div>
+                                 </div>
+                              </div>
+                           </form:form>
+                           </div>
+                        </fieldset>
+                     </sec:authorize>
+                     <h2>${error}</h2>
+                     <div class="row">
+                        <form method=get>
+                           <div id="register-form" class="register-form">
+                              <div class="section-field col-md-12">
+                                 DNI/NIE:
+                                 <div class="field-widget">
+                                    <i class="fa fa-home"></i> 
+                                    <input class="" type="text" required name="uin" placeholder="Identificación fiscal del cliente" >
+                                 </div>
+                              </div>
+                              <input maxlength="9" class="col-md-3 col-md-offset-2" type="submit" value="Buscar cliente">
+                              <a href="./o#clientes"><input class="col-md-3 col-md-offset-2" type="button" value="Limpiar búsqueda" onclick="history.go(0)"></a> 
+                              <div class="col-md-12" style="text-align:center; color:red;">
+                                 <h3 style="color:red;">${clientError}</h3>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
                      <div class ="row mt-20" >
-                     
-
-       <div style="height:300px; overflow:auto;">
-         <table border="1"  class="col-md-12" >
-         <tr style="color:white;background-color:rgb(0,169,218);">
-             <th>DNI/NIE</th>
-                              <th>Nombre</th>
-                              <th>Apellidos</th>
-                              <th>email</th>
-                              <th>Fecha nacimiento</th>
-         </tr>
-           <c:forEach var="client" items="${clients}">
-           
-                           <tr>
-<%--                               <td>${client.id}</td> --%>
-<td><a href="/o/u?uin=${client.dni}">${client.dni}</a></td>
-                              <td>${client.name}</td>
-                              <td>${client.lastname}</td>
-                              <td>${client.email}</td>
-                              <td>${client.fechaNacimiento}</td>
-                              
-<!--                               <td><input type="button" value="delete" -->
-<%--                                  onclick="window.location='person/delete?id=${document.id}'" /></td> --%>
-
-                           </tr>
-                        </c:forEach>
-          
-         </table>  
-       </div>
-
-                     
-                     
-
-                     </div>
-                   
-                     <div class="row"> 
-                     <a class="button mt-20"  id="mostrarFomrularioNuevoCliente"> <span> Crear cliente </span> <i class ="fa fa-send"></i></a>
-                     <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a>
-                     <a class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
-                     </div>
-                     <script>
-                     //jQuery para mostrar u ocultar el formulario de creación de nuevo cliente
-                     $("#mostrarFomrularioNuevoCliente").click(function(){
-                    	 form = $("#formularioNuevoCliente");
-                    	 if (form.css('display') == 'none') {
-                    		 form.show(1000);
-						} else {
-							form.hide(1000);
-						}
-                     });
-
-                     function dardealtacliente(){
-                    	 $("#submit_handle").click();
-                     }
-                     </script>
-                     
-                      <form:form style="display: none;" id="formularioNuevoCliente" method="post" modelAttribute="nuevoCliente">
-                      <div id="register-form" class="register-form"> 
-                     <div class="row">
-                     <div class="section-field col-md-12">
-                     <div class="row col-md-12">
-                     <h2>Datos personales cliente</h2>
+                        <div style="height:300px; overflow:auto;">
+                           <table border="1"  class="col-md-12" >
+                              <tr style="color:white;background-color:rgb(0,169,218);">
+                                 <th>DNI/NIE</th>
+                                 <th>Nombre</th>
+                                 <th>Apellidos</th>
+                                 <th>e-Mail</th>
+                                 <th>Fecha nacimiento</th>
+                              </tr>
+                              <c:forEach var="client" items="${clients}">
+                                 <tr>
+                                    <%--                               <td>${client.id}</td> --%>
+                                    <td><a href="/o/u?uin=${client.dni}">${client.dni}</a></td>
+                                    <td>${client.name}</td>
+                                    <td>${client.lastName}</td>
+                                    <td>${client.email}</td>
+                                    <td>${client.fechaNacimiento}</td>
+                                    <!--                               <td><input type="button" value="delete" -->
+                                    <%--                                  onclick="window.location='person/delete?id=${document.id}'" /></td> --%>
+                                 </tr>
+                              </c:forEach>
+                           </table>
+                        </div>
                      </div>
                      <div class="row">
-                     <div class="col-md-6">
-                   
-                     DNI: 
-                     <div class="field-widget">
-                          <i class="fa fa-home"></i> 
-                          
-                          <form:input path="dni" type="text" required="required"/>
-                       
-                          <form:errors style="color: red;" path="dni"></form:errors>
-                     </div> 
+                        <a class="button mt-20"  id="mostrarFomrularioNuevoCliente"> <span> Crear cliente </span> <i class ="fa fa-send"></i></a>
+                        <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
+                        <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
                      </div>
-                     <div class="col-md-6">
-                     Nombre: 
-                     <div class="field-widget">
-                          <i class="fa fa-home"></i> 
-                      
-                          <form:input path="name" class="" type="text" required="required"/>
-                
-                           <form:errors style="color: red;" path="name"></form:errors>
-                     </div>
-                     </div> 
-                     </div>
-                      <div class="row">
-                     <div class="col-md-6">
-                     Apellidos: 
-                     <div class="field-widget">
-                          <i class="fa fa-home"></i> 
-                          <form:input path="lastname" class="" type="text" required="required" name="u" />
-                          <form:errors style="color: red;" path="lastname"></form:errors>
-                     </div> 
-                       </div> 
-                      <div class="col-md-6">
-                      Email: 
-                     <div class="field-widget">
-                          <i class="fa fa-home"></i> 
-                          <form:input path="email" class="" type="email" required="required" name="u" />
-                          <form:errors style="color: red;" path="email"></form:errors>
-                     </div> 
-                      </div> 
-                      </div> 
-                     <div class="row">
-                     <div class="col-md-6">
-                     Fecha de nacimiento: 
-                     <div class="field-widget">
-                          <i class="fa fa-home"></i>  
-                          <form:input path="fechaNacimiento" id="datePicker" type="date" 
-                          required="required" name="u" />
-                          <form:errors style="color: red;" path="fechaNacimiento"></form:errors>
-                     </div> 
-                     </div> 
-                      </div>
-<!--                        <div class="row"> -->
-<!--                      <h2>Dirección cliente</h2> -->
-<!--                      </div> -->
                      
-<!--                       <div class="row"> -->
-<!--                      <div class="col-md-6"> -->
-<!--                      Comunidad autónoma:  -->
-<!--                      <div class="field-widget"> -->
-<!--                           <i class="fa fa-home"></i>  -->
-<!--                           <input class="" type="text" required name="u"  > -->
-<!--                      </div>  -->
-<!--                      </div> -->
-<!--                      <div class="col-md-6"> -->
-<!--                      Localidad:  -->
-<!--                      <div class="field-widget"> -->
-<!--                           <i class="fa fa-home"></i>  -->
-<!--                           <input class="" type="text"  name="u" /> -->
-<!--                      </div> -->
-<!--                       </div>  -->
-<!--                       </div>  -->
-                     
-                     
-<!--                       <div class="row"> -->
-<!--                      <div class="col-md-4"> -->
-<!--                      Calle:  -->
-<!--                      <div class="field-widget"> -->
-<!--                           <i class="fa fa-home"></i>  -->
-<!--                           <input class="" type="text" required name="u" > -->
-<!--                      </div> -->
-<!--                      </div> -->
-<!--                      <div class="col-md-4"> -->
-<!--                      Numero:  -->
-<!--                      <div class="field-widget"> -->
-<!--                           <i class="fa fa-home"></i>  -->
-<!--                           <input class="" type="text" required name="n" > -->
-<!--                      </div> -->
-<!--                      </div> -->
-<!--                       <div class="col-md-4"> -->
-<!--                      Código postal:  -->
-<!--                      <div class="field-widget"> -->
-<!--                           <i class="fa fa-home"></i>  -->
-<!--                           <input class="" type="text" required name="n" > -->
-<!--                      </div> -->
-<!--                      </div> -->
-<!--                      </div> -->
-    
-                    
-                 
-                     <div class="row col-md-12">
-                      <a class="button mt-20"  onclick="dardealtacliente()"> <span> Dar de alta cliente </span> <i class ="fa fa-send"></i></a>
-                     <input id="submit_handle" type="submit" style="display: none" />
-                      </div>
-                      </div>
-                      </div>
-                      </div>
+                     <form:form style="display: none;" id="formularioNuevoCliente" method="post" modelAttribute="nuevoCliente">
+                        <div id="register-form" class="register-form">
+                           <div class="row">
+                              <div class="section-field col-md-12">
+                                 <div class="row col-md-12">
+                                    <h2>Datos personales cliente</h2>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       DNI: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="dni" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="dni"></form:errors>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       Nombre: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="name" class="" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="name"></form:errors>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       Apellidos: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="lastName" class="" type="text" required="required" name="u" />
+                                          <form:errors style="color: red;" path="lastName"></form:errors>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       Email: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="email" class="" type="email" required="required" name="u" />
+                                          <form:errors style="color: red;" path="email"></form:errors>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                  <div class="col-md-6">
+                                       Nacionalidad: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="nacionalidad" class="" type="text" required="required" name="u" />
+                                          <form:errors style="color: red;" path="nacionalidad"></form:errors>
+                                       </div>
+                                    </div>
+                                 
+                                    <div class="col-md-6">
+                                       Fecha de nacimiento: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i>  
+                                          <form:input path="fechaNacimiento" id="datePicker" type="date" 
+                                             required="required" name="u" />
+                                          <form:errors style="color: red;" path="fechaNacimiento"></form:errors>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row col-md-12">
+                                    <a class="button mt-20"  onclick="darDeAltaClient()"> <span> Dar de alta cliente </span> <i class ="fa fa-send"></i></a>
+                                    <input id="submit_handle_client" type="submit" style="display: none" />
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
                      </form:form>
-                     
                   </div>
                </div>
             </div>
@@ -422,6 +319,36 @@
          <!--=================================
             Footer-->
       </div>
+      
+      <script>
+    //jQuery para mostrar u ocultar el formulario de creación de nuevo cliente
+      $("#mostrarFomrularioNuevoCliente").click(function(){
+       form = $("#formularioNuevoCliente");
+       if (form.css('display') == 'none') {
+      	 form.show(1000);
+      } else {
+      form.hide(1000);
+      }
+      });
+      
+      function darDeAltaClient(){
+          $("#submit_handle_client").click();
+         }
+      
+      function darDeAltaEmployee(){
+       $("#submit_handle_employee").click();
+      }
+      
+      //jQuery para mostrar u ocultar el formulario de creación de nuevo empleado
+      $("#mostrarFomrularioNuevoEmpleado").click(function(){
+       form = $("#formularioNuevoEmpleado");
+       if (form.css('display') == 'none') {
+      	 form.show(1000);
+      } else {
+      form.hide(1000);
+      }
+      });
+      </script>
       <script src="/resources/services/js/tooltip-script.js"></script>
       <!-- bootstrap -->
       <script type="text/javascript"

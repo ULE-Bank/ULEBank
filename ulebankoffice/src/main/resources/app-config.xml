@@ -16,6 +16,11 @@
 		scope="singleton">
 	</bean>
 
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+		<property name="alwaysUseFullPath" value="true"></property>
+	</bean>
+
 	<bean id="datastore" class="es.unileon.ulebankoffice.domain.Datastore"
 		scope="singleton">
 	</bean>
@@ -38,12 +43,13 @@
 	<!-- Scans the classpath of this application for @Components to deploy as 
 		beans -->
 	<context:component-scan base-package="es.unileon.ulebankoffice.web" />
+	<context:component-scan base-package="es.unileon.ulebankoffice.security" />
 
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
-	
-	<mvc:default-servlet-handler/>
-	
+
+	<mvc:default-servlet-handler />
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
@@ -63,12 +69,13 @@
 		<property name="cookieName" value="ULeBankLanguagePreference"></property>
 		<property name="cookieMaxAge" value="604800"></property>
 	</bean>
-
+	
 	<!-- Es necesario indicarle a spring dónde se encuentras lo recursos para 
 		que, al trabajar con urls virtuales, no haya problemas de rutas. Para guardar 
 		los recursos en cache se puede añadir cache-period="31556926"/> que los alamcena 
-		durante un año -->
+		durante un año http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-static-resources -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+<!-- 	<mvc:resources mapping="/**/resources/**" location="/resources/" /> -->
 	<mvc:resources mapping="resources/**" location="/resources/" />
 
 	<mvc:interceptors>

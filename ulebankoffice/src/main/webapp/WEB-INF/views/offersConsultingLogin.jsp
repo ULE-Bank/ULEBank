@@ -49,7 +49,7 @@
       <link href="resources/template/css/custom.css" rel="stylesheet"
          type="text/css" />
       <title>
-         <spring:message code="label.officeLogin" />
+         <spring:message code="label.consultingLogin" />
       </title>
       <!-- GOOGLE ANALYTICS TRACKER -->
       <script>
@@ -108,7 +108,7 @@
          <div class="container">
             <div class="row text-center intro-title">
                <h1 class="text-blue">
-                   <spring:message code="label.officeLogin" />
+                  <spring:message code="label.consultingLogin" />
                </h1>
                <ul class="page-breadcrumb">
                   <li>
@@ -120,7 +120,7 @@
                      <i class="fa fa-angle-double-right"></i>
                   </li>
                   <li>
-                      <spring:message code="label.officeLogin" />
+                     <spring:message code="label.consultingLogin" />
                   </li>
                </ul>
             </div>
@@ -132,36 +132,20 @@
          <div class="container">
             <div class="row col-md-6 col-md-offset-3">
                <div class="login-2-form clearfix">
-                  <form name="f" action="<c:url value="j_spring_security_check"></c:url>" method="POST">
+                  <form name="f" action="/offersconsulting/j_spring_security_check" method="POST">
                      <c:if test="${not empty param.login_error}">
-                        <div style="color: red">
-                           <spring:message code="label.failedLoginMessage" />
-                        </div>
                      </c:if>
                      <div class="section-field">
-                        Username:
+                        Email:
                         <div class="field-widget">
-                           <i class="fa fa-user"></i> <input type='text' name='j_username' />
-                        </div>
-                     </div>
-                     <div class="section-field">
-                        Password:
-                        <div class="field-widget">
-                           <i class="fa fa-unlock-alt"></i> <input type='password'
-                              name='j_password'>
+                           <i class="fa fa-user"></i> <input type='email' name='j_username' />
+                           <spring:message code="label.emailIsImportant"/>
                         </div>
                      </div>
                      <div class="section-field">
                         <div class="field-widget">
                            <i class="fa fa-check"></i>
                            <input value="Send" name="submit" type="submit"> 
-                        </div>
-                     </div>
-                     <div class="section-field">
-                        <div class="field-widget">
-                           <i class="fa fa-trash"></i>
-                           <input
-                              value="Reset" name="reset" type="reset">
                         </div>
                      </div>
                   </form>

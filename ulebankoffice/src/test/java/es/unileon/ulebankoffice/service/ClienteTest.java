@@ -91,6 +91,7 @@ public class ClienteTest {
 		cliente.setFechaNacimiento("fecha");
 		cliente.setLastname("lastname");
 		cliente.setName("name");
+		cliente.setNacionalidad("español");
 		
 		validate();
 		assertThat(constraintViolations.size(), is(0));

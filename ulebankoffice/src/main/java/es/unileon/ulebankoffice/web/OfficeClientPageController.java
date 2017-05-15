@@ -27,7 +27,7 @@ public class OfficeClientPageController {
 	@RequestMapping(method = RequestMethod.GET, params = {"uin"})
 	public String showClientData(ModelMap model, @RequestParam("uin") String dni){
 		
-		ClienteDomain clientes = clienteRepository.findByDni(dni.toUpperCase());
+		ClienteDomain clientes = clienteRepository.findByDni(dni);
 		
 		
 		

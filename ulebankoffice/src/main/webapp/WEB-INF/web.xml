@@ -14,6 +14,14 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+
+	<!-- Se debe añadir esta declaración de parámetro de contexto apra que spring 
+		cargue la configuración al inciar la aplicación -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:app-config.xml,classpath:security-config.xml</param-value>
+	</context-param>
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -24,6 +32,18 @@
 		<servlet-name>inicio</servlet-name>
 		<jsp-file>/index.jsp</jsp-file>
 	</servlet>
+
+	<!-- Spring Security Filter needed to security configuration to check and 
+		apply security to all application urls -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<servlet>
 		<servlet-name>FrontalController</servlet-name>
@@ -38,41 +58,9 @@
 	<servlet-mapping>
 		<servlet-name>FrontalController</servlet-name>
 		<url-pattern>/*.htm</url-pattern>
-		<url-pattern>/incrementarPrecio</url-pattern>
-		<url-pattern>/inicio</url-pattern>
-		<url-pattern>/usuarios</url-pattern>
-		<url-pattern>/apr</url-pattern>
-		<url-pattern>/leasing</url-pattern>
-		<url-pattern>/offersconsulting</url-pattern>
-		<url-pattern>/loans</url-pattern>
-		<url-pattern>/discounts</url-pattern>
-		<url-pattern>/reversemortgage</url-pattern>
-		<url-pattern>/creditaccount</url-pattern>
-		<url-pattern>/cookies</url-pattern>
-		<url-pattern>/contact</url-pattern>
-		<url-pattern>/frenchloan</url-pattern>
-		<url-pattern>/italianloan</url-pattern>
-		<url-pattern>/germanloan</url-pattern>
-		<url-pattern>/americanloan</url-pattern>
-		<url-pattern>/search</url-pattern>
-		<url-pattern>/newquery</url-pattern>
-		<url-pattern>/login</url-pattern>
-		<url-pattern>/logout</url-pattern>
-		<url-pattern>/queryok</url-pattern>
-		<url-pattern>/answerok</url-pattern>
-		<url-pattern>/adminoffersconsulting</url-pattern>
-		<url-pattern>/questions-list</url-pattern>
-		<url-pattern>/newadminquery</url-pattern>
-		<url-pattern>/querypage</url-pattern>
-		<url-pattern>/adminquerypage</url-pattern>
-		<url-pattern>/sitemap</url-pattern>
-		<url-pattern>/tokensignin</url-pattern>
-		<url-pattern>/e/*</url-pattern>
-		<url-pattern>/alldocs/*</url-pattern>
+		<url-pattern>/</url-pattern>
 		<url-pattern>/o/*</url-pattern>
 		<url-pattern>/a/*</url-pattern>
-		<url-pattern>/tl</url-pattern>
-		<!-- <url-pattern>/oops</url-pattern> -->
 	</servlet-mapping>
 
 	<welcome-file-list>
