@@ -129,10 +129,10 @@
       </section>
       <!--=================================
          inner-intro-->
-      <section class="faq white-bg page-section-ptb">
-         <div class="container">
-            <div class="row col-md-6 col-md-offset-3">
-               <div class="login-2-form clearfix">
+	<section class="faq white-bg page-section-ptb">
+		<div class="container">
+			<div class="row col-md-6 col-md-offset-3">
+				<div class="login-2-form clearfix">
 
 					<!--                Definición de contenido -->
 					<sec:authorize access="hasRole('ROLE_ADVISORUSER')" var="isUser" />
@@ -141,56 +141,61 @@
 						var="isUlebankEmployee" />
 					<c:choose>
 						<c:when test="${isUser}">Para acceder a la oficina debe cerrar sesión en el consultor financiero<br>
-						
 
-<form:form action="/o/logout" method="POST">
-    <input type="submit" value="Logout" />
-</form:form>
-</c:when>
+
+							<form:form action="/o/logout" method="POST">
+								<input type="submit" value="Logout" />
+							</form:form>
+						</c:when>
 						<c:when test="${isUlebankEmployee}">Ya has iniciado sesión.
 						<a href="/o">Volver a la oficina</a>
-						<a href="/o/logout">Cerrar sesión</a></c:when>
-						<c:otherwise><form name="f" action="<c:url value="j_spring_security_check"></c:url>" method="POST">
-                     <c:if test="${not empty param.login_error}">
-                        <div style="color: red">
-                           <spring:message code="label.failedLoginMessage" />
-                        </div>
-                     </c:if>
-                     <div class="section-field">
-                        Username:
-                        <div class="field-widget">
-                           <i class="fa fa-user"></i> <input type='text' name='j_username' />
-                        </div>
-                     </div>
-                     <div class="section-field">
-                        Password:
-                        <div class="field-widget">
-                           <i class="fa fa-unlock-alt"></i> <input type='password'
-                              name='j_password'>
-                        </div>
-                     </div>
-                     <div class="section-field">
-                        <div class="field-widget">
-                           <i class="fa fa-check"></i>
-                           <input value="Send" name="submit" type="submit"> 
-                        </div>
-                     </div>
-                     <div class="section-field">
-                        <div class="field-widget">
-                           <i class="fa fa-trash"></i>
-                           <input
-                              value="Reset" name="reset" type="reset">
-                        </div>
-                     </div>
-                  </form></c:otherwise>
+							<a href="/o/logout">Cerrar sesión</a>
+						</c:when>
+						<c:otherwise>
+							<form name="f"
+								action="<c:url value="j_spring_security_check"></c:url>"
+								method="POST">
+								<c:if test="${not empty param.login_error}">
+									<div style="color: red">
+										<spring:message code="label.failedLoginMessage" />
+									</div>
+								</c:if>
+								<div class="section-field">
+									Username:
+									<div class="field-widget">
+										<i class="fa fa-user"></i> <input type='text'
+											name='j_username' />
+									</div>
+								</div>
+								<div class="section-field">
+									Password:
+									<div class="field-widget">
+										<i class="fa fa-unlock-alt"></i> <input type='password'
+											name='j_password'>
+									</div>
+								</div>
+								<div class="section-field">
+									<div class="field-widget">
+										<i class="fa fa-check"></i> <input value="Send" name="submit"
+											type="submit">
+									</div>
+								</div>
+								<div class="section-field">
+									<div class="field-widget">
+										<i class="fa fa-trash"></i> <input value="Reset" name="reset"
+											type="reset">
+									</div>
+								</div>
+							</form>
+						</c:otherwise>
 					</c:choose>
 					<!--                Definición de contenido -->
-					
-               </div>
-            </div>
-         </div>
-      </section>
-      <!--=================================
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--=================================
          Footer-->
       <jsp:include page="/WEB-INF/views/footer.jsp" />
       <!--=================================

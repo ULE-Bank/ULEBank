@@ -35,14 +35,17 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String userName){
+		
+		if(!userName.contains("@")){
+			logger.info("Alguien ha tratado de acceder al consultor financiero sin ser un email. Nombre intentado: " + userName);
+			throw new UsernameNotFoundException("Se debe buscar un e-mail");
+		}
+		
 		AdvisorUserDomain clienteAdvisor = repo.findByEmail(userName);
-
 		if (clienteAdvisor == null) {
 			logger.info("Un nuevo email ha accedido al consultor financiero:" + userName + " Creando registro de usuario." );
 			clienteAdvisor = new AdvisorUserDomain();
 			clienteAdvisor.setEmail(userName);
-			clienteAdvisor.setRealizadoTest(false);
-			clienteAdvisor.setResultadoTest(0.0);
 			clienteAdvisor.setSolicitudes(new ArrayList<SolicitudFinancialAdvisorDomain>());
 			repo.save(clienteAdvisor);
 		}
@@ -52,7 +55,7 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 		return userDetails;
 	}
 
-	private List<GrantedAuthority> getAuthorities() {
+	private List<GrantedAuthority> getAuthorities() { 
 
 		List<GrantedAuthority> authList = new ArrayList<>();
 

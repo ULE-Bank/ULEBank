@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-public class preubasencriptar {
+public class BCrypTest {
 
 	@Autowired 
 	private BCryptPasswordEncoder bcrypt;
@@ -21,9 +21,8 @@ public class preubasencriptar {
 	@Test
 	public void test() {
 		String password = "passwordEjemeplo";
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 3; i++) {
 			String encoded = bcrypt.encode(password);
-			System.out.println("Pass " + i +": " + encoded);
 			assertTrue("Coinciden",bcrypt.matches(password, encoded));
 		}
 		

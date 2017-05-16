@@ -586,7 +586,8 @@
 						</h4>
 					</div>
 					<div class="modal-body">
-						<table class="table">
+					
+						<table class="table" style="background-color:white;">
 							<thead>
 								<tr>
 									<th><spring:message code="label.fecha"/></th>
@@ -610,7 +611,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<div style="text-align: center">
+						<div style="text-align: center;">
 						<table class="table">
 							<thead>
 								<tr>

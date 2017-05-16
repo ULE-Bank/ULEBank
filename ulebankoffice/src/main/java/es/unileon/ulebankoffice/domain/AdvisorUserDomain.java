@@ -18,7 +18,10 @@ public class AdvisorUserDomain {
 	@Id
 	private String id;
 	private String email;
+	/* Primitivo, por defecto se inicializa a false */
 	private boolean realizadoTest;
+	
+	/* Primitivo, por defecto se inicializa a 0.0 */
 	private double resultadoTest;
 	private List<SolicitudFinancialAdvisorDomain> solicitudes;
 	
