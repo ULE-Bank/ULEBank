@@ -82,6 +82,13 @@ public class ClienteTest {
 		assertThat(cliente.toString(),
 				is("Cliente [name=null, lastname=null, email=null, fechaNacimiento=null, dni=null, direccion=null]"));
 	}
+	
+	@Test
+	public void testNacionalidad() {
+		assertNull(cliente.getNacionalidad());
+		cliente.setNacionalidad("Español");
+		assertThat(cliente.getNacionalidad(), is("Español"));
+	}
 
 	@Test
 	public void testValidator() {

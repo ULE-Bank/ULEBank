@@ -222,6 +222,12 @@ public class CreditosDomain extends Operacion {
 		double interesesDeudores = 0;
 		double interesesExcedidos = 0;
 		double interesesAcreedores = 0;
+		double comisionSaldoMedioNoDispuesto;
+		double interesesDeudoresFinales;
+		double interesesAcreedoresFinales;
+		double interesesExcedidosFinales;
+		double liquidacionTotal;
+		
 		int totalDias = 0;
 
 		for (Double interes : numerosDeudores) {
@@ -240,13 +246,13 @@ public class CreditosDomain extends Operacion {
 			totalDias += numeroDias;
 		}
 
-		double comisionSaldoMedioNoDispuesto = (this.limiteCredito - (interesesDeudores / totalDias))
+		comisionSaldoMedioNoDispuesto = (this.limiteCredito - (interesesDeudores / totalDias))
 				* this.comisionSMND;
-		double interesesDeudoresFinales = interesesDeudores * this.interesDeudor / 360;
-		double interesesAcreedoresFinales = interesesAcreedores * this.interesAcreedor / 360;
-		double interesesExcedidosFinales = interesesExcedidos * this.interesExcedido / 360;
+		interesesDeudoresFinales = interesesDeudores * this.interesDeudor / 360;
+		interesesAcreedoresFinales = interesesAcreedores * this.interesAcreedor / 360;
+		interesesExcedidosFinales = interesesExcedidos * this.interesExcedido / 360;
 		
-		double liquidacionTotal = redondear(interesesDeudoresFinales + interesesAcreedoresFinales
+		liquidacionTotal = redondear(interesesDeudoresFinales + interesesAcreedoresFinales
 				+ interesesExcedidosFinales + comisionSaldoMedioNoDispuesto);
 
 		List<Double> listaResultados = new ArrayList<>();

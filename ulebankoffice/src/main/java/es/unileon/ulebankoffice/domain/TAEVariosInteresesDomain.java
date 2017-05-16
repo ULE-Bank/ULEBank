@@ -42,7 +42,11 @@ public class TAEVariosInteresesDomain {
 	 * @return
 	 */
 	public String calcular() {
-
+		
+		new Irr();
+		double irr;
+		double tae;
+		
 		// Hay que sumar 1 puesto que la cantidad ha de introducirse en los
 		// flujos
 		double[] flujos = new double[periodo + 1];
@@ -57,14 +61,13 @@ public class TAEVariosInteresesDomain {
 		// Hay que sumar de nuevo la cantidad inicial
 		flujos[flujos.length - 1] += cantidad;
 
-		new Irr();
-		double irr = Irr.irr(flujos, 0.1d);
+		
+		irr = Irr.irr(flujos, 0.1d);
 
-		double tae = (Math.pow(1.0 + irr, periodo) - 1.0) * 100;
+		tae = (Math.pow(1.0 + irr, periodo) - 1.0) * 100;
 
 		// Después de hacer todas las operaciones y antes de añadir a la tabla,
 		// redondeo sus valores.
-		new BigDecimal(Double.toString(tae)).setScale(2, BigDecimal.ROUND_HALF_UP).toString();
 
 		// En las últimas dos posiciones de la tabla se encuentra el IRR y el
 		// TAE, resultado final. Estas posiciones se borrarán para imprimir la

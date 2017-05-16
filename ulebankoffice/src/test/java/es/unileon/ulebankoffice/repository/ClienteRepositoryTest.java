@@ -141,4 +141,13 @@ public class ClienteRepositoryTest {
 		cliente = clienteRepository.findByDni("X5526828C");
 		assertThat(cliente.getEmail(), is("email@example.com"));
 	}
+	
+	@Test
+	@UsingDataSet(locations = { "/testing/clienteRepositoryData.json" }, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testDeleteAll(){
+		assertThat(clienteRepository.findAll().size(), is(1));
+		clienteRepository.deleteAll();
+		assertThat(clienteRepository.findAll().size(), is(0));
+	}
 }
