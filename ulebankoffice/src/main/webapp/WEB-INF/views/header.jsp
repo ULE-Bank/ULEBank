@@ -3,7 +3,7 @@
 
 <!--Start Cookie Script-->
       <script type="text/javascript"
-         src="resources/template/js/cookie-bar-master/cookiebar-latest.js?tracking=1&thirdparty=1&scrolling=1&always=1&blocking=1&privacyPage=cookies"></script>
+         src="/resources/template/js/cookie-bar-master/cookiebar-latest.js?tracking=1&thirdparty=1&scrolling=1&always=1&blocking=1&privacyPage=cookies"></script>
       <!--End Cookie Script-->
 
 <header id="header" class="header-4">
@@ -20,7 +20,7 @@
                      <!-- menu logo -->
                      <ul class="menu-logo">
                         <li><a href="/"><img id="logo_img"
-                           src="resources/template/images/logo.png" alt="logo"> </a></li>
+                           src="/resources/template/images/logo.png" alt="logo"> </a></li>
                      </ul>
                      <!-- menu links -->
                      <ul class="menu-links">
@@ -168,8 +168,8 @@
                            </a>
                            <!-- drop down multilevel  -->
                            <ul class="drop-down-multilevel right-menu">
-                              <li><a href="?language=en">English <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/></a></li>
-                              <li><a href="?language=es">Español <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/></a></li>
+                              <li><a href="?language=en">English <img class="languageflag" src="/resources/template/images/feature/ENflag.jpg"/></a></li>
+                              <li><a href="?language=es">Español <img class="languageflag" src="/resources/template/images/feature/ESflag.jpg"/></a></li>
                            </ul>
                         </li>
                         <li>

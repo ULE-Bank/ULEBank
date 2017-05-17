@@ -3,6 +3,12 @@
 
 <%@ page contentType="text/html; charset=UTF-8" %>
 
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreService" %>
+<%
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+%>
+
 <!DOCTYPE html>
 <html>
     
@@ -29,31 +35,31 @@
 <link rel="shortcut icon" href="../favicon.ico" type="image/gif" />
 
 <!-- bootstrap -->
-<link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+<link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- plugins -->
-<link href="resources/template/css/plugins-css.css" rel="stylesheet"
+<link href="/resources/template/css/plugins-css.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- mega menu -->
-<link href="resources/template/css/mega-menu/mega_menu.css"
+<link href="/resources/template/css/mega-menu/mega_menu.css"
 	rel="stylesheet" type="text/css" />
 
 <!-- default -->
-<link href="resources/template/css/default.css" rel="stylesheet"
+<link href="/resources/template/css/default.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- main style -->
-<link href="resources/template/css/style.css" rel="stylesheet"
+<link href="/resources/template/css/style.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- responsive -->
-<link href="resources/template/css/responsive.css" rel="stylesheet"
+<link href="/resources/template/css/responsive.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- custom style -->
-<link href="resources/template/css/custom.css" rel="stylesheet"
+<link href="/resources/template/css/custom.css" rel="stylesheet"
 	type="text/css" />
         
         <title><spring:message code="label.newquery" /></title>
@@ -124,28 +130,48 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<form:form role="form" method="post" modelAttribute="newQuestion"
-							id="servicesform">
+						<form:form action='<%= blobstoreService.createUploadUrl("/offersconsulting/newquery") %>' role="form" method="post" modelAttribute="newQuestion" 
+							id="servicesform" enctype="multipart/form-data">
 							<div id="register-form" class="register-form">
-
+			
+			<h3><spring:message code="label.completeAtLeastOneField"/></h3>
+	
+	
+	
+	
 								<!-- --------- -->
 
 								<div class="row">
 									<div class="section-field col-md-6">
 										<label for="name"><spring:message
-												code="label.name" />:</label>
+												code="label.documentAttach" />:</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="section-field col-md-6">
 										<div class="field-widget">
-											<i class="fa fa-pencil"></i>
-											<form:input type="text" value="" path="nombre" />
+											<input id="doc" type="file" name="myFile">
+										</div>
+									</div>
+									</div>
+								
+									<!-- --------- -->
+
+								<div class="row">
+									<div class="section-field col-md-6">
+										<label for="name"><spring:message
+												code="label.documentLink" />:</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-6">
+										<div class="field-widget">
+											<form:input id="url" type="text" path="urlOferta" />
 										</div>
 									</div>
 									<div class="section-field col-md-6">
 										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi1"/>"
+											data-original-title="<spring:message code="label.documentLink"/>"
 											data-toggle="tooltip" data-placement="top"><i
 											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
 									</div>
@@ -153,7 +179,7 @@
 
 								<div class="row">
 									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="nombre"></form:errors>
+										<form:errors style="color: red;" path="urlOferta"></form:errors>
 									</div>
 								</div>
 
@@ -162,241 +188,7 @@
 
 								<!-- --------- -->
 								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.lastname" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<i class="fa fa-pencil"></i>
-											<form:input type="text" value="" path="apellidos" />
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi2"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="apellidos"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.age" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<i class="fa fa-calendar"></i>
-											<form:input type="text" value="" path="edad" />
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi3"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="edad"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.socialclass" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<spring:message code="label.sc1" var="variable1" />
-											<spring:message code="label.sc2" var="variable2" />
-											<spring:message code="label.sc3" var="variable3" />
-											<spring:message code="label.sc4" var="variable4" />
-											<spring:message code="label.sc5" var="variable5" />
-											<spring:message code="label.sc6" var="variable6" />
-											<spring:message code="label.sc7" var="variable7" />
-											<form:select path="claseSocial">
-												<form:option value="aa" label="${variable1}" />
-												<form:option value="ab" label="${variable2}" />
-												<form:option value="ma" label="${variable3}" />
-												<form:option value="m" label="${variable4}" />
-												<form:option value="t" label="${variable5}" />
-												<form:option value="ba" label="${variable6}" />
-												<form:option value="bb" label="${variable7}" />
-											</form:select>
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi4"/>"
-											data-toggle="tooltip" data-placement="top" ><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="claseSocial"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.civilstatus" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<spring:message code="label.single" var="variable1" />
-											<spring:message code="label.engaged" var="variable2" />
-											<spring:message code="label.married" var="variable3" />
-											<spring:message code="label.separated" var="variable4" />
-											<spring:message code="label.divorced" var="variable5" />
-											<spring:message code="label.widowed" var="variable6" />
-											<form:select path="estadoCivil">
-												<form:option value="soltero" label="${variable1}" />
-												<form:option value="comprometido" label="${variable2}" />
-												<form:option value="casado" label="${variable3}" />
-												<form:option value="separado" label="${variable4}" />
-												<form:option value="divorciado" label="${variable5}" />
-												<form:option value="viudo" label="${variable6}" />
-											</form:select>
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi5"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="estadoCivil"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.familyburdens" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<spring:message code="label.yes" var="variable1" />
-											<spring:message code="label.no" var="variable2" />
-											<form:select path="cargas">
-												<form:option value="si-cargas" label="${variable1}" />
-												<form:option value="no-cargas" label="${variable2}" />
-											</form:select>
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi6"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="cargas"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.querytitle" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<i class="fa fa-pencil"></i>
-											<form:input type="text" value="" path="titulo" />
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi7"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="titulo"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-								<!-- --------- -->
+									<!-- --------- -->
 
 								<div class="row">
 									<div class="section-field col-md-6">
@@ -407,7 +199,7 @@
 								<div class="row">
 									<div class="section-field col-md-6">
 										<div class="field-widget">
-											<form:textarea path="comentarios" rows="4"/>
+											<form:textarea id="descrption" path="textoOferta" rows="4"/>
 										</div>
 									</div>
 									<div class="section-field col-md-6">
@@ -420,7 +212,7 @@
 
 								<div class="row">
 									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="comentarios"></form:errors>
+										<form:errors style="color: red;" path="textoOferta"></form:errors>
 									</div>
 								</div>
 
@@ -429,34 +221,7 @@
 
 								<!-- --------- -->
 								
-								<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.contractlink" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<i class="fa fa-link"></i>
-											<form:input type="text" value="" path="url" />
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi9"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="url"></form:errors>
-									</div>
-								</div>
+							
 								
 								<a class="button mt-20" id="submitservices"
 											onclick="document.getElementById('servicesform').submit()">
@@ -469,7 +234,7 @@
 												value="<spring:message code="label.sendquery"/>" />
 										</noscript>
 							</div>
-					
+								
 				</form:form>
 			</div>
 	</div>
@@ -481,22 +246,22 @@
 	<!--=================================
  Footer-->
  </div>
-	<script src="resources/services/js/tooltip-script.js"></script>
+	<script src="/resources/services/js/tooltip-script.js"></script>
 
 	<!-- bootstrap -->
 	<script type="text/javascript"
-		src="resources/template/js/bootstrap.min.js"></script>
+		src="/resources/template/js/bootstrap.min.js"></script>
 
 	<!-- plugins-jquery -->
 	<script type="text/javascript"
-		src="resources/template/js/plugins-jquery.js"></script>
+		src="/resources/template/js/plugins-jquery.js"></script>
 
 	<!-- mega menu -->
 	<script type="text/javascript"
-		src="resources/template/js/mega-menu/mega_menu.js"></script>
+		src="/resources/template/js/mega-menu/mega_menu.js"></script>
 
 	<!-- custom -->
-	<script type="text/javascript" src="resources/template/js/custom.js"></script>
+	<script type="text/javascript" src="/resources/template/js/custom.js"></script>
        
     </body>
 </html>

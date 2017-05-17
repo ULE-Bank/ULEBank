@@ -40,7 +40,7 @@
          <div class="row">
             <div class="pr-0 col-lg-4 col-md-9 col-sm-9 ">
                <a href="https://www.unileon.es"><img id="logo_img"
-                  src="resources/template/images/sponsors/logo-ule.png" alt="logo"></a>
+                  src="/resources/template/images/sponsors/logo-ule.png" alt="logo"></a>
             </div>
             <div class="pl-0 col-lg-2 col-md-4 col-sm-4">
                <p class="text-white mt-15">

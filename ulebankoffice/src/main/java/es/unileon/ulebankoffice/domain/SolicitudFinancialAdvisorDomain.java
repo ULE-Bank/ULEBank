@@ -3,20 +3,16 @@
  */
 package es.unileon.ulebankoffice.domain;
 
-import org.springframework.data.annotation.Id;
-
 /**
  * @author Razvan Raducu
  *
  */
 public class SolicitudFinancialAdvisorDomain {
 	
-	@Id
-	private String idSolicitud;
 	private String textoOferta;
 	private String enlaceOferta;
-	private String rutaOferta;
-	
+	private String urlOferta;
+	private String estado;
 	
 	public String getTextoOferta() {
 		return textoOferta;
@@ -30,15 +26,19 @@ public class SolicitudFinancialAdvisorDomain {
 	public void setEnlaceOferta(String enlaceOferta) {
 		this.enlaceOferta = enlaceOferta;
 	}
-	public String getRutaOferta() {
-		return rutaOferta;
+	public String getUrlOferta() {
+		return urlOferta;
 	}
-	public void setRutaOferta(String rutaOferta) {
-		this.rutaOferta = rutaOferta;
+	public void setUrlOferta(String rutaOferta) {
+		this.urlOferta = rutaOferta;
 	}
-	public String getIdSolicitud() {
-		return idSolicitud;
+	public String getEstado() {
+		return estado;
 	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
 	
 	
 

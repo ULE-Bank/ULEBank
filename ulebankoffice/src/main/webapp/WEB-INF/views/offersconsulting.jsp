@@ -164,13 +164,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="btn-group pull-right last-element" role="group">
-						<a href="/newquery" class="button mt-20" >
+						<a href="/offersconsulting/newquery" class="button mt-20" >
 											<span><spring:message
 									code="label.newquery" /></span> <i
 											class="fa fa-plus"></i>
 										</a>
 							
-							<a href="/logout" class="button mt-20" >
+							<a href="/o/logout" class="button mt-20" >
 											<span><spring:message
 									code="label.closesession" /></span> <i
 											class="fa fa-sign-out"></i>

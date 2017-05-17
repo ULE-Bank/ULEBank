@@ -15,9 +15,7 @@ import org.springframework.stereotype.Component;
 
 import es.unileon.ulebankoffice.domain.AdvisorUserDomain;
 import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
-import es.unileon.ulebankoffice.domain.UleBankEmployeeDomain;
 import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
-import es.unileon.ulebankoffice.repository.UleBankEmployeeRepository;
 
 /**
  * @author Razvan Raducu

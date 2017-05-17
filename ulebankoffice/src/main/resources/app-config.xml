@@ -69,13 +69,13 @@
 		<property name="cookieName" value="ULeBankLanguagePreference"></property>
 		<property name="cookieMaxAge" value="604800"></property>
 	</bean>
-	
+
 	<!-- Es necesario indicarle a spring dónde se encuentras lo recursos para 
 		que, al trabajar con urls virtuales, no haya problemas de rutas. Para guardar 
 		los recursos en cache se puede añadir cache-period="31556926"/> que los alamcena 
 		durante un año http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-static-resources -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
-<!-- 	<mvc:resources mapping="/**/resources/**" location="/resources/" /> -->
+	<!-- <mvc:resources mapping="/**/resources/**" location="/resources/" /> -->
 	<mvc:resources mapping="resources/**" location="/resources/" />
 
 	<mvc:interceptors>
@@ -84,6 +84,15 @@
 			<property name="paramName" value="language" />
 		</bean>
 	</mvc:interceptors>
+
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<!-- De momento se ha decicido trabajar con un tamaño máximo de 15 MB = 
+			15 *1024 *1024 = 12582912 bytes. -->
+		<property name="maxUploadSizePerFile" value="12582912" />
+	</bean>
 
 	<!-- Configuración para la conexión con la base de datos -->
 

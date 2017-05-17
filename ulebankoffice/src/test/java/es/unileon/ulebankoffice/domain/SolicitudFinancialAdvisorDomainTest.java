@@ -1,7 +1,8 @@
 package es.unileon.ulebankoffice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -31,14 +32,17 @@ public class SolicitudFinancialAdvisorDomainTest {
 
 	@Test
 	public void testRutaOferta() {
-		assertNull(solicitud.getRutaOferta());
-		solicitud.setRutaOferta("ruta");
-		assertThat(solicitud.getRutaOferta(), is("ruta"));
+		assertNull(solicitud.getUrlOferta());
+		solicitud.setUrlOferta("ruta");
+		assertThat(solicitud.getUrlOferta(), is("ruta"));
+	}
+	
+	@Test
+	public void testEstado(){
+		assertNull(solicitud.getEstado());
+		solicitud.setEstado("abierta");
+		assertThat(solicitud.getEstado(), is("abierta"));
 	}
 
-	@Test
-	public void testGetIdSolicitud() {
-		assertNull(solicitud.getIdSolicitud());
-	}
 
 }

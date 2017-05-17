@@ -23,25 +23,25 @@
       <!-- Favicon -->
       <link rel="shortcut icon" href="../favicon.ico" />
       <!-- bootstrap -->
-      <link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+      <link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"
          type="text/css" />
       <!-- plugins -->
-      <link href="resources/template/css/plugins-css.css" rel="stylesheet"
+      <link href="/resources/template/css/plugins-css.css" rel="stylesheet"
          type="text/css" />
       <!-- mega menu -->
-      <link href="resources/template/css/mega-menu/mega_menu.css"
+      <link href="/resources/template/css/mega-menu/mega_menu.css"
          rel="stylesheet" type="text/css" />
       <!-- default -->
-      <link href="resources/template/css/default.css" rel="stylesheet"
+      <link href="/resources/template/css/default.css" rel="stylesheet"
          type="text/css" />
       <!-- main style -->
-      <link href="resources/template/css/style.css" rel="stylesheet"
+      <link href="/resources/template/css/style.css" rel="stylesheet"
          type="text/css" />
       <!-- responsive -->
-      <link href="resources/template/css/responsive.css" rel="stylesheet"
+      <link href="/resources/template/css/responsive.css" rel="stylesheet"
          type="text/css" />
       <!-- custom style -->
-      <link href="resources/template/css/custom.css" rel="stylesheet"
+      <link href="/resources/template/css/custom.css" rel="stylesheet"
          type="text/css" />
       <!-- GOOGLE ANALYTICS TRACKER -->
       <script>
@@ -142,7 +142,7 @@
                               <!-- menu logo -->
                               <ul class="menu-logo">
                                  <li><a href="./"><img id="logo_img"
-                                    src="resources/template/images/logo.png" alt="logo"> </a>
+                                    src="/resources/template/images/logo.png" alt="logo"> </a>
                                  </li>
                               </ul>
                               <!-- menu links -->
@@ -365,13 +365,13 @@
                                        <li>
                                           <a href="?language=en">
                                           English
-                                          <img class="languageflag" src="resources/template/images/feature/ENflag.jpg"/>
+                                          <img class="languageflag" src="/resources/template/images/feature/ENflag.jpg"/>
                                           </a>
                                        </li>
                                        <li>
                                           <a href="?language=es">
                                           Español
-                                          <img class="languageflag" src="resources/template/images/feature/ESflag.jpg"/>
+                                          <img class="languageflag" src="/resources/template/images/feature/ESflag.jpg"/>
                                           </a>
                                        </li>
                                     </ul>
@@ -439,7 +439,7 @@
                <!--/ Carousel item end -->
                <div class="item active bg-opacity-black-50">
                   <img class="img-responsive"
-                     src="resources/template/images/gallery/facultadeconomicas.jpg"
+                     src="/resources/template/images/gallery/facultadeconomicas.jpg"
                      alt="slider">
                   <div class="slider-content">
                      <div class="container">
@@ -476,7 +476,7 @@
                </div>
                <div class="item bg-opacity-black-50">
                   <img class="img-responsive"
-                     src="resources/template/images/gallery/facultadingenieras.jpg"
+                     src="/resources/template/images/gallery/facultadingenieras.jpg"
                      alt="slider">
                   <div class="slider-content">
                      <div class="container">
@@ -513,7 +513,7 @@
                </div>
                <div class="item bg-opacity-black-50">
                   <img class="img-responsive"
-                     src="resources/template/images/gallery/bibliotecauniversitaria.jpg"
+                     src="/resources/template/images/gallery/bibliotecauniversitaria.jpg"
                      alt="slider">
                   <div class="slider-content">
                      <div class="container">
@@ -754,7 +754,7 @@
          <section>
             <div id="video-background" class="video-content bg-opacity-black-30"
                style="width: 100%;"
-               data-vide-bg="mp4: resources/template/video/ulebackground"
+               data-vide-bg="mp4: /resources/template/video/ulebackground"
                data-vide-options="position: 0% 50%">
                <div class="video-bg bg-opacity-black-50 page-section-pt">
                   <div class="container">
@@ -804,7 +804,7 @@
                            <div class="item">
                               <div class="col-lg-6 col-md-6">
                                  <img class="img-responsive center-block"
-                                    src="resources/template/images/about/uleabout1.jpg" alt="">
+                                    src="/resources/template/images/about/uleabout1.jpg" alt="">
                               </div>
                               <div class="col-lg-6 col-md-6">
                                  <div class="custom-content uleaboutus">
@@ -835,13 +835,13 @@
                               </div>
                               <div class="col-lg-6 col-md-6">
                                  <img class="img-responsive center-block"
-                                    src="resources/template/images/about/uleabout2.jpg" alt="">
+                                    src="/resources/template/images/about/uleabout2.jpg" alt="">
                               </div>
                            </div>
                            <div class="item">
                               <div class="col-lg-6 col-md-6">
                                  <img class="img-responsive center-block"
-                                    src="resources/template/images/about/uleabout3.jpg" alt="">
+                                    src="/resources/template/images/about/uleabout3.jpg" alt="">
                               </div>
                               <div class="col-lg-6 col-md-6">
                                  <div class="custom-content uleaboutus">
@@ -915,7 +915,7 @@
                   <div class="row">
                      <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="team-2-box">
-                           <img alt="" src="resources/template/images/team/random1.jpg"
+                           <img alt="" src="/resources/template/images/team/random1.jpg"
                               class="img-responsive">
                            <div class="team-overlay text-center">
                               <div class="info">
@@ -937,7 +937,7 @@
                      </div>
                      <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="team-2-box">
-                           <img alt="" src="resources/template/images/team/random3.jpg"
+                           <img alt="" src="/resources/template/images/team/random3.jpg"
                               class="img-responsive">
                            <div class="team-overlay text-center">
                               <div class="info">
@@ -959,7 +959,7 @@
                      </div>
                      <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="team-2-box">
-                           <img alt="" src="resources/template/images/team/random1.jpg"
+                           <img alt="" src="/resources/template/images/team/random1.jpg"
                               class="img-responsive">
                            <div class="team-overlay text-center">
                               <div class="info">
@@ -981,7 +981,7 @@
                      </div>
                      <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="team-2-box">
-                           <img alt="" src="resources/template/images/team/random2.jpg"
+                           <img alt="" src="/resources/template/images/team/random2.jpg"
                               class="img-responsive">
                            <div class="team-overlay text-center">
                               <div class="info">
@@ -1036,7 +1036,7 @@ Our happy clients   -->
     <div class="owl-carousel-20"> 
       <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient1.jpg">
+           <img style="width:285px;" alt="" src="/resources/template/images/clients/uleclient1.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
            <h3 class="text-white uppercase"><spring:message code="label.happyclients1"/></h3>
@@ -1045,7 +1045,7 @@ Our happy clients   -->
       </div>
       <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient2.jpg">
+           <img style="width:285px;" alt="" src="/resources/template/images/clients/uleclient2.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
            <h3 class="text-white uppercase"><spring:message code="label.happyclients2"/></h3>
@@ -1055,7 +1055,7 @@ Our happy clients   -->
       </div>
              <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient5.jpg">
+           <img style="width:285px;" alt="" src="/resources/template/images/clients/uleclient5.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
            <h3 class="text-white uppercase"><spring:message code="label.happyclients3"/></h3>
@@ -1064,7 +1064,7 @@ Our happy clients   -->
       </div>
       <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient3.jpg">
+           <img style="width:285px;" alt="" src="/resources/template/images/clients/uleclient3.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
            <h3 class="text-white uppercase"><spring:message code="label.happyclients2"/></h3>
@@ -1073,7 +1073,7 @@ Our happy clients   -->
       </div>
        <div class="row item">
          <div class="col-lg-3 col-md-3 col-sm-3">
-           <img style="width:285px;" alt="" src="resources/template/images/clients/uleclient6.jpg">
+           <img style="width:285px;" alt="" src="/resources/template/images/clients/uleclient6.jpg">
          </div>
          <div class="col-lg-9 col-md-9 col-sm-9">
            <h3 class="text-white uppercase"><spring:message code="label.happyclients3"/></h3>
@@ -1103,7 +1103,7 @@ Our happy clients   -->
                         <div class="item">
                            <p>
                               <a href="www.unileon.es"><img alt="logoule"
-                                 src="resources/template/images/sponsors/logo-ule.png"></a>
+                                 src="/resources/template/images/sponsors/logo-ule.png"></a>
                            </p>
                            <span>Universidad de León</span><br> <span><a
                               href="www.unileon.es">Acceder</a></span>
@@ -1112,7 +1112,7 @@ Our happy clients   -->
                            <p>
                               <a href="http://centros.unileon.es/eiii/"><img
                                  alt="logoule"
-                                 src="resources/template/images/sponsors/logo-ule.png" /></a>
+                                 src="/resources/template/images/sponsors/logo-ule.png" /></a>
                            </p>
                            <span>Escuela de Ingenierías</span><br> <span><a
                               href="http://centros.unileon.es/eiii/">Acceder</a></span>
@@ -1120,7 +1120,7 @@ Our happy clients   -->
                         <div class="item">
                            <p>
                               <a href="http://economicas.unileon.es/"><img alt="logoule"
-                                 src="resources/template/images/sponsors/logo-ule.png" /></a>
+                                 src="/resources/template/images/sponsors/logo-ule.png" /></a>
                            </p>
                            <span>Facultad de Ciencias Económicas y Empresariales</span><br>
                            <span><a href="http://economicas.unileon.es/">Acceder</a></span>
@@ -1305,7 +1305,7 @@ Our happy clients   -->
                         </h4>
                         <p>Mon-Fri : 10 a.m. – 7 p.m. (GMT +1)</p>
                         <p>Saturday : 9 a.m. – 1 p.m. (GMT +1)</p>
-                        <img src="resources/template/images/clock.png" alt="">
+                        <img src="/resources/template/images/clock.png" alt="">
                      </div>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-6">
@@ -1408,7 +1408,7 @@ Our happy clients   -->
                   </form>
                   <div id="ajaxloader-2" style="display: none">
                      <img class="center-block mt-30 mb-30"
-                        src="resources/template/images/ajax-loader.gif" alt="">
+                        src="/resources/template/images/ajax-loader.gif" alt="">
                   </div>
                </div>
             </div>
@@ -1423,34 +1423,34 @@ Our happy clients   -->
          jquery -->
       <!-- jquery  -->
       <script type="text/javascript"
-         src="resources/template/js/jquery.min.js"></script>
+         src="/resources/template/js/jquery.min.js"></script>
       <!-- bootstrap -->
       <script type="text/javascript"
-         src="resources/template/js/bootstrap.min.js"></script>
+         src="/resources/template/js/bootstrap.min.js"></script>
       <!-- plugins-jquery -->
       <script type="text/javascript"
-         src="resources/template/js/plugins-jquery.js"></script>
+         src="/resources/template/js/plugins-jquery.js"></script>
       <!-- mega menu -->
       <script type="text/javascript"
-         src="resources/template/js/mega-menu/mega_menu.js"></script>
+         src="/resources/template/js/mega-menu/mega_menu.js"></script>
       <!-- hover -->
       <script type="text/javascript"
-         src="resources/template/js/portfolio/jquery.directional-hover.js"></script>
+         src="/resources/template/js/portfolio/jquery.directional-hover.js"></script>
       <!-- socialstream -->
-      <script src="resources/template/js/social/socialstream.jquery.js"></script>
+      <script src="/resources/template/js/social/socialstream.jquery.js"></script>
       <!-- videoBG -->
-      <script src="resources/template/js/video/jquery.vide.js"></script>
+      <script src="/resources/template/js/video/jquery.vide.js"></script>
       <!-- popup -->
-      <script src="resources/template/js/popup/jquery.magnific-popup.js"></script>
+      <script src="/resources/template/js/popup/jquery.magnific-popup.js"></script>
       <!-- isotope -->
-      <script src="resources/template/js/isotope/isotope.pkgd.min.js"></script>
+      <script src="/resources/template/js/isotope/isotope.pkgd.min.js"></script>
       <!-- Wow -->
-      <script type="text/javascript" src="resources/template/js/wow.min.js"></script>
+      <script type="text/javascript" src="/resources/template/js/wow.min.js"></script>
       <!-- custom -->
-      <script type="text/javascript" src="resources/template/js/custom.js"></script>
+      <script type="text/javascript" src="/resources/template/js/custom.js"></script>
       <!--Start Cookie Script-->
       <script type="text/javascript"
-         src="resources/template/js/cookie-bar-master/cookiebar-latest.js?tracking=1&thirdparty=1&scrolling=1&always=1&blocking=1&privacyPage=cookies"></script>
+         src="/resources/template/js/cookie-bar-master/cookiebar-latest.js?tracking=1&thirdparty=1&scrolling=1&always=1&blocking=1&privacyPage=cookies"></script>
       <!--End Cookie Script-->
    </body>
 </html>
