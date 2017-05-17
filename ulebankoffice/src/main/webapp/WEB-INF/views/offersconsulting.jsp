@@ -143,7 +143,6 @@
 							<thead>
 								<tr>
 									<th><spring:message code="label.querys1" /></th>
-									<th><spring:message code="label.querys2" /></th>
 									<th><spring:message code="label.querys3" /></th>
 								</tr>
 							</thead>
@@ -153,8 +152,7 @@
 										<td><a
 											href="/querypage?id=<c:out value="${listValue.id}"/>"><c:out
 													value="${listValue.id}" /></a></td>
-										<td><c:out value="${listValue.title}" /></td>
-										<td><c:out value="${listValue.state}" /></td>
+										<td><c:out value="${listValue.estado}" /></td>
 									</tr>
 								</c:forEach>
 							</tbody>

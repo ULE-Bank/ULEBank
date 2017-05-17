@@ -18,12 +18,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.appengine.api.datastore.Entity;
 
+import es.unileon.ulebankoffice.domain.AdvisorUserDomain;
 import es.unileon.ulebankoffice.domain.Authenticator;
 import es.unileon.ulebankoffice.domain.Datastore;
 import es.unileon.ulebankoffice.domain.QuestionInfo;
+import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
+import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
+import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
 
 @Controller
 public class OffersConsultingController {
+	
+	@Autowired
+	private SolicitudesFinancialAdvisorRepository repo;
 
 	@RequestMapping(value= "/consuLogin", method = RequestMethod.GET) 
 	public String getLogin(){
@@ -33,22 +40,13 @@ public class OffersConsultingController {
 	@RequestMapping(value = "/offersconsulting", method = RequestMethod.GET)
 	public String add(ModelMap model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-			List<QuestionInfo> list = new ArrayList<>();
-
-//			List<Entity> results = datastore.query("Question", "email", "email");
-//			for (Entity result : results) {
-//				String id = Long.toString(result.getKey().getId());
-//				String title = (String) result.getProperty("titulo");
-//				String state = (String) result.getProperty("state");
-//
-//				list.add(new QuestionInfo(id, title, state));
-//			}
-			
-			System.out.println(req.getUserPrincipal().getName());
-			
-			
+		
+		
+			List<SolicitudFinancialAdvisorDomain> lists = repo.findByEmail(req.getUserPrincipal().getName());
+			model.addAttribute("lists", lists);
+						
 			model.addAttribute("nombre", req.getUserPrincipal().getName());
-			model.addAttribute("lists", list);
+		
 
 			return "offersconsulting";
 		}

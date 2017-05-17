@@ -3,12 +3,15 @@
  */
 package es.unileon.ulebankoffice.service;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 /**
  * @author Razvan Raducu
  *
  */
 public class SolicitudFinancialAdvisor {
 	
+	@NotBlank
 	private String textoOferta;
 
 	private String urlOferta;

@@ -136,19 +136,52 @@
 			
 			<h3><spring:message code="label.completeAtLeastOneField"/></h3>
 	
-	
+									
+									
+									<!-- --------- -->
+								<div class="row">
+									<div class="section-field col-md-11">
+										<p style="color: red;">${param.errorQueryDetails}</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-11">
+										<label for="name"><spring:message
+												code="label.yourQuery" /></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="section-field col-md-11">
+										<div class="field-widget">
+											<form:textarea id="descrption" path="textoOferta" rows="4" required="required"/>
+										</div>
+									</div>
+									<div class="section-field col-md-1">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.qi8"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+
+								
+
+
+
+
+								<!-- --------- -->
 	
 	
 								<!-- --------- -->
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-10">
 										<label for="name"><spring:message
 												code="label.documentAttach" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-10">
 										<div class="field-widget">
 											<input id="doc" type="file" name="myFile">
 										</div>
@@ -158,18 +191,18 @@
 									<!-- --------- -->
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-10">
 										<label for="name"><spring:message
 												code="label.documentLink" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-10">
 										<div class="field-widget">
 											<form:input id="url" type="text" path="urlOferta" />
 										</div>
 									</div>
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-10">
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.documentLink"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -178,7 +211,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-6">
+									<div class="section-field col-md-10">
 										<form:errors style="color: red;" path="urlOferta"></form:errors>
 									</div>
 								</div>
@@ -187,42 +220,7 @@
 
 
 								<!-- --------- -->
-								
-									<!-- --------- -->
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<label for="name"><spring:message
-												code="label.comments" />:</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="section-field col-md-6">
-										<div class="field-widget">
-											<form:textarea id="descrption" path="textoOferta" rows="4"/>
-										</div>
-									</div>
-									<div class="section-field col-md-6">
-										<span class="tooltip-content text-blue"
-											data-original-title="<spring:message code="label.qi8"/>"
-											data-toggle="tooltip" data-placement="top"><i
-											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="section-field col-md-6">
-										<form:errors style="color: red;" path="textoOferta"></form:errors>
-									</div>
-								</div>
-
-
-
-
-								<!-- --------- -->
-								
-							
-								
+				
 								<a class="button mt-20" id="submitservices"
 											onclick="document.getElementById('servicesform').submit()">
 											<span><spring:message code="label.sendquery" /></span> <i
