@@ -26,7 +26,7 @@
 <script src="/resources/services/js/Chart.js"></script>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="../favicon.ico" type="image/gif" />
+<link rel="shortcut icon" href="/../favicon.ico" type="image/gif" />
 
 <!-- bootstrap -->
 <link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"

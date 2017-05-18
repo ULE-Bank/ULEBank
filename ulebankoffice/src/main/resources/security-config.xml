@@ -13,7 +13,7 @@
 <!-- 	<global-method-security pre-post-annotations="enabled" /> -->
 
 	<http pattern="/offersconsulting*/**" auto-config="false"
-		use-expressions="true" access-denied-page="/consuLogin" authentication-manager-ref="authenticationManager">
+		use-expressions="true" access-denied-page="/e/403" authentication-manager-ref="authenticationManager">
 		<intercept-url pattern="/consuLogin" access="permitAll" />
 		<intercept-url pattern="/consuLogout" access="permitAll" />
 		<intercept-url pattern="/offersconsulting" access="isAuthenticated()" />
@@ -26,7 +26,7 @@
 
 	<!-- secure the application´s urls with the specific Role -->
 	<http auto-config="false" use-expressions="true"
-		access-denied-page="/o/login" authentication-manager-ref="authenticationManager">
+		access-denied-page="/e/403" authentication-manager-ref="authenticationManager">
 		<intercept-url pattern="/o/login" access="permitAll" />
 		<intercept-url pattern="/o/logout" access="permitAll" />
 		<intercept-url pattern="/o/admin" access="hasRole('ROLE_ADMIN')" />
@@ -37,7 +37,7 @@
 
 		<form-login login-page="/o/login" default-target-url="/o"
 			authentication-failure-url="/o/login?login_error=yfsb" />
-		<logout logout-url="/o/logout" logout-success-url="/o/login" />
+		<logout logout-url="/o/logout" logout-success-url="/" />
 	</http>
 
 	<beans:bean id="bcrypt"

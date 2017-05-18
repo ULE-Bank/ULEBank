@@ -17,7 +17,6 @@ public class SolicitudFinancialAdvisorDomain {
 	private String id;
 	private String email;
 	private String textoOferta;
-	private String enlaceOferta;
 	private String urlOferta;
 	private String estado;
 	private String fileBlobKey;
@@ -27,12 +26,6 @@ public class SolicitudFinancialAdvisorDomain {
 	}
 	public void setTextoOferta(String textoOferta) {
 		this.textoOferta = textoOferta;
-	}
-	public String getEnlaceOferta() {
-		return enlaceOferta;
-	}
-	public void setEnlaceOferta(String enlaceOferta) {
-		this.enlaceOferta = enlaceOferta;
 	}
 	public String getUrlOferta() {
 		return urlOferta;

@@ -150,7 +150,7 @@
 								<c:forEach var="listValue" items="${lists}">
 									<tr>
 										<td><a
-											href="/querypage?id=<c:out value="${listValue.id}"/>"><c:out
+											href="/offersconsulting/querypage?id=<c:out value="${listValue.id}"/>"><c:out
 													value="${listValue.id}" /></a></td>
 										<td><c:out value="${listValue.estado}" /></td>
 									</tr>

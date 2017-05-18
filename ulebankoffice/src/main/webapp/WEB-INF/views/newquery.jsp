@@ -32,7 +32,7 @@
 <script src="/resources/services/js/Chart.js"></script>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="../favicon.ico" type="image/gif" />
+<link rel="shortcut icon" href="/../favicon.ico" type="image/gif" />
 
 <!-- bootstrap -->
 <link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"
@@ -183,7 +183,7 @@
 								<div class="row">
 									<div class="section-field col-md-10">
 										<div class="field-widget">
-											<input id="doc" type="file" name="myFile">
+											<input id="doc" type="file" name="myFile" accept=".pdf, application/pdf" >
 										</div>
 									</div>
 									</div>
@@ -244,6 +244,64 @@
 	<!--=================================
  Footer-->
  </div>
+ 
+<!--  file Filter -->
+
+<script >
+var file = document.getElementById('doc');
+
+//A lo largo de todo el script se usan arrays porque se tiene en cuenta la posibilidad de que algún día se implemente subida multiarchivos 
+
+file.onchange = function(e){
+	var controlFile = file.files;
+	var fileSize = controlFile[0].size;
+	var MAXIMUMSIZE_15_MB = 15*1024*1024;
+	
+	
+	console.log("Filename: " + controlFile[0].name);
+    console.log("Type: " + controlFile[0].type);
+    console.log("Size: " + fileSize + " bytes");
+    var ext = this.value.match(/\.([^\.]+)$/)[1];
+    
+//     Comprobación muy simple de extensión
+    if(ext.toLowerCase() !== 'pdf'){
+    	alert("<spring:message code='label.fileNotSupported' javaScriptEscape='true' />");
+    	this.value='';
+    	this.focus();
+    }
+    
+    if(fileSize > MAXIMUMSIZE_15_MB){
+    	alert("<spring:message code='label.fileSizeTooBig' javaScriptEscape='true' />");
+    	this.value='';
+    	this.focus();
+    }
+    
+    
+//     Comprobación de los bytes de la cabecera del archivo. Los magic numbers
+    var blob = controlFile[0]; // See step 1 above
+    var fileReader = new FileReader();
+    fileReader.onload = function(e) {
+    	var fileMagicNumbers = new Uint8Array(e.target.result);
+    	console.log(fileMagicNumbers);
+    	 //verify the magic number
+        // for PDF is 25 50 44 46 (see https://en.wikipedia.org/wiki/List_of_file_signatures)
+        if(!fileMagicNumbers.length>4 || fileMagicNumbers[0]!=0x25 || fileMagicNumbers[1]!=0x50 || fileMagicNumbers[2]!=0x44 || fileMagicNumbers[3]!=0x46) {
+            alert("<spring:message code='label.fileContentNotSupported' javaScriptEscape='true' />");
+            $("#doc").val(""); // Reiniciar el selector de archivo
+            return;
+        }
+    };
+    fileReader.readAsArrayBuffer(blob);
+};
+
+
+</script>
+
+
+
+<!--  file Filter -->
+ 
+ 
 	<script src="/resources/services/js/tooltip-script.js"></script>
 
 	<!-- bootstrap -->

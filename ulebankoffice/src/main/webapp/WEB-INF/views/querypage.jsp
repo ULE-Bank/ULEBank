@@ -28,34 +28,34 @@
 <link rel="shortcut icon" href="../favicon.ico" type="image/gif" />
 
 <!-- bootstrap -->
-<link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+<link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- plugins -->
-<link href="resources/template/css/plugins-css.css" rel="stylesheet"
+<link href="/resources/template/css/plugins-css.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- mega menu -->
-<link href="resources/template/css/mega-menu/mega_menu.css"
+<link href="/resources/template/css/mega-menu/mega_menu.css"
 	rel="stylesheet" type="text/css" />
 
 <!-- default -->
-<link href="resources/template/css/default.css" rel="stylesheet"
+<link href="/resources/template/css/default.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- main style -->
-<link href="resources/template/css/style.css" rel="stylesheet"
+<link href="/resources/template/css/style.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- responsive -->
-<link href="resources/template/css/responsive.css" rel="stylesheet"
+<link href="/resources/template/css/responsive.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- custom style -->
-<link href="resources/template/css/custom.css" rel="stylesheet"
+<link href="/resources/template/css/custom.css" rel="stylesheet"
 	type="text/css" />
         
-        <title><spring:message code="label.query" /> ${model.id_query}</title>
+        <title><spring:message code="label.query" /> ${idQuery}</title>
         
         <!-- GOOGLE ANALYTICS TRACKER -->
         <script>
@@ -110,7 +110,7 @@
 						<li><a href="./"><i class="fa fa-home"></i> <spring:message
 									code="label.sitehome" /></a> <i class="fa fa-angle-double-right"></i></li>
 						<li><span><a href="/offersconsulting"><spring:message code="label.siteservice3" /></a> <i class="fa fa-angle-double-right"></i></span></li>
-						<li><span><spring:message code="label.query" /> ${model.id_query}</span></li>		
+						<li><span><spring:message code="label.query" /> ${idQuery}</span></li>		
 					</ul>
 				</div>
 			</div>
@@ -123,9 +123,12 @@
    
         <section class="white-bg pt-40">
 			<div class="container">
-			<div class="page-header">
-  					<h1><c:out value="${model.titulo}"/></h1>
-				</div>
+				
+				
+				<a href="${enlaceArchivo}" target="_blank"> Enlace archivo </a>
+				<p>Texto oferta: ${textoOferta}</p>
+				<a href="${textoOferta}" target="_blank"><p>Url oferta </p></a>
+				
 				
 				<h4><spring:message code="label.querystatus" />: </h4><c:out value="${model.state}"/>
 				<br>
@@ -150,22 +153,22 @@
 	<jsp:include page="/WEB-INF/views/footer.jsp" />
 	<!--=================================
  Footer-->
-	<script src="resources/services/js/tooltip-script.js"></script>
+	<script src="/resources/services/js/tooltip-script.js"></script>
 
 	<!-- bootstrap -->
 	<script type="text/javascript"
-		src="resources/template/js/bootstrap.min.js"></script>
+		src="/resources/template/js/bootstrap.min.js"></script>
 
 	<!-- plugins-jquery -->
 	<script type="text/javascript"
-		src="resources/template/js/plugins-jquery.js"></script>
+		src="/resources/template/js/plugins-jquery.js"></script>
 
 	<!-- mega menu -->
 	<script type="text/javascript"
-		src="resources/template/js/mega-menu/mega_menu.js"></script>
+		src="/resources/template/js/mega-menu/mega_menu.js"></script>
 
 	<!-- custom -->
-	<script type="text/javascript" src="resources/template/js/custom.js"></script>
+	<script type="text/javascript" src="/resources/template/js/custom.js"></script>
        
     </body>
 </html>

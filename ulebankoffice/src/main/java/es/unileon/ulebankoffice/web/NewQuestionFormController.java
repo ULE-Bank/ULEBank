@@ -32,92 +32,70 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import es.unileon.ulebankoffice.domain.Authenticator;
 import es.unileon.ulebankoffice.domain.Datastore;
 import es.unileon.ulebankoffice.domain.Question;
+import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
+import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
 import es.unileon.ulebankoffice.service.NewQuestion;
 import es.unileon.ulebankoffice.service.SolicitudFinancialAdvisor;
 
 @Controller
 @RequestMapping("/offersconsulting/newquery")
 public class NewQuestionFormController {
-	
+
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
-	
+
+	@Autowired
+	private SolicitudesFinancialAdvisorRepository repo;
+
 	@ModelAttribute("newQuestion")
-	public SolicitudFinancialAdvisor getNewQuestion(){
+	public SolicitudFinancialAdvisor getNewQuestion() {
 		return new SolicitudFinancialAdvisor();
 	}
-	
+
 	@PostMapping
-    public String processAdd(@Valid @ModelAttribute("newQuestion")
-    SolicitudFinancialAdvisor nuevaSolicitud, BindingResult bindingResult, HttpServletRequest req, HttpServletResponse res, Principal principal, ModelMap model) throws IOException {
-		
+	public String processAdd(@Valid @ModelAttribute("newQuestion") SolicitudFinancialAdvisor nuevaSolicitud,
+			BindingResult bindingResult, HttpServletRequest req, HttpServletResponse res, Principal principal,
+			ModelMap model) throws IOException {
+
 		Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
-		
-		if(bindingResult.hasErrors()){
+		String blobStoreFileKey = "";
+
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("errorQueryDetails", "Por favor, ofrece detalles acerca de tu consulta.");
-			logger.warn(principal.getName() + " ha intentado crear una nueva consulta y en el formulario ha habido errores. Devolviendo la vista de nuevo.");
+			logger.warn(principal.getName()
+					+ " ha intentado crear una nueva consulta y en el formulario ha habido errores. Devolviendo la vista de nuevo.");
+			// Hago redirect pasando el error como parámetro para evitar que en
+			// la barra del navegador se muestre /_ah/uploead/numeroDeSesion
 			return "redirect:/offersconsulting/newquery";
 		}
-		
-		if(!blobs.isEmpty()){
+		logger.info(principal.getName() + " ha creado una nueva consulta");
+		// TODO Comprobaciones de formato, contenido y tamaño serverside
+		if (!blobs.isEmpty()) {
 			List<BlobKey> blobKeys = blobs.get("myFile");
 			BlobInfoFactory blobInfoFactory = new BlobInfoFactory();
 			BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKeys.get(0));
-			logger.info(principal.getName() + " ha creado una nueva consulta y ha adjuntado un documento."
-					+ "\nEl documento es tipo: " + blobInfo.getContentType() + " con nombre: " +  blobInfo.getFilename() + " y tamaño " + blobInfo.getSize());
-			
+			logger.info(principal.getName() + " ha adjuntado un documento."
+					+ "\nEl documento es tipo: " + blobInfo.getContentType() + " con nombre: " + blobInfo.getFilename()
+					+ " y tamaño " + blobInfo.getSize());
+			blobStoreFileKey = blobKeys.get(0).getKeyString();
 		}
-		
-		
-		
-		
-//		System.out.println("La longitud es - >" +  blobs.get("myFile").size());
-		
-        List<BlobKey> blobKeys = blobs.get("myFile");
-//        System.out.println("APARENTEMENTE ESOT RECOGE LOOL _>>>>>>>>>>>>>>>> " + blobKeys.toString());
-        if (blobKeys == null || blobKeys.isEmpty()) {
-        	System.out.println("E ENTRAU EN QUE ES VACIO CLARO");
-            return "newquery";
-        } else {
-//        	 BlobKey blobKey = new BlobKey(req.getParameter("blob-key"));
-        	System.out.println("wow1 -> " + blobKeys.get(0).toString());
-        	System.out.println("wow2 -> " + blobKeys.get(0).getKeyString());
-        	res.sendRedirect("/serve?blob-key=" + blobKeys.get(0).getKeyString());
-        	System.out.println("La longitud es 2222 - >" +  blobKeys.size());
-    		
-    		Map<String, Object> myModel = new HashMap<String, Object>();
-    		System.out.println("He recibido el post");
-    		if (bindingResult.hasErrors())
-            	return "newquery";
-    		
-//    		String[] propertiesValues = new String[12];
-//    		propertiesValues[0] = req.getUserPrincipal().getName();
-//    		propertiesValues[1] = newQuestion.getNombre();
-//    		propertiesValues[2] = newQuestion.getApellidos();
-//    		propertiesValues[3] = Integer.toString(newQuestion.getEdad());
-//    		propertiesValues[4] = newQuestion.getClaseSocial();
-//    		propertiesValues[5] = newQuestion.getEstadoCivil();
-//    		propertiesValues[6] = newQuestion.getCargas();
-//    		propertiesValues[7] = newQuestion.getTitulo();
-//    		propertiesValues[8] = newQuestion.getComentarios();
-//    		propertiesValues[9] = newQuestion.getUrl();
-//    		propertiesValues[10] = "Activa";
-//    		propertiesValues[11] = "Un experto en finanzas está estudiando tu caso.";
-//    		
-//    		new Question(propertiesValues, datastore).insertQuestion();
 
-            return "queryok";
-        }
-        
-        	
+		SolicitudFinancialAdvisorDomain solicitud = new SolicitudFinancialAdvisorDomain();
+		solicitud.setEmail(principal.getName());
+		solicitud.setEstado("Pendiente");
+		solicitud.setFileBlobKey(blobStoreFileKey);
+		solicitud.setUrlOferta(nuevaSolicitud.getUrlOferta());
+		solicitud.setTextoOferta(nuevaSolicitud.getTextoOferta());
+		
+		repo.save(solicitud);
+		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + principal.getName() + " con id: " + solicitud.getId());
+		return "question-verification";
 	}
-	
-	@GetMapping
-    public String add(Model model, HttpServletRequest req, HttpServletResponse resp) {
-        
 
-            return "newquery";
-      
-		
-    }
+	@GetMapping
+	public String add(Model model, HttpServletRequest req, HttpServletResponse resp) {
+
+		return "newquery";
+
+	}
 }

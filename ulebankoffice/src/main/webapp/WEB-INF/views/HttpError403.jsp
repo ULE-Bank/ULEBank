@@ -36,34 +36,34 @@
 <script src="/resources/services/js/Chart.js"></script>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="shortcut icon" href="/../favicon.ico" />
 
 <!-- bootstrap -->
-<link href="resources/template/css/bootstrap.min.css" rel="stylesheet"
+<link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- plugins -->
-<link href="resources/template/css/plugins-css.css" rel="stylesheet"
+<link href="/resources/template/css/plugins-css.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- mega menu -->
-<link href="resources/template/css/mega-menu/mega_menu.css"
+<link href="/resources/template/css/mega-menu/mega_menu.css"
 	rel="stylesheet" type="text/css" />
 
 <!-- default -->
-<link href="resources/template/css/default.css" rel="stylesheet"
+<link href="/resources/template/css/default.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- main style -->
-<link href="resources/template/css/style.css" rel="stylesheet"
+<link href="/resources/template/css/style.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- responsive -->
-<link href="resources/template/css/responsive.css" rel="stylesheet"
+<link href="/resources/template/css/responsive.css" rel="stylesheet"
 	type="text/css" />
 
 <!-- custom style -->
-<link href="resources/template/css/custom.css" rel="stylesheet"
+<link href="/resources/template/css/custom.css" rel="stylesheet"
 	type="text/css" />
 	
 	<title><spring:message code="label.s4italian" /></title>
@@ -107,8 +107,8 @@
     <div class="row">
        <div class="col-lg-12 col-md-12">
          <div class="error-block text-center clearfix">
-            <h1>404 :(</h1>
-           <p class="text-white">The requested URL was not found on this server. Make sure that the Web site address displayed in the address bar of your browser is spelled and formatted correctly.</p>
+            <h1>403 :(</h1>
+           <p class="text-white"><spring:message code="label.403"/></p>
          </div>   
          <div class="error-search-box text-center mt-40">
            <p class="text-white">Try the search below to find matching pages:</p>
@@ -118,7 +118,7 @@
             </a>
          </div> 
          <div class="mt-60 text-center">
-            <a class="button-border" href="#">
+            <a class="button-border" href="/">
               <span>Return home</span>
             </a>
          </div>    
@@ -150,22 +150,22 @@
  Footer-->
  
  </div>
-	<script src="resources/services/js/tooltip-script.js"></script>
+	<script src="/resources/services/js/tooltip-script.js"></script>
 
 	<!-- bootstrap -->
 	<script type="text/javascript"
-		src="resources/template/js/bootstrap.min.js"></script>
+		src="/resources/template/js/bootstrap.min.js"></script>
 
 	<!-- plugins-jquery -->
 	<script type="text/javascript"
-		src="resources/template/js/plugins-jquery.js"></script>
+		src="/resources/template/js/plugins-jquery.js"></script>
 
 	<!-- mega menu -->
 	<script type="text/javascript"
-		src="resources/template/js/mega-menu/mega_menu.js"></script>
+		src="/resources/template/js/mega-menu/mega_menu.js"></script>
 
 	<!-- custom -->
-	<script type="text/javascript" src="resources/template/js/custom.js"></script>
+	<script type="text/javascript" src="/resources/template/js/custom.js"></script>
 
 
 </body>

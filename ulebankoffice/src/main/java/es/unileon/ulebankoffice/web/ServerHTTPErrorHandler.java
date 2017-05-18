@@ -5,6 +5,7 @@ package es.unileon.ulebankoffice.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @see <a href="http://royal.pingdom.com/2009/05/06/the-5-most-common-http-errors-according-to-google/" target="_top">Errores HTTP comunes </a>
  */
 @Controller
+@RequestMapping("/e")
 public class ServerHTTPErrorHandler {
 
 //	@RequestMapping(value = "/e/{errorCode}")
@@ -29,8 +31,8 @@ public class ServerHTTPErrorHandler {
 //		}
 //	}
 	
-	@RequestMapping(value="/404", method= RequestMethod.GET)
+	@GetMapping(value="/403")
 	public String error404(ModelMap model){
-		return "HttpError404";
+		return "HttpError403";
 	}
 }
