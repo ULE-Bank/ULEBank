@@ -204,13 +204,6 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.omnifaces</groupId>
-			<artifactId>omnifaces</artifactId>
-			<version>2.6</version>
-		</dependency>
-
 	</dependencies>
 	<build>
 		<!-- for hot reload of the web application -->
@@ -257,6 +250,7 @@
 					<configuration>
 						<enableJarClasses>false</enableJarClasses>
 						<version>${app.version}</version>
+						<fullScanSeconds>1</fullScanSeconds>
 						<!-- Comment in the below snippet to bind to all IPs instead of just 
 							localhost -->
 						<!-- address>0.0.0.0</address> <port>8080</port -->

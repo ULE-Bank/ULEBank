@@ -41,7 +41,6 @@ public class AdminQueryPageController {
 		
 		if (bindingResult.hasErrors())
         	return new ModelAndView("adminquerypage", "model", myModel);
-		
 		String answer = adminAnswer.getAnswer();
 		String id = adminAnswer.getIdConsulta();
 		String userMail = adminAnswer.getEmail();
