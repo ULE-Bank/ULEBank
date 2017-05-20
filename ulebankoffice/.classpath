@@ -34,7 +34,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="R:/Ingenieria/eclipse/eclipse/plugins/org.evosuite.plugins.eclipse.deps_1.0.5.201705151215/lib/evosuite.jar"/>
 	<classpathentry kind="src" path="evosuite-tests"/>
 	<classpathentry kind="output" path="target/ulebankoffice-1.0-SNAPSHOT/WEB-INF/classes"/>
 </classpath>
