@@ -20,6 +20,8 @@ public class SolicitudFinancialAdvisorDomain {
 	private String urlOferta;
 	private String estado;
 	private String fileBlobKey;
+	private String asuntoOferta;
+	private String respuestaOferta;
 	
 	public String getTextoOferta() {
 		return textoOferta;
@@ -54,8 +56,19 @@ public class SolicitudFinancialAdvisorDomain {
 	public String getId() {
 		return id;
 	}
+	public String getAsuntoOferta() {
+		return asuntoOferta;
+	}
+	public void setAsuntoOferta(String asuntoOferta) {
+		this.asuntoOferta = asuntoOferta;
+	}
+	public String getRespuestaOferta() {
+		return respuestaOferta;
+	}
+	public void setRespuestaOferta(String respuestaOferta) {
+		this.respuestaOferta = respuestaOferta;
+	}
 	
 	
 	
-
 }

@@ -1,0 +1,10 @@
+DEBUG   2017-04-26 14:09:08,433 [main] ulebankLogger  - Sample debug message. Funciona :D
+INFO    2017-04-26 14:09:08,435 [main] ulebankLogger  - Sample info message
+WARN    2017-04-26 14:09:08,435 [main] ulebankLogger  - Sample warn message
+ERROR   2017-04-26 14:09:08,435 [main] ulebankLogger  - Sample error message
+FATAL   2017-04-26 14:09:08,435 [main] ulebankLogger  - Sample fatal message
+DEBUG   2017-04-26 14:39:48,614 [main] ulebankLogger  - Sample debug message. Funciona :D
+INFO    2017-04-26 14:39:48,615 [main] ulebankLogger  - Sample info message
+WARN    2017-04-26 14:39:48,615 [main] ulebankLogger  - Sample warn message
+ERROR   2017-04-26 14:39:48,616 [main] ulebankLogger  - Sample error message
+FATAL   2017-04-26 14:39:48,616 [main] ulebankLogger  - Sample fatal message

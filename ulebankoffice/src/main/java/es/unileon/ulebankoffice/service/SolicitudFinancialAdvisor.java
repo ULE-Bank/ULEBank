@@ -16,6 +16,9 @@ public class SolicitudFinancialAdvisor {
 
 	private String urlOferta;
 	
+	@NotBlank
+	private String asuntoOferta;
+	
 	public String getTextoOferta() {
 		return textoOferta;
 	}
@@ -29,8 +32,12 @@ public class SolicitudFinancialAdvisor {
 	public void setUrlOferta(String urlOferta) {
 		this.urlOferta = urlOferta;
 	}
+	public String getAsuntoOferta() {
+		return asuntoOferta;
+	}
+	public void setAsuntoOferta(String asuntoOferta) {
+		this.asuntoOferta = asuntoOferta;
+	}
 
 	
-	
-
 }

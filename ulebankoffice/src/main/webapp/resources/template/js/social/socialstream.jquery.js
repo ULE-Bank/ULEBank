@@ -277,7 +277,7 @@
                             // loop through videos
                             $.each(data.items, function (i, item) {
 
-                                var photofeed = item.snippet.thumbnails.default.url; //En esta línea hay un error item.snippet.thumbnails.default.url
+                                var photofeed = item.snippet.thumbnails.url; //En esta línea hay un error item.snippet.thumbnails.default.url
                                 var overlay_div = "";
                                 if (!photofeed) {
                                     return false;

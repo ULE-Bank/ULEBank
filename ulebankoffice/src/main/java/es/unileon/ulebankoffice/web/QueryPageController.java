@@ -36,10 +36,12 @@ public class QueryPageController {
     public String add(ModelMap model, HttpServletRequest req, HttpServletResponse resp, Principal principal, @RequestParam("id") String idSolicitud) throws IOException {
         
 		SolicitudFinancialAdvisorDomain solicitud = repo.findOne(idSolicitud);
+		model.addAttribute("asuntoOferta", solicitud.getAsuntoOferta());
 		model.addAttribute("idQuery", solicitud.getId());
 		model.addAttribute("enlaceArchivo", "/offersconsulting/serve?blob-key="+solicitud.getFileBlobKey());
 		model.addAttribute("textoOferta", solicitud.getTextoOferta());
 		model.addAttribute("urlOferta", solicitud.getUrlOferta());
+		model.addAttribute("respuestaOferta", solicitud.getRespuestaOferta());
 		
         	//TODO comprobar que la persona que está intentando acceder es el dueño de la consulta o bien un empleado, supervisor, admin
         	

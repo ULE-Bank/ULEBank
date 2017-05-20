@@ -1,22 +1,24 @@
-<%@ include file="/WEB-INF/views/include.jsp" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 
-<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
-<%@ page import="com.google.appengine.api.blobstore.BlobstoreService" %>
+<%@ page
+	import="com.google.appengine.api.blobstore.BlobstoreServiceFactory"%>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreService"%>
 <%
     BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 %>
 
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-        <link rel="stylesheet"
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet"
 	href="/resources/services/css/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="/resources/services/css/styles-responsive.css">
@@ -61,11 +63,11 @@
 <!-- custom style -->
 <link href="/resources/template/css/custom.css" rel="stylesheet"
 	type="text/css" />
-        
-        <title><spring:message code="label.newquery" /></title>
-        
-        <!-- GOOGLE ANALYTICS TRACKER -->
-        <script>
+
+<title><spring:message code="label.newquery" /></title>
+
+<!-- GOOGLE ANALYTICS TRACKER -->
+<script>
   			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -74,12 +76,12 @@
   			ga('create', 'UA-72492123-1', 'auto');
   			ga('send', 'pageview');
 		</script>
-        
-    </head>
 
-    <body>
-        
-        <div class="page-wrapper">
+</head>
+
+<body>
+
+	<div class="page-wrapper">
 		<!--=================================
  preloader -->
 
@@ -103,8 +105,7 @@
 		<!--=================================
  inner-intro-->
 
-		<section
-			class="inner-intro grayscale bg-newquery bg-opacity-black-70">
+		<section class="inner-intro grayscale bg-newquery bg-opacity-black-70">
 			<div class="container">
 				<div class="row text-center intro-title">
 					<h1 class="text-blue">
@@ -116,34 +117,62 @@
 					<ul class="page-breadcrumb">
 						<li><a href="./"><i class="fa fa-home"></i> <spring:message
 									code="label.sitehome" /></a> <i class="fa fa-angle-double-right"></i></li>
-						<li><a href="/offersconsulting"><spring:message code="label.siteservice3" /></a><i class="fa fa-angle-double-right"></i></li>
+						<li><a href="/offersconsulting"><spring:message
+									code="label.siteservice3" /></a><i
+							class="fa fa-angle-double-right"></i></li>
 						<li><span><spring:message code="label.newquery" /></span></li>
 					</ul>
 				</div>
 			</div>
 		</section>
-		
+
 		<!--=================================
  inner-intro-->
-		
+
 		<section class="white-bg page-section-ptb">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<form:form action='<%= blobstoreService.createUploadUrl("/offersconsulting/newquery") %>' role="form" method="post" modelAttribute="newQuestion" 
+						<form:form
+							action='<%= blobstoreService.createUploadUrl("/offersconsulting/newquery") %>'
+							role="form" method="post" modelAttribute="newQuestion"
 							id="servicesform" enctype="multipart/form-data">
 							<div id="register-form" class="register-form">
-			
-			<h3><spring:message code="label.completeAtLeastOneField"/></h3>
-	
-									
-									
-									<!-- --------- -->
+
+								<!-- --------- -->
+
+
 								<div class="row">
 									<div class="section-field col-md-11">
-										<p style="color: red;">${param.errorQueryDetails}</p>
+										<label for="name"><spring:message code="label.topic" />:</label>
 									</div>
 								</div>
+								<div class="row">
+									<div class="section-field col-md-11">
+										<div class="field-widget">
+										<i class="fa fa-exclamation"></i>
+											<form:input id="asunto" type="text" path="asuntoOferta"  />
+										</div>
+									</div>
+									<div class="section-field col-md-1">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.queryTopicInfo"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="section-field col-md-11">
+										<p style="color: red;">
+											<form:errors path="asuntoOferta" />
+										</p>
+									</div>
+								</div>
+
+								<!-- --------- -->
+
+
 								<div class="row">
 									<div class="section-field col-md-11">
 										<label for="name"><spring:message
@@ -153,7 +182,8 @@
 								<div class="row">
 									<div class="section-field col-md-11">
 										<div class="field-widget">
-											<form:textarea id="descrption" path="textoOferta" rows="4" required="required"/>
+											<form:textarea id="descrption" path="textoOferta" rows="4"
+												required="required" />
 										</div>
 									</div>
 									<div class="section-field col-md-1">
@@ -164,45 +194,60 @@
 									</div>
 								</div>
 
-								
 
+								<div class="row">
+									<div class="section-field col-md-11">
+										<form:errors style="color: red;" path="textoOferta"></form:errors>
+									</div>
+								</div>
 
 
 
 								<!-- --------- -->
-	
-	
+
+
 								<!-- --------- -->
 
 								<div class="row">
-									<div class="section-field col-md-10">
+									<div class="section-field col-md-11">
 										<label for="name"><spring:message
 												code="label.documentAttach" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-10">
-										<div class="field-widget">
-											<input id="doc" type="file" name="myFile" accept=".pdf, application/pdf" >
+									<div class="section-field col-md-11">
+										<div class="file-input">
+											<input id="doc" type="file" name="myFile"
+												accept=".pdf, application/pdf">
 										</div>
 									</div>
+
+
+									<div class="section-field col-md-1">
+										<span class="tooltip-content text-blue"
+											data-original-title="<spring:message code="label.documentAttachInfo"/>"
+											data-toggle="tooltip" data-placement="top"><i
+											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
 									</div>
-								
-									<!-- --------- -->
+								</div>
+
+								<!-- --------- -->
 
 								<div class="row">
-									<div class="section-field col-md-10">
+									<div class="section-field col-md-11">
 										<label for="name"><spring:message
 												code="label.documentLink" />:</label>
 									</div>
 								</div>
 								<div class="row">
-									<div class="section-field col-md-10">
+									<div class="section-field col-md-11">
 										<div class="field-widget">
+										<i class="fa fa-link"></i>
 											<form:input id="url" type="text" path="urlOferta" />
 										</div>
 									</div>
-									<div class="section-field col-md-10">
+									<div class="section-field col-md-1">
+									
 										<span class="tooltip-content text-blue"
 											data-original-title="<spring:message code="label.documentLink"/>"
 											data-toggle="tooltip" data-placement="top"><i
@@ -211,7 +256,7 @@
 								</div>
 
 								<div class="row">
-									<div class="section-field col-md-10">
+									<div class="section-field col-md-11">
 										<form:errors style="color: red;" path="urlOferta"></form:errors>
 									</div>
 								</div>
@@ -220,34 +265,34 @@
 
 
 								<!-- --------- -->
-				
-								<a class="button mt-20" id="submitservices"
-											onclick="document.getElementById('servicesform').submit()">
-											<span><spring:message code="label.sendquery" /></span> <i
-											class="fa fa-paper-plane"></i>
-										</a>
-										<!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
-										<noscript>
-											<input type="submit"
-												value="<spring:message code="label.sendquery"/>" />
-										</noscript>
-							</div>
-								
-				</form:form>
-			</div>
-	</div>
-	</div>
-	</section>        
-      <!--=================================
- Footer-->
-	<jsp:include page="/WEB-INF/views/footer.jsp" />
-	<!--=================================
- Footer-->
- </div>
- 
-<!--  file Filter -->
 
-<script >
+								<a class="button mt-20" id="submitservices"
+									onclick="document.getElementById('servicesform').submit()">
+									<span><spring:message code="label.sendquery" /></span> <i
+									class="fa fa-paper-plane"></i>
+								</a>
+								<!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+								<noscript>
+									<input type="submit"
+										value="<spring:message code="label.sendquery"/>" />
+								</noscript>
+							</div>
+
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--=================================
+ Footer-->
+		<jsp:include page="/WEB-INF/views/footer.jsp" />
+		<!--=================================
+ Footer-->
+	</div>
+
+	<!--  file Filter -->
+
+	<script>
 var file = document.getElementById('doc');
 
 //A lo largo de todo el script se usan arrays porque se tiene en cuenta la posibilidad de que algún día se implemente subida multiarchivos 
@@ -299,9 +344,9 @@ file.onchange = function(e){
 
 
 
-<!--  file Filter -->
- 
- 
+	<!--  file Filter -->
+
+
 	<script src="/resources/services/js/tooltip-script.js"></script>
 
 	<!-- bootstrap -->
@@ -318,6 +363,6 @@ file.onchange = function(e){
 
 	<!-- custom -->
 	<script type="text/javascript" src="/resources/template/js/custom.js"></script>
-       
-    </body>
+
+</body>
 </html>

@@ -85,15 +85,6 @@
 		</bean>
 	</mvc:interceptors>
 
-
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- one of the properties available; the maximum file size in bytes -->
-		<!-- De momento se ha decicido trabajar con un tamaño máximo de 15 MB = 
-			15 *1024 *1024 = 12582912 bytes. -->
-		<property name="maxUploadSizePerFile" value="12582912" />
-	</bean>
-
 	<!-- Configuración para la conexión con la base de datos -->
 
 	<mongo:template db-factory-ref="mongoDBFactory"

@@ -1,6 +1,8 @@
 package es.unileon.ulebankoffice.web;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
@@ -58,7 +60,9 @@ public class NewQuestionFormController {
 			ModelMap model) throws IOException {
 
 		Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
-		String blobStoreFileKey = "";
+		String blobStoreFileKey = null;
+		
+		
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("errorQueryDetails", "Por favor, ofrece detalles acerca de tu consulta.");
@@ -66,7 +70,7 @@ public class NewQuestionFormController {
 					+ " ha intentado crear una nueva consulta y en el formulario ha habido errores. Devolviendo la vista de nuevo.");
 			// Hago redirect pasando el error como parámetro para evitar que en
 			// la barra del navegador se muestre /_ah/uploead/numeroDeSesion
-			return "redirect:/offersconsulting/newquery";
+			return "newquery";
 		}
 		logger.info(principal.getName() + " ha creado una nueva consulta");
 		// TODO Comprobaciones de formato, contenido y tamaño serverside
@@ -79,22 +83,25 @@ public class NewQuestionFormController {
 					+ " y tamaño " + blobInfo.getSize());
 			blobStoreFileKey = blobKeys.get(0).getKeyString();
 		}
-
+		
+		String texto = nuevaSolicitud.getTextoOferta();
+		System.out.println("He recibido post.");
 		SolicitudFinancialAdvisorDomain solicitud = new SolicitudFinancialAdvisorDomain();
 		solicitud.setEmail(principal.getName());
 		solicitud.setEstado("Pendiente");
 		solicitud.setFileBlobKey(blobStoreFileKey);
 		solicitud.setUrlOferta(nuevaSolicitud.getUrlOferta());
-		solicitud.setTextoOferta(nuevaSolicitud.getTextoOferta());
-		
+		solicitud.setTextoOferta(texto);
+		solicitud.setAsuntoOferta(nuevaSolicitud.getAsuntoOferta());
+		logger.info( "qué ocurre?" + texto + " VAMOSSSSSSSSSSSSSW");
 		repo.save(solicitud);
 		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + principal.getName() + " con id: " + solicitud.getId());
 		return "question-verification";
 	}
 
 	@GetMapping
-	public String add(Model model, HttpServletRequest req, HttpServletResponse resp) {
-
+	public String add(ModelMap model, HttpServletRequest req, HttpServletResponse resp) {
+		logger.info( "getmapping");
 		return "newquery";
 
 	}

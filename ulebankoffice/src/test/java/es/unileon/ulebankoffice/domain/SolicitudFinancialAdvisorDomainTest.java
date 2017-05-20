@@ -23,12 +23,6 @@ public class SolicitudFinancialAdvisorDomainTest {
 		assertThat(solicitud.getTextoOferta(), is("texto"));
 	}
 
-	@Test
-	public void testEnlaceOferta() {
-		assertNull(solicitud.getEnlaceOferta());
-		solicitud.setEnlaceOferta("texto");
-		assertThat(solicitud.getEnlaceOferta(), is("texto"));
-	}
 
 	@Test
 	public void testRutaOferta() {

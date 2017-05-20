@@ -123,11 +123,11 @@
    
         <section class="white-bg pt-40">
 			<div class="container">
-				
-				
-				<a href="${enlaceArchivo}" target="_blank"> Enlace archivo </a>
+				<p>Asunto: ${asuntoOferta}</p> 
+				<c:if test="${enlaceArchivo != '/offersconsulting/serve?blob-key=null' }"><a href="${enlaceArchivo}" target="_blank"> Enlace archivo </a></c:if>
 				<p>Texto oferta: ${textoOferta}</p>
-				<a href="${textoOferta}" target="_blank"><p>Url oferta </p></a>
+				<p>Url oferta </p><p><a href="${urlOferta}" target="_blank">${urlOferta}</a></p>
+				<p>Respuesta:</p>${respuestaOferta}
 				
 				
 				<h4><spring:message code="label.querystatus" />: </h4><c:out value="${model.state}"/>
