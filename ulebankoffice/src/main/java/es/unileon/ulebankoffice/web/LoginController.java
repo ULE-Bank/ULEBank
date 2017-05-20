@@ -33,7 +33,7 @@ public class LoginController {
 		}
 
 		private void comprobarYCrearAdministradoOficina() {
-			logger.debug("Comprobando si se existe el usuario administrador");
+			logger.debug("Comprobando si se existe el usuario administrador.");
 			if(repo.findByUserName("cjrulebank") == null){
 				
 				repo.save(new UleBankEmployeeDomain("cjrulebank", bcrypt.encode("ulebank*"), "admin"));

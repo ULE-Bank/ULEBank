@@ -1,10 +1,7 @@
 package es.unileon.ulebankoffice.web;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,15 +12,12 @@ import javax.validation.Valid;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.google.appengine.api.blobstore.BlobInfo;
 import com.google.appengine.api.blobstore.BlobInfoFactory;
@@ -31,12 +25,8 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
-import es.unileon.ulebankoffice.domain.Authenticator;
-import es.unileon.ulebankoffice.domain.Datastore;
-import es.unileon.ulebankoffice.domain.Question;
 import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
 import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
-import es.unileon.ulebankoffice.service.NewQuestion;
 import es.unileon.ulebankoffice.service.SolicitudFinancialAdvisor;
 
 @Controller
@@ -85,7 +75,7 @@ public class NewQuestionFormController {
 		}
 		
 		String texto = nuevaSolicitud.getTextoOferta();
-		System.out.println("He recibido post.");
+		System.out.println("He recibido post... ?? Recibido");
 		SolicitudFinancialAdvisorDomain solicitud = new SolicitudFinancialAdvisorDomain();
 		solicitud.setEmail(principal.getName());
 		solicitud.setEstado("Pendiente");
