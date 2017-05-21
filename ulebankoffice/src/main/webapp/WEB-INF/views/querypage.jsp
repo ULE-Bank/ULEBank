@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <!DOCTYPE html>
@@ -107,7 +107,7 @@
 						<spring:message code="label.siteservice3description" />
 					</p>
 					<ul class="page-breadcrumb">
-						<li><a href="./"><i class="fa fa-home"></i> <spring:message
+						<li><a href="/"><i class="fa fa-home"></i> <spring:message
 									code="label.sitehome" /></a> <i class="fa fa-angle-double-right"></i></li>
 						<li><span><a href="/offersconsulting"><spring:message code="label.siteservice3" /></a> <i class="fa fa-angle-double-right"></i></span></li>
 						<li><span><spring:message code="label.query" /> ${idQuery}</span></li>		
@@ -128,6 +128,14 @@
 				<p>Texto oferta: ${textoOferta}</p>
 				<p>Url oferta </p><p><a href="${urlOferta}" target="_blank">${urlOferta}</a></p>
 				<p>Respuesta:</p>${respuestaOferta}
+				
+				 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')">
+				  <fieldset style="border: 1px solid #ff0000">
+				  
+				  Aquí va añadir respuesta.
+				  
+				  </fieldset>
+				 </sec:authorize>
 				
 				
 				<h4><spring:message code="label.querystatus" />: </h4><c:out value="${model.state}"/>

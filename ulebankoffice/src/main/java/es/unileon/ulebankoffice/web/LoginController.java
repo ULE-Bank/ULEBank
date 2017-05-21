@@ -15,6 +15,7 @@ import es.unileon.ulebankoffice.repository.UleBankEmployeeRepository;
  *
  */
 @Controller
+@RequestMapping(value="/o/login")
 public class LoginController {
 
 	@Autowired
@@ -25,7 +26,7 @@ public class LoginController {
 	
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
 	
-		@GetMapping(value="/o/login")
+		@GetMapping
 		public String controllerLogin(){
 			
 			comprobarYCrearAdministradoOficina();

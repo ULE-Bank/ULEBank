@@ -110,39 +110,21 @@
             <h1>403 :(</h1>
            <p class="text-white"><spring:message code="label.403"/></p>
          </div>   
-         <div class="error-search-box text-center mt-40">
-           <p class="text-white">Try the search below to find matching pages:</p>
-           <input id="search" type="text" placeholder="Search for pages..." name="search">
-            <a class="button-border pull-right" href="#">
-              <span>Search</span>
-            </a>
-         </div> 
          <div class="mt-60 text-center">
             <a class="button-border" href="/">
-              <span>Return home</span>
+              <span><spring:message code="label.sitehome"/></span>
             </a>
+             <a class="button-border" href="/o/logout">
+              <span><spring:message code="label.closesession"/></span>
+            </a>
+            
          </div>    
+ 
       </div>
     </div>
    </div>
  </section>
 </div> 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  <!--=================================
  Footer-->
 		<jsp:include page="/WEB-INF/views/footer.jsp" />

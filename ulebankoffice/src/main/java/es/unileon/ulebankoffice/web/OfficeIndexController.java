@@ -183,7 +183,7 @@ public class OfficeIndexController {
 			return "redirect:/o";
 		}
 
-		logger.info("Se ha creado el usuario de la sucursual: " + empleado.getUserName() + " con privilegios: "
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr() +  " Ha creado el usuario de la sucursual: " + empleado.getUserName() + " con privilegios: "
 				+ empleado.getRole());
 		return "redirect:/o";
 
@@ -191,7 +191,7 @@ public class OfficeIndexController {
 	
 	
 	@RequestMapping(value = "/admin/d", method = RequestMethod.GET, params = "ein")
-	public String deleteEmployee(ModelMap model, @RequestParam("ein") String employeeUserName) {
+	public String deleteEmployee(ModelMap model, @RequestParam("ein") String employeeUserName, Principal principal, HttpServletRequest req) {
 
 		UleBankEmployeeDomain empleado = employeesRepo.findByUserName(employeeUserName);
 
@@ -201,10 +201,10 @@ public class OfficeIndexController {
 		 * IllegalArgumentException del método .delete()
 		 */
 		if (empleado == null) {
-			logger.warn("Se ha tratado de borrar un empleado inexistente. Alguien ha accedido a una URL que no debía. Empleado inexistente: " + employeeUserName);
+			logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr() + " Ha tratado de borrar un empleado inexistente. Alguien ha accedido a una URL que no debía. Empleado inexistente: " + employeeUserName);
 			return "redirect:/o";
 		}
-		logger.info("Se ha eliminado el empleado de la oficina: " + employeeUserName);
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr() +  " Ha eliminado el empleado de la oficina: " + employeeUserName);
 		employeesRepo.delete(empleado);
 		return "redirect:/o";
 
