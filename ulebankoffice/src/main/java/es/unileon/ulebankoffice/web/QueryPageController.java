@@ -14,6 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
 import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
 
 @Controller
+@RequestMapping(value = "/offersconsulting/querypage")
 public class QueryPageController {
 
 	@Autowired
@@ -30,7 +32,7 @@ public class QueryPageController {
 	
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
 	
-	@RequestMapping(value = "/offersconsulting/querypage", method = RequestMethod.GET, params = { "id" })
+	@GetMapping( params = { "id" })
 	public String add(ModelMap model, HttpServletRequest req, HttpServletResponse resp, Principal principal,
 			@RequestParam("id") String idSolicitud) throws IOException {
 

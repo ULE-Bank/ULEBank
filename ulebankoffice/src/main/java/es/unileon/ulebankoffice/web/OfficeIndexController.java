@@ -129,7 +129,7 @@ public class OfficeIndexController {
 			HttpServletRequest req, HttpServletResponse resp, ModelMap model, Principal principal) {
 	
 		ClienteDomain cliente;
-		System.out.println("LA FECHA DEL CLIENTE LLEGA COMO: ->> " + nuevoCliente.getFechaNacimiento());
+		logger.debug("LA FECHA DEL CLIENTE LLEGA COMO: ->> " + nuevoCliente.getFechaNacimiento());
 		if (clienteResult.hasErrors()) {
 			return "officeindex";
 		}
