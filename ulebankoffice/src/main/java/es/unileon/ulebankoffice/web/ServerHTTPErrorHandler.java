@@ -25,7 +25,7 @@ public class ServerHTTPErrorHandler {
 	}
 	
 	@GetMapping(value="/adv404")
-	public String error404Advisor(){
+	public String error404FinancialAdvisor(){
 		return "HttpError404Advisor";
 	}
 }
