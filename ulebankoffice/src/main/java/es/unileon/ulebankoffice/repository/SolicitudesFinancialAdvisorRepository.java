@@ -15,6 +15,6 @@ import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
  */
 public interface SolicitudesFinancialAdvisorRepository extends MongoRepository<SolicitudFinancialAdvisorDomain, String> {
 	
-		public List<SolicitudFinancialAdvisorDomain> findByEmail(String email);
+		public List<SolicitudFinancialAdvisorDomain> findByEmailOrderByEstadoDesc (String email);
 	
 }

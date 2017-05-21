@@ -21,7 +21,7 @@
 		<property name="alwaysUseFullPath" value="true"></property>
 	</bean>
 
-	<bean id="datastore" class="es.unileon.ulebankoffice.domain.Datastore"/>
+	<bean id="datastore" class="es.unileon.ulebankoffice.domain.Datastore" />
 
 	<!-- <bean id="userDateFormat" class="java.text.SimpleDateFormat"> -->
 	<!-- <constructor-arg value="dd.MM.yyyy" /> -->

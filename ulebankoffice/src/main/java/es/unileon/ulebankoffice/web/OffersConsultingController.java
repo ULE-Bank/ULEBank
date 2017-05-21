@@ -31,7 +31,7 @@ public class OffersConsultingController {
 
 		
 		
-			List<SolicitudFinancialAdvisorDomain> lists = repo.findByEmail(req.getUserPrincipal().getName());
+			List<SolicitudFinancialAdvisorDomain> lists = repo.findByEmailOrderByEstadoDesc(req.getUserPrincipal().getName());
 			model.addAttribute("lists", lists);
 						
 			model.addAttribute("nombre", req.getUserPrincipal().getName());

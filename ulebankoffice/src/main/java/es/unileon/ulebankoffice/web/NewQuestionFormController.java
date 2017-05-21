@@ -35,6 +35,8 @@ public class NewQuestionFormController {
 
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
+	private static final String GOOGLEENCODING = "ISO-8859-1";
+	private static final String UTF8 = "UTF-8";
 
 	@Autowired
 	private SolicitudesFinancialAdvisorRepository repo;
@@ -74,18 +76,18 @@ public class NewQuestionFormController {
 			blobStoreFileKey = blobKeys.get(0).getKeyString();
 		}
 		
-		String texto = nuevaSolicitud.getTextoOferta();
-		System.out.println("He recibido post... ?? Recibido");
+		String texto = new String(nuevaSolicitud.getTextoOferta().getBytes(GOOGLEENCODING), UTF8);
+		String asunto =  new String(nuevaSolicitud.getAsuntoOferta().getBytes(GOOGLEENCODING), UTF8);
+		String url =  new String(nuevaSolicitud.getUrlOferta().getBytes(GOOGLEENCODING), UTF8);
 		SolicitudFinancialAdvisorDomain solicitud = new SolicitudFinancialAdvisorDomain();
 		solicitud.setEmail(principal.getName());
 		solicitud.setEstado("Pendiente");
 		solicitud.setFileBlobKey(blobStoreFileKey);
-		solicitud.setUrlOferta(nuevaSolicitud.getUrlOferta());
+		solicitud.setUrlOferta(url);
 		solicitud.setTextoOferta(texto);
-		solicitud.setAsuntoOferta(nuevaSolicitud.getAsuntoOferta());
-		logger.info( "qué ocurre?" + texto + " VAMOSSSSSSSSSSSSSW");
+		solicitud.setAsuntoOferta(asunto);
 		repo.save(solicitud);
-		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + principal.getName() + " con id: " + solicitud.getId());
+		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + principal.getName() + " con id: " + solicitud.getId() + " y asunto : " + asunto);
 		return "question-verification";
 	}
 
