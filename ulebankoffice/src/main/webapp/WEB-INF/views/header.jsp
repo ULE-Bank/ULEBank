@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!--Start Cookie Script-->
       <script type="text/javascript"
@@ -196,6 +197,14 @@
                               </div>
                            </div>
                         </li>
+                       	<sec:authorize access="isAuthenticated()">
+                        <li>
+                        <a href="/o/logout">
+                              <spring:message
+                                 code="label.logout" />
+                           </a>
+                        </li>
+                        </sec:authorize>
                      </ul>
                   </div>
                </div>

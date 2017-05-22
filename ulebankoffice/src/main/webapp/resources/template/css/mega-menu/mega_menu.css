@@ -229,7 +229,6 @@
   font-size: 0.933em;
   line-height: 64px;
   position: relative;
-  text-transform: capitalize;
 }
 .mega-menu .menu-links > li > a:hover { color: #00a9da; }
 @media screen and (max-width: 992px) {

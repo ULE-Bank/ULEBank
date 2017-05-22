@@ -230,6 +230,12 @@
 											class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
 									</div>
 								</div>
+								
+								<div class="row">
+									<div class="section-field col-md-11">
+										<p style="color:red;">${param.fileError}</p>
+									</div>
+								</div>
 
 								<!-- --------- -->
 
