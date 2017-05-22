@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/include.jsp"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html>
@@ -131,38 +131,12 @@
 				</div>
 				<div class="page-header"></div>
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-4 mt-20">
 						<h3>
 							<spring:message code="label.yourqueries" />
 						</h3>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<table class="table">
-							<thead>
-								<tr>
-									<th><spring:message code="label.querys1" /></th>
-									<th><spring:message code="label.topic" /></th>
-									<th><spring:message code="label.querys3" /></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="listValue" items="${lists}">
-									<tr>
-										<td><a
-											href="/offersconsulting/querypage?id=<c:out value="${listValue.id}"/>"><c:out
-													value="${listValue.id}" /></a></td>
-													<td><c:out value="${listValue.asuntoOferta}" /></td>
-										<td><c:out value="${listValue.estado}" /></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-8">
 						<div class="btn-group pull-right last-element" role="group">
 						<a href="/offersconsulting/newquery" class="button mt-20" >
 											<span><spring:message
@@ -179,12 +153,43 @@
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table">
+							<thead>
+								<tr>
+									<th><spring:message code="label.querys1" /></th>
+									 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')"> <th>Email</th> </sec:authorize>
+									<th><spring:message code="label.topic" /></th>
+									<th><spring:message code="label.querys3" /></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="listValue" items="${lists}">
+								<c:choose>
+								<c:when test="${listValue.estado == 'Contestada' }">
+									<tr style="background-color:#bec4ce">
+								</c:when>
+								<c:otherwise>
+								<tr>
+								</c:otherwise>
+								</c:choose>
+									
+										<td><a
+											href="/offersconsulting/querypage?id=<c:out value="${listValue.id}"/>"><c:out
+													value="${listValue.id}" /></a></td>
+													 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')"> <td>${listValue.email}</td> </sec:authorize>
+													<td><c:out value="${listValue.asuntoOferta}" /></td>
+										<td><c:out value="${listValue.estado}" /></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			
 			</div>
 		</section>
-
-
-
-
 	</div>
 
 	<!--=================================

@@ -50,12 +50,14 @@ public class QueryPageController {
 				return "redirect:/e/403";
 			}
 		
+		/* Si es empleado, podrá ver los comandos para añadir nueva respuesta. Si la solicitud ya tiene una respuesta, se le cargará en el text área por si lo que quiere es modificarla. */
 		model.addAttribute("asuntoOferta", solicitud.getAsuntoOferta());
 		model.addAttribute("idQuery", solicitud.getId());
 		model.addAttribute("enlaceArchivo", "/offersconsulting/serve?blob-key=" + solicitud.getFileBlobKey());
 		model.addAttribute("textoOferta", solicitud.getTextoOferta());
 		model.addAttribute("urlOferta", solicitud.getUrlOferta());
 		model.addAttribute("respuestaOferta", solicitud.getRespuestaOferta());
+		model.addAttribute("autorConsulta", solicitud.getEmail());
 
 		return "querypage";
 
@@ -75,7 +77,7 @@ public class QueryPageController {
 			solicitud.setEstado("Contestada");
 			repo.save(solicitud);
 			logger.info(principal.getName() + " ha añadido una respuesta a la consulta " + solicitud.getId());
-			return "querypage";
+			return "redirect:/offersconsulting/querypage?id="+idSolicitud;
 		} else {
 			logger.error(req.getRemoteAddr() + " " + req.getLocalAddr() + " Alguien ha tratado de hacer POST a una id de una consulta sin tener los roles necesarios o haber iniciado sesión. Esto significa que alguien ha tratado, por medios externos, contestar a una query.");
 			return "redirect:/e/403";

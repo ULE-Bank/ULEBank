@@ -108,10 +108,11 @@ public class NewQuestionFormController {
 				logger.warn("Se ha tratado de adjuntar un archivo cuyos 4 primeros bytes, números mágicos, no coinciden con los de PDF. Borrando archivo.");
 				blobstoreService.delete(blobKeys.get(0));
 				model.addAttribute("fileError", "PDF Content!");
+				input.close();
 				return "redirect:/o/offersconsulting/newquery";
 			}
 			logger.info("Contenido del archivo, numero mágicos,... OK");
-			
+			input.close();
 			blobStoreFileKey = blobKeys.get(0).getKeyString();
 		}
 		

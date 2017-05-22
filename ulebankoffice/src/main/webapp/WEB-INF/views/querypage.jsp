@@ -123,37 +123,63 @@
    
         <section class="white-bg pt-40">
 			<div class="container">
-				<p>Asunto: ${asuntoOferta}</p> 
-				<c:if test="${enlaceArchivo != '/offersconsulting/serve?blob-key=null' }"><a href="${enlaceArchivo}" target="_blank"> Enlace archivo </a></c:if>
-				<p>Texto oferta: ${textoOferta}</p>
-				<p>Url oferta </p><p><a href="${urlOferta}" target="_blank">${urlOferta}</a></p>
-				<p>Respuesta:</p>${respuestaOferta}
+			<div class="row">
+				<div class ="col-md-4">
+				<h4>Autor:</h4> <p>${autorConsulta}</p>
+				</div> 
+				<div class ="col-md-4">
+				<h4>Asunto:</h4> <p>${asuntoOferta}</p> 
+				</div>
+				<div class ="col-md-4">
+				<c:if test="${enlaceArchivo != '/offersconsulting/serve?blob-key=null' }"><h4>Archivo adjunto: </h4><a href="${enlaceArchivo}" target="_blank"> Enlace archivo </a></c:if>
+				</div>
+			</div>
 				
+				<h4>Url oferta:</h4> <p><a href="${urlOferta}" target="_blank">${urlOferta}</a></p>
+				
+				<h4>Comentarios del autor de la consulta:</h4> <p style="text-align: justify;"> ${textoOferta}</p>
+				
+				<h4>Respuesta:</h4> <pre>${respuestaOferta}</pre>
+			
 				 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')">
 				  <fieldset style="border: 1px solid #ff0000">
-				  
-				  Aquí va añadir respuesta.
-				  
+				
+				  <form:form
+							action="/offersconsulting/querypage?id=${param.id}"
+							role="form" method="post"
+							id="servicesform" >
+							<div id="register-form" class="register-form">
+							
+							<textarea id="response" name="response" rows="8" >${respuestaOferta}</textarea>
+							<div class="col-md-3">
+							<input type="submit" value="<spring:message code="label.submitresponse"/>">
+							</div>
+							</div>
+							</form:form>
+			
 				  </fieldset>
 				 </sec:authorize>
 				
 				
-				<h4><spring:message code="label.querystatus" />: </h4><c:out value="${model.state}"/>
-				<br>
-				<br>
-				<h4><spring:message code="label.name" />: </h4><c:out value="${model.nombre}"/>
-				<h4><spring:message code="label.lastname" />: </h4><c:out value="${model.apellidos}"/>
-				<h4><spring:message code="label.contractlink" />: </h4><a href="<c:out value="${model.url}"/>"><c:out value="${model.url}"/></a>
-				<h4><spring:message code="label.comments" />: </h4><c:out value="${model.comentarios}"/>
-				<br>
-				<br>
-				<h4><spring:message code="label.expertanswer" />: </h4><c:out value="${model.respuesta}"/>
-				
-				<div class="btn-group last-element pull-right" role="group">
-					<a href="/logout" class="btn btn-default"><spring:message code="label.logout" /></a>
 				</div>
-				
-			</div>
+					
+				<div class="row col-md-8">
+								<div class="btn-group pull-right last-element" role="group">
+						<a href="/offersconsulting" class="button mt-20" >
+											<span><spring:message
+									code="label.myqueries" /></span> <i
+											class="fa fa-list-ol"></i>
+										</a>
+							
+							<a href="/o/logout" class="button mt-20" >
+											<span><spring:message
+									code="label.closesession" /></span> <i
+											class="fa fa-sign-out"></i>
+										</a>
+						
+						</div>
+				</div>
+			
         </section>
         </div>
         <!--=================================
