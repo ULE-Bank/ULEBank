@@ -22,6 +22,7 @@ public class SolicitudFinancialAdvisorDomain {
 	private String fileBlobKey;
 	private String asuntoOferta;
 	private String respuestaOferta;
+	private String fechaCreacion;
 	
 	public String getTextoOferta() {
 		return textoOferta;
@@ -67,6 +68,12 @@ public class SolicitudFinancialAdvisorDomain {
 	}
 	public void setRespuestaOferta(String respuestaOferta) {
 		this.respuestaOferta = respuestaOferta;
+	}
+	public String getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(String fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 	
 	

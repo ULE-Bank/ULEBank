@@ -161,7 +161,9 @@
 									<th><spring:message code="label.querys1" /></th>
 									 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')"> <th>Email</th> </sec:authorize>
 									<th><spring:message code="label.topic" /></th>
+									<th><spring:message code="label.creationDate" /></th>
 									<th><spring:message code="label.querys3" /></th>
+									
 								</tr>
 							</thead>
 							<tbody>
@@ -180,7 +182,9 @@
 													value="${listValue.id}" /></a></td>
 													 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')"> <td>${listValue.email}</td> </sec:authorize>
 													<td><c:out value="${listValue.asuntoOferta}" /></td>
+										<td><c:out value="${listValue.fechaCreacion}" /></td>
 										<td><c:out value="${listValue.estado}" /></td>
+										
 									</tr>
 								</c:forEach>
 							</tbody>

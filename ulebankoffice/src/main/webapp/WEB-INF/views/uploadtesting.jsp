@@ -9,10 +9,10 @@
 <body>
 <h1>Spring MVC multi files upload example</h1>
 
- <form action="<%= blobstoreService.createUploadUrl("http://localhost:8080/unileon.es/uploadMulti") %>" method="post" enctype="multipart/form-data">
+ <form action="/uploadMulti" method="post" 
+ enctype="multipart/form-data">
         <input type="file" name="myFile">
         <input type="submit" value="Submit">
-        
  </form>
 
 </body>

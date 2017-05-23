@@ -164,6 +164,9 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+
+		<!-- El slf4j no se usa en la aplicación directamente, los logs implementados 
+			son log4j pero MongoDB internamente usa slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
+import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,7 +41,7 @@ public class NewQuestionFormController {
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
 	private static final String GOOGLEENCODING = "ISO-8859-1";
 	private static final String UTF8 = "UTF-8";
-	private static final int QUINCE_MEBIBYTES = 15728640;
+	private static final int QUINCE_MEBIBYTES_EN_BYTES = 15728640;
 
 	@Autowired
 	private SolicitudesFinancialAdvisorRepository repo;
@@ -58,16 +59,14 @@ public class NewQuestionFormController {
 		Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
 		String blobStoreFileKey = null;
 		
-		
-
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("errorQueryDetails", "Por favor, ofrece detalles acerca de tu consulta.");
 			logger.warn(principal.getName()
 					+ " ha intentado crear una nueva consulta y en el formulario ha habido errores. Devolviendo la vista de nuevo.");
 			return "newquery";
 		}
-		logger.info(principal.getName() + " ha creado una nueva consulta");
-		// TODO Comprobaciones de formato, contenido y tamaño serverside
+		logger.info(principal.getName() + " está tratando de crear una nueva consulta");
+
 		if (!blobs.isEmpty()) {
 			logger.info("La consulta contenía un archivo adjunto. Guardado en la blobstore. Ahora se van a pasar los filtros");
 			
@@ -88,7 +87,7 @@ public class NewQuestionFormController {
 			logger.info("Contenido... OK");
 			
 			logger.info("Comprobando el tamaño del archivo");
-			if(blobInfo.getSize() > QUINCE_MEBIBYTES){
+			if(blobInfo.getSize() > QUINCE_MEBIBYTES_EN_BYTES){
 				logger.warn("Se ha tratado de adjuntar un archivo con tamaño superior a 15 MiB. Borrando archivo.");
 				blobstoreService.delete(blobKeys.get(0));
 				model.addAttribute("fileError", "15MB Max!");
@@ -99,7 +98,7 @@ public class NewQuestionFormController {
 			logger.info("Comprobando contenido del archivo. Numeros mágicos.");
 			BlobstoreInputStream input = new BlobstoreInputStream(blobKeys.get(0));
 			byte[] bytes = new byte[4];
-			/* Los primeros 4 bytes del pdf son -> 0x25 0x50 0x44 0x46 y por algún motivo Java los traduce a decimal. Creo un array de bytes con esos valores y simplemente los comparo.*/ 
+			/* Los primeros 4 bytes del pdf son -> 0x25 0x50 0x44 0x46 y por algún motivo BlobInputStream los traduce a decimal. Creo un array de bytes con esos valores y simplemente los comparo.*/ 
 			byte[] bytesDePdfEnDecimal = {37, 80, 68, 70};
 			input.read(bytes, 0, 4);
 			logger.debug("Los 4 primeros bytes, en decimal, del archivo son: " + Arrays.toString(bytes));
@@ -126,6 +125,12 @@ public class NewQuestionFormController {
 		solicitud.setUrlOferta(url);
 		solicitud.setTextoOferta(texto);
 		solicitud.setAsuntoOferta(asunto);
+		
+		/* Se otiene la fecha de creación */
+		LocalDateTime now = LocalDateTime.now();
+		
+		solicitud.setFechaCreacion(now.getDayOfMonth() + "-" + now.getMonthOfYear() + "-" + now.getYear());
+		
 		repo.save(solicitud);
 		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + principal.getName() + " con id: " + solicitud.getId() + " y asunto : " + asunto);
 		return "question-verification";

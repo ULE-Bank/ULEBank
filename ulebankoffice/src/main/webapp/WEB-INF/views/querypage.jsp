@@ -124,14 +124,17 @@
         <section class="white-bg pt-40">
 			<div class="container">
 			<div class="row">
-				<div class ="col-md-4">
+				<div class ="col-md-3">
 				<h4>Autor:</h4> <p>${autorConsulta}</p>
 				</div> 
 				<div class ="col-md-4">
 				<h4>Asunto:</h4> <p>${asuntoOferta}</p> 
 				</div>
-				<div class ="col-md-4">
+				<div class ="col-md-3">
 				<c:if test="${enlaceArchivo != '/offersconsulting/serve?blob-key=null' }"><h4>Archivo adjunto: </h4><a href="${enlaceArchivo}" target="_blank"> Enlace archivo </a></c:if>
+				</div>
+				<div class ="col-md-2">
+				<h4>Fecha creación:</h4> <p>${fechaCreacion}</p> 
 				</div>
 			</div>
 				

@@ -13,7 +13,8 @@
 <!-- 	<global-method-security pre-post-annotations="enabled" /> -->
 
 	<http pattern="/offersconsulting*/**" auto-config="false"
-		use-expressions="true" access-denied-page="/e/403" authentication-manager-ref="authenticationManager">
+		use-expressions="true" access-denied-page="/e/403" 
+		authentication-manager-ref="authenticationManager">
 		<intercept-url pattern="/consuLogin" access="permitAll" />
 		<intercept-url pattern="/consuLogout" access="permitAll" />
 		<intercept-url pattern="/offersconsulting" access="isAuthenticated()" />
@@ -26,14 +27,15 @@
 
 	<!-- secure the application´s urls with the specific Role -->
 	<http auto-config="false" use-expressions="true"
-		access-denied-page="/e/403" authentication-manager-ref="authenticationManager">
+		access-denied-page="/e/403" 
+		authentication-manager-ref="authenticationManager">
 		<intercept-url pattern="/o/login" access="permitAll" />
 		<intercept-url pattern="/o/logout" access="permitAll" />
 		<intercept-url pattern="/o/admin" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/o/admin/*" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/_ah/admin*" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/o" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLEADO') or hasRole('ROLE_SUPERVISOR')" />
-		<intercept-url pattern="/o/*" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLEADO') or hasRole('ROLE_SUPERVISOR')" />
+		<intercept-url pattern="/o" access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')" />
+		<intercept-url pattern="/o/*" access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')" />
 
 		<form-login login-page="/o/login" default-target-url="/o"
 			authentication-failure-url="/o/login?login_error=yfsb" />

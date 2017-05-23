@@ -34,7 +34,7 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userName){
 		
-		if(!userName.contains("@")){
+		if(!userName.contains("@") || !userName.contains(".")){
 			logger.info("Alguien ha tratado de acceder al consultor financiero sin ser un email. Nombre intentado: " + userName);
 			throw new UsernameNotFoundException("Se debe buscar un e-mail");
 		}

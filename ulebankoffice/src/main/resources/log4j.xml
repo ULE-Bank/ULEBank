@@ -9,29 +9,20 @@
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-7p %d [%t] (%F:%L) %c %x - %m%n" />
 		</layout>
-
 	</appender>
 
 	<appender name="FILE" class="org.apache.log4j.FileAppender">
-
 		<param name="file" value="log/ulebank.log" />
 		<param name="immediateFlush" value="true" />
 		<param name="append" value="true" />
-
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-7p %d [%t] %c %x - %m%n" />
 		</layout>
-
 	</appender>
-
-<!-- 	<category name="org.springframework.security"> -->
-<!-- 		<priority value="debug" /> -->
-<!-- 	</category> -->
 
 <!-- Al pasar a produccion, antes de compilar se deberá cambiar el nivel del logger. -->
 
 	<logger name="ulebankLogger">
-
 		<level value="DEBUG" />
 		<appender-ref ref="CONSOLE" />
 		<!-- Comentado porque GAE Google AppEngine no permite el acceso al sistema 

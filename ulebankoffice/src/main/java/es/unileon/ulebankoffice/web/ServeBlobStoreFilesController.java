@@ -13,17 +13,33 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
+/**
+ * Clase encargada de controlar todas las peticiones que se hagan para obtener
+ * archivos desde la blobstore.
+ * 
+ * @author Razvan Raducu
+ *
+ */
 @Controller
 @RequestMapping("/offersconsulting/serve")
-public class SHOWBLOBSTORETESTING {
-	
+public class ServeBlobStoreFilesController {
+
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-		
+
+	/**
+	 * Método encargado de obtener el parámetro blob-key e insertar la vista del
+	 * archivo en la respuesta que recibirá el cliente, o su navegador en este
+	 * caso.
+	 * 
+	 * @param req
+	 * @param res
+	 * @throws IOException
+	 */
 	@GetMapping
-	public void multiFileUpload(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		
-		 BlobKey blobKey = new BlobKey(req.getParameter("blob-key"));
-         blobstoreService.serve(blobKey, res);
+	public void serveFile(HttpServletRequest req, HttpServletResponse res) throws IOException {
+
+		BlobKey blobKey = new BlobKey(req.getParameter("blob-key"));
+		blobstoreService.serve(blobKey, res);
 	}
 
 }

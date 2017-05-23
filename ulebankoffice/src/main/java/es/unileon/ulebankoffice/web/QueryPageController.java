@@ -58,6 +58,7 @@ public class QueryPageController {
 		model.addAttribute("urlOferta", solicitud.getUrlOferta());
 		model.addAttribute("respuestaOferta", solicitud.getRespuestaOferta());
 		model.addAttribute("autorConsulta", solicitud.getEmail());
+		model.addAttribute("fechaCreacion", solicitud.getFechaCreacion());
 
 		return "querypage";
 

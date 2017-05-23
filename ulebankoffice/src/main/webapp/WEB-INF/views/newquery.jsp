@@ -299,10 +299,9 @@
 	<!--  file Filter -->
 
 	<script>
+	//A lo largo de todo el script se usan arrays porque se tiene en cuenta la posibilidad de que algún día se implemente subida multiarchivos 
+
 var file = document.getElementById('doc');
-
-//A lo largo de todo el script se usan arrays porque se tiene en cuenta la posibilidad de que algún día se implemente subida multiarchivos 
-
 file.onchange = function(e){
 	var controlFile = file.files;
 	var fileSize = controlFile[0].size;
@@ -336,7 +335,9 @@ file.onchange = function(e){
     	console.log(fileMagicNumbers);
     	 //verify the magic number
         // for PDF is 25 50 44 46 (see https://en.wikipedia.org/wiki/List_of_file_signatures)
-        if(!fileMagicNumbers.length>4 || fileMagicNumbers[0]!=0x25 || fileMagicNumbers[1]!=0x50 || fileMagicNumbers[2]!=0x44 || fileMagicNumbers[3]!=0x46) {
+        if(!fileMagicNumbers.length>4 || fileMagicNumbers[0]!=0x25 || 
+        		fileMagicNumbers[1]!=0x50 || fileMagicNumbers[2]!=0x44 || 
+        		fileMagicNumbers[3]!=0x46) {
             alert("<spring:message code='label.fileContentNotSupported' javaScriptEscape='true' />");
             $("#doc").val(""); // Reiniciar el selector de archivo
             return;
