@@ -125,6 +125,10 @@ public class DireccionDomain {
 		this.codigoPostal = codigoPostal;
 	}
 
+	public String getId() {
+		return id;
+	}
+
 	@Override
 	public String toString() {
 		return "DireccionDomain [id=" + id + ", calle=" + calle + ", localidad=" + localidad + ", comunidadAutonoma="

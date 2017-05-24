@@ -11,6 +11,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.text.ParseException;
+import java.util.Date;
 
 import org.junit.After;
 import org.junit.Rule;
@@ -60,8 +61,8 @@ public class ClienteRepositoryTest {
 	@Test
 	public void testNoRepeatedDNI() throws ParseException, DNIException {
 		try {
-			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", null, "español");
-			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", null, "español");
+			ClienteDomain cliente = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","x5526828C", "español", new Date());
+			ClienteDomain cliente2 = new ClienteDomain("razvan", "raducu", "r@r.com", "1994-02-05","x5526828C", "español", new Date());
 			clienteRepository.save(cliente);
 			clienteRepository.save(cliente2);
 		} catch (Exception e) {
@@ -82,8 +83,8 @@ public class ClienteRepositoryTest {
 	public void testFindAll() throws ParseException, DNIException {
 		
 		assertEquals(1, clienteRepository.findAll().size());
-		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", null, "español"));
-		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", null, "español"));
+		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-12-05","X7077794G", "español", new Date()));
+		clienteRepository.save(new ClienteDomain("razvan", "raducu", "r@r.com", "1994-07-05","08336515G", "español", new Date()));
 		assertEquals(3, clienteRepository.findAll().size());
 	}
 	

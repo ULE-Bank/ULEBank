@@ -215,17 +215,17 @@
                                  <th>DNI/NIE</th>
                                  <th>Nombre</th>
                                  <th>Apellidos</th>
-                                 <th>e-Mail</th>
                                  <th>Fecha nacimiento</th>
+                                 <th>Fecha alta</th>
                               </tr>
                               <c:forEach var="client" items="${clients}">
                                  <tr>
                                     <%--                               <td>${client.id}</td> --%>
-                                    <td><a href="/o/u?uin=${client.dni}">${client.dni}</a></td>
+                                    <td  style="text-align: center;"><a href="/o/u?uin=${client.dni}">${client.dni}</a></td>
                                     <td>${client.name}</td>
                                     <td>${client.lastName}</td>
-                                    <td>${client.email}</td>
-                                    <td>${client.fechaNacimiento}</td>
+                                    <td  style="text-align: center;"><fmt:formatDate value="${client.fechaNacimiento}" pattern="dd-MM-yyyy"/></td>
+                                    <td  style="text-align: center;"><fmt:formatDate value="${client.fechaDeAlta}" pattern="dd-MM-yyyy"/></td>
                                     <!--                               <td><input type="button" value="delete" -->
                                     <%--                                  onclick="window.location='person/delete?id=${document.id}'" /></td> --%>
                                  </tr>

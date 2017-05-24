@@ -12,11 +12,9 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 /**
- * @author Razvan Raducu
- *
- */
-/**
+ * La fecha de alta se establece automáticamente al momento de creación del objeto.
  * @author Razvan Raducu
  *
  */
@@ -37,8 +35,6 @@ public class ClienteDomain {
 	@Indexed(unique = true)
 	private Handler dni;
 
-	private List<DireccionDomain> direcciones;
-
 	private Documentos documentos;
 
 	/**
@@ -54,14 +50,13 @@ public class ClienteDomain {
 	 * @param email
 	 * @param fechaNacimiento
 	 * @param dni
-	 * @param direcciones
 	 * @param nacionalidad
 	 * @param documentos
 	 * @throws ParseException
 	 */
 	@PersistenceConstructor
 	public ClienteDomain(String name, String lastName, String email, Date fechaNacimiento, Handler dni,
-			List<DireccionDomain> direcciones, String nacionalidad, Documentos documentos) throws ParseException {
+			 String nacionalidad, Documentos documentos, Date fechaDeAlta) throws ParseException {
 
 		this.name = name;
 		this.lastName = lastName;
@@ -69,8 +64,9 @@ public class ClienteDomain {
 		this.fechaNacimiento = fechaNacimiento;
 		this.nacionalidad = nacionalidad;
 		this.dni = dni;
-		this.direcciones = direcciones;
 		this.documentos = documentos;
+		this.fechaDeAlta = fechaDeAlta;
+		
 	}
 
 	/**
@@ -86,14 +82,13 @@ public class ClienteDomain {
 	 * @param email
 	 * @param fechaNacimiento
 	 * @param dni
-	 * @param direcciones
 	 * @param nacionalidad
 	 * @param idDocumentos
 	 * @throws ParseException
 	 * @throws DNIException
 	 */
 	public ClienteDomain(String name, String lastName, String email, String fechaNacimiento, String dni,
-			List<DireccionDomain> direcciones, String nacionalidad) throws ParseException, DNIException {
+			 String nacionalidad, Date fechaDeAlta) throws ParseException, DNIException {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date userDate = df.parse(fechaNacimiento);
 
@@ -102,9 +97,9 @@ public class ClienteDomain {
 		this.email = email;
 		this.fechaNacimiento = userDate;
 		setDni(dni);
-		this.direcciones = direcciones;
 		this.nacionalidad = nacionalidad;
 		this.documentos = new Documentos(new ArrayList<String>());
+		this.fechaDeAlta = fechaDeAlta;
 	}
 
 	public String getName() {
@@ -145,20 +140,6 @@ public class ClienteDomain {
 
 	public void setDni(Handler dni) throws DNIException {
 		this.dni = dni;
-	}
-
-	public List<DireccionDomain> getDirecciones() {
-		return direcciones;
-	}
-
-	/**
-	 * Método que añade una dirección al atributo de clase lista de direcciones.
-	 * List<DireccionDomain>
-	 * 
-	 * @param direccion
-	 */
-	public void addDireccion(DireccionDomain direccion) {
-		this.direcciones.add(direccion);
 	}
 
 	/**
@@ -217,7 +198,11 @@ public class ClienteDomain {
 	public String toString() {
 		return "ClienteDomain [name=" + name + ", lastname=" + lastName + ", email=" + email + ", nacionalidad="
 				+ nacionalidad + ", fechaNacimiento=" + fechaNacimiento + ", fechaDeAlta=" + fechaDeAlta + ", dni="
-				+ dni + ", direcciones=" + direcciones + ", documentos=" + documentos + "]";
+				+ dni + ", documentos=" + documentos + "]";
+	}
+
+	public String getId() {
+		return id;
 	}
 
 }

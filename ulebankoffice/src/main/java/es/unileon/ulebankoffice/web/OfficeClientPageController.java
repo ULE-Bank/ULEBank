@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.unileon.ulebankoffice.domain.ClienteDomain;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
+import es.unileon.ulebankoffice.repository.DireccionRepository;
 
 /**
  * @author Razvi Razvan Raducu
@@ -22,16 +23,20 @@ import es.unileon.ulebankoffice.repository.ClienteRepository;
 public class OfficeClientPageController {
 	
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private ClienteRepository clienteRepo;
+	
+	@Autowired 
+	private DireccionRepository direccionesRepo;
 	
 	@RequestMapping(method = RequestMethod.GET, params = {"uin"})
 	public String showClientData(ModelMap model, @RequestParam("uin") String dni){
 		
-		ClienteDomain clientes = clienteRepository.findByDni(dni);
+		ClienteDomain clienteEncontrado = clienteRepo.findByDni(dni);
 		
 		
 		
-		model.addAttribute("cliente", clientes);
+		model.addAttribute("cliente", clienteEncontrado);
+		model.addAttribute("direcciones", direccionesRepo.findByDni(clienteEncontrado.getDni().toString()));
 		
 		return "officeclientpage";
 	}

@@ -549,7 +549,7 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	}
 
 	public void setNumeroDeCuenta(String numeroDeCuenta) {
-		this.numeroDeCuenta = numeroDeCuenta;
+		this.numeroDeCuenta = "ES001234123401" + numeroDeCuenta;
 	}
 	
 	

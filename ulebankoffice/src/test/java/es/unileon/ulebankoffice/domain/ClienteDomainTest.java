@@ -7,6 +7,7 @@ import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -48,10 +49,8 @@ public class ClienteDomainTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		direcciones = new ArrayList<>();
-		direcciones.add(new DireccionDomain("calle", "localidad", "comunidad", "numero", new DNIHandler("X5526828C"), 24195));
-				
-		cliente = new ClienteDomain("Razvan", "Raducu", "rraduc00@estudiantes.unileon.es", "1994-12-05", "x5526828C", direcciones, "español");
+			
+		cliente = new ClienteDomain("Razvan", "Raducu", "rraduc00@estudiantes.unileon.es", "1994-12-05", "x5526828C",  "español", new Date());
 	}
 	
 	@After
@@ -119,19 +118,6 @@ public class ClienteDomainTest {
 		cliente.setDni(new DNIHandler("61380818M"));
 		assertThat(cliente.getDni().toString(), is("61380818M"));
 
-	}
-
-	@Test
-	public void testGetDirecciones() {
-		assertThat(cliente.getDirecciones(), hasSize(1));
-		assertThat(cliente.getDirecciones().get(0).getDni().toString(), is("X5526828C"));
-	}
-
-	@Test
-	public void testAddDireccion() throws DNIException {
-		assertThat(cliente.getDirecciones(), hasSize(1));
-		cliente.addDireccion(new DireccionDomain("X5526828C", null, null, null, 0, null));
-		assertThat(cliente.getDirecciones(), hasSize(2));
 	}
 
 	@Test

@@ -7,21 +7,29 @@
    </head>
    <body>
    
-   <c:forEach var="cliente" items="${cliente}">
+   
   
    
    ${cliente.dni}
    
    ${cliente.name}
    
-   ${cliente.lastname}
+   ${cliente.lastName}
    
    ${cliente.email}
    
    ${cliente.fechaNacimiento}
    
-   ${cliente.direccion}
-   </c:forEach>
+   ${cliente.fechaDeAlta}
+   
+  <c:forEach var="direccion" items="${direcciones}"> 
+  		${direccion.calle}
+  		${direccion.localidad}
+  		${direccion.comunidadAutonoma}
+  		${direccion.numero}
+  		${direccion.codigoPostal}
+  </c:forEach>
+   
    
    
       </body>
