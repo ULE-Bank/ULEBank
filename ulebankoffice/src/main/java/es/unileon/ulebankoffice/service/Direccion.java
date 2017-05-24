@@ -1,9 +1,9 @@
 package es.unileon.ulebankoffice.service;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * @author Razvan Raducu
@@ -11,23 +11,21 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class Direccion {
 
-	@NotEmpty @NotBlank
+	@NotBlank
 	private String calle;
 	
-	@NotEmpty
+	@NotBlank
 	private String numero;
 	
-	@NotEmpty @Min(0)
+	/* NotEmpry es sólo para string, collections, maps o arrays */
+	@NotNull @Min(0)
 	private int codigoPostal;
 	
-	@NotEmpty @NotBlank
+	@NotBlank
 	private String localidad;
 	
-	@NotEmpty @NotBlank
+	@NotBlank
 	private String comunidadAutonoma;
-	
-	@NotEmpty @NotBlank
-	private String dni;
 	
 	public String getCalle() {
 		return calle;
@@ -43,14 +41,6 @@ public class Direccion {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
 	}
 
 	public int getCodigoPostal() {
@@ -80,7 +70,7 @@ public class Direccion {
 	@Override
 	public String toString() {
 		return "Direccion [calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal
-				+ ", localidad=" + localidad + ", comunidadAutonoma=" + comunidadAutonoma + ", dni=" + dni + "]";
+				+ ", localidad=" + localidad + ", comunidadAutonoma=" + comunidadAutonoma + "]";
 	}	
 	
 }

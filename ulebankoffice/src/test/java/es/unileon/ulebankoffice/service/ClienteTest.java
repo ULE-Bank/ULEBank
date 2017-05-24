@@ -4,7 +4,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -44,7 +43,7 @@ public class ClienteTest {
 	@Test
 	public void testLastname() {
 		assertNull(cliente.getLastName());
-		cliente.setLastname("LastNameCliente");
+		cliente.setLastName("LastNameCliente");
 		assertThat(cliente.getLastName(), is("LastNameCliente"));
 	}
 
@@ -63,15 +62,6 @@ public class ClienteTest {
 	}
 
 	@Test
-	public void testDireccion() {
-		assertNull(cliente.getDireccion());
-		cliente.setDireccion(new ArrayList<Direccion>());
-		assertThat(cliente.getDireccion().size(), is(0));
-		cliente.addDireccion(new Direccion());
-		assertThat(cliente.getDireccion().size(), is(1));
-	}
-
-	@Test
 	public void testDni() {
 		assertNull(cliente.getDni());
 		cliente.setDni("x5526828c");
@@ -81,7 +71,7 @@ public class ClienteTest {
 	@Test
 	public void testToString() {
 		assertThat(cliente.toString(),
-				is("Cliente [name=null, lastname=null, email=null, fechaNacimiento=null, dni=null, direccion=null]"));
+				is("Cliente [name=null, lastname=null, email=null, fechaNacimiento=null, dni=null]"));
 	}
 	
 	@Test
@@ -93,11 +83,10 @@ public class ClienteTest {
 
 	@Test
 	public void testValidator() {
-		cliente.setDireccion(new ArrayList<Direccion>());
 		cliente.setDni("x5526828C");
 		cliente.setEmail("email");
 		cliente.setFechaNacimiento("fecha");
-		cliente.setLastname("lastname");
+		cliente.setLastName("lastname");
 		cliente.setName("name");
 		cliente.setNacionalidad("español");
 		
@@ -145,17 +134,17 @@ public class ClienteTest {
 		validate();
 		assertThat(constraintViolations.size(), is(0));
 
-		cliente.setLastname("");
+		cliente.setLastName("");
 		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("lastName"));
 	
-		cliente.setLastname("    ");
+		cliente.setLastName("    ");
 		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("lastName"));
 		
-		cliente.setLastname("lastNAme");
+		cliente.setLastName("lastNAme");
 		validate();
 		assertThat(constraintViolations.size(), is(0));
 

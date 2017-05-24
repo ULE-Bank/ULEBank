@@ -1,7 +1,5 @@
 package es.unileon.ulebankoffice.service;
 
-import java.util.List;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -27,8 +25,6 @@ public class Cliente {
 	@NotBlank
 	private String nacionalidad;
 	
-	private List<Direccion> direccion;
-
 	public String getName() {
 		return name;
 	}
@@ -41,7 +37,7 @@ public class Cliente {
 		return lastName;
 	}
 
-	public void setLastname(String lastname) {
+	public void setLastName(String lastname) {
 		this.lastName = lastname;
 	}
 
@@ -61,23 +57,6 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public List<Direccion> getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(List<Direccion> direccion) {
-		this.direccion = direccion;
-	}
-
-	/**
-	 * Añadre una dirección a la lista de direcciones.
-	 * 
-	 * @param direccion. Instancia POJO
-	 */
-	public void addDireccion(Direccion direccion) {
-		this.direccion.add(direccion);
-	}
-
 	public String getDni() {
 		return dni;
 	}
@@ -86,12 +65,10 @@ public class Cliente {
 		this.dni = dni;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
 		return "Cliente [name=" + name + ", lastname=" + lastName + ", email=" + email
-				+ ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni + ", direccion=" + direccion + "]";
+				+ ", fechaNacimiento=" + fechaNacimiento + ", dni=" + dni + "]";
 	}
 
 	public String getNacionalidad() {

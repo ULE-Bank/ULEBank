@@ -60,9 +60,9 @@
          
          
          
-        
          
-     
+         
+         
       </script>
    </head>
    <body>
@@ -118,7 +118,9 @@
                         <fieldset style="border: 1px solid #ff0000">
                            <legend>Controles administrador</legend>
                            <h3>Empleados de la sucursal</h3>
-                           <c:if test="${param.errorRegistroEmpleado != null}"> <h2 style="color:red">${param.errorRegistroEmpleado}</h2></c:if>
+                           <c:if test="${param.errorRegistroEmpleado != null}">
+                              <h2 style="color:red">${param.errorRegistroEmpleado}</h2>
+                           </c:if>
                            <div style="height:150px; overflow:auto;">
                               <table border="1"  class="col-md-12" >
                                  <tr style="color:white;background-color:rgb(0,169,218);">
@@ -130,61 +132,60 @@
                                     <tr>
                                        <td>${employee.userName}</td>
                                        <td>${employee.role}</td>
-                                       <c:if test="${employee.role != 'admin' }"><td><a href="/o/admin/d?ein=${employee.userName}">Eliminar</a></td></c:if>
+                                       <c:if test="${employee.role != 'admin' }">
+                                          <td><a href="/o/admin/d?ein=${employee.userName}">Eliminar</a></td>
+                                       </c:if>
                                     </tr>
                                  </c:forEach>
                               </table>
                            </div>
                            <div class="row col-md-12">
-                        <a class="button mt-20"  id="mostrarFomrularioNuevoEmpleado"> <span> Crear empleado </span> <i class ="fa fa-send"></i></a>
-                        <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
-                     </div>
-                     <div class="row col-md-12">
-                           <form:form style="display: none;" id="formularioNuevoEmpleado" method="post" action="/o/admin/submitEmployee" modelAttribute="nuevoEmpleado">
-                              <div id="register-form" class="register-form">
-                                 <div class="row">
-                                    <div class="section-field col-md-12">
-                                       <div class="row col-md-12">
-                                          <h2>Datos nuevo empleado:</h2>
-                                       </div>
-                                       <div class="row">
-                                          <div class="col-md-4">
-                                             Usuario 
-                                             <div class="field-widget">
-                                                <i class="fa fa-user"></i> 
-                                                <form:input path="userName" type="text" required="required"/>
-                                                <form:errors style="color: red;" path="userName"></form:errors>
+                              <a class="button mt-20"  id="mostrarFomrularioNuevoEmpleado"> <span> Crear empleado </span> <i class ="fa fa-send"></i></a>
+                              <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
+                           </div>
+                           <div class="row col-md-12">
+                              <form:form style="display: none;" id="formularioNuevoEmpleado" method="post" action="/o/admin/submitEmployee" modelAttribute="nuevoEmpleado">
+                                 <div id="register-form" class="register-form">
+                                    <div class="row">
+                                       <div class="section-field col-md-12">
+                                          <div class="row col-md-12">
+                                             <h2>Datos nuevo empleado:</h2>
+                                          </div>
+                                          <div class="row">
+                                             <div class="col-md-4">
+                                                Usuario 
+                                                <div class="field-widget">
+                                                   <i class="fa fa-user"></i> 
+                                                   <form:input path="userName" type="text" required="required"/>
+                                                   <form:errors style="color: red;" path="userName"></form:errors>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-4">
+                                                Contraseña: 
+                                                <div class="field-widget">
+                                                   <i class="fa fa-unlock-alt"></i> 
+                                                   <form:input path="password" class="" type="password" required="required"/>
+                                                   <form:errors style="color: red;" path="password"></form:errors>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-4">
+                                                Privilegios: 
+                                                <div class="field-widget">
+                                                   <form:select path="role" id="rol">
+                                                      <form:option value="empleado" label="Empleado" />
+                                                      <form:option value ="supervisor" label="Supervisor" />
+                                                   </form:select>
+                                                </div>
                                              </div>
                                           </div>
-                                          <div class="col-md-4">
-                                             Contraseña: 
-                                             <div class="field-widget">
-                                                <i class="fa fa-unlock-alt"></i> 
-                                                <form:input path="password" class="" type="password" required="required"/>
-                                                <form:errors style="color: red;" path="password"></form:errors>
-                                             </div>
-                                          </div>
-                                     
-                                          <div class="col-md-4">
-                                             Privilegios: 
-                                             <div class="field-widget">
-                                                <form:select path="role" id="rol">
-                                                   <form:option value="empleado" label="Empleado" />
-                                                   <form:option value ="supervisor" label="Supervisor" />
-                                                </form:select>
-                                             </div>
-                                          </div>
-                                          </div>
-                                          
                                           <div class="row col-md-12">
                                              <a class="button mt-20"  onclick="darDeAltaEmployee()"> <span> Dar de alta empleado </span> <i class ="fa fa-send"></i></a>
                                              <input id="submit_handle_employee" type="submit" style="display: none" />
                                           </div>
-                                       
+                                       </div>
                                     </div>
                                  </div>
-                              </div>
-                           </form:form>
+                              </form:form>
                            </div>
                         </fieldset>
                      </sec:authorize>
@@ -237,7 +238,6 @@
                         <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
                         <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
                      </div>
-                     
                      <form:form style="display: none;" id="formularioNuevoCliente" method="post" modelAttribute="nuevoCliente">
                         <div id="register-form" class="register-form">
                            <div class="row">
@@ -250,16 +250,16 @@
                                        DNI: 
                                        <div class="field-widget">
                                           <i class="fa fa-home"></i> 
-                                          <form:input path="dni" type="text" required="required"/>
-                                          <form:errors style="color: red;" path="dni"></form:errors>
+                                          <form:input path="cliente.dni" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="cliente.dni"></form:errors>
                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                        Nombre: 
                                        <div class="field-widget">
                                           <i class="fa fa-home"></i> 
-                                          <form:input path="name" class="" type="text" required="required"/>
-                                          <form:errors style="color: red;" path="name"></form:errors>
+                                          <form:input path="cliente.name" class="" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="cliente.name"></form:errors>
                                        </div>
                                     </div>
                                  </div>
@@ -268,37 +268,159 @@
                                        Apellidos: 
                                        <div class="field-widget">
                                           <i class="fa fa-home"></i> 
-                                          <form:input path="lastName" class="" type="text" required="required" name="u" />
-                                          <form:errors style="color: red;" path="lastName"></form:errors>
+                                          <form:input path="cliente.lastName" class="" type="text" required="required" name="u" />
+                                          <form:errors style="color: red;" path="cliente.lastName"></form:errors>
                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                        Email: 
                                        <div class="field-widget">
                                           <i class="fa fa-home"></i> 
-                                          <form:input path="email" class="" type="email" required="required" name="u" />
-                                          <form:errors style="color: red;" path="email"></form:errors>
+                                          <form:input path="cliente.email" class="" type="email" required="required" name="u" />
+                                          <form:errors style="color: red;" path="cliente.email"></form:errors>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="row">
-                                  <div class="col-md-6">
+                                    <div class="col-md-6">
                                        Nacionalidad: 
                                        <div class="field-widget">
                                           <i class="fa fa-home"></i> 
-                                          <form:input path="nacionalidad" class="" type="text" required="required" name="u" />
-                                          <form:errors style="color: red;" path="nacionalidad"></form:errors>
+                                          <form:input path="cliente.nacionalidad" class="" type="text" required="required" name="u" />
+                                          <form:errors style="color: red;" path="cliente.nacionalidad"></form:errors>
                                        </div>
                                     </div>
-                                 
                                     <div class="col-md-6">
                                        Fecha de nacimiento: 
                                        <div class="field-widget">
                                           <i class="fa fa-home"></i>  
-                                          <form:input path="fechaNacimiento" id="datePicker" type="date" 
+                                          <form:input path="cliente.fechaNacimiento" id="datePicker" type="date" 
                                              required="required" name="u" />
-                                          <form:errors style="color: red;" path="fechaNacimiento"></form:errors>
+                                          <form:errors style="color: red;" path="cliente.fechaNacimiento"></form:errors>
                                        </div>
+                                    </div>
+                                 </div>
+                                 <div class="row col-md-12">
+                                    <h2>Dirección:</h2>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       Calle: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="direccion.calle" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="direccion.calle"></form:errors>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                       Numero: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="direccion.numero" class="" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="direccion.numero"></form:errors>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       Codigo postal: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="direccion.codigoPostal" class="" type="text" required="required"/>
+                                          <form:errors style="color: red;" path="direccion.codigoPostal"></form:errors>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                       Localidad: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i> 
+                                          <form:input path="direccion.localidad" class="" type="text" required="required" name="u" />
+                                          <form:errors style="color: red;" path="direccion.localidad"></form:errors>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       Comunidad Autónoma: 
+                                       <div class="field-widget">
+                                          <i class="fa fa-home"></i>  
+                                          <form:input path="direccion.comunidadAutonoma" type="text" 
+                                             required="required" name="u" />
+                                          <form:errors style="color: red;" path="direccion.comunidadAutonoma"></form:errors>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row col-md-12">
+                                    <h2>Datos cuenta corriente:</h2>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-2">
+                                       Interés acreedor:
+                                       <form:select path="cuentaCorriente.interesesAcreedores" id="seleccionPeriodo">
+                                          <form:option value="0" label="0%" />
+                                          <form:option value="1" label="1%" />
+                                          <form:option value="2" label="2%" />
+                                       </form:select>
+                                       <form:errors style="color: red;" path="cuentaCorriente.interesesAcreedores"></form:errors>
+                                    </div>
+                                    <div class="col-md-4">
+                                       Interés deudor saldos negativos:
+                                       <form:select path="cuentaCorriente.interesDeudorSobreSaldosNegativos" id="seleccionPeriodo">
+                                          <form:option value="20" label="20%" />
+                                          <form:option value="25" label="25%" />
+                                       </form:select>
+                                       <form:errors style="color: red;" path="cuentaCorriente.interesDeudorSobreSaldosNegativos"></form:errors>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div class="col-md-9">
+                                          Comisión por descubierto:
+                                          <form:select path="cuentaCorriente.comisionDescubierto" id="seleccionPeriodo">
+                                             <form:option value="1" label="1%" />
+                                             <form:option value="3" label="3%" />
+                                          </form:select>
+                                          <form:errors style="color: red;" path="cuentaCorriente.comisionDescubierto"></form:errors>
+                                       </div>
+                                       <div class="col-md-3">
+                                          Mínimo
+                                          <form:select path="cuentaCorriente.minimoComisionDescubierto" id="seleccionPeriodo">
+                                             <form:option value="30" label="30€" />
+                                             <form:option value="60" label="60€" />
+                                          </form:select>
+                                          <form:errors style="color: red;" path="cuentaCorriente.minimoComisionDescubierto"></form:errors>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                       Días anuales:
+                                       <form:select path="cuentaCorriente.diasAnuales" id="seleccionPeriodo">
+                                          <form:option value="360" label="360" />
+                                          <form:option value="365" label="365" />
+                                       </form:select>
+                                       <form:errors style="color: red;" path="cuentaCorriente.diasAnuales"></form:errors>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-md-3">
+                                       Periodo de liqudiación:
+                                       <form:select path="cuentaCorriente.periodoLiquidacion" id="seleccionPeriodo">
+                                          <form:option value="1" label="Mensual" />
+                                          <form:option value="3" label="Trimestral" />
+                                          <form:option value="6" label="Semestral" />
+                                          <form:option value="12" label="Anual" />
+                                       </form:select>
+                                       <form:errors style="color: red;" path="cuentaCorriente.periodoLiquidacion"></form:errors>
+                                    </div>
+                                    <div class="col-md-3">
+                                       Retención de rendimientos:
+                                       <form:input path="cuentaCorriente.retencionRendimientosCapital" type="text" 
+                                          required="required" name="u" />
+                                       <form:errors style="color: red;" path="cuentaCorriente.retencionRendimientosCapital"></form:errors>
+                                    </div>
+                                    <div class="col-md-3">
+                                       Comisión mantenimiento:
+                                       <form:select path="cuentaCorriente.comisionMantenimiento" id="seleccionPeriodo">
+                                          <form:option value="0" label="0€" />
+                                          <form:option value="10" label="10€" />
+                                          <form:option value="25" label="25€" />
+                                       </form:select>
+                                       <form:errors style="color: red;" path="cuentaCorriente.comisionMantenimiento"></form:errors>
                                     </div>
                                  </div>
                                  <div class="row col-md-12">
@@ -319,37 +441,36 @@
          <!--=================================
             Footer-->
       </div>
-      
-      <script>
-    //jQuery para mostrar u ocultar el formulario de creación de nuevo cliente
-      $("#mostrarFomrularioNuevoCliente").click(function(){
-       form = $("#formularioNuevoCliente");
-       if (form.css('display') == 'none') {
-      	 form.show(1000);
-      } else {
-      form.hide(1000);
-      }
-      });
-      
-      function darDeAltaClient(){
-          $("#submit_handle_client").click();
-         }
-      
-      function darDeAltaEmployee(){
-       $("#submit_handle_employee").click();
-      }
-      
-      //jQuery para mostrar u ocultar el formulario de creación de nuevo empleado
-      $("#mostrarFomrularioNuevoEmpleado").click(function(){
-       form = $("#formularioNuevoEmpleado");
-       if (form.css('display') == 'none') {
-      	 form.show(1000);
-      } else {
-      form.hide(1000);
-      }
-      });
-      </script>
-      <script src="/resources/services/js/tooltip-script.js"></script>
+	<script>
+		//jQuery para mostrar u ocultar el formulario de creación de nuevo cliente
+		$("#mostrarFomrularioNuevoCliente").click(function() {
+			form = $("#formularioNuevoCliente");
+			if (form.css('display') == 'none') {
+				form.show(1000);
+			} else {
+				form.hide(1000);
+			}
+		});
+
+		function darDeAltaClient() {
+			$("#submit_handle_client").click();
+		}
+
+		function darDeAltaEmployee() {
+			$("#submit_handle_employee").click();
+		}
+
+		//jQuery para mostrar u ocultar el formulario de creación de nuevo empleado
+		$("#mostrarFomrularioNuevoEmpleado").click(function() {
+			form = $("#formularioNuevoEmpleado");
+			if (form.css('display') == 'none') {
+				form.show(1000);
+			} else {
+				form.hide(1000);
+			}
+		});
+	</script>
+	<script src="/resources/services/js/tooltip-script.js"></script>
       <!-- bootstrap -->
       <script type="text/javascript"
          src="/resources/template/js/bootstrap.min.js"></script>

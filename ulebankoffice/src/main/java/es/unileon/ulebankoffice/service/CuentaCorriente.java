@@ -1,9 +1,6 @@
 package es.unileon.ulebankoffice.service;
 
-import java.util.List;
-
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Razvan Raducu
@@ -11,70 +8,87 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class CuentaCorriente {
 	
-	@NotEmpty
-	private double interes;
+	@NotNull
+	private Double interesesAcreedores;
+	@NotNull
+	private Double interesDeudorSobreSaldosNegativos;
+	@NotNull
+	private Double retencionRendimientosCapital;
+	@NotNull
+	private Double comisionMantenimiento;
+	@NotNull
+	private Double comisionDescubierto;
+	@NotNull
+	private Double minimoComisionDescubierto;
+	@NotNull
+	private int periodoLiquidacion;
+	@NotNull
+	private int diasAnuales;
 	
-	@NotBlank
-	private String dni;
 	
-	@NotEmpty
-	private double saldo; 
 	
-	@NotEmpty
-	private double tae;
-	
-	@NotEmpty
-	private double comision;
-	
-	//Nótese el uso de MovimientoCuentaCorriente y no domain pues también hay que validar los datos que componen el movimiento
-	private List<MovimientoCuentaCorriente> movimientos;
-
-	public double getInteres() {
-		return interes;
+	public Double getInteresesAcreedores() {
+		return interesesAcreedores;
 	}
 
-	public void setInteres(double interes) {
-		this.interes = interes;
+	public void setInteresesAcreedores(Double interesesAcreedores) {
+		this.interesesAcreedores = interesesAcreedores;
 	}
 
-	public String getDni() {
-		return dni;
+	public Double getInteresDeudorSobreSaldosNegativos() {
+		return interesDeudorSobreSaldosNegativos;
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void setInteresDeudorSobreSaldosNegativos(Double interesDeudorSobreSaldosNegativos) {
+		this.interesDeudorSobreSaldosNegativos = interesDeudorSobreSaldosNegativos;
 	}
 
-	public double getSaldo() {
-		return saldo;
+	public Double getRetencionRendimientosCapital() {
+		return retencionRendimientosCapital;
 	}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+	public void setRetencionRendimientosCapital(Double retencionRendimientosCapital) {
+		this.retencionRendimientosCapital = retencionRendimientosCapital;
 	}
 
-	public double getTae() {
-		return tae;
+	public Double getComisionMantenimiento() {
+		return comisionMantenimiento;
 	}
 
-	public void setTae(double tae) {
-		this.tae = tae;
+	public void setComisionMantenimiento(Double comisionMantenimiento) {
+		this.comisionMantenimiento = comisionMantenimiento;
 	}
 
-	public double getComision() {
-		return comision;
+	public Double getComisionDescubierto() {
+		return comisionDescubierto;
 	}
 
-	public void setComision(double comision) {
-		this.comision = comision;
+	public void setComisionDescubierto(Double comisionDescubierto) {
+		this.comisionDescubierto = comisionDescubierto;
 	}
 
-	public List<MovimientoCuentaCorriente> getMovimientos() {
-		return movimientos;
+	public Double getMinimoComisionDescubierto() {
+		return minimoComisionDescubierto;
 	}
 
-	public void setMovimientos(List<MovimientoCuentaCorriente> movimientos) {
-		this.movimientos = movimientos;
+	public void setMinimoComisionDescubierto(Double minimoComisionDescubierto) {
+		this.minimoComisionDescubierto = minimoComisionDescubierto;
+	}
+
+	public int getPeriodoLiquidacion() {
+		return periodoLiquidacion;
+	}
+
+	public void setPeriodoLiquidacion(int periodoLiquidacion) {
+		this.periodoLiquidacion = periodoLiquidacion;
+	}
+
+	public int getDiasAnuales() {
+		return diasAnuales;
+	}
+
+	public void setDiasAnuales(int diasAnuales) {
+		this.diasAnuales = diasAnuales;
 	}
 	
 	

@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,11 +28,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.unileon.ulebankoffice.domain.ClienteDomain;
+import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
 import es.unileon.ulebankoffice.domain.DireccionDomain;
 import es.unileon.ulebankoffice.domain.UleBankEmployeeDomain;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.repository.UleBankEmployeeRepository;
 import es.unileon.ulebankoffice.service.Cliente;
+import es.unileon.ulebankoffice.service.ClienteCuentaCorrienteDireccion;
+import es.unileon.ulebankoffice.service.Direccion;
 import es.unileon.ulebankoffice.service.UleBankEmployee;
 
 /**
@@ -44,6 +48,9 @@ public class OfficeIndexController {
 
 	@Autowired
 	private ClienteRepository repo;
+	
+	@Autowired
+	private Validator validator;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
@@ -61,8 +68,8 @@ public class OfficeIndexController {
 	}
 	
 	@ModelAttribute("nuevoCliente")
-	public Cliente addClient(){
-		return new Cliente();
+	public ClienteCuentaCorrienteDireccion addClient(){
+		return new ClienteCuentaCorrienteDireccion();
 	}
 	
 	@ModelAttribute(CLIENTSVIEWATTRIBUTE)
@@ -124,24 +131,35 @@ public class OfficeIndexController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String saveNewClient(@ModelAttribute("nuevoCliente") @Valid Cliente nuevoCliente, BindingResult clienteResult,
+	public String saveNewClient(@ModelAttribute("nuevoCliente") @Valid ClienteCuentaCorrienteDireccion nuevoCliente, BindingResult clienteResult,
 			BindingResult empleadoResult,
 			HttpServletRequest req, HttpServletResponse resp, ModelMap model, Principal principal) {
 	
+		Cliente clientePojo = nuevoCliente.getCliente();
+		Direccion direccionPojo = nuevoCliente.getDireccion();
+				
 		ClienteDomain cliente;
-		logger.debug("LA FECHA DEL CLIENTE LLEGA COMO: ->> " + nuevoCliente.getFechaNacimiento());
+		DireccionDomain direccion;
+		CuentaCorrienteDomain cuentaCorriente;
+		
+		
+		
+		logger.debug("LA FECHA DEL CLIENTE LLEGA COMO: ->> " + clientePojo.getFechaNacimiento());
 		if (clienteResult.hasErrors()) {
+			logger.warn(principal.getName() + " " + req.getRemoteAddr() +  " ha intentando crear un nuevo cliente y ha habido errores.");
+			logger.debug("HA HABIDO ERRORES ->" + clienteResult.getAllErrors().toString());
+			
 			return "officeindex";
 		}
 	
 		try {
-			cliente = new ClienteDomain(nuevoCliente.getName(), nuevoCliente.getLastName(), nuevoCliente.getEmail(),
-					nuevoCliente.getFechaNacimiento(), nuevoCliente.getDni(), new ArrayList<DireccionDomain>(),
-					nuevoCliente.getNacionalidad());
+			cliente = new ClienteDomain(clientePojo.getName(), clientePojo.getLastName(), clientePojo.getEmail(),
+					clientePojo.getFechaNacimiento(), clientePojo.getDni(), new ArrayList<DireccionDomain>(),
+					clientePojo.getNacionalidad());
 		} catch (Exception e) {
-			clienteResult.addError(new FieldError("nuevoCliente", "dni", e.getMessage()));
-			logger.error(principal.getName() + " ha intentado crear un cliente y se ha producido un error: "
-					+ e.getMessage() + " ||\n " + e + "||" + e.getLocalizedMessage() + e.getCause());
+			clienteResult.addError(new FieldError("nuevoCliente", "cliente.dni", e.getMessage()));
+			logger.error(principal.getName() + " " + req.getRemoteAddr() + " ha intentado crear un cliente y se ha producido un error: "
+					+ e.getMessage() + " ||\n " + e + "||" + e.getLocalizedMessage());
 			return "officeindex";
 		}
 
@@ -150,12 +168,12 @@ public class OfficeIndexController {
 			repo.save(cliente);
 		} catch (Exception e) {
 			model.addAttribute(CLIENTERROR, "Ya existe un cliente con ese DNI/NIE");
-			logger.error(principal.getName() + " ha intentado crear un cliente que ya existe ("
+			logger.error(principal.getName() + " " + req.getRemoteAddr() + " ha intentado crear un cliente que ya existe ("
 					+ cliente.getDni().toString() + ")." + e);
 			return "officeindex";
 		}
 
-		logger.info("Se ha creado el nuevo cliente con identificación: " + nuevoCliente.getDni());
+		logger.info("Se ha creado el nuevo cliente con identificación: " + clientePojo.getDni());
 		return "newClientVerification";
 
 	}
@@ -192,7 +210,12 @@ public class OfficeIndexController {
 	
 	@RequestMapping(value = "/admin/d", method = RequestMethod.GET, params = "ein")
 	public String deleteEmployee(ModelMap model, @RequestParam("ein") String employeeUserName, Principal principal, HttpServletRequest req) {
-
+		
+		if("cjrulebank".equalsIgnoreCase(employeeUserName)){
+			logger.fatal(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr() +  " ha intentado borrar al usuario administrador.");
+			return "redirect:/o";
+		}
+		
 		UleBankEmployeeDomain empleado = employeesRepo.findByUserName(employeeUserName);
 
 		/*

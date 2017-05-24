@@ -40,6 +40,7 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	private Date fechaFinalizacion;
 	private int diasAnuales;
 	private int periodoLiquidacion;
+	private String numeroDeCuenta;
 
 	private Double saldo;
 	private String estado;
@@ -543,4 +544,14 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 		this.periodoLiquidacion = periodoLiquidacion;
 	}
 
+	public String getNumeroDeCuenta() {
+		return numeroDeCuenta;
+	}
+
+	public void setNumeroDeCuenta(String numeroDeCuenta) {
+		this.numeroDeCuenta = numeroDeCuenta;
+	}
+	
+	
+	
 }

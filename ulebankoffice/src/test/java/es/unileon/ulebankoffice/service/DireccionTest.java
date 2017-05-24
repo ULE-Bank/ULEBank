@@ -33,13 +33,6 @@ public class DireccionTest {
 	}
 
 	@Test
-	public void testDni() {
-		assertNull(direccion.getDni());
-		direccion.setDni("dni");
-		assertThat(direccion.getDni(), is("dni"));
-	}
-
-	@Test
 	public void testCodigoPostal() {
 		assertNotNull(direccion.getCodigoPostal());
 		assertThat(direccion.getCodigoPostal(), is(0));
@@ -65,7 +58,7 @@ public class DireccionTest {
 
 	@Test
 	public void testToString() {
-		assertThat(direccion.toString(), is("Direccion [calle=null, numero=null, codigoPostal=0, localidad=null, comunidadAutonoma=null, dni=null]"));
+		assertThat(direccion.toString(), is("Direccion [calle=null, numero=null, codigoPostal=0, localidad=null, comunidadAutonoma=null]"));
 	}
 
 }
