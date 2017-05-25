@@ -35,7 +35,7 @@
 		<intercept-url pattern="/o/admin/*" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/_ah/admin*" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/o" access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')" />
-		<intercept-url pattern="/o/*" access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')" />
+		<intercept-url pattern="/o/**" access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')" />
 
 		<form-login login-page="/o/login" default-target-url="/o"
 			authentication-failure-url="/o/login?login_error=yfsb" />

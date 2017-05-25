@@ -16,6 +16,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -40,6 +41,7 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	private Date fechaFinalizacion;
 	private int diasAnuales;
 	private int periodoLiquidacion;
+	
 	private String numeroDeCuenta;
 
 	private Double saldo;

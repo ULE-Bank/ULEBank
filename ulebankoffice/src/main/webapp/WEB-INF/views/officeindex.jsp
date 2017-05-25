@@ -92,7 +92,7 @@
                   </h1>
                   <ul class="page-breadcrumb">
                      <li>
-                        <a href="./">
+                        <a href="/">
                            <i class="fa fa-home"></i> 
                            <spring:message
                               code="label.sitehome" />
@@ -301,7 +301,7 @@
                                     </div>
                                  </div>
                                  <div class="row col-md-12">
-                                    <h2>Dirección:</h2>
+                                    <h2>Nueva dirección:</h2>
                                  </div>
                                  <div class="row">
                                     <div class="col-md-6">
