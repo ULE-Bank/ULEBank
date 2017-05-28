@@ -3,6 +3,8 @@
  */
 package es.unileon.ulebankoffice.repository;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +19,6 @@ public interface UleBankEmployeeRepository extends MongoRepository<UleBankEmploy
 	
 	public UleBankEmployeeDomain findByUserName(String username);
 	
-	public UleBankEmployeeDomain findByRole(String role);
+	public List<UleBankEmployeeDomain> findByRole(String role);
 	
 }
