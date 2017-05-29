@@ -41,14 +41,6 @@ public class AdvisorUserDomainTests {
 		assertThat(user.getResultadoTest(), is(10.3));
 	}
 
-
-	@Test
-	public void testGetSolicitudes() {
-		assertNull(user.getSolicitudes());
-		user.setSolicitudes(new ArrayList<SolicitudFinancialAdvisorDomain>());
-		assertThat(user.getSolicitudes().size(), is(0));
-	}
-
 	@Test
 	public void testGetId() {
 		assertNull(user.getId());

@@ -44,7 +44,6 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 			logger.info("Un nuevo email ha accedido al consultor financiero:" + userName + " Creando registro de usuario." );
 			clienteAdvisor = new AdvisorUserDomain();
 			clienteAdvisor.setEmail(userName);
-			clienteAdvisor.setSolicitudes(new ArrayList<SolicitudFinancialAdvisorDomain>());
 			repo.save(clienteAdvisor);
 		}
 

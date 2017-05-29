@@ -23,7 +23,7 @@ public class AdvisorUserDomain {
 
 	/* Primitivo, por defecto se inicializa a 0.0 */
 	private double resultadoTest;
-	private List<SolicitudFinancialAdvisorDomain> solicitudes;
+	
 
 	public String getEmail() {
 		return email;
@@ -47,24 +47,6 @@ public class AdvisorUserDomain {
 
 	public void setResultadoTest(double resultadoTest) {
 		this.resultadoTest = resultadoTest;
-	}
-
-	public List<SolicitudFinancialAdvisorDomain> getSolicitudes() {
-		return solicitudes;
-	}
-
-	public void setSolicitudes(List<SolicitudFinancialAdvisorDomain> solicitudes) {
-		this.solicitudes = solicitudes;
-	}
-
-	/**
-	 * Método usada para añadir una soliciutd a las uqe ya tiene este
-	 * determinado cliente
-	 * 
-	 * @param soliciutd
-	 */
-	public void addSolicitud(SolicitudFinancialAdvisorDomain soliciutd) {
-		this.solicitudes.add(soliciutd);
 	}
 
 	public String getId() {

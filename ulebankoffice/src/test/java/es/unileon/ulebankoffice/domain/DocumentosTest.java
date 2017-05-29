@@ -34,7 +34,7 @@ import es.unileon.ulebankoffice.repository.DocumentoRepository;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = MongoTestConfig.class)
 public class DocumentosTest {
-	
+
 	@Autowired
 	Mongo mongo;
 
@@ -43,24 +43,24 @@ public class DocumentosTest {
 
 	@Rule
 	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
-	
+
 	private Documentos documentos;
 
 	@Autowired
 	private DocumentoRepository repository;
 
 	@Before
-	public void setUp() throws Exception { 
+	public void setUp() throws Exception {
 		documentos = new Documentos(new ArrayList<String>());
 		ReflectionTestUtils.setField(documentos, "repo", repository);
 
 	}
-	
+
 	@After
-	public void afterEachTest(){
+	public void afterEachTest() {
 		repository.deleteAll();
 	}
-	
+
 	@Test
 	public void isUsingFongo() {
 		assertEquals("Fongo (ulebankofficetestdb)", mongo.toString());
@@ -75,54 +75,54 @@ public class DocumentosTest {
 		assertThat(repository.findAll().size(), is(7));
 		assertThat(documentos.getSize(), is(1));
 	}
-	
+
 	@Test
-	public void testMongoIdAssignment(){
-		
-		//Al hacer maven test el tamaño es 7, otherwise es 0.
-		
+	public void testMongoIdAssignment() {
+
+		// Al hacer maven test el tamaño es 7, otherwise es 0.
+
 		assertThat(repository.findAll().size(), is(0));
 		assertThat(documentos.getSize(), is(0));
-		
+
 		for (DocumentoAdjuntoDomain documentos : repository.findAll()) {
 			System.out.println(documentos + ":D");
 		}
-		
+
 		DocumentoAdjuntoDomain documento = new DocumentoAdjuntoDomain("rutaE", "nameE");
-		
+
 		assertNull(documento.getId());
 		documentos.add(documento);
 		assertNotNull(documento.getId());
 		assertThat(repository.findAll().size(), is(1));
-		
+
 		assertThat(documento.getId(), is(repository.findAll().get(0).getId()));
-		
+
 	}
 
 	@Test
-	public void testGetSize(){
+	public void testGetSize() {
 		List<String> idDocumentos = new ArrayList<>();
 		idDocumentos.add("documentId1");
 		idDocumentos.add("documentId2");
 		idDocumentos.add("documentId3");
-		
+
 		documentos = new Documentos(idDocumentos);
-		
+
 		assertThat(documentos.getSize(), is(3));
-		
+
 		idDocumentos.add("documentId4");
 		idDocumentos.add("documentId5");
 		idDocumentos.add("documentId6");
-		
+
 		assertThat(documentos.getSize(), is(6));
 	}
-	
+
 	@Test
-	public void testGetElement() throws EmptyCollectionException{
+	public void testGetElement() throws EmptyCollectionException {
 		assertThat(documentos.getSize(), is(0));
-		documentos.add(new DocumentoAdjuntoDomain("ruta1","nombre1"));
-		documentos.add(new DocumentoAdjuntoDomain("ruta3","nombre3"));
-		documentos.add(new DocumentoAdjuntoDomain("ruta2","nombre2"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta1", "nombre1"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta3", "nombre3"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta2", "nombre2"));
 		assertThat(documentos.getSize(), is(3));
 		DocumentoAdjuntoDomain documento = (DocumentoAdjuntoDomain) documentos.getElement(0);
 		assertThat(documento.getRuta(), is("ruta1"));
@@ -131,13 +131,13 @@ public class DocumentosTest {
 		documento = (DocumentoAdjuntoDomain) documentos.getElement(2);
 		assertThat(documento.getRuta(), is("ruta2"));
 	}
-	
+
 	@Test
-	public void testRemove() throws EmptyCollectionException{
+	public void testRemove() throws EmptyCollectionException {
 		assertThat(documentos.getSize(), is(0));
-		documentos.add(new DocumentoAdjuntoDomain("ruta1","nombre1"));
-		documentos.add(new DocumentoAdjuntoDomain("ruta3","nombre3"));
-		documentos.add(new DocumentoAdjuntoDomain("ruta2","nombre2"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta1", "nombre1"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta3", "nombre3"));
+		documentos.add(new DocumentoAdjuntoDomain("ruta2", "nombre2"));
 		assertThat(documentos.getSize(), is(3));
 		DocumentoAdjuntoDomain documento = (DocumentoAdjuntoDomain) documentos.getElement(0);
 		assertThat(documento.getRuta(), is("ruta1"));
@@ -145,24 +145,24 @@ public class DocumentosTest {
 		documento = (DocumentoAdjuntoDomain) documentos.getElement(0);
 		assertThat(documento.getRuta(), is("ruta3"));
 	}
-	
+
 	@Test
-	public void testCreateIterator(){
+	public void testCreateIterator() {
 		assertThat(documentos.createIterator(), isA(Iterator.class));
 		assertThat(documentos.createIterator(), is(instanceOf(ListIterator.class)));
 	}
-	
+
 	@Test
 	@UsingDataSet(locations = { "/testing/documentoRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testAdd(){
+	public void testAdd() {
 		assertThat(documentos.getSize(), is(0));
-		
+
 		documentos.add(new DocumentoAdjuntoDomain("ruta", "name"));
 		assertThat(documentos.getSize(), is(1));
-		
+
 		documentos.add(new DocumentoAdjuntoDomain("ruta", "name"));
 		assertThat(documentos.getSize(), is(2));
-		
+
 	}
-	
+
 }
