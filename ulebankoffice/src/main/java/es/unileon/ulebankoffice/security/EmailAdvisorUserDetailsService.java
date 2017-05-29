@@ -35,8 +35,15 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName){
 		
 		if(!userName.contains("@") || !userName.contains(".")){
-			logger.info("Alguien ha tratado de acceder al consultor financiero sin ser un email. Nombre intentado: " + userName);
+			logger.warn("Alguien ha tratado de acceder al consultor financiero sin ser un email. Nombre intentado: " + userName);
 			throw new UsernameNotFoundException("Se debe buscar un e-mail");
+		}
+		
+		/* Si el último indice de "." punto está antes que la "@" arroba, el email es incorrecto. */
+		
+		if(userName.lastIndexOf('.') < userName.indexOf('@')){
+			logger.warn("Alguien ha tratado de acceder al consultor financiero sin ser un email correcto. Nombre intentado: " + userName);
+			throw new UsernameNotFoundException("El email tratado de buscar no es correcto");
 		}
 		
 		AdvisorUserDomain clienteAdvisor = repo.findByEmail(userName);
@@ -46,6 +53,8 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 			clienteAdvisor.setEmail(userName);
 			repo.save(clienteAdvisor);
 		}
+		
+		
 
 		userDetails = new User(clienteAdvisor.getEmail(), "", getAuthorities());
 		logger.info("Alguien ha tratado de inciar sesión en el consultor financiero con el email:" + userName + " ." );

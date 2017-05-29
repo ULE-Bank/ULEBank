@@ -18,8 +18,9 @@ import org.junit.Test;
 public class ClienteTest {
 
 	private static Validator validator;
-	private Cliente cliente;
 	private Set<ConstraintViolation<Cliente>> constraintViolations;
+	
+	private Cliente cliente;
 
 	@BeforeClass
 	public static void setUpClass() {

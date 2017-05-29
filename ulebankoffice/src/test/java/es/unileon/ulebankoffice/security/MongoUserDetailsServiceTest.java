@@ -1,6 +1,3 @@
-/**
- * 
- */
 package es.unileon.ulebankoffice.security;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
@@ -27,6 +24,7 @@ import com.mongodb.Mongo;
 
 import es.unileon.ulebankoffice.configuration.MongoTestConfig;
 import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
+import es.unileon.ulebankoffice.repository.UleBankEmployeeRepository;
 
 /**
  * @author Razvan Raducu
@@ -34,8 +32,8 @@ import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = MongoTestConfig.class)
-public class EmailAdvisorUserDetailsServiceTest {
-
+public class MongoUserDetailsServiceTest {
+	
 	@Autowired
 	Mongo mongo;
 
@@ -44,59 +42,44 @@ public class EmailAdvisorUserDetailsServiceTest {
 
 	@Rule
 	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
-
-	private EmailAdvisorUserDetailsService service;
-
+	
 	@Autowired
-	private AdvisorUserRepository repo;
-
+	private UleBankEmployeeRepository repo;
+	
+	private MongoUserDetailsService service;
+	
 	@Before
 	public void setUp() throws Exception {
-		service = new EmailAdvisorUserDetailsService();
+		service = new MongoUserDetailsService();
 		ReflectionTestUtils.setField(service, "repo", repo);
 	}
-
+	
 	@After
 	public void afterEachTest() {
 		repo.deleteAll();
 	}
-
+	
 	@Test
 	public void isUsingFongo() {
 		assertEquals("Fongo (ulebankofficetestdb)", mongo.toString());
 	}
-
+	
 	@Test
 	@UsingDataSet(locations = {
-			"/testing/advisorUserRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	"/testing/uleBankEmployeeRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testLoadUserByUsername() {
-		UserDetails user = service.loadUserByUsername("email@example.com");
-		assertThat(user.getUsername(), is("email@example.com"));
-		assertThat(user.getPassword(), is(""));
+		UserDetails user = service.loadUserByUsername("cjrulebank");
+		assertThat(user.getUsername(), is("cjrulebank"));
+		assertThat(user.getPassword(), is("password"));
+		
 	}
-
+	
 	@Test(expected = UsernameNotFoundException.class)
 	@UsingDataSet(locations = {
 			"/testing/advisorUserRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testLoadUserByUsernameWithoutDot() {
+	public void testLoadUserByUsernameInexistent() {
 		UserDetails user = service.loadUserByUsername("user@user");
 		assertNull(user);
 	}
-
-	@Test(expected = UsernameNotFoundException.class)
-	@UsingDataSet(locations = {
-			"/testing/advisorUserRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testLoadUserByUsernameWithoutAt() {
-		UserDetails user = service.loadUserByUsername("user.user");
-		assertNull(user);
-	}
-
-	@Test(expected = UsernameNotFoundException.class)
-	@UsingDataSet(locations = {
-			"/testing/advisorUserRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
-	public void testLoadUserByUsernameWithoutDotAfterAt() {
-		UserDetails user = service.loadUserByUsername("user.user@user");
-		assertNull(user);
-	}
-
+	
 }
