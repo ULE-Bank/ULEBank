@@ -23,8 +23,8 @@ public class ServerHTTPErrorHandler {
 		return "HttpError403";
 	}
 	
-	@GetMapping(value="/adv404")
+	@GetMapping(value="/404")
 	public String error404FinancialAdvisor(){
-		return "HttpError404Advisor";
+		return "HttpError404";
 	}
 }

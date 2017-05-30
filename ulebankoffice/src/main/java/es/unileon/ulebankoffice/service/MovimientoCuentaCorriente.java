@@ -4,8 +4,10 @@
 package es.unileon.ulebankoffice.service;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * @author Razvan Raducu
@@ -13,55 +15,45 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 public class MovimientoCuentaCorriente {
 
-    @Min(0L)
-	private Double cantidad;
+    @NotNull @Min(0)
+	private Double importe;
 	@NotBlank
 	private String concepto;
 	@NotBlank
-	private String emisor;
+	private String fechaValor;
 	@NotBlank
-	private String receptor;
-	@NotBlank
-	private String date;
+	private String operacion;
 
-	public Double getCantidad() {
-		return cantidad;
+	public Double getImporte() {
+		return importe;
 	}
 	
-	public String getConcepto() {
+	public String getConcepto(){
 		return concepto;
 	}
-
-	public void setCantidad(Double cantidad) {
-		this.cantidad = cantidad;
+	
+	public void setImporte(Double cantidad) {
+		this.importe = cantidad;
 	}
 
 	public void setConcepto(String concepto) {
 		this.concepto = concepto;
 	}
 
-	public String getEmisor() {
-		return emisor;
+	public String getFechaValor() {
+		return fechaValor;
 	}
 
-	public String getDate() {
-		return date;
+	public void setFechaValor(String date) {
+		this.fechaValor = date;
 	}
 
-	public String getReceptor() {
-		return receptor;
+	public String getOperacion() {
+		return operacion;
 	}
 
-	public void setEmisor(String emisor) {
-		this.emisor = emisor;
-	}
-
-	public void setReceptor(String receptor) {
-		this.receptor = receptor;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public void setOperacion(String operacion) {
+		this.operacion = operacion;
 	}
 	
 	

@@ -38,4 +38,14 @@ public interface CuentaCorrienteRepository extends MongoRepository<CuentaCorrien
 	@Query(value = "{'dni._id' : ?0}", delete = true)
 	public void deleteByDni(String dni);
 
+	/**
+	 * Método que devuelve la instancia de una cuenta corriente en función de su
+	 * número de cuenta, que debe ser único.
+	 * 
+	 * @param numeroDeCuenta
+	 *            La cuenta a buscar.
+	 * @return La isntancia de la cuenta o null en caso de que no exista.
+	 */
+	public CuentaCorrienteDomain findByNumeroDeCuenta(String numeroDeCuenta);
+
 }

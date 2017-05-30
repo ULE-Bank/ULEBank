@@ -17,6 +17,14 @@ public class MovimientoCuentaCorrienteDomain {
 	private String operacion;
 
 	/**
+	 * El constructor vacío es necesario para poder instanciar los
+	 * modelAttributes
+	 */
+	public MovimientoCuentaCorrienteDomain() {
+		/* Necesario para los model attributes */
+	}
+
+	/**
 	 * Recibe la fecha en formato Date.
 	 * 
 	 * @param cantidad

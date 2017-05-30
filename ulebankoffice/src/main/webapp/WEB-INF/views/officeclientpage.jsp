@@ -120,20 +120,48 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
-                     ${cliente.dni}
-                     ${cliente.name}
-                     ${cliente.lastName}
-                     ${cliente.email}
-                     ${cliente.fechaNacimiento}
-                     ${cliente.fechaDeAlta}
-                     <h2>DIRECCIONES</h2>
-                     <c:forEach var="direccion" items="${direcciones}"> 
-                     <div class="row">
-                        ${direccion.calle}
-                        ${direccion.localidad}
-                        ${direccion.comunidadAutonoma}
-                        ${direccion.numero}
-                        ${direccion.codigoPostal}	
+                     <h2>Información cliente</h2>
+                     <div class="col-md-4">
+                        DNI: ${cliente.dni}
+                     </div>
+                     <div class="col-md-4">
+                        Nombre: ${cliente.name}
+                     </div>
+                     <div class="col-md-4">
+                        Apellidos: ${cliente.lastName}
+                     </div>
+                     <div class="col-md-4">
+                        Emial: ${cliente.email}
+                     </div>
+                     <div class="col-md-4">
+                        Fecha nacimiento: 
+                        <fmt:formatDate value="${cliente.fechaNacimiento}" pattern="dd-MM-yyyy"/>
+                     </div>
+                     <div class="col-md-4">
+                        Fecha de alta: 
+                        <fmt:formatDate value="${cliente.fechaDeAlta}" pattern="dd-MM-yyyy"/>
+                     </div>
+                  </div>
+                  <hr/>
+                  <div class="col-md-12">
+                     <h2>Direcciones</h2>
+                     <c:forEach var="direccion" items="${direcciones}">
+                        <div class="row" style="border: 1px solid red;">
+                           <div class="col-md-4">
+                              <b>Calle:</b> ${direccion.calle}
+                           </div>
+                           <div class="col-md-4">
+                              <b>Localidad:</b>  ${direccion.localidad}
+                           </div>
+                           <div class="col-md-4">
+                              <b>Comunidad:</b>   ${direccion.comunidadAutonoma}
+                           </div>
+                           <div class="col-md-4">
+                              <b>Nímero:</b> ${direccion.numero}
+                           </div>
+                           <div class="col-md-4">
+                              <b>Código postal:</b>  ${direccion.codigoPostal}
+                           </div>
                         </div>
                      </c:forEach>
                      <div class="row">
@@ -193,21 +221,61 @@
                            </div>
                         </form:form>
                      </div>
-                     <h2>CUENTAS</h2>
-                     <c:forEach var="cuenta" items="${cuentasCorrientes}"> 
-                      <div class="row">
-                        ${cuenta.fechaApertura}
-                        ${cuenta.interesesAcreedores}
-                        ${cuenta.interesDeudorSobreSaldosNegativos}
-                        ${cuenta.retencionRendimientosCapital}
-                        ${cuenta.comisionMantenimiento}
-                        ${cuenta.comisionDescubierto}
-                        ${cuenta.minimoComisionDescubierto}
-                        ${cuenta.diasAnuales}
-                        ${cuenta.periodoLiquidacion}
-                        ${cuenta.numeroDeCuenta}
-                        ${cuenta.saldo}
-                        ${cuenta.estado}
+                  </div>
+                  <hr/>
+                  <div class="col-md-12">
+                     <h2>Cuentas</h2>
+                     <c:forEach var="cuenta" items="${cuentasCorrientes}">
+                        <div class="row" style="border: 1px solid red;">
+                           <div class="col-md-12">
+                              <b> Número de cuenta:</b> ${cuenta.numeroDeCuenta}  <a href="/o/u/c?accn=${ cuenta.numeroDeCuenta}">Acceder a la cuenta</a>
+                           </div>
+                           <div class="col-md-4">
+                              <b> Fecha de alta:</b> 
+                              <fmt:formatDate value="${cuenta.fechaApertura}" pattern="dd-MM-yyyy"/>
+                           </div>
+                           <div class="col-md-2">
+                              <b> Estado:</b> ${cuenta.estado}
+                           </div>
+                           <div class="col-md-4">
+                              <b> Liquidación: </b> 
+                              <c:choose>
+                                 <c:when test="${cuenta.periodoLiquidacion=='1'}">
+                                    Mensual
+                                 </c:when>
+                                 <c:when test="${cuenta.periodoLiquidacion=='6'}">
+                                    Semestral
+                                 </c:when>
+                                 <c:when test="${cuenta.periodoLiquidacion=='3'}">
+                                    Trimestral
+                                 </c:when>
+                                 <c:otherwise>
+                                    Anual 
+                                    <br />
+                                 </c:otherwise>
+                              </c:choose>
+                           </div>
+                           <div class="col-md-2">
+                              <b> Año:</b>${cuenta.diasAnuales} días
+                           </div>
+                           <div class="col-md-4">
+                              <b> Comisión mantenimiento: </b>${cuenta.comisionMantenimiento}€
+                           </div>
+                           <div class="col-md-6">
+                              <b> Comisión saldo descubierto:</b>  ${cuenta.comisionDescubierto}% (mínimo ${cuenta.minimoComisionDescubierto}€)
+                           </div>
+                           <div class="col-md-4">
+                              <b> Intereses acreedores: </b> ${cuenta.interesesAcreedores}%
+                           </div>
+                           <div class="col-md-4">
+                              <b> Intereses deudores: </b>${cuenta.interesDeudorSobreSaldosNegativos}%
+                           </div>
+                           <div class="col-md-6">
+                              <b> Retención rendimientos de capital: </b> ${cuenta.retencionRendimientosCapital}€
+                           </div>
+                           <div class="col-md-2">
+                              <b> Saldo:</b> ${cuenta.saldo}€
+                           </div>
                         </div>
                      </c:forEach>
                      <div class="row">
@@ -295,6 +363,9 @@
                         </form:form>
                      </div>
                   </div>
+               </div>
+               <div class="row">
+                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
                </div>
             </div>
          </section>

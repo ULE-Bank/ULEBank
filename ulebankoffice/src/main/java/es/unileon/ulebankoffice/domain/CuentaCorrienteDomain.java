@@ -40,7 +40,7 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	private Date fechaFinalizacion;
 	private int diasAnuales;
 	private int periodoLiquidacion;
-	
+
 	private String numeroDeCuenta;
 
 	private Double saldo;
@@ -155,7 +155,6 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	 */
 	public List<List<String>> realizarLiquidacion(Date fechaInicioLiquidacion, Date fechaFinalLiquidacion) {
 
-		ordenarMovimientosPorFecha();
 		List<MovimientoCuentaCorrienteDomain> movimientosLiquidacion = obtenerMovimientosLiquidacion(
 				fechaInicioLiquidacion, fechaFinalLiquidacion);
 
@@ -437,14 +436,17 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	}
 
 	/**
-	 * Añade a la lista de movimientos el movimiento especificado
+	 * Añade a la lista de movimientos el movimiento especificado. En este
+	 * método se ordenan automáticamente los movimientos por fecha cada vez que
+	 * se añade uno nuevo.
 	 * 
 	 * @param movimiento
 	 */
 	public void addMovimiento(MovimientoCuentaCorrienteDomain movimiento) {
 		this.movimientos.add(movimiento);
+		ordenarMovimientosPorFecha();
 	}
-
+	
 	/**
 	 * Añade el documento a la base de datos así como a la lista de ids de
 	 * documentos asociada a esta cuenta corriente.
@@ -552,7 +554,5 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	public void setNumeroDeCuenta(String numeroDeCuenta) {
 		this.numeroDeCuenta = "ES001234123401" + numeroDeCuenta;
 	}
-	
-	
-	
+
 }

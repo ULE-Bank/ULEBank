@@ -39,7 +39,7 @@ public class QueryPageController {
 		
 		if(solicitud == null){
 			logger.warn(principal.getName() + " " +  req.getRemoteAddr() + " " + req.getLocalAddr() + " ha tratado de acceder a una consulta inexistente. Devolviendo 404 advisor.");
-			return "redirect:/e/adv404";
+			return "redirect:/e/404";
 		}
 		
 		/* Se comprueba que el usuario que está accediendo a la solicitud es el creador de la misma o bien un empleado de la oficina o superiores */
@@ -70,7 +70,7 @@ public class QueryPageController {
 			
 			if(solicitud == null){
 				logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr() + " ha tratado de acceder a una consulta inexistente. Devolviendo 404 advisor.");
-				return "redirect:/e/adv404";
+				return "redirect:/e/404";
 			}
 			
 			solicitud.setRespuestaOferta(respuestaSolicitud);

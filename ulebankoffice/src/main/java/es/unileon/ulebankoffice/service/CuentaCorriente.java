@@ -1,5 +1,8 @@
 package es.unileon.ulebankoffice.service;
 
+import java.util.List;
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -24,9 +27,7 @@ public class CuentaCorriente {
 	private int periodoLiquidacion;
 	@NotNull
 	private int diasAnuales;
-	
-	
-	
+		
 	public Double getInteresesAcreedores() {
 		return interesesAcreedores;
 	}
@@ -90,7 +91,5 @@ public class CuentaCorriente {
 	public void setDiasAnuales(int diasAnuales) {
 		this.diasAnuales = diasAnuales;
 	}
-	
-	
-	
+
 }

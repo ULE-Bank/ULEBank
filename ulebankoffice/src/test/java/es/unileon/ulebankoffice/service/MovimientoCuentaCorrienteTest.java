@@ -34,16 +34,16 @@ public class MovimientoCuentaCorrienteTest {
 
 	@Test
 	public void testCantidad() {
-		assertNull(movimiento.getCantidad());
-		movimiento.setCantidad(150d);
-		assertThat(movimiento.getCantidad(), is(150d));
+		assertNull(movimiento.getImporte());
+		movimiento.setImporte(150d);
+		assertThat(movimiento.getImporte(), is(150d));
 	}
 
 	@Test
 	public void testConcepto() {
-		assertNull(movimiento.getConcepto());
+		assertNull(movimiento.setConcepto());
 		movimiento.setConcepto("concepto");
-		assertThat(movimiento.getConcepto(), is("concepto"));
+		assertThat(movimiento.setConcepto(), is("concepto"));
 	}
 
 	@Test
@@ -55,9 +55,9 @@ public class MovimientoCuentaCorrienteTest {
 
 	@Test
 	public void testDate() {
-		assertNull(movimiento.getDate());
-		movimiento.setDate("1994-12-05");
-		assertThat(movimiento.getDate(), is("1994-12-05"));
+		assertNull(movimiento.getFechaValor());
+		movimiento.setFechaValor("1994-12-05");
+		assertThat(movimiento.getFechaValor(), is("1994-12-05"));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class MovimientoCuentaCorrienteTest {
 		movimiento.setConcepto("c");
 		validate();
 		assertThat(constraintViolations.size(), is(3));
-		movimiento.setDate("fecha");
+		movimiento.setFechaValor("fecha");
 		validate();
 		assertThat(constraintViolations.size(), is(2));
 		movimiento.setReceptor("recpetor");
@@ -83,7 +83,7 @@ public class MovimientoCuentaCorrienteTest {
 		movimiento.setEmisor("emisor");
 		validate();
 		assertThat(constraintViolations.size(), is(0));
-		movimiento.setCantidad(-5d);
+		movimiento.setImporte(-5d);
 		validate();
 		assertThat(constraintViolations.size(), is(1));
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("cantidad"));

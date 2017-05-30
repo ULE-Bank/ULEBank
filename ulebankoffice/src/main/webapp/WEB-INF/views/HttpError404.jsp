@@ -40,8 +40,7 @@
       <link href="/resources/template/css/custom.css" rel="stylesheet"
          type="text/css" />
       <title>
-         <spring:message code="label.query" />
-         ${idQuery}
+         UleBank 404
       </title>
       <!-- GOOGLE ANALYTICS TRACKER -->
       <script>
@@ -77,30 +76,9 @@
             <div class="container">
                <div class="row text-center intro-title">
                   <h1 class="text-blue">
-                     <spring:message code="label.siteservice3" />
+                     404
                   </h1>
-                  <p class="text-white">
-                     <spring:message code="label.siteservice3description" />
-                  </p>
                   <ul class="page-breadcrumb">
-                     <li>
-                        <a href="/">
-                           <i class="fa fa-home"></i> 
-                           <spring:message
-                              code="label.sitehome" />
-                        </a>
-                        <i class="fa fa-angle-double-right"></i>
-                     </li>
-                     <li>
-                        <span>
-                           <a href="/offersconsulting">
-                              <spring:message
-                                 code="label.siteservice3" />
-                           </a>
-                           <i
-                              class="fa fa-angle-double-right"></i>
-                        </span>
-                     </li>
                      <li>
                         <span>
                            <spring:message code="label.404" />
