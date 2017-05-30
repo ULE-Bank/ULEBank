@@ -271,7 +271,7 @@
                               <b> Intereses deudores: </b>${cuenta.interesDeudorSobreSaldosNegativos}%
                            </div>
                            <div class="col-md-6">
-                              <b> Retención rendimientos de capital: </b> ${cuenta.retencionRendimientosCapital}€
+                              <b> Retención rendimientos de capital: </b> ${cuenta.retencionRendimientosCapital}%
                            </div>
                            <div class="col-md-2">
                               <b> Saldo:</b> ${cuenta.saldo}€

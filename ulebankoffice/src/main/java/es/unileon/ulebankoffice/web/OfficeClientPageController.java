@@ -6,8 +6,11 @@ package es.unileon.ulebankoffice.web;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.ReportAsSingleViolation;
 import javax.validation.Valid;
 
@@ -73,7 +76,12 @@ public class OfficeClientPageController {
 	public Direccion direccion() {
 		return new Direccion();
 	}
-
+	
+	@ModelAttribute("cuentaAuxiliar")
+	public CuentaCorrienteMovimientosAuxiliar cuentaAuxiliar(){
+		return new CuentaCorrienteMovimientosAuxiliar();
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, params = { "uin" })
 	public String showClientData(ModelMap model, @RequestParam("uin") String dni) {
 
@@ -195,5 +203,22 @@ public class OfficeClientPageController {
 		cuentasCorrientesRepo.save(cuentaCorriente);
 
 		return "redirect:/o/u/c?accn=" + numeroDeCuenta;
+	}
+	
+	@PostMapping(value = "/c", params={"fechaInicioLiquidacion", "fechaFinalLiquidacion"})
+	public String liquidar(ModelMap model, HttpServletRequest req, Principal principal, @RequestParam("fechaInicioLiquidacion") String fechaInicioLiquidación, @RequestParam("fechaFinalLiquidacion") String fechaFinalLiquidación, HttpServletResponse response){
+		logger.debug("He captado el subnmit de la liquidación. Con fecha incio -> " + fechaInicioLiquidación + " y fecha final -> " + fechaFinalLiquidación);
+		
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yy-MM-dd");
+		DateTime fechaInicio = formatter.parseDateTime(fechaInicioLiquidación);
+		DateTime fechaFin = formatter.parseDateTime(fechaFinalLiquidación);
+				
+		CuentaCorrienteDomain cuenta = cuentasCorrientesRepo.findByNumeroDeCuenta(numeroDeCuenta);
+		
+		
+		model.addAttribute("tabla", cuenta.realizarLiquidacion(fechaInicio.toDate(), fechaFin.toDate()));
+		model.addAttribute("cuenta", cuenta);
+	
+		return "accountliquidation";
 	}
 }

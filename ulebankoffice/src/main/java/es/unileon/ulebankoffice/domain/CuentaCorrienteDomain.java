@@ -51,6 +51,12 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 	private List<MovimientoCuentaCorrienteDomain> movimientos;
 
 	private Documentos documentos;
+	
+	private String interesesAcreedoresFinal;
+	private String retencionRendimientosFinal;
+	private String interesesDeudoresFinal;
+	private String comisionDescubiertoFinal;
+	private String totalLiquidacion;
 
 	/**
 	 * Constructor utilizado para instanciar manualmente objetos e instanciar
@@ -287,7 +293,8 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 
 		double totalLiquidacionFinal = interesesAcreedoresFinal - retencionRendimientosFinal - interesesDeudoresFinal
 				- comisionDescubiertoFinal - comisionMantenimiento;
-
+		
+				
 		/* El último movimiento es la liquidación */
 		itemTabla = new ArrayList<>();
 		DateTime fechaLiquidacion = new DateTime(fechaFinalLiquidacion);
@@ -313,7 +320,13 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 		itemTabla.add(decimalFormatter.format(redondear(totalNumerosDeudores)) + moneda);
 
 		tabla.add(itemTabla);
-
+		
+		this.interesesAcreedoresFinal = decimalFormatter.format(redondear(interesesAcreedoresFinal))+moneda;
+		this.retencionRendimientosFinal = decimalFormatter.format(redondear( retencionRendimientosFinal))+moneda;
+		this.interesesDeudoresFinal = decimalFormatter.format(redondear(interesesDeudoresFinal ))+moneda;
+		this.comisionDescubiertoFinal =decimalFormatter.format(redondear(comisionDescubiertoFinal))+moneda;
+		this.totalLiquidacion = decimalFormatter.format(redondear(totalLiquidacionFinal))+moneda;
+		
 		return tabla;
 	}
 
@@ -555,4 +568,25 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 		this.numeroDeCuenta = "ES001234123401" + numeroDeCuenta;
 	}
 
+	public String getInteresesAcreedoresFinal() {
+		return interesesAcreedoresFinal;
+	}
+
+	public String getRetencionRendimientosFinal() {
+		return retencionRendimientosFinal;
+	}
+
+	public String getInteresesDeudoresFinal() {
+		return interesesDeudoresFinal;
+	}
+
+	public String getComisionDescubiertoFinal() {
+		return comisionDescubiertoFinal;
+	}
+
+	public String getTotalLiquidacion() {
+		return totalLiquidacion;
+	}
+	
+	
 }

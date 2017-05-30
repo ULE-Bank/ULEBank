@@ -107,8 +107,7 @@
                      </li>
                      <li>
                         <a href="/o/u?uin=${cuenta.dni}">
-                      
-                       Cliente ${cuenta.dni}
+                        Cliente ${cuenta.dni}
                         </a>
                         <i class="fa fa-angle-double-right"></i>
                      </li>
@@ -123,73 +122,63 @@
          </section>
          <!--=================================
             inner-intro-->
-            
          <section class="white-bg page-section-ptb" id="clientes">
             <div class="container">
                <div class="row">
-               
-               
-               
-               
-               
-                           <div class="col-md-12">
-                              <b> Número de cuenta:</b> ${cuenta.numeroDeCuenta}
-                           </div>
-                           <div class="col-md-4">
-                              <b> Fecha de alta:</b> 
-                              <fmt:formatDate value="${cuenta.fechaApertura}" pattern="dd-MM-yyyy"/>
-                           </div>
-                           <div class="col-md-2">
-                              <b> Estado:</b> ${cuenta.estado}
-                           </div>
-                           <div class="col-md-4">
-                              <b> Liquidación: </b>  <c:choose>
-                                 <c:when test="${cuenta.periodoLiquidacion=='1'}">
-                                    Mensual
-                                 </c:when>
-                                 <c:when test="${cuenta.periodoLiquidacion=='6'}">
-                                    Semestral
-                                 </c:when>
-                                 <c:when test="${cuenta.periodoLiquidacion=='3'}">
-                                    Trimestral
-                                 </c:when>
-                                 <c:otherwise>
-                                    Anual 
-                                    <br />
-                                 </c:otherwise>
-                              </c:choose>
-                           </div>
-                           <div class="col-md-2">
-                              <b> Año:</b>${cuenta.diasAnuales} días
-                           </div>
-                           <div class="col-md-4">
-                              <b> Comisión mantenimiento: </b>${cuenta.comisionMantenimiento}€
-                           </div>
-                           <div class="col-md-6">
-                              <b> Comisión saldo descubierto:</b>  ${cuenta.comisionDescubierto}% (mínimo ${cuenta.minimoComisionDescubierto}€)
-                           </div>
-                           <div class="col-md-4">
-                              <b> Intereses acreedores: </b> ${cuenta.interesesAcreedores}%
-                           </div>
-                           <div class="col-md-4">
-                              <b> Intereses deudores: </b>${cuenta.interesDeudorSobreSaldosNegativos}%
-                           </div>
-                           <div class="col-md-6">
-                              <b> Retención rendimientos de capital: </b> ${cuenta.retencionRendimientosCapital}€
-                           </div>
-                           <div class="col-md-2">
-                              <b> Saldo:</b> ${cuenta.saldo}€
-                           </div>
-                       
-               
-               
-               
-               
-              <div class="row">
-              <hr/>
-              <div class="row">
-              <h2>Movimientos:</h2>
-               <div style="height:300px; overflow:auto;">
+                  <div class="col-md-12">
+                     <b> Número de cuenta:</b> ${cuenta.numeroDeCuenta}
+                  </div>
+                  <div class="col-md-4">
+                     <b> Fecha de alta:</b> 
+                     <fmt:formatDate value="${cuenta.fechaApertura}" pattern="dd-MM-yyyy"/>
+                  </div>
+                  <div class="col-md-2">
+                     <b> Estado:</b> ${cuenta.estado}
+                  </div>
+                  <div class="col-md-4">
+                     <b> Liquidación: </b>  
+                     <c:choose>
+                        <c:when test="${cuenta.periodoLiquidacion=='1'}">
+                           Mensual
+                        </c:when>
+                        <c:when test="${cuenta.periodoLiquidacion=='6'}">
+                           Semestral
+                        </c:when>
+                        <c:when test="${cuenta.periodoLiquidacion=='3'}">
+                           Trimestral
+                        </c:when>
+                        <c:otherwise>
+                           Anual 
+                           <br />
+                        </c:otherwise>
+                     </c:choose>
+                  </div>
+                  <div class="col-md-2">
+                     <b> Año:</b>${cuenta.diasAnuales} días
+                  </div>
+                  <div class="col-md-4">
+                     <b> Comisión mantenimiento: </b>${cuenta.comisionMantenimiento}€
+                  </div>
+                  <div class="col-md-6">
+                     <b> Comisión saldo descubierto:</b>  ${cuenta.comisionDescubierto}% (mínimo ${cuenta.minimoComisionDescubierto}€)
+                  </div>
+                  <div class="col-md-4">
+                     <b> Intereses acreedores: </b> ${cuenta.interesesAcreedores}%
+                  </div>
+                  <div class="col-md-4">
+                     <b> Intereses deudores: </b>${cuenta.interesDeudorSobreSaldosNegativos}%
+                  </div>
+                  <div class="col-md-6">
+                     <b> Retención rendimientos de capital: </b> ${cuenta.retencionRendimientosCapital}%
+                  </div>
+                  <div class="col-md-2">
+                     <b> Saldo:</b> ${cuenta.saldo}€
+                  </div>
+                  <div class="row">
+                     <hr/>
+                     <div class="row">
+                        <h2>Movimientos:</h2>
+                        <div style="height:450px; overflow:auto;">
                            <table border="1"  class="col-md-12" >
                               <tr style="color:white;background-color:rgb(0,169,218);">
                                  <th>Importe</th>
@@ -199,118 +188,173 @@
                               </tr>
                               <c:forEach var="movimiento" items="${cuenta.movimientos}">
                                  <tr>
-                                 <td>${movimiento.importe}</td>
-                                 <td>${movimiento.concepto}</td>
-                                    <td> <fmt:formatDate value="${movimiento.fechaValor}" pattern="dd-MM-yyyy"/></td>
+                                    <td>${movimiento.importe}</td>
+                                    <td>${movimiento.concepto}</td>
+                                    <td>
+                                       <fmt:formatDate value="${movimiento.fechaValor}" pattern="dd-MM-yyyy"/>
+                                    </td>
                                     <td>${movimiento.operacion}</td>
- 								</tr>
+                                 </tr>
                               </c:forEach>
                            </table>
                         </div>
-              
-              
-              </div>
-              <br>
-              <div class="section-field col-md-12 register-form">
-              <form:form role="form" method="post" modelAttribute="cuentaAuxiliar"
-							id="servicesform">
-              	<div id="moves-container">
-									<spring:message code="label.disposicion" var="variable1" />
-									<spring:message code="label.ingreso" var="variable2" />
-									<div class="row"
-										style="border: 1px solid red; border-radius: 5px;">
-										<div class="section-field col-md-4">
-											<label for="movimientos[0].concepto"> <spring:message
-													code="label.s7c1" />
-											</label>
-											<div class="field-widget">
-												<i class="fa fa-pencil"></i>
-												<form:input path="movimientos[0].concepto"
-													required="required" />
-											</div>
-											<form:errors  style="color:red;" path="movimientos[0].concepto"/>
-										</div>
-										<div class="section-field col-md-3">
-											<label for="movimientos[0].importe"> <spring:message
-													code="label.s7c2" />
-											</label>
-											<div class="field-widget">
-												<i class="fa fa-eur"></i>
-												<form:input path="movimientos[0].importe"
-													required="required" />
-											</div>
-											<form:errors  style="color:red;" path="movimientos[0].importe"/>
-										</div>
-										<div class="section-field col-md-3">
-											<label for="movimientos[0].fechaValor"> <spring:message
-													code="label.s7c3" />
-											</label>
-											<div class="field-widget">
-												<i class="fa fa-calendar"></i> <input type="date"
-													id="movimientos0.fechaValor"
-													name="movimientos[0].fechaValor" required="required" />
-											</div>
-											<form:errors  style="color:red;" path="movimientos[0].fechaValor"/>
-										</div>
-										<div class="section-field col-md-2">
-											<label for="movimientos[0].operacion"> <spring:message
-													code="label.operation" />
-											</label>
-											<div class="field-widget">
-												<form:select path="movimientos[0].operacion"
-													class="selected">
-													<form:option value="D" label="${variable1}" />
-													<form:option value="I" label="${variable2}" />
-												</form:select>
-											</div>
-											<form:errors style="color:red;" path="movimientos[0].operacion"/>
-										</div>
-									</div>
-								</div>
-								<p>
-									<a role="button" id="add-moves"> <spring:message
-											code="label.addtransaction" /> <span
-										class="fa fa-plus-square"></span>
-									</a>
-								</p>
-								<p>
-									<a role="button" id="remove-moves"> <spring:message
-											code="label.removetransaction" /> <span
-										class="fa fa-minus-square"></span>
-									</a>
-								</p>
-								<input type="submit" class="button mt-20"
-									value="Registrar movimientos">
-								<!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
-								<noscript>
-									<input type="submit"
-										value="Registrar movimientos" />
-								</noscript>
-							
-						</form:form>
-						</div>
-               <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
+                     </div>
+                     <br>
+                     <br>
+                     <br>
+                     <div class="section-field col-md-12 register-form">
+                        <form:form role="form" method="post" modelAttribute="cuentaAuxiliar"
+                           id="servicesform">
+                           <div id="moves-container">
+                              <spring:message code="label.disposicion" var="variable1" />
+                              <spring:message code="label.ingreso" var="variable2" />
+                              <div class="row"
+                                 style="border: 1px solid red; border-radius: 5px;">
+                                 <div class="section-field col-md-4">
+                                    <label for="movimientos[0].concepto">
+                                       <spring:message
+                                          code="label.s7c1" />
+                                    </label>
+                                    <div class="field-widget">
+                                       <i class="fa fa-pencil"></i>
+                                       <form:input path="movimientos[0].concepto"
+                                          required="required" />
+                                    </div>
+                                    <form:errors  style="color:red;" path="movimientos[0].concepto"/>
+                                 </div>
+                                 <div class="section-field col-md-3">
+                                    <label for="movimientos[0].importe">
+                                       <spring:message
+                                          code="label.s7c2" />
+                                    </label>
+                                    <div class="field-widget">
+                                       <i class="fa fa-eur"></i>
+                                       <form:input path="movimientos[0].importe"
+                                          required="required" />
+                                    </div>
+                                    <form:errors  style="color:red;" path="movimientos[0].importe"/>
+                                 </div>
+                                 <div class="section-field col-md-3">
+                                    <label for="movimientos[0].fechaValor">
+                                       <spring:message
+                                          code="label.s7c3" />
+                                    </label>
+                                    <div class="field-widget">
+                                       <i class="fa fa-calendar"></i> <input type="date"
+                                          id="movimientos0.fechaValor"
+                                          name="movimientos[0].fechaValor" required="required" />
+                                    </div>
+                                    <form:errors  style="color:red;" path="movimientos[0].fechaValor"/>
+                                 </div>
+                                 <div class="section-field col-md-2">
+                                    <label for="movimientos[0].operacion">
+                                       <spring:message
+                                          code="label.operation" />
+                                    </label>
+                                    <div class="field-widget">
+                                       <form:select path="movimientos[0].operacion"
+                                          class="selected">
+                                          <form:option value="D" label="${variable1}" />
+                                          <form:option value="I" label="${variable2}" />
+                                       </form:select>
+                                    </div>
+                                    <form:errors style="color:red;" path="movimientos[0].operacion"/>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>
+                              <a role="button" id="add-moves">
+                                 <spring:message
+                                    code="label.addtransaction" />
+                                 <span
+                                    class="fa fa-plus-square"></span>
+                              </a>
+                           </p>
+                           <p>
+                              <a role="button" id="remove-moves">
+                                 <spring:message
+                                    code="label.removetransaction" />
+                                 <span
+                                    class="fa fa-minus-square"></span>
+                              </a>
+                           </p>
+                           <div class="row text-center">
+                          
+                           <a class="button mt-20" id="formularioMovimientos" onclick="registrar()"><span> Registrar movimientos </span> <i class ="fa fa-send"></i></a>
+                           <input id="submit_handle_formularioMovimientos" type="submit" style="display: none" />
+                           </div>
+                          <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+                           <noscript>
+                              <input type="submit"
+                                 value="Registrar movimientos" />
+                           </noscript>
+                        </form:form>
+                        <hr/>
+                        
+                        <form id="liquidarForm" method="POST">
+                           <div class="row">
+                              <div class="col-md-6 col-md-offset-3">
+                                 <div class="col-md-6">
+                                    Realizar liquidación desde 
+                                 </div>
+                                 <div class="col-md-6">
+                                    <input type="date"
+                                       id="fechaInicioLiquidacion"
+                                       name="fechaInicioLiquidacion" required="required" />
+                                 </div>
+                              </div>
+                               <br>
+                               <br>
+                               
+                              <div class="col-md-6 col-md-offset-3">
+                                 <div class="col-md-6">
+                                    Hasta 
+                                 </div>
+                                 <div class="col-md-6">
+                                    <input type="date"
+                                       id="fechaFinalLiquidacion"
+                                       name="fechaFinalLiquidacion" required="required" />
+                                 </div>
+                              </div>
+                           </div>
+                           
+                           <div class="row text-center">
+                          <a class="button mt-20" id="liquidarFormulario" onclick="liquidar()"> <span> Liquidar </span> <i class ="fa fa-send"></i></a>
+                           <input id="submit_handle_liquidarFormulario" type="submit" style="display: none" />
+                           </div>
+                           <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+                           <noscript>
+                              <input type="submit"
+                                 value="Liquidar" />
+                           </noscript>
+                        </form>
+                     </div>
+                  </div>
+                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
                </div>
             </div>
-            </div>
-         </section>
-         <!--=================================
-            Footer-->
-         <jsp:include page="/WEB-INF/views/footer.jsp" />
-         <!--=================================
-            Footer-->
+  
+      </section>
+      <!--=================================
+         Footer-->
+      <jsp:include page="/WEB-INF/views/footer.jsp" />
+      <!--=================================
+         Footer-->
+         
       </div>    
-      	<script type="text/javascript">
-		var strings = new Array();
-		strings['movimiento.descripcion'] = "<spring:message code='label.s7c1' javaScriptEscape='true' />";
-		strings['movimiento.fecha'] = "<spring:message code='label.s7c3' javaScriptEscape='true' />";
-		strings['movimiento.importe'] = "<spring:message code='label.s7c2' javaScriptEscape='true' />";
-		strings['movimiento.operacion'] = "<spring:message code='label.operation' javaScriptEscape='true' />";
-		strings['movimiento.ingreso'] = "<spring:message code='label.ingreso' javaScriptEscape='true' />";
-		strings['movimiento.disposicion'] = "<spring:message code='label.disposicion' javaScriptEscape='true' />";
-	</script>
-      	<script src="/resources/services/js/dynamic-form2.js"></script>
-        <script src="/resources/services/js/tooltip-script.js"></script>
+      <script type="text/javascript">
+      
+      function liquidar() {
+       	$("#submit_handle_liquidarFormulario").click();
+       }
+       
+       function registrar() {
+       	$("#submit_handle_formularioMovimientos").click();
+       }
+     
+      </script>
+      <script src="/resources/services/js/dynamic-form2.js"></script>
+      <script src="/resources/services/js/tooltip-script.js"></script>
       <!-- bootstrap -->
       <script type="text/javascript"
          src="/resources/template/js/bootstrap.min.js"></script>
