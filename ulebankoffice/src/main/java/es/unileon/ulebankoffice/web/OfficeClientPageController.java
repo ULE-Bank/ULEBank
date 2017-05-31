@@ -16,10 +16,13 @@ import javax.validation.Valid;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.log4j.lf5.util.Resource;
+import org.apache.poi.util.IOUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -30,6 +33,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import es.unileon.ulebankoffice.domain.ClienteDomain;
 import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
 import es.unileon.ulebankoffice.domain.DNIException;
@@ -37,6 +43,7 @@ import es.unileon.ulebankoffice.domain.DNIHandler;
 import es.unileon.ulebankoffice.domain.DireccionDomain;
 import es.unileon.ulebankoffice.domain.Documentos;
 import es.unileon.ulebankoffice.domain.MovimientoCuentaCorrienteDomain;
+import es.unileon.ulebankoffice.domain.PdfGenerator;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.repository.CuentaCorrienteRepository;
 import es.unileon.ulebankoffice.repository.DireccionRepository;
@@ -77,12 +84,12 @@ public class OfficeClientPageController {
 	public Direccion direccion() {
 		return new Direccion();
 	}
-	
+
 	@ModelAttribute("cuentaAuxiliar")
-	public CuentaCorrienteMovimientosAuxiliar cuentaAuxiliar(){
+	public CuentaCorrienteMovimientosAuxiliar cuentaAuxiliar() {
 		return new CuentaCorrienteMovimientosAuxiliar();
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, params = { "uin" })
 	public String showClientData(ModelMap model, @RequestParam("uin") String dni) {
 
@@ -191,39 +198,44 @@ public class OfficeClientPageController {
 			fechaMovimiento = formatter.parseDateTime(movimiento.getFechaValor());
 			nuevoMovimiento = new MovimientoCuentaCorrienteDomain(movimiento.getImporte(), movimiento.getConcepto(),
 					fechaMovimiento.toDate(), movimiento.getOperacion());
-			
-			saldoAux = "D".equals(movimiento.getOperacion()) ? saldoAux - movimiento.getImporte() : saldoAux + movimiento.getImporte();
-			
-		
-			
+
+			saldoAux = "D".equals(movimiento.getOperacion()) ? saldoAux - movimiento.getImporte()
+					: saldoAux + movimiento.getImporte();
+
 			cuentaCorriente.addMovimiento(nuevoMovimiento);
 		}
-		
-		logger.info(principal.getName() + " " + req.getRemoteAddr() + " ha añadido movimientos a la cuenta: " + numeroDeCuenta);
+
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + " ha añadido movimientos a la cuenta: "
+				+ numeroDeCuenta);
 		cuentaCorriente.setSaldo(cuentaCorriente.getSaldo() + saldoAux);
 		cuentasCorrientesRepo.save(cuentaCorriente);
 
 		return "redirect:/o/u/c?accn=" + numeroDeCuenta;
 	}
-	
-	@PostMapping(value = "/c", params={"fechaInicioLiquidacion", "fechaFinalLiquidacion"})
-	public String liquidar(ModelMap model, HttpServletRequest req, Principal principal, @RequestParam("fechaInicioLiquidacion") String fechaInicioLiquidación, @RequestParam("fechaFinalLiquidacion") String fechaFinalLiquidación, HttpServletResponse response){
-		logger.debug("He captado el subnmit de la liquidación. Con fecha incio -> " + fechaInicioLiquidación + " y fecha final -> " + fechaFinalLiquidación);
-		
+
+	@PostMapping(value = "/c", params = { "fechaInicioLiquidacion", "fechaFinalLiquidacion" })
+	public String liquidar(ModelMap model, HttpServletRequest req, Principal principal,
+			@RequestParam("fechaInicioLiquidacion") String fechaInicioLiquidación,
+			@RequestParam("fechaFinalLiquidacion") String fechaFinalLiquidación, HttpServletResponse response) {
+		logger.debug("He captado el subnmit de la liquidación. Con fecha incio -> " + fechaInicioLiquidación
+				+ " y fecha final -> " + fechaFinalLiquidación);
+
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yy-MM-dd");
 		DateTime fechaInicio = formatter.parseDateTime(fechaInicioLiquidación);
 		DateTime fechaFin = formatter.parseDateTime(fechaFinalLiquidación);
-				
+
 		CuentaCorrienteDomain cuenta = cuentasCorrientesRepo.findByNumeroDeCuenta(numeroDeCuenta);
-		
-		logger.info(principal.getName() + " " + req.getRemoteAddr() + "ha realizado la liquidación de la cuenta " + cuenta.getNumeroDeCuenta());
-		
+
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + "ha realizado la liquidación de la cuenta "
+				+ cuenta.getNumeroDeCuenta());
+
 		model.addAttribute("tabla", cuenta.realizarLiquidacion(fechaInicio.toDate(), fechaFin.toDate()));
-		
+
 		model.addAttribute("cuenta", cuenta);
-		
+
 		cuentasCorrientesRepo.save(cuenta);
-		
+
 		return "accountliquidation";
 	}
+
 }

@@ -1,65 +1,155 @@
-package es.unileon.ulebankoffice.domain;
+package es.unileon.ulebankoffice.web;
 
+import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
+import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.lordofthejars.nosqlunit.annotation.UsingDataSet;
+import com.lordofthejars.nosqlunit.core.LoadStrategyEnum;
+import com.lordofthejars.nosqlunit.mongodb.MongoDbRule;
+import com.mongodb.Mongo;
 
-public class TestPDF {
+import es.unileon.ulebankoffice.configuration.MongoTestConfig;
+import es.unileon.ulebankoffice.domain.ClienteDomain;
+import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
+import es.unileon.ulebankoffice.domain.DireccionDomain;
+import es.unileon.ulebankoffice.domain.PdfGenerator;
+import es.unileon.ulebankoffice.repository.ClienteRepository;
+import es.unileon.ulebankoffice.repository.CuentaCorrienteRepository;
+import es.unileon.ulebankoffice.repository.DireccionRepository;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = MongoTestConfig.class)
+public class PdfControllerTest {
+	
 	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
 	private static Font bold = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
 	private static Font boldUnderlined = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD | Font.UNDERLINE);
+	private static final Logger logger = Logger.getLogger("ulebankLogger");
+	
+	@Autowired
+	Mongo mongo;
 
-	@Before
-	public void setUp() throws Exception {
+	@Autowired
+	private ApplicationContext applicationContext;
+
+	@Rule
+	public MongoDbRule mongoDbRule = newMongoDbRule().defaultSpringMongoDb("ulebankofficetestdb");
+
+	
+	@Autowired
+	private ClienteRepository clienteRepo;
+
+	@Autowired
+	private DireccionRepository direccionesRepo;
+
+	@Autowired
+	private CuentaCorrienteRepository cuentasCorrientesRepo;
+	
+	@After
+	public void afterEachMethor(){
+		clienteRepo.deleteAll();
+		direccionesRepo.deleteAll();
+		cuentasCorrientesRepo.deleteAll();
+	}
+	
+	@Test
+	public void isUsingFongo() {
+		assertEquals("Fongo (ulebankofficetestdb)", mongo.toString());
 	}
 
 	@Test
-	public void test() throws DocumentException, FileNotFoundException, IOException {
+	@UsingDataSet(locations = { "/testing/cuentaCorrienteRepositoryData.json", "/testing/clienteRepositoryData.json", "/testing/direccionRepositoryData.json"}, 
+	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testInspeccionarContrato() throws IOException, DocumentException {
+		
 		Document document = new Document();
-		Chunk chunk;
+		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PdfWriter.getInstance(document, baos);
+		
+		CuentaCorrienteDomain cuenta = cuentasCorrientesRepo.findByNumeroDeCuenta("abc001");
+		if (cuenta == null) {
+			throw new IllegalArgumentException("Numero de cuenta icnorrecto");
+		}
 
+		ClienteDomain cliente = clienteRepo.findByDni("X5526828C");
+		if (cliente == null) {
+			throw new IllegalArgumentException("Dni asociado a cuenta corriente incorrecto");
+		}
+
+		List<DireccionDomain> direccion = direccionesRepo.findByDni("X5526828C");
+		if (direccion.isEmpty()) {
+			throw new IllegalArgumentException("El cliente no tiene domicilio?");
+		}
+		
+		
+		Document newDocument = generatePdf(document, cliente, cuenta, direccion.get(0));
+		PdfWriter.getInstance(newDocument, baos);
+		
+		
+		
+		
+		try (OutputStream os = new FileOutputStream("fileName.pdf")) {
+			baos.writeTo(os);
+			os.close();
+		}
+	}
+	
+	private Document generatePdf(Document document, ClienteDomain cliente, CuentaCorrienteDomain cuenta, DireccionDomain direccionCliente)
+			throws DocumentException, IOException {
+		
 		document.open();
+		DateTime dt;
+		Chunk chunk;
 
 		document.addCreator("ULeBank");
-		document.addTitle("Contrato cuenta -------");
-
-		Image img = Image.getInstance("src/main/webapp/resources/template/images/logo.png");
-		img.scaleAbsolute(250, 50);
-		img.setAlignment(Image.ALIGN_CENTER);
-
-		document.add(img);
+		document.addTitle("Contrato cuenta corriente");
+		
+//		Resource resource = new ClassPathResource("resources/logo.png");
+//		
+//		Image img = Image.getInstance(IOUtils.toByteArray(resource.getInputStream()));
+//		img.scaleAbsolute(250, 50);
+//		img.setAlignment(Image.ALIGN_CENTER);
+//
+//		document.add(img);
 		Paragraph titulo = new Paragraph();
 		titulo.setAlignment(Element.ALIGN_CENTER);
 		addEmptyLine(titulo, 1);
-		titulo.add(new Paragraph("Contrato de la cuenta -----", catFont));
+		titulo.add(new Paragraph("Contrato de la cuenta " + cuenta.getNumeroDeCuenta(), catFont));
 		addEmptyLine(titulo, 1);
 		document.add(titulo);
-
+		
+		dt = new DateTime(cuenta.getFechaApertura());
+		document.add(new Paragraph("León, " + dt.getDayOfMonth() + " del " + dt.getMonthOfYear() + " de " + dt.getYear()));
+		
 		Paragraph p1 = new Paragraph("En el lugar y fecha expresados, reunidos, de una parte , la entidad ULeBank, con"
 				+ " domicilio social en Campus de Vegazana, S/N, León inscrita en el Registro Mercantil de "
 				+ "Castilla y León Tomo 00000, Folio 1, Hoja B-0000 con NIF A00000000,dirección de correo electrónico: ulebank@unileon.es, a partir de"
@@ -88,6 +178,69 @@ public class TestPDF {
 		p4.setAlignment(Element.ALIGN_JUSTIFIED);
 		addEmptyLine(p4, 1);
 		document.add(p4);
+		
+		Paragraph p45 = new Paragraph();
+		chunk = new Chunk("Nombre:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getName());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Apellidos:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getLastName());
+		p45.add(chunk);
+		
+		chunk = new Chunk("DNI/NIE:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getDni().toString()+"\n");
+		p45.add(chunk);
+		
+		chunk = new Chunk("Email:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getEmail());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Fecha nacimiento:", bold);
+		p45.add(chunk);
+		
+		dt = new DateTime(cliente.getFechaNacimiento());
+		chunk = new Chunk(dt.getDayOfYear() +" - " + dt.getMonthOfYear() + " - " + dt.getYear());
+		p45.add(chunk);
+		chunk = new Chunk("Nacionalidad:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getNacionalidad());
+		p45.add(chunk);
+		
+		chunk = new Chunk("\nCon domicilio:\n", boldUnderlined);
+		p45.add(chunk);
+		
+		chunk = new Chunk("Comunidad autónoma", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getComunidadAutonoma());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Localidad", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getLocalidad()+"\n");
+		p45.add(chunk);
+		
+		chunk = new Chunk("Calle:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getCalle());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Número:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getNumero());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Código postal:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(	direccionCliente.getCodigoPostal()+"\n");
+		p45.add(chunk);
+		
+		document.add(p45);
+		
 
 		Paragraph p5 = new Paragraph("\n");
 		chunk = new Chunk("Datos y condiciones de la cuenta:", bold);
@@ -109,8 +262,8 @@ public class TestPDF {
 		addEmptyLine(p5, 1);
 		document.add(p5);
 		
-		Chunk h = new Chunk("Condiciones específicas de la Cuenta Corriente", boldUnderlined);
-		document.add(h);
+		chunk = new Chunk("Condiciones específicas de la Cuenta Corriente", boldUnderlined);
+		document.add(chunk);
 		Paragraph p6 = new Paragraph("En el caso de la Cuenta Primera, los Titulares y sus representantes cuando los Titulares cumplan 14 años y, para el caso de Cuenta Proyección, cuando los Titulares de la cuenta cumplan 26 años, excepto si existen pactos específicos, deberán presentarse en las oficinas del Banco contratante para formalizar un contrato nuevo y pactar las nuevas condiciones que se aplicarán a partir de ese momento."
 				+ "Si no se formaliza un contrato nuevo, esta cuenta pasará a la modalidad de cuenta corriente o de ahorro bajo las condiciones estándar que el Banco tenga vigentes para este tipo de contratos en ese momento.");
 		p6.setAlignment(Element.ALIGN_JUSTIFIED);
@@ -194,17 +347,12 @@ public class TestPDF {
 
 		document.add(new Paragraph(""));
 
-		document.close();
-
-		try (OutputStream os = new FileOutputStream("fileName.pdf")) {
-			baos.writeTo(os);
-			os.close();
-		}
-
-		baos.close();
+		
+		logger.debug("Ha cargado el contrato de la cuenta " + cuenta.getNumeroDeCuenta());
+		return document;
 
 	}
-
+	
 	private static void addEmptyLine(Paragraph paragraph, int number) {
 		for (int i = 0; i < number; i++) {
 			paragraph.add(new Paragraph(" "));

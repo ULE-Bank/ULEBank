@@ -9,6 +9,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 
+import org.apache.log4j.Logger;
+import org.apache.poi.util.IOUtils;
+import org.joda.time.DateTime;
+import org.springframework.context.ResourceLoaderAware;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.web.context.ContextLoader;
+
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -26,34 +35,42 @@ import com.itextpdf.text.pdf.PdfWriter;
  * @author Razvan Raducu
  *
  */
-public class PdfGenerator {
+public class PdfGenerator{
 	
+
 	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
 	private static Font bold = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
 	private static Font boldUnderlined = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD | Font.UNDERLINE);
-
+	private static final Logger logger = Logger.getLogger("ulebankLogger");
 	
-	public static Document generatePdf(Document document, ClienteDomain cliente, String numeroDeCuenta)
+	public static Document generatePdf(Document document, ClienteDomain cliente, CuentaCorrienteDomain cuenta, DireccionDomain direccionCliente)
 			throws DocumentException, IOException {
-
-		Chunk chunk;
+		
 		document.open();
+		logger.debug("Alguien está inspeccionando el contrato de la cuenta " + cuenta.getNumeroDeCuenta());
+		DateTime dt;
+		Chunk chunk;
 
 		document.addCreator("ULeBank");
-		document.addTitle("Contrato cuenta -------");
-
-		Image img = Image.getInstance("src/main/webapp/resources/template/images/logo.png");
-		img.scaleAbsolute(250, 50);
-		img.setAlignment(Image.ALIGN_CENTER);
-
-		document.add(img);
+		document.addTitle("Contrato cuenta corriente");
+		
+//		Resource resource = new ClassPathResource("resources/logo.png");
+//		
+//		Image img = Image.getInstance(IOUtils.toByteArray(resource.getInputStream()));
+//		img.scaleAbsolute(250, 50);
+//		img.setAlignment(Image.ALIGN_CENTER);
+//
+//		document.add(img);
 		Paragraph titulo = new Paragraph();
 		titulo.setAlignment(Element.ALIGN_CENTER);
 		addEmptyLine(titulo, 1);
-		titulo.add(new Paragraph("Contrato de la cuenta -----", catFont));
+		titulo.add(new Paragraph("Contrato de la cuenta " + cuenta.getNumeroDeCuenta(), catFont));
 		addEmptyLine(titulo, 1);
 		document.add(titulo);
-
+		
+		dt = new DateTime(cuenta.getFechaApertura());
+		document.add(new Paragraph("León, " + dt.getDayOfMonth() + " del " + dt.getMonthOfYear() + " de " + dt.getYear()));
+		
 		Paragraph p1 = new Paragraph("En el lugar y fecha expresados, reunidos, de una parte , la entidad ULeBank, con"
 				+ " domicilio social en Campus de Vegazana, S/N, León inscrita en el Registro Mercantil de "
 				+ "Castilla y León Tomo 00000, Folio 1, Hoja B-0000 con NIF A00000000,dirección de correo electrónico: ulebank@unileon.es, a partir de"
@@ -82,6 +99,69 @@ public class PdfGenerator {
 		p4.setAlignment(Element.ALIGN_JUSTIFIED);
 		addEmptyLine(p4, 1);
 		document.add(p4);
+		
+		Paragraph p45 = new Paragraph();
+		chunk = new Chunk("Nombre:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getName());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Apellidos:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getLastName());
+		p45.add(chunk);
+		
+		chunk = new Chunk("DNI/NIE:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getDni().toString()+"\n");
+		p45.add(chunk);
+		
+		chunk = new Chunk("Email:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getEmail());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Fecha nacimiento:", bold);
+		p45.add(chunk);
+		
+		dt = new DateTime(cliente.getFechaNacimiento());
+		chunk = new Chunk(dt.getDayOfYear() +" - " + dt.getMonthOfYear() + " - " + dt.getYear());
+		p45.add(chunk);
+		chunk = new Chunk("Nacionalidad:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(cliente.getNacionalidad());
+		p45.add(chunk);
+		
+		chunk = new Chunk("\nCon domicilio:\n", boldUnderlined);
+		p45.add(chunk);
+		
+		chunk = new Chunk("Comunidad autónoma", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getComunidadAutonoma());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Localidad", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getLocalidad()+"\n");
+		p45.add(chunk);
+		
+		chunk = new Chunk("Calle:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getCalle());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Número:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(direccionCliente.getNumero());
+		p45.add(chunk);
+		
+		chunk = new Chunk("Código postal:", bold);
+		p45.add(chunk);
+		chunk = new Chunk(	direccionCliente.getCodigoPostal()+"\n");
+		p45.add(chunk);
+		
+		document.add(p45);
+		
 
 		Paragraph p5 = new Paragraph("\n");
 		chunk = new Chunk("Datos y condiciones de la cuenta:", bold);
@@ -103,8 +183,8 @@ public class PdfGenerator {
 		addEmptyLine(p5, 1);
 		document.add(p5);
 		
-		Chunk h = new Chunk("Condiciones específicas de la Cuenta Corriente", boldUnderlined);
-		document.add(h);
+		chunk = new Chunk("Condiciones específicas de la Cuenta Corriente", boldUnderlined);
+		document.add(chunk);
 		Paragraph p6 = new Paragraph("En el caso de la Cuenta Primera, los Titulares y sus representantes cuando los Titulares cumplan 14 años y, para el caso de Cuenta Proyección, cuando los Titulares de la cuenta cumplan 26 años, excepto si existen pactos específicos, deberán presentarse en las oficinas del Banco contratante para formalizar un contrato nuevo y pactar las nuevas condiciones que se aplicarán a partir de ese momento."
 				+ "Si no se formaliza un contrato nuevo, esta cuenta pasará a la modalidad de cuenta corriente o de ahorro bajo las condiciones estándar que el Banco tenga vigentes para este tipo de contratos en ese momento.");
 		p6.setAlignment(Element.ALIGN_JUSTIFIED);
@@ -188,8 +268,8 @@ public class PdfGenerator {
 
 		document.add(new Paragraph(""));
 
-		document.close();
 		
+		logger.debug("Ha cargado el contrato de la cuenta " + cuenta.getNumeroDeCuenta());
 		return document;
 
 	}
@@ -199,5 +279,5 @@ public class PdfGenerator {
 			paragraph.add(new Paragraph(" "));
 		}
 	}
-	
+
 }

@@ -229,6 +229,7 @@
                         <div class="row" style="border: 1px solid red;">
                            <div class="col-md-12">
                               <b> Número de cuenta:</b> ${cuenta.numeroDeCuenta}  <a href="/o/u/c?accn=${ cuenta.numeroDeCuenta}">Acceder a la cuenta</a>
+                              <b> Contrato:</b> <a href="/o/u/contratoCuenta?accn=${ cuenta.numeroDeCuenta}" target="_blank">Inspeccionar contrato</a>
                            </div>
                            <div class="col-md-4">
                               <b> Fecha de alta:</b> 
