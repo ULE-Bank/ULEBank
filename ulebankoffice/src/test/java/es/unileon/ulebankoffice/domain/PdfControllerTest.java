@@ -1,4 +1,4 @@
-package es.unileon.ulebankoffice.web;
+package es.unileon.ulebankoffice.domain;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.junit.Assert.*;
@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.util.IOUtils;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.Before;
@@ -26,6 +27,8 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
@@ -110,21 +113,9 @@ public class PdfControllerTest {
 			throw new IllegalArgumentException("El cliente no tiene domicilio?");
 		}
 		
+		DireccionDomain direccionCliente = direccion.get(0);
 		
-		Document newDocument = generatePdf(document, cliente, cuenta, direccion.get(0));
-		PdfWriter.getInstance(newDocument, baos);
-		
-		
-		
-		
-		try (OutputStream os = new FileOutputStream("fileName.pdf")) {
-			baos.writeTo(os);
-			os.close();
-		}
-	}
-	
-	private Document generatePdf(Document document, ClienteDomain cliente, CuentaCorrienteDomain cuenta, DireccionDomain direccionCliente)
-			throws DocumentException, IOException {
+		PdfWriter.getInstance(document, baos);
 		
 		document.open();
 		DateTime dt;
@@ -133,13 +124,12 @@ public class PdfControllerTest {
 		document.addCreator("ULeBank");
 		document.addTitle("Contrato cuenta corriente");
 		
-//		Resource resource = new ClassPathResource("resources/logo.png");
-//		
-//		Image img = Image.getInstance(IOUtils.toByteArray(resource.getInputStream()));
-//		img.scaleAbsolute(250, 50);
-//		img.setAlignment(Image.ALIGN_CENTER);
-//
-//		document.add(img);
+		Image img = Image.getInstance("src/main/webapp/resources/template/images/logo.png");
+		img.scaleAbsolute(250, 50);
+		img.setAlignment(Image.ALIGN_CENTER);
+
+		document.add(img);
+		
 		Paragraph titulo = new Paragraph();
 		titulo.setAlignment(Element.ALIGN_CENTER);
 		addEmptyLine(titulo, 1);
@@ -180,6 +170,9 @@ public class PdfControllerTest {
 		document.add(p4);
 		
 		Paragraph p45 = new Paragraph();
+		chunk = new Chunk("\nDatos del titular\n", boldUnderlined);
+		p45.add(chunk);
+		
 		chunk = new Chunk("Nombre:", bold);
 		p45.add(chunk);
 		chunk = new Chunk(cliente.getName());
@@ -211,7 +204,7 @@ public class PdfControllerTest {
 		chunk = new Chunk(cliente.getNacionalidad());
 		p45.add(chunk);
 		
-		chunk = new Chunk("\nCon domicilio:\n", boldUnderlined);
+		chunk = new Chunk("\nCon domicilio\n", boldUnderlined);
 		p45.add(chunk);
 		
 		chunk = new Chunk("Comunidad autónoma", bold);
@@ -243,12 +236,64 @@ public class PdfControllerTest {
 		
 
 		Paragraph p5 = new Paragraph("\n");
-		chunk = new Chunk("Datos y condiciones de la cuenta:", bold);
+		chunk = new Chunk("Datos y condiciones de la cuenta\n", boldUnderlined);
 		p5.add(chunk);
 		chunk = new Chunk("Número de la cuenta:", bold);
 		p5.add(chunk);
-		chunk = new Chunk("Número de la cuenta:", bold);
+		chunk = new Chunk(cuenta.getNumeroDeCuenta());
+		p45.add(chunk);
+		chunk = new Chunk("Intereses acreedores:", bold);
 		p5.add(chunk);
+		
+		
+//		chunk = new Chunk(cuenta.getInteresesAcreedoresFinal());
+//		p5.add(chunk);
+		chunk = new Chunk("Intereses deudores:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(cuenta.getInteresesDeudoresFinal());
+//		p5.add(chunk);
+		chunk = new Chunk("Retención de rendimientos:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(cuenta.getRetencionRendimientosFinal());
+//		p5.add(chunk);
+		chunk = new Chunk("Comisión descubierto:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(cuenta.getComisionDescubierto().toString());
+//		p5.add(chunk);
+		chunk = new Chunk("Mínimo:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(cuenta.getMinimoComisionDescubierto().toString());
+//		p5.add(chunk);
+		chunk = new Chunk("Comisión mantenimiento:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(cuenta.getComisionMantenimiento().toString());
+//		p5.add(chunk);
+		chunk = new Chunk("Intereses deudores saldos negativos:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(cuenta.getInteresDeudorSobreSaldosNegativos().toString());
+//		p5.add(chunk);
+		
+//		String periodoLiquidacion = "";
+//		switch (cuenta.getPeriodoLiquidacion()) {
+//		case 1:
+//			periodoLiquidacion = "Mensual";
+//			break;
+//		case 3:
+//			periodoLiquidacion = "Trimestral";
+//			break;
+//		case 6:
+//			periodoLiquidacion = "Semestral";
+//			break;
+//		default:
+//			periodoLiquidacion = "Anual";
+//			break;
+//		}
+		
+		chunk = new Chunk("Periodo liquidación:", bold);
+		p5.add(chunk);
+//		chunk = new Chunk(periodoLiquidacion);
+//		p5.add(chunk);
+		
 		chunk = new Chunk("Lugar y fecha de formalización:", bold);
 		p5.add(chunk);
 		chunk = new Chunk("Tipos de intereses:", bold);
@@ -346,13 +391,43 @@ public class PdfControllerTest {
 		document.add(p12);
 
 		document.add(new Paragraph(""));
-
 		
-		logger.debug("Ha cargado el contrato de la cuenta " + cuenta.getNumeroDeCuenta());
-		return document;
+		
+		img = Image.getInstance("src/main/webapp/resources/template/images/contratoPDF/1.png");
+		img.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
+		img.setAlignment(Image.ALIGN_CENTER);
 
+		document.add(img);
+		img = Image.getInstance("src/main/webapp/resources/template/images/contratoPDF/2.png");
+		img.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
+		img.setAlignment(Image.ALIGN_CENTER);
+
+		document.add(img);
+		img = Image.getInstance("src/main/webapp/resources/template/images/contratoPDF/3.png");
+		img.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
+		img.setAlignment(Image.ALIGN_CENTER);
+
+		document.add(img);
+		img = Image.getInstance("src/main/webapp/resources/template/images/contratoPDF/4.png");
+		img.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
+		img.setAlignment(Image.ALIGN_CENTER);
+
+		document.add(img);
+
+		document.close();
+		logger.debug("Ha cargado el contrato de la cuenta " + cuenta.getNumeroDeCuenta());
+		
+		
+//		try (OutputStream os = new FileOutputStream("fileName.pdf")) {
+//			baos.writeTo(os);
+//			os.close();
+//		}
+		
+		assertNotNull(baos);
+		baos.close();
+		
 	}
-	
+		
 	private static void addEmptyLine(Paragraph paragraph, int number) {
 		for (int i = 0; i < number; i++) {
 			paragraph.add(new Paragraph(" "));
