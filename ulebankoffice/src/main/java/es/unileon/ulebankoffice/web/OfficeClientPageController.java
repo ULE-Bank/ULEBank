@@ -43,7 +43,6 @@ import es.unileon.ulebankoffice.domain.DNIHandler;
 import es.unileon.ulebankoffice.domain.DireccionDomain;
 import es.unileon.ulebankoffice.domain.Documentos;
 import es.unileon.ulebankoffice.domain.MovimientoCuentaCorrienteDomain;
-import es.unileon.ulebankoffice.domain.PdfGenerator;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.repository.CuentaCorrienteRepository;
 import es.unileon.ulebankoffice.repository.DireccionRepository;

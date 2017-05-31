@@ -44,7 +44,6 @@ import es.unileon.ulebankoffice.configuration.MongoTestConfig;
 import es.unileon.ulebankoffice.domain.ClienteDomain;
 import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
 import es.unileon.ulebankoffice.domain.DireccionDomain;
-import es.unileon.ulebankoffice.domain.PdfGenerator;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.repository.CuentaCorrienteRepository;
 import es.unileon.ulebankoffice.repository.DireccionRepository;
