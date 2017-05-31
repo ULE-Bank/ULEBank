@@ -165,7 +165,7 @@
                         </div>
                      </c:forEach>
                      <div class="row">
-                        <a class="button mt-20"  id="mostrarFormularioNuevaDireccion"> <span> Añadir dirección </span> <i class ="fa fa-send"></i></a>
+                        <a class="button mt-20"  id="mostrarFormularioNuevaDireccion"> <span> Añadir dirección </span> <i class ="fa fa-file-text-o"></i></a>
                         <form:form style="display: none;" id="formularioNuevaDireccion" action="/o/u/nd" method="post" modelAttribute="nuevaDireccion">
                            <div class="row col-md-12">
                               <h2>Nueva dirección:</h2>
@@ -216,7 +216,7 @@
                               </div>
                            </div>
                            <div class="row col-md-12">
-                              <a class="button mt-20"  onclick="darDeAltaDireccion()"> <span> Dar de alta dirección </span> <i class ="fa fa-send"></i></a>
+                              <a class="button mt-20"  onclick="darDeAltaDireccion()"> <span> Dar de alta dirección </span> <i class ="fa fa-plus"></i></a>
                               <input id="submit_handle_nuevaDireccion" type="submit" style="display: none" />
                            </div>
                         </form:form>
@@ -279,7 +279,7 @@
                         </div>
                      </c:forEach>
                      <div class="row">
-                        <a class="button mt-20"  id="mostrarFormularioNuevaCuentaCorriente"> <span> Crear nueva cuenta corriente </span> <i class ="fa fa-send"></i></a>
+                        <a class="button mt-20"  id="mostrarFormularioNuevaCuentaCorriente"> <span> Crear nueva cuenta corriente </span> <i class ="fa fa-plus"></i></a>
                         <form:form style="display: none;" id="formularioNuevaCuentaCorriente" action="/o/u/nc" method="post" modelAttribute="nuevaCuentaCorriente">
                            <div class="row col-md-12">
                               <h2>Datos nueva cuenta corriente:</h2>
@@ -357,7 +357,7 @@
                               <form:errors style="color: red;" path="comisionMantenimiento"></form:errors>
                            </div>
                            <div class="row col-md-12">
-                              <a class="button mt-20"  onclick="darDeAltaCuentaCorriente()"> <span> Dar de alta cuenta corriente </span> <i class ="fa fa-send"></i></a>
+                              <a class="button mt-20"  onclick="darDeAltaCuentaCorriente()"> <span> Dar de alta cuenta corriente </span> <i class ="fa fa-plus"></i></a>
                               <input id="submit_handle_nuevaCuentaCorriente" type="submit" style="display: none" />
                            </div>
                         </form:form>
@@ -365,7 +365,7 @@
                   </div>
                </div>
                <div class="row">
-                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
+                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
                </div>
             </div>
          </section>

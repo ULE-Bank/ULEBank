@@ -140,7 +140,7 @@
                               </table>
                            </div>
                            <div class="row col-md-12">
-                              <a class="button mt-20"  id="mostrarFomrularioNuevoEmpleado"> <span> Crear empleado </span> <i class ="fa fa-send"></i></a>
+                              <a class="button mt-20"  id="mostrarFomrularioNuevoEmpleado"> <span> Crear empleado </span> <i class ="fa fa-plus"></i></a>
                               <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
                            </div>
                            <div class="row col-md-12">
@@ -234,9 +234,9 @@
                         </div>
                      </div>
                      <div class="row">
-                        <a class="button mt-20"  id="mostrarFomrularioNuevoCliente"> <span> Crear cliente </span> <i class ="fa fa-send"></i></a>
+                        <a class="button mt-20"  id="mostrarFomrularioNuevoCliente"> <span> Crear cliente </span> <i class ="fa fa-plus"></i></a>
                         <!--                      <a class="button mt-20"  > <span> Historial expedientes </span> <i class ="fa fa-send"></i></a> -->
-                        <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
+                        <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
                      </div>
                      <form:form style="display: none;" id="formularioNuevoCliente" method="post" modelAttribute="nuevoCliente">
                         <div id="register-form" class="register-form">
@@ -424,7 +424,7 @@
                                     </div>
                                  </div>
                                  <div class="row col-md-12">
-                                    <a class="button mt-20"  onclick="darDeAltaClient()"> <span> Dar de alta cliente </span> <i class ="fa fa-send"></i></a>
+                                    <a class="button mt-20"  onclick="darDeAltaClient()"> <span> Dar de alta cliente </span> <i class ="fa fa-plus"></i></a>
                                     <input id="submit_handle_client" type="submit" style="display: none" />
                                  </div>
                               </div>

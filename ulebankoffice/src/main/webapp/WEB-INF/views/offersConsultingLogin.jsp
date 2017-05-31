@@ -137,14 +137,14 @@
                      </c:if>
                      <div class="section-field">
                         Email:
-                        <div class="field-widget">
+                        <div class="field-widget" style="text-align:justify;">
                            <i class="fa fa-user"></i> <input type='email' name='j_username' />
-                           <spring:message code="label.emailIsImportant"/>
+                           <spring:message  code="label.emailIsImportant"/>
                         </div>
                      </div>
                      <div class="section-field">
                         <div class="field-widget">
-                           <i class="fa fa-check"></i>
+                           <i class="fa fa-send-o"></i>
                            <input value="Send" name="submit" type="submit"> 
                         </div>
                      </div>

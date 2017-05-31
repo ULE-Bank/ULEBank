@@ -41,16 +41,9 @@ public class MovimientoCuentaCorrienteTest {
 
 	@Test
 	public void testConcepto() {
-		assertNull(movimiento.setConcepto());
+		assertNull(movimiento.getConcepto());
 		movimiento.setConcepto("concepto");
-		assertThat(movimiento.setConcepto(), is("concepto"));
-	}
-
-	@Test
-	public void testEmisor() {
-		assertNull(movimiento.getEmisor());
-		movimiento.setEmisor("Emisor");
-		assertThat(movimiento.getEmisor(), is("Emisor"));
+		assertThat(movimiento.getConcepto(), is("concepto"));
 	}
 
 	@Test
@@ -61,13 +54,6 @@ public class MovimientoCuentaCorrienteTest {
 	}
 
 	@Test
-	public void testReceptor() {
-		assertNull(movimiento.getReceptor());
-		movimiento.setReceptor("Receptor");
-		assertThat(movimiento.getReceptor(), is("Receptor"));
-	}
-
-	@Test
 	public void testCanitdadAnnotation() {
 		validate();
 		assertThat(constraintViolations.size(), is(4));
@@ -75,18 +61,14 @@ public class MovimientoCuentaCorrienteTest {
 		validate();
 		assertThat(constraintViolations.size(), is(3));
 		movimiento.setFechaValor("fecha");
-		validate();
-		assertThat(constraintViolations.size(), is(2));
-		movimiento.setReceptor("recpetor");
-		validate();
-		assertThat(constraintViolations.size(), is(1));
-		movimiento.setEmisor("emisor");
+		movimiento.setOperacion("D");
+		movimiento.setImporte(300d);
 		validate();
 		assertThat(constraintViolations.size(), is(0));
 		movimiento.setImporte(-5d);
 		validate();
 		assertThat(constraintViolations.size(), is(1));
-		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("cantidad"));
+		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("importe"));
 	}
 	
 	private void validate(){

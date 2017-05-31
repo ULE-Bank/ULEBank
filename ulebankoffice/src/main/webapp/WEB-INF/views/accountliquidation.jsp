@@ -209,13 +209,13 @@
          
          <div class="col-md-12">
          <div class="row">
-                  <a href="/o" class="button mt-20"  > <span> Volver a la oficina </span> <i class ="fa fa-send"></i></a>
+                  <a href="/o" class="button mt-20"  > <span> Volver a la oficina </span> <i class ="fa fa-fast-backward"></i></a>
                
         
-                  <a href="/o/u/c?accn=${cuenta.numeroDeCuenta }" class="button mt-20"  > <span> Volver a la cuenta </span> <i class ="fa fa-send"></i></a>
+                  <a href="/o/u/c?accn=${cuenta.numeroDeCuenta }" class="button mt-20"  > <span> Volver a la cuenta </span> <i class ="fa fa-step-backward"></i></a>
           
         
-                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
+                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
          </div>   
          </div>
            </div>

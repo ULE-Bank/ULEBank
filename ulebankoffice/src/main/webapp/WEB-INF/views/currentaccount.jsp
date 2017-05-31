@@ -24,7 +24,7 @@
       <script src="/resources/services/js/script.js"></script>
       <script src="/resources/services/js/Chart.js"></script>
       <!-- Favicon -->
-      <link rel="shortcut icon" href="../favicon.ico" />
+      <link rel="shortcut icon" href="/../favicon.ico" />
       <!-- bootstrap -->
       <link href="/resources/template/css/bootstrap.min.css" rel="stylesheet"
          type="text/css" />
@@ -280,7 +280,7 @@
                            </p>
                            <div class="row text-center">
                           
-                           <a class="button mt-20" id="formularioMovimientos" onclick="registrar()"><span> Registrar movimientos </span> <i class ="fa fa-send"></i></a>
+                           <a class="button mt-20" id="formularioMovimientos" onclick="registrar()"><span> Registrar movimientos </span> <i class ="fa fa-plus"></i></a>
                            <input id="submit_handle_formularioMovimientos" type="submit" style="display: none" />
                            </div>
                           <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
@@ -319,7 +319,7 @@
                            </div>
                            
                            <div class="row text-center">
-                          <a class="button mt-20" id="liquidarFormulario" onclick="liquidar()"> <span> Liquidar </span> <i class ="fa fa-send"></i></a>
+                          <a class="button mt-20" id="liquidarFormulario" onclick="liquidar()"> <span> Liquidar </span> <i class ="fa fa-calculator"></i></a>
                            <input id="submit_handle_liquidarFormulario" type="submit" style="display: none" />
                            </div>
                            <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
@@ -330,7 +330,7 @@
                         </form>
                      </div>
                   </div>
-                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-send"></i></a>
+                  <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
                </div>
             </div>
   
@@ -343,7 +343,14 @@
          
       </div>    
       <script type="text/javascript">
-      
+      var strings = new Array();
+		strings['movimiento.descripcion'] = "<spring:message code='label.s7c1' javaScriptEscape='true' />";
+		strings['movimiento.fecha'] = "<spring:message code='label.s7c3' javaScriptEscape='true' />";
+		strings['movimiento.importe'] = "<spring:message code='label.s7c2' javaScriptEscape='true' />";
+		strings['movimiento.operacion'] = "<spring:message code='label.operation' javaScriptEscape='true' />";
+		strings['movimiento.ingreso'] = "<spring:message code='label.ingreso' javaScriptEscape='true' />";
+		strings['movimiento.disposicion'] = "<spring:message code='label.disposicion' javaScriptEscape='true' />";
+
       function liquidar() {
        	$("#submit_handle_liquidarFormulario").click();
        }

@@ -208,6 +208,19 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- iTExt libreary -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-pdfa</artifactId>
+			<version>5.5.11</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<!-- for hot reload of the web application -->

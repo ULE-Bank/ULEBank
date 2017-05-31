@@ -327,6 +327,10 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 		this.comisionDescubiertoFinal =decimalFormatter.format(redondear(comisionDescubiertoFinal))+moneda;
 		this.totalLiquidacion = decimalFormatter.format(redondear(totalLiquidacionFinal))+moneda;
 		
+		double liquiTotalAux = totalLiquidacionFinal < 0 ? -totalLiquidacionFinal : totalLiquidacionFinal;
+		this.movimientos.add(new MovimientoCuentaCorrienteDomain(redondear(liquiTotalAux), "Liquidación", new Date(), "D"));
+		this.saldo += totalLiquidacionFinal;
+		
 		return tabla;
 	}
 

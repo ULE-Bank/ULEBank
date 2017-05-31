@@ -66,6 +66,7 @@ public class OfficeClientPageController {
 	private String numeroDeCuenta;
 
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
+	private static final String OFFICECLIENTPAGEVIEW = "officeclientpage";
 
 	@ModelAttribute("nuevaCuentaCorriente")
 	public CuentaCorriente cuentaCorriente() {
@@ -93,7 +94,7 @@ public class OfficeClientPageController {
 		model.addAttribute("direcciones", direccionesRepo.findByDni(dniCliente));
 		model.addAttribute("cuentasCorrientes", cuentasCorrientesRepo.findByDni(dniCliente));
 		logger.debug("El dni es -> : " + dniCliente);
-		return "officeclientpage";
+		return OFFICECLIENTPAGEVIEW;
 	}
 
 	@PostMapping(value = "/nd")
@@ -102,7 +103,7 @@ public class OfficeClientPageController {
 			throws DNIException {
 		logger.debug("El dni es -> : " + dniCliente);
 		if (direccionResult.hasErrors()) {
-			return "officeclientpage";
+			return OFFICECLIENTPAGEVIEW;
 		}
 
 		DireccionDomain direccion = new DireccionDomain(dniCliente, nuevaDireccion.getCalle(),
@@ -122,7 +123,7 @@ public class OfficeClientPageController {
 			throws DNIException {
 
 		if (cuentaResult.hasErrors()) {
-			return "officeclientpage";
+			return OFFICECLIENTPAGEVIEW;
 		}
 
 		CuentaCorrienteDomain cuenta = new CuentaCorrienteDomain(new Date(), nuevaCuenta.getInteresesAcreedores(),
@@ -191,7 +192,7 @@ public class OfficeClientPageController {
 			nuevoMovimiento = new MovimientoCuentaCorrienteDomain(movimiento.getImporte(), movimiento.getConcepto(),
 					fechaMovimiento.toDate(), movimiento.getOperacion());
 			
-			saldoAux = (movimiento.getOperacion().equals("D")) ? saldoAux - movimiento.getImporte() : saldoAux + movimiento.getImporte();
+			saldoAux = "D".equals(movimiento.getOperacion()) ? saldoAux - movimiento.getImporte() : saldoAux + movimiento.getImporte();
 			
 		
 			
@@ -215,10 +216,14 @@ public class OfficeClientPageController {
 				
 		CuentaCorrienteDomain cuenta = cuentasCorrientesRepo.findByNumeroDeCuenta(numeroDeCuenta);
 		
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + "ha realizado la liquidación de la cuenta " + cuenta.getNumeroDeCuenta());
 		
 		model.addAttribute("tabla", cuenta.realizarLiquidacion(fechaInicio.toDate(), fechaFin.toDate()));
+		
 		model.addAttribute("cuenta", cuenta);
-	
+		
+		cuentasCorrientesRepo.save(cuenta);
+		
 		return "accountliquidation";
 	}
 }
