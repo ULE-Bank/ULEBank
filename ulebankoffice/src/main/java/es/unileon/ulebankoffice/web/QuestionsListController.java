@@ -36,9 +36,9 @@ public class QuestionsListController {
         	if(!datastore.queryForExists("Admins", "Email", req.getUserPrincipal().getName()))
         		return new ModelAndView("redirect:/offersconsulting");
         	
-        	ModelAndView Model = new ModelAndView("questions-list");
+        	ModelAndView modelView = new ModelAndView("questions-list");
         	
-        	List<AdminQuestionInfo> list = new ArrayList<AdminQuestionInfo>();
+        	List<AdminQuestionInfo> list = new ArrayList<>();
         	
         	List<Entity> results = datastore.query("AdminQuestion");
         	for (Entity result : results) {
@@ -48,9 +48,9 @@ public class QuestionsListController {
         		list.add(new AdminQuestionInfo(pregunta, ponderacion));
         	}
         	
-        	Model.addObject("lists", list);
+        	modelView.addObject("lists", list);
         	
-        	return Model;
+        	return modelView;
         }
         else               
         	return new ModelAndView(authenticator.login(req));

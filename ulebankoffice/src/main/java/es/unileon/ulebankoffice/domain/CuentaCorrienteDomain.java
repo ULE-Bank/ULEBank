@@ -275,24 +275,24 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 			}
 		}
 
-		double interesesAcreedoresFinal = (totalNumerosAcreedores * interesesAcreedores) / (diasAnuales * 100);
-		double retencionRendimientosFinal = (retencionRendimientosCapital * interesesAcreedoresFinal) / 100;
-		double interesesDeudoresFinal = (totalNumerosDeudores * interesDeudorSobreSaldosNegativos)
+		double interesesAcreedoresFinalAux = (totalNumerosAcreedores * interesesAcreedores) / (diasAnuales * 100);
+		double retencionRendimientosFinalAux = (retencionRendimientosCapital * interesesAcreedoresFinalAux) / 100;
+		double interesesDeudoresFinalAux = (totalNumerosDeudores * interesDeudorSobreSaldosNegativos)
 				/ (diasAnuales * 100);
-		double comisionDescubiertoFinal = mayorSaldoNegativo * comisionDescubierto;
-		comisionDescubiertoFinal = comisionDescubiertoFinal < minimoComisionDescubierto ? minimoComisionDescubierto
-				: comisionDescubiertoFinal;
+		double comisionDescubiertoFinalAux = mayorSaldoNegativo * comisionDescubierto;
+		comisionDescubiertoFinalAux = comisionDescubiertoFinalAux < minimoComisionDescubierto ? minimoComisionDescubierto
+				: comisionDescubiertoFinalAux;
 
-		interesesAcreedoresFinal = redondear(interesesAcreedoresFinal);
-		retencionRendimientosFinal = redondear(retencionRendimientosFinal);
+		interesesAcreedoresFinalAux = redondear(interesesAcreedoresFinalAux);
+		retencionRendimientosFinalAux = redondear(retencionRendimientosFinalAux);
 		/*
 		 * Al ser un número negativo, lo convierto en positivo para más adelante
 		 * hacer la resta normal.
 		 */
-		interesesDeudoresFinal = redondear(-interesesDeudoresFinal);
+		interesesDeudoresFinalAux = redondear(-interesesDeudoresFinalAux);
 
-		double totalLiquidacionFinal = interesesAcreedoresFinal - retencionRendimientosFinal - interesesDeudoresFinal
-				- comisionDescubiertoFinal - comisionMantenimiento;
+		double totalLiquidacionFinal = interesesAcreedoresFinalAux - retencionRendimientosFinalAux - interesesDeudoresFinalAux
+				- comisionDescubiertoFinalAux - comisionMantenimiento;
 		
 				
 		/* El último movimiento es la liquidación */
@@ -321,10 +321,10 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 
 		tabla.add(itemTabla);
 		
-		this.interesesAcreedoresFinal = decimalFormatter.format(redondear(interesesAcreedoresFinal))+moneda;
-		this.retencionRendimientosFinal = decimalFormatter.format(redondear( retencionRendimientosFinal))+moneda;
-		this.interesesDeudoresFinal = decimalFormatter.format(redondear(interesesDeudoresFinal ))+moneda;
-		this.comisionDescubiertoFinal =decimalFormatter.format(redondear(comisionDescubiertoFinal))+moneda;
+		this.interesesAcreedoresFinal = decimalFormatter.format(redondear(interesesAcreedoresFinalAux))+moneda;
+		this.retencionRendimientosFinal = decimalFormatter.format(redondear( retencionRendimientosFinalAux))+moneda;
+		this.interesesDeudoresFinal = decimalFormatter.format(redondear(interesesDeudoresFinalAux ))+moneda;
+		this.comisionDescubiertoFinal =decimalFormatter.format(redondear(comisionDescubiertoFinalAux))+moneda;
 		this.totalLiquidacion = decimalFormatter.format(redondear(totalLiquidacionFinal))+moneda;
 		
 		double liquiTotalAux = totalLiquidacionFinal < 0 ? -totalLiquidacionFinal : totalLiquidacionFinal;

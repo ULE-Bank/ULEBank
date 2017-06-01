@@ -57,7 +57,7 @@ public class PdfController {
 	
 	@GetMapping(value = "/contratoCuenta", params = { "accn" })
 	public void inspeccionarContrato(HttpServletRequest req, HttpServletResponse response, Principal principal,
-			@RequestParam("accn") String numeroDeCuenta) throws Exception {
+			@RequestParam("accn") String numeroDeCuenta) throws DocumentException, IOException {
 		CuentaCorrienteDomain cuenta = cuentasCorrientesRepo.findByNumeroDeCuenta(numeroDeCuenta);
 		if (cuenta == null) {
 			throw new IllegalArgumentException("Numero de cuenta icnorrecto");
@@ -322,14 +322,7 @@ public class PdfController {
 			cell = new PdfPCell(new Phrase(chunk));
 			cell.setBorder(Rectangle.NO_BORDER);
 			tablaTitular.addCell(cell);
-//			chunk = new Chunk("Intereses deudores saldos negativos:", bold);
-//			cell = new PdfPCell(new Phrase(chunk));
-//			cell.setBorder(Rectangle.NO_BORDER);
-//			tablaTitular.addCell(cell);
-//			chunk = new Chunk(cuenta.getInteresDeudorSobreSaldosNegativos().toString());
-//			cell = new PdfPCell(new Phrase(chunk));
-//			cell.setBorder(Rectangle.NO_BORDER);
-//			tablaTitular.addCell(cell);
+
 			
 			String periodoLiquidacion;
 			switch (cuenta.getPeriodoLiquidacion()) {
@@ -364,18 +357,7 @@ public class PdfController {
 			cell = new PdfPCell(new Phrase(chunk));
 			cell.setBorder(Rectangle.NO_BORDER);
 			tablaTitular.addCell(cell);
-//			chunk = new Chunk("Tipos de intereses:", bold);
-//			cell = new PdfPCell(new Phrase(chunk));
-//			cell.setBorder(Rectangle.NO_BORDER);
-//			tablaTitular.addCell(cell);
-//			chunk = new Chunk("Tipo y periodicidad de liquidación y pago de intereses:", bold);
-//			cell = new PdfPCell(new Phrase(chunk));
-//			cell.setBorder(Rectangle.NO_BORDER);
-//			tablaTitular.addCell(cell);
-//			chunk = new Chunk("Comisiones de administración:", bold);
-//			cell = new PdfPCell(new Phrase(chunk));
-//			cell.setBorder(Rectangle.NO_BORDER);
-//			tablaTitular.addCell(cell);
+
 
 			document.add(tablaTitular);
 			

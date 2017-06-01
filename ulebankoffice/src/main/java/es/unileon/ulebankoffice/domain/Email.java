@@ -12,11 +12,11 @@ import javax.mail.internet.MimeMessage;
 
 public class Email {
 	
-	private final String fromEmail = "mywebapp-1114@appspot.gserviceaccount.com";
-	private final String from = "Administrador ULe-Bank";
+	private static final String FROMEMAIL = "mywebapp-1114@appspot.gserviceaccount.com";
+	private static final String FROM = "Administrador ULe-Bank";
 	private String toEmail;
-	private final String to = "Estimado usuario";
-	private final String subject = "Respuesta a su consulta en ULe-Bank";
+	private static final String TO = "Estimado usuario";
+	private static final String SUBJECT = "Respuesta a su consulta en ULe-Bank";
 	private String answer;
 	
 	public Email(String toEmail, String answer) {
@@ -30,10 +30,10 @@ public class Email {
 		
 		 Message msg = new MimeMessage(session);
 		 
-		 msg.setFrom(new InternetAddress(fromEmail, from));
+		 msg.setFrom(new InternetAddress(FROMEMAIL, FROM));
 		 msg.addRecipient(Message.RecipientType.TO,
-				 new InternetAddress(toEmail, to));
-		 msg.setSubject(subject);
+				 new InternetAddress(toEmail, TO));
+		 msg.setSubject(SUBJECT);
 		 msg.setText(answer);
 		 
 		 Transport.send(msg);

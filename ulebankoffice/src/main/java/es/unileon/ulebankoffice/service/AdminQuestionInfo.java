@@ -2,7 +2,8 @@ package es.unileon.ulebankoffice.service;
 
 public class AdminQuestionInfo {
 	
-	private String pregunta, ponderacion;
+	private String pregunta;
+	private String ponderacion;
 	
 	public AdminQuestionInfo(String pregunta, String ponderacion) {
 		this.pregunta = pregunta;

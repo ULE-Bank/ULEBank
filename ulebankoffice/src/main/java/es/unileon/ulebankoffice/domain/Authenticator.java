@@ -34,7 +34,6 @@ public class Authenticator {
 	}
 	
 	public boolean isAdmin(HttpServletRequest request) {
-		//System.out.println("Esto es lo que devuelve el request -> [" + request.getUserPrincipal().getName() + "]" );
 		return Datastore.getDatastore().queryForExists("Admins", "Email", request.getUserPrincipal().getName());
 	}
 }

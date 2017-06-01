@@ -15,11 +15,11 @@ public class TAEDomain extends Operacion {
 	public List<List<String>> calcularTabla() {
 		double ip = tipoInteres / tipoPeriodo;
         
-        double resultado = Math.pow((1+ip), tipoPeriodo) - 1;
+        double resultado = Math.pow(1+ip, tipoPeriodo) - 1;
         resultado = resultado * 100;
         
-        List<List<String>> tabla = new ArrayList<List<String>>();
-		List<String> itemTabla = new ArrayList<String>();
+        List<List<String>> tabla = new ArrayList<>();
+		List<String> itemTabla = new ArrayList<>();
 		
 		itemTabla.add(Double.toString(tipoInteres*100.0) + " %");
 		itemTabla.add(Integer.toString(tipoPeriodo));

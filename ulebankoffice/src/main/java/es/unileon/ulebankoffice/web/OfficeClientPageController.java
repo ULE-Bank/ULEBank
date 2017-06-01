@@ -6,23 +6,17 @@ package es.unileon.ulebankoffice.web;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.ReportAsSingleViolation;
 import javax.validation.Valid;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.apache.log4j.lf5.util.Resource;
-import org.apache.poi.util.IOUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -33,15 +27,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfWriter;
-
 import es.unileon.ulebankoffice.domain.ClienteDomain;
 import es.unileon.ulebankoffice.domain.CuentaCorrienteDomain;
 import es.unileon.ulebankoffice.domain.DNIException;
 import es.unileon.ulebankoffice.domain.DNIHandler;
 import es.unileon.ulebankoffice.domain.DireccionDomain;
-import es.unileon.ulebankoffice.domain.Documentos;
 import es.unileon.ulebankoffice.domain.MovimientoCuentaCorrienteDomain;
 import es.unileon.ulebankoffice.repository.ClienteRepository;
 import es.unileon.ulebankoffice.repository.CuentaCorrienteRepository;
@@ -214,14 +204,14 @@ public class OfficeClientPageController {
 
 	@PostMapping(value = "/c", params = { "fechaInicioLiquidacion", "fechaFinalLiquidacion" })
 	public String liquidar(ModelMap model, HttpServletRequest req, Principal principal,
-			@RequestParam("fechaInicioLiquidacion") String fechaInicioLiquidación,
-			@RequestParam("fechaFinalLiquidacion") String fechaFinalLiquidación, HttpServletResponse response) {
-		logger.debug("He captado el subnmit de la liquidación. Con fecha incio -> " + fechaInicioLiquidación
-				+ " y fecha final -> " + fechaFinalLiquidación);
+			@RequestParam("fechaInicioLiquidacion") String fechaInicioLiquidacion,
+			@RequestParam("fechaFinalLiquidacion") String fechaFinalLiquidacion, HttpServletResponse response) {
+		logger.debug("He captado el subnmit de la liquidación. Con fecha incio -> " + fechaInicioLiquidacion
+				+ " y fecha final -> " + fechaFinalLiquidacion);
 
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yy-MM-dd");
-		DateTime fechaInicio = formatter.parseDateTime(fechaInicioLiquidación);
-		DateTime fechaFin = formatter.parseDateTime(fechaFinalLiquidación);
+		DateTime fechaInicio = formatter.parseDateTime(fechaInicioLiquidacion);
+		DateTime fechaFin = formatter.parseDateTime(fechaFinalLiquidacion);
 
 		CuentaCorrienteDomain cuenta = cuentasCorrientesRepo.findByNumeroDeCuenta(numeroDeCuenta);
 

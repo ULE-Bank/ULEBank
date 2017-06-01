@@ -41,6 +41,8 @@ public class NewQuestionFormController {
 	private static final String GOOGLEENCODING = "ISO-8859-1";
 	private static final String UTF8 = "UTF-8";
 	private static final int QUINCE_MEBIBYTES_EN_BYTES = 15728640;
+	private static final String REDIRECTNEWQUERY = "redirect:/o/offersconsulting/newquery";
+	private static final String FILEERROR = "fileError";
 
 	@Autowired
 	private SolicitudesFinancialAdvisorRepository repo;
@@ -81,8 +83,8 @@ public class NewQuestionFormController {
 			if (!"application/pdf".equals(blobInfo.getContentType())) {
 				logger.warn("Se ha tratado de adjuntar un archivo con contenido distinto a PDF. Borrando archivo.");
 				blobstoreService.delete(blobKeys.get(0));
-				model.addAttribute("fileError", "Must be PDF!");
-				return "redirect:/o/offersconsulting/newquery";
+				model.addAttribute(FILEERROR, "Must be PDF!");
+				return REDIRECTNEWQUERY;
 			}
 			logger.info("Contenido... OK");
 
@@ -90,8 +92,8 @@ public class NewQuestionFormController {
 			if (blobInfo.getSize() > QUINCE_MEBIBYTES_EN_BYTES) {
 				logger.warn("Se ha tratado de adjuntar un archivo con tamaño superior a 15 MiB. Borrando archivo.");
 				blobstoreService.delete(blobKeys.get(0));
-				model.addAttribute("fileError", "15MB Max!");
-				return "redirect:/o/offersconsulting/newquery";
+				model.addAttribute(FILEERROR, "15MB Max!");
+				return REDIRECTNEWQUERY;
 			}
 			logger.info("Tamaño del archivo... OK");
 
@@ -114,9 +116,9 @@ public class NewQuestionFormController {
 				logger.warn(
 						"Se ha tratado de adjuntar un archivo cuyos 4 primeros bytes, números mágicos, no coinciden con los de PDF. Borrando archivo.");
 				blobstoreService.delete(blobKeys.get(0));
-				model.addAttribute("fileError", "PDF Content!");
+				model.addAttribute(FILEERROR, "PDF Content!");
 				input.close();
-				return "redirect:/o/offersconsulting/newquery";
+				return REDIRECTNEWQUERY;
 			}
 			logger.info("Contenido del archivo, numero mágicos,... OK");
 			input.close();

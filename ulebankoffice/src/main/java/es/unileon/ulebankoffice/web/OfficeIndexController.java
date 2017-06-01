@@ -70,6 +70,8 @@ public class OfficeIndexController {
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
 	private static final String CLIENTSVIEWATTRIBUTE = "clients";
 	private static final String CLIENTERROR = "clientError";
+	private static final String OFFICEINDEXVIEW = "officeindex";
+	private static final String REDIRECTOFFICE = "redirect:/o";
 
 	@ModelAttribute("nuevoEmpleado")
 	public UleBankEmployee addEmployee() {
@@ -97,7 +99,7 @@ public class OfficeIndexController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String comingSoon(ModelMap model, Principal principal, HttpServletRequest req) {
 		logger.info(principal.getName() + " ha accedido a la página principal de la oficina.");
-		return "officeindex";
+		return OFFICEINDEXVIEW;
 	}
 
 	@RequestMapping(method = RequestMethod.GET, params = "uin")
@@ -134,7 +136,7 @@ public class OfficeIndexController {
 			model.addAttribute(CLIENTSVIEWATTRIBUTE, clienteEncontrado);
 		}
 
-		return "officeindex";
+		return OFFICEINDEXVIEW;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -157,7 +159,7 @@ public class OfficeIndexController {
 			logger.warn(principal.getName() + " " + req.getRemoteAddr()
 					+ " ha intentando crear un nuevo cliente y ha habido errores.");
 			logger.debug("HA HABIDO ERRORES ->" + clienteResult.getAllErrors().toString());
-			return "officeindex";
+			return OFFICEINDEXVIEW;
 		}
 
 		try {
@@ -167,7 +169,7 @@ public class OfficeIndexController {
 			logger.error(principal.getName() + " " + req.getRemoteAddr()
 					+ " ha intentado crear un cliente y se ha producido un error: " + e.getMessage() + " ||\n " + e
 					+ "||" + e.getLocalizedMessage());
-			return "officeindex";
+			return OFFICEINDEXVIEW;
 		}
 
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("yy-MM-dd");
@@ -201,7 +203,7 @@ public class OfficeIndexController {
 			model.addAttribute(CLIENTERROR, "Ya existe un cliente con ese DNI/NIE");
 			logger.error(principal.getName() + " " + req.getRemoteAddr()
 					+ " ha intentado crear un cliente que ya existe (" + cliente.getDni().toString() + ")." + e);
-			return "officeindex";
+			return OFFICEINDEXVIEW;
 		}
 
 		logger.info("Se ha creado el nuevo cliente con dni: " + cliente.getDni() + " e identificación en MognoDB: "
@@ -223,7 +225,7 @@ public class OfficeIndexController {
 
 			logger.warn("Se ha tratado de crear un empleado. Los datos son incorrectos."
 					+ empleadoResult.getAllErrors().toString());
-			return "redirect:/o";
+			return REDIRECTOFFICE;
 		}
 
 		UleBankEmployeeDomain empleado = new UleBankEmployeeDomain(nuevoEmpleado.getUserName(),
@@ -235,13 +237,13 @@ public class OfficeIndexController {
 			model.addAttribute("errorRegistroEmpleado", "Ya existe un empleado con ese nombre de usuario");
 			logger.info("Se ha tratado de crear el usuario de la sucursal:" + empleado.getUserName()
 					+ " con privilegios: " + empleado.getRole() + " pero ya existía. " + e);
-			return "redirect:/o";
+			return REDIRECTOFFICE;
 		}
 
 		logger.info(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
 				+ " Ha creado el usuario de la sucursual: " + empleado.getUserName() + " con privilegios: "
 				+ empleado.getRole());
-		return "redirect:/o";
+		return REDIRECTOFFICE;
 
 	}
 
@@ -252,7 +254,7 @@ public class OfficeIndexController {
 		if ("cjrulebank".equalsIgnoreCase(employeeUserName)) {
 			logger.fatal(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
 					+ " ha intentado borrar al usuario administrador.");
-			return "redirect:/o";
+			return REDIRECTOFFICE;
 		}
 
 		UleBankEmployeeDomain empleado = employeesRepo.findByUserName(employeeUserName);
@@ -266,12 +268,12 @@ public class OfficeIndexController {
 			logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
 					+ " Ha tratado de borrar un empleado inexistente. Alguien ha accedido a una URL que no debía. Empleado inexistente: "
 					+ employeeUserName);
-			return "redirect:/o";
+			return REDIRECTOFFICE;
 		}
 		logger.info(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
 				+ " Ha eliminado el empleado de la oficina: " + employeeUserName);
 		employeesRepo.delete(empleado);
-		return "redirect:/o";
+		return REDIRECTOFFICE;
 
 	}
 

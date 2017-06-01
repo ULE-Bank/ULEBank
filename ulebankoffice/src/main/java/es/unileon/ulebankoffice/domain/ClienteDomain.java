@@ -52,6 +52,7 @@ public class ClienteDomain {
 	 * @param dni
 	 * @param nacionalidad
 	 * @param documentos
+	 * @param fechaDeAlta
 	 * @throws ParseException
 	 */
 	@PersistenceConstructor
@@ -83,7 +84,7 @@ public class ClienteDomain {
 	 * @param fechaNacimiento
 	 * @param dni
 	 * @param nacionalidad
-	 * @param idDocumentos
+	 * @param fechaDeAlta
 	 * @throws ParseException
 	 * @throws DNIException
 	 */

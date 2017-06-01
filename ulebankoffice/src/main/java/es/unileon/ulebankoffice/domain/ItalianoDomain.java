@@ -5,8 +5,10 @@ import java.util.List;
 
 public class ItalianoDomain extends Prestamo {
 	
-	private double capInicial, tipoInteres;
-	private int periodos, tipoPeriodo;
+	private double capInicial;
+	private double tipoInteres;
+	private int periodos;
+	private int tipoPeriodo;
 	
 	public ItalianoDomain(double C0, double i, int k, int p) {
 		this.capInicial = C0;
@@ -35,11 +37,11 @@ public class ItalianoDomain extends Prestamo {
 		for(int i=1; i<anualidad.length; i++)
 			anualidad[i] = columnaInteres[i] + amortizacionCons;
 		
-		List<List<String>> tabla = new ArrayList<List<String>>();
+		List<List<String>> tabla = new ArrayList<>();
 		
 		List<String> itemTabla;
 		for(int i=0; i<numFilas; i++) {
-			itemTabla = new ArrayList<String>();
+			itemTabla = new ArrayList<>();
 			
 			if(i == 0) {
 				itemTabla.add(Integer.toString(i));
@@ -63,7 +65,7 @@ public class ItalianoDomain extends Prestamo {
 	}
 	
 	public List<String> getTableHeader() {
-		List<String> header = new ArrayList<String>();
+		List<String> header = new ArrayList<>();
 		
 		header.add("Periodo");
 		header.add("Anualidad");
@@ -74,34 +76,42 @@ public class ItalianoDomain extends Prestamo {
 		return header;
 	}
 
+	@Override
 	public double getCapInicial() {
 		return capInicial;
 	}
 
+	@Override
 	public void setCapInicial(double capInicial) {
 		this.capInicial = capInicial;
 	}
 
+	@Override
 	public double getTipoInteres() {
 		return tipoInteres;
 	}
 
+	@Override
 	public void setTipoInteres(double tipoInteres) {
 		this.tipoInteres = tipoInteres / 100.0;
 	}
 
+	@Override
 	public int getPeriodos() {
 		return periodos;
 	}
 
+	@Override
 	public void setPeriodos(int periodos) {
 		this.periodos = periodos;
 	}
 
+	@Override
 	public int getTipoPeriodo() {
 		return tipoPeriodo;
 	}
 
+	@Override
 	public void setTipoPeriodo(int tipoPeriodo) {
 		this.tipoPeriodo = tipoPeriodo;
 	}

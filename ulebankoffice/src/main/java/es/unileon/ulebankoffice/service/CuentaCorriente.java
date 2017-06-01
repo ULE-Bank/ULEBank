@@ -1,8 +1,5 @@
 package es.unileon.ulebankoffice.service;
 
-import java.util.List;
-
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**

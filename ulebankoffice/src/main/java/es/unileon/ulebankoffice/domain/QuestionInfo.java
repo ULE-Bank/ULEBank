@@ -2,7 +2,9 @@ package es.unileon.ulebankoffice.domain;
 
 public class QuestionInfo {
 	
-	private String id, title, state;
+	private String id;
+	private String title;
+	private String state;
 	
 	public QuestionInfo(String id, String title, String state) {
 		this.id = id;

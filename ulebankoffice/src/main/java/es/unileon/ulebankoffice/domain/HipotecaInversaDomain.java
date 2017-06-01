@@ -5,12 +5,17 @@ import java.util.List;
 
 public class HipotecaInversaDomain extends Operacion {
 	
-	private double valorTasacion, porcentajeSobreTasacion, tipoInteresPrestamo, 
-	comisionApertura, rentabilidadRenta, costeTasacion, gastosFormalizacion;
+	private double valorTasacion; 
+	private double porcentajeSobreTasacion; 
+	private double tipoInteresPrestamo; 
+	private double comisionApertura; 
+	private double rentabilidadRenta; 
+	private double costeTasacion; 
+	private double gastosFormalizacion;
 	
 	private int edad;
 	
-	private final int EDAD_MAX = 90;
+	private static final int EDADMAX = 90;
 	
 	public HipotecaInversaDomain(double vT, int e, double pST, double tIP, double cA,
 			double rR, double cT, double gF) {
@@ -33,10 +38,10 @@ public class HipotecaInversaDomain extends Operacion {
 		
 		double importeDisponible = valorPrestamo - totalGastos;
 		
-		int difEdad = EDAD_MAX - edad;
+		int difEdad = EDADMAX - edad;
 		
-		double dividendo = rentabilidadRenta * Math.pow((1+rentabilidadRenta), difEdad) * ((-1)*importeDisponible);
-		double divisor = Math.pow((1+rentabilidadRenta), difEdad) - 1;
+		double dividendo = rentabilidadRenta * Math.pow(1+rentabilidadRenta, difEdad) * ((-1)*importeDisponible);
+		double divisor = Math.pow(1+rentabilidadRenta, difEdad) - 1;
 		double anualidadRenta = (-1) * (dividendo / divisor);
 		
 		double interesesDelPrestamo = valorPrestamo * tipoInteresPrestamo;
@@ -46,8 +51,8 @@ public class HipotecaInversaDomain extends Operacion {
 		
 		double libreDisposicion = importeMensual - interesesMensuales;
 		
-		List<List<String>> tabla = new ArrayList<List<String>>();
-		List<String> itemTabla = new ArrayList<String>();
+		List<List<String>> tabla = new ArrayList<>();
+		List<String> itemTabla = new ArrayList<>();
 		
 		itemTabla.add(Double.toString(redondear(valorPrestamo)));
 		itemTabla.add(Double.toString(redondear(totalGastos)));

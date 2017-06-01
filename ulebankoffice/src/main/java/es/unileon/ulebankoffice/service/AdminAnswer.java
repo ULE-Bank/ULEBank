@@ -7,7 +7,8 @@ public class AdminAnswer {
 	@NotNull
 	private String answer;
 	
-	 private String email, idConsulta;
+	 private String email;
+	 private String idConsulta;
 
 	public String getAnswer() {
 		return answer;

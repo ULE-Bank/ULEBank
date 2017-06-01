@@ -60,29 +60,6 @@ public class Documentos implements Aggregate<DocumentoAdjuntoDomain> {
 		idDocumentos.add(documento.getId());
 	}
 
-//	/**
-//	 * Método utilizado para obtener todos los documentos cuyas ids coinciden
-//	 * con las asociadas al dni
-//	 * 
-//	 * @return La lista de los documentos encontrados
-//	 */
-//	public List<DocumentoAdjuntoDomain> getDocumentos() {
-//
-//		return repo.findByIdIn(idDocumentos);
-//	}
-//
-//	/**
-//	 * Devuelve la lista de documentos cuyas ids coinciden con las asociadas al
-//	 * dni ordenada por fecha ascendentemente
-//	 * 
-//	 * @return La lista de los documentos encontrados ordenados por fecha
-//	 *         ascendentemente
-//	 */
-//	public List<DocumentoAdjuntoDomain> getDocumentosByDateAsc() {
-//
-//		return repo.findByIdInOrderByFechaCreacionAsc(idDocumentos);
-//	}
-
 	@Override
 	public DocumentoAdjuntoDomain getElement(int index) throws EmptyCollectionException {
 		if(getSize() == 0){

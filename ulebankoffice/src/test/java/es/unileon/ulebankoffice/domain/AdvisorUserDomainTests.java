@@ -4,8 +4,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 

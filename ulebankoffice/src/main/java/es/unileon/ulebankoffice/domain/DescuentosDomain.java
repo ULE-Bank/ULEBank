@@ -5,8 +5,12 @@ import java.util.List;
 
 public class DescuentosDomain extends Operacion {
 	
-	private double importeDescuento, tipoInteres, otrosGastos, comisiones;
-	private int periodoDescuento, base;
+	private double importeDescuento;
+	private double tipoInteres;
+	private double otrosGastos;
+	private double comisiones;
+	private int periodoDescuento;
+	private int base;
 	
 	public DescuentosDomain(double importeDescuento, int periodoDescuento, double tipoInteres, int base, double otrosGastos, double comisiones) {
 		this.importeDescuento = importeDescuento;
@@ -24,8 +28,8 @@ public class DescuentosDomain extends Operacion {
 		
 		double efectivo = importeDescuento - totalGastos;
 		
-		List<List<String>> tabla = new ArrayList<List<String>>();
-		List<String> itemTabla = new ArrayList<String>();
+		List<List<String>> tabla = new ArrayList<>();
+		List<String> itemTabla = new ArrayList<>();
 		
 		itemTabla.add(Double.toString(redondear(intereses)));
 		itemTabla.add(Double.toString(redondear(importeComisiones)));

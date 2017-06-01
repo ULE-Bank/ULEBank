@@ -2,7 +2,9 @@ package es.unileon.ulebankoffice.security;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
@@ -23,7 +25,6 @@ import com.lordofthejars.nosqlunit.mongodb.MongoDbRule;
 import com.mongodb.Mongo;
 
 import es.unileon.ulebankoffice.configuration.MongoTestConfig;
-import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
 import es.unileon.ulebankoffice.repository.UleBankEmployeeRepository;
 
 /**
