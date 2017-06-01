@@ -54,6 +54,11 @@ public class LoginControllerTest {
 	private LoginController controller;
 
 	private MockMvc mockMvc;
+	
+	@Test
+	public void isUsingFongo() {
+		assertEquals("Fongo (ulebankofficetestdb)", mongo.toString());
+	}
 
 	@Before
 	public void setUp() throws Exception {
