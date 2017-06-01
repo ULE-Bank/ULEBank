@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  * @author Razvan Raducu
  *
  */
-public class TAEVariosInteresesControllerTests {
+public class TAEVariosInteresesControllerTest {
 
 	@InjectMocks
 	private TAEVariosInteresesController controller;

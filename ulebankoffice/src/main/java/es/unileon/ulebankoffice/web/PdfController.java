@@ -100,12 +100,13 @@ public class PdfController {
 			Paragraph titulo = new Paragraph();
 			titulo.setAlignment(Element.ALIGN_CENTER);
 			addEmptyLine(titulo, 1);
-			titulo.add(new Paragraph("Contrato de la cuenta " + cuenta.getNumeroDeCuenta(), catFont));
+			titulo.add(new Paragraph("Contrato de la cuenta corriente " + cuenta.getNumeroDeCuenta(), catFont));
 			addEmptyLine(titulo, 1);
 			document.add(titulo);
 			
 			dt = new DateTime(cuenta.getFechaApertura());
-			document.add(new Paragraph("León, " + dt.getDayOfMonth() + " del " + dt.getMonthOfYear() + " de " + dt.getYear()));
+			String fechaLugarContrato = "León, " + dt.getDayOfMonth() + " del " + dt.getMonthOfYear() + " de " + dt.getYear();
+			document.add(new Paragraph(fechaLugarContrato));
 			
 			Paragraph p1 = new Paragraph("En el lugar y fecha expresados, reunidos, de una parte , la entidad ULeBank, con"
 					+ " domicilio social en Campus de Vegazana, S/N, León inscrita en el Registro Mercantil de "
@@ -139,108 +140,198 @@ public class PdfController {
 			Paragraph p45 = new Paragraph();
 			chunk = new Chunk("\nDatos del titular\n", boldUnderlined);
 			p45.add(chunk);
+			document.add(p45);
 			
+			PdfPTable tablaTitular = new PdfPTable(2);
+			PdfPCell cell;
 			chunk = new Chunk("Nombre:", bold);
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(cliente.getName());
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			chunk = new Chunk("Apellidos:", bold);
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(cliente.getLastName());
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			chunk = new Chunk("DNI/NIE:", bold);
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(cliente.getDni().toString()+"\n");
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			chunk = new Chunk("Email:", bold);
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(cliente.getEmail());
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			chunk = new Chunk("Fecha nacimiento:", bold);
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			dt = new DateTime(cliente.getFechaNacimiento());
 			chunk = new Chunk(dt.getDayOfMonth() +" - " + dt.getMonthOfYear() + " - " + dt.getYear());
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Nacionalidad:", bold);
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(cliente.getNacionalidad());
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
+			document.add(tablaTitular);
+			
+			tablaTitular = new PdfPTable(2);
+			document.newPage();
+			p45 = new Paragraph();
 			chunk = new Chunk("\nCon domicilio\n", boldUnderlined);
 			p45.add(chunk);
-			
-			chunk = new Chunk("Comunidad autónoma", bold);
-			p45.add(chunk);
-			chunk = new Chunk(direccionCliente.getComunidadAutonoma());
-			p45.add(chunk);
-			
-			chunk = new Chunk("Localidad", bold);
-			p45.add(chunk);
-			chunk = new Chunk(direccionCliente.getLocalidad()+"\n");
-			p45.add(chunk);
-			
-			chunk = new Chunk("Calle:", bold);
-			p45.add(chunk);
-			chunk = new Chunk(direccionCliente.getCalle());
-			p45.add(chunk);
-			
-			chunk = new Chunk("Número:", bold);
-			p45.add(chunk);
-			chunk = new Chunk(direccionCliente.getNumero());
-			p45.add(chunk);
-			
-			chunk = new Chunk("Código postal:", bold);
-			p45.add(chunk);
-			chunk = new Chunk(	direccionCliente.getCodigoPostal()+"\n");
-			p45.add(chunk);
-			
 			document.add(p45);
 			
+			chunk = new Chunk("Comunidad autónoma", bold);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(direccionCliente.getComunidadAutonoma());
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			
+			chunk = new Chunk("Localidad", bold);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(direccionCliente.getLocalidad()+"\n");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			
+			chunk = new Chunk("Calle:", bold);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(direccionCliente.getCalle());
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			
+			chunk = new Chunk("Número:", bold);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(direccionCliente.getNumero());
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			
+			chunk = new Chunk("Código postal:", bold);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(	direccionCliente.getCodigoPostal()+"\n");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			
+			document.add(tablaTitular);
+			
+			
+			
+			tablaTitular = new PdfPTable(2);
 
 			Paragraph p5 = new Paragraph("\n");
 			chunk = new Chunk("Datos y condiciones de la cuenta\n", boldUnderlined);
 			p5.add(chunk);
+			document.add(p5);
+			
 			chunk = new Chunk("Número de la cuenta:", bold);
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(cuenta.getNumeroDeCuenta());
-			p45.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Intereses acreedores:", bold);
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			
-			chunk = new Chunk(cuenta.getInteresesAcreedoresFinal());
-			p5.add(chunk);
+			chunk = new Chunk(cuenta.getInteresesAcreedores() + "%");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Intereses deudores:", bold);
-			p5.add(chunk);
-			chunk = new Chunk(cuenta.getInteresesDeudoresFinal());
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(cuenta.getInteresDeudorSobreSaldosNegativos() + "%");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Retención de rendimientos:", bold);
-			p5.add(chunk);
-			chunk = new Chunk(cuenta.getRetencionRendimientosFinal());
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(cuenta.getRetencionRendimientosCapital() + "%");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Comisión descubierto:", bold);
-			p5.add(chunk);
-			chunk = new Chunk(cuenta.getComisionDescubierto().toString());
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(cuenta.getComisionDescubierto().toString()+ "%");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Mínimo:", bold);
-			p5.add(chunk);
-			chunk = new Chunk(cuenta.getMinimoComisionDescubierto().toString());
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(cuenta.getMinimoComisionDescubierto().toString() + "€");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk("Comisión mantenimiento:", bold);
-			p5.add(chunk);
-			chunk = new Chunk(cuenta.getComisionMantenimiento().toString());
-			p5.add(chunk);
-			chunk = new Chunk("Intereses deudores saldos negativos:", bold);
-			p5.add(chunk);
-			chunk = new Chunk(cuenta.getInteresDeudorSobreSaldosNegativos().toString());
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(cuenta.getComisionMantenimiento().toString() + "€");
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+//			chunk = new Chunk("Intereses deudores saldos negativos:", bold);
+//			cell = new PdfPCell(new Phrase(chunk));
+//			cell.setBorder(Rectangle.NO_BORDER);
+//			tablaTitular.addCell(cell);
+//			chunk = new Chunk(cuenta.getInteresDeudorSobreSaldosNegativos().toString());
+//			cell = new PdfPCell(new Phrase(chunk));
+//			cell.setBorder(Rectangle.NO_BORDER);
+//			tablaTitular.addCell(cell);
 			
-			String periodoLiquidacion = "";
+			String periodoLiquidacion;
 			switch (cuenta.getPeriodoLiquidacion()) {
 			case 1:
 				periodoLiquidacion = "Mensual";
@@ -257,22 +348,36 @@ public class PdfController {
 			}
 			
 			chunk = new Chunk("Periodo liquidación:", bold);
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			chunk = new Chunk(periodoLiquidacion);
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
 			
 			chunk = new Chunk("Lugar y fecha de formalización:", bold);
-			p5.add(chunk);
-			chunk = new Chunk("Tipos de intereses:", bold);
-			p5.add(chunk);
-			chunk = new Chunk("Tipo y periodicidad de liquidación y pago de intereses:", bold);
-			p5.add(chunk);
-			chunk = new Chunk("Comisiones de administración:", bold);
-			p5.add(chunk);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+			chunk = new Chunk(fechaLugarContrato);
+			cell = new PdfPCell(new Phrase(chunk));
+			cell.setBorder(Rectangle.NO_BORDER);
+			tablaTitular.addCell(cell);
+//			chunk = new Chunk("Tipos de intereses:", bold);
+//			cell = new PdfPCell(new Phrase(chunk));
+//			cell.setBorder(Rectangle.NO_BORDER);
+//			tablaTitular.addCell(cell);
+//			chunk = new Chunk("Tipo y periodicidad de liquidación y pago de intereses:", bold);
+//			cell = new PdfPCell(new Phrase(chunk));
+//			cell.setBorder(Rectangle.NO_BORDER);
+//			tablaTitular.addCell(cell);
+//			chunk = new Chunk("Comisiones de administración:", bold);
+//			cell = new PdfPCell(new Phrase(chunk));
+//			cell.setBorder(Rectangle.NO_BORDER);
+//			tablaTitular.addCell(cell);
 
-			p5.setAlignment(Element.ALIGN_JUSTIFIED);
-			addEmptyLine(p5, 1);
-			document.add(p5);
+			document.add(tablaTitular);
 			
 			chunk = new Chunk("Condiciones específicas de la Cuenta Corriente", boldUnderlined);
 			document.add(chunk);
@@ -323,13 +428,8 @@ public class PdfController {
 			table1.addCell(cell1);
 			table1.addCell(cell11);
 			document.add(table1);
-			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
+			
+			document.newPage();
 
 			Paragraph p10 = new Paragraph(
 					"Los Titulares declaran conocer y aceptar las condiciones que figuran en el presente documento, así como la Incorporación en el mismo de las referidas condiciones generales específicas del contrato de cuenta a la vista y las condiciones generales comunes a los contratos de cuenta, tarjetas y servicios de banca a distancia y avisos- BS Móvil, y reconocen haber recibido el documento de Información previa y haber dispuesto de todo ello con antelación suficiente para su lectura y comprensión de su contenido."

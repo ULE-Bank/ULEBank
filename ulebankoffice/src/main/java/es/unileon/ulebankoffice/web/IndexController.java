@@ -12,7 +12,7 @@ public class IndexController {
 	
 	
 
-	@RequestMapping(value = { "/", "/inicio", "/index*" })
+	@RequestMapping(value = { "/", "/inicio" })
 	public String controllerVacio() {
 
 		
