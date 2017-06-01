@@ -1,6 +1,7 @@
 package es.unileon.ulebankoffice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -103,6 +104,11 @@ public class DireccionDomainTest {
 	public void testSetCodigoPostal() {
 		direccion.setCodigoPostal(39400);
 		assertThat(direccion.getCodigoPostal(), is(39400));
+	}
+	
+	@Test
+	public void testGetId(){
+		assertNull(direccion.getId());
 	}
 
 	@Test

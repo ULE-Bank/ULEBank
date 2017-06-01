@@ -75,11 +75,6 @@ public class SolicitudFinancialAdvisorTest {
 		assertThat(constraintViolations.iterator().next().getPropertyPath().toString(), is("textoOferta"));
 		solicitud.setTextoOferta("texto");
 		
-		
-		
-		
-		
-		
 	}
 	
 	private void validate(){

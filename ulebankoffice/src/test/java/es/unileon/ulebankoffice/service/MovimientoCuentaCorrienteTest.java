@@ -52,6 +52,13 @@ public class MovimientoCuentaCorrienteTest {
 		movimiento.setFechaValor("1994-12-05");
 		assertThat(movimiento.getFechaValor(), is("1994-12-05"));
 	}
+	
+	@Test
+	public void testOperacion(){
+		assertNull(movimiento.getOperacion());
+		movimiento.setOperacion("D");;
+		assertThat(movimiento.getOperacion(), is("D"));
+	}
 
 	@Test
 	public void testCanitdadAnnotation() {

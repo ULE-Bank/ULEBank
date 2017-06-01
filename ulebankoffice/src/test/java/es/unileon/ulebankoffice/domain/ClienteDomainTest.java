@@ -2,6 +2,7 @@ package es.unileon.ulebankoffice.domain;
 
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -179,6 +180,11 @@ public class ClienteDomainTest {
 		assertThat(cliente.toString().contains("email=rraduc00@estudiantes.unileon.es"), is(true));
 		assertThat(cliente.toString().contains("nacionalidad=español"), is(true));
 		assertThat(cliente.toString().contains("dni=X5526828C"), is(true));
+	}
+	
+	@Test
+	public void testGetId(){
+		assertNull(cliente.getId());
 	}
 
 }

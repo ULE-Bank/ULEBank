@@ -72,6 +72,12 @@ public class MongoUserDetailsServiceTest {
 		UserDetails user = service.loadUserByUsername("cjrulebank");
 		assertThat(user.getUsername(), is("cjrulebank"));
 		assertThat(user.getPassword(), is("password"));
+		user = service.loadUserByUsername("user2");
+		assertThat(user.getUsername(), is("user2"));
+		assertThat(user.getPassword(), is("user"));
+		user = service.loadUserByUsername("user1");
+		assertThat(user.getUsername(), is("user1"));
+		assertThat(user.getPassword(), is("user"));
 		
 	}
 	

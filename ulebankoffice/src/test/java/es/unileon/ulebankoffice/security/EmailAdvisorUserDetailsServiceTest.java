@@ -6,6 +6,7 @@ package es.unileon.ulebankoffice.security;
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
@@ -99,6 +100,16 @@ public class EmailAdvisorUserDetailsServiceTest {
 	public void testLoadUserByUsernameWithoutDotAfterAt() {
 		UserDetails user = service.loadUserByUsername("user.user@user");
 		assertNull(user);
+	}
+	
+	@Test
+	@UsingDataSet(locations = {
+			"/testing/advisorUserRepositoryData.json" }, loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+	public void testRegisterNewUser() {
+		assertNull(repo.findByEmail("user@inexistente.com"));
+		UserDetails user = service.loadUserByUsername("user@inexistente.com");
+		assertNotNull(user);
+		assertNotNull(repo.findByEmail("user@inexistente.com"));
 	}
 
 }

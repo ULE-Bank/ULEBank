@@ -2,6 +2,7 @@ package es.unileon.ulebankoffice.domain;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 import java.util.Calendar;
@@ -20,6 +21,12 @@ public class MovimientoCuentaCorrienteDomainTest {
 	public void setUp() throws Exception {
 		fecha = new GregorianCalendar(2017, 04, 23);
 		movimiento = new MovimientoCuentaCorrienteDomain(150.00, "Ingreso", fecha.getTime(), "I");
+	}
+	
+	@Test
+	public void emptyConstructor(){
+		movimiento = new MovimientoCuentaCorrienteDomain();
+		assertNull(movimiento.getConcepto());
 	}
 
 	@Test

@@ -72,7 +72,7 @@ public class UleBankEmployeeRepositoryTest {
 	loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
 	public void testFindByRole() {
 		List<UleBankEmployeeDomain> users = repo.findByRole("user");
-		assertThat(users.size(), is(3));
+		assertThat(users.size(), is(1));
 	}
 	
 	@Test
