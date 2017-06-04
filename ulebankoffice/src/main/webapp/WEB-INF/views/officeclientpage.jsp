@@ -131,7 +131,7 @@
                         Apellidos: ${cliente.lastName}
                      </div>
                      <div class="col-md-4">
-                        Emial: ${cliente.email}
+                        Email: ${cliente.email}
                      </div>
                      <div class="col-md-4">
                         Fecha nacimiento: 

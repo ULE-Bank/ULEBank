@@ -249,7 +249,7 @@
                                     <div class="col-md-6">
                                        DNI: 
                                        <div class="field-widget">
-                                          <i class="fa fa-home"></i> 
+                                          <i class="fa fa-user"></i> 
                                           <form:input path="cliente.dni" type="text" required="required"/>
                                           <form:errors style="color: red;" path="cliente.dni"></form:errors>
                                        </div>
@@ -257,7 +257,7 @@
                                     <div class="col-md-6">
                                        Nombre: 
                                        <div class="field-widget">
-                                          <i class="fa fa-home"></i> 
+                                          <i class="fa fa-user"></i> 
                                           <form:input path="cliente.name" class="" type="text" required="required"/>
                                           <form:errors style="color: red;" path="cliente.name"></form:errors>
                                        </div>
@@ -267,7 +267,7 @@
                                     <div class="col-md-6">
                                        Apellidos: 
                                        <div class="field-widget">
-                                          <i class="fa fa-home"></i> 
+                                          <i class="fa fa-user"></i> 
                                           <form:input path="cliente.lastName" class="" type="text" required="required" name="u" />
                                           <form:errors style="color: red;" path="cliente.lastName"></form:errors>
                                        </div>
@@ -275,7 +275,7 @@
                                     <div class="col-md-6">
                                        Email: 
                                        <div class="field-widget">
-                                          <i class="fa fa-home"></i> 
+                                          <i class="fa fa-user"></i> 
                                           <form:input path="cliente.email" class="" type="email" required="required" name="u" />
                                           <form:errors style="color: red;" path="cliente.email"></form:errors>
                                        </div>
@@ -285,7 +285,7 @@
                                     <div class="col-md-6">
                                        Nacionalidad: 
                                        <div class="field-widget">
-                                          <i class="fa fa-home"></i> 
+                                          <i class="fa fa-user"></i> 
                                           <form:input path="cliente.nacionalidad" class="" type="text" required="required" name="u" />
                                           <form:errors style="color: red;" path="cliente.nacionalidad"></form:errors>
                                        </div>
@@ -293,7 +293,7 @@
                                     <div class="col-md-6">
                                        Fecha de nacimiento: 
                                        <div class="field-widget">
-                                          <i class="fa fa-home"></i>  
+                                          <i class="fa fa-user"></i>  
                                           <form:input path="cliente.fechaNacimiento" id="datePicker" type="date" 
                                              required="required" name="u" />
                                           <form:errors style="color: red;" path="cliente.fechaNacimiento"></form:errors>
