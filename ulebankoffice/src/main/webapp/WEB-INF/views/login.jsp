@@ -176,13 +176,13 @@
 								</div>
 								<div class="section-field">
 									<div class="field-widget">
-										<i class="fa fa-check"></i> <input value="Send" name="submit"
+										<i class="fa fa-check"></i> <input value='<spring:message code="label.submit"/>' name="submit"
 											type="submit">
 									</div>
 								</div>
 								<div class="section-field">
 									<div class="field-widget">
-										<i class="fa fa-trash"></i> <input value="Reset" name="reset"
+										<i class="fa fa-trash"></i> <input value='<spring:message code="label.clean"/>' name="reset"
 											type="reset">
 									</div>
 								</div>
