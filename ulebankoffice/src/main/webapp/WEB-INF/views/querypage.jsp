@@ -142,7 +142,7 @@
 				
 				<h4>Comentarios del autor de la consulta:</h4> <p style="text-align: justify;"> ${textoOferta}</p>
 				
-				<h4>Respuesta:</h4> <pre>${respuestaOferta}</pre>
+				<h4>Respuesta:</h4> <pre style="white-space:pre-wrap;">${respuestaOferta}</pre>
 			
 				 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')">
 				  <fieldset style="border: 1px solid #ff0000">

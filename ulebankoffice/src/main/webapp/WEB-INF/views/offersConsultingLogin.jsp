@@ -145,7 +145,7 @@
                      <div class="section-field">
                         <div class="field-widget">
                            <i class="fa fa-send-o"></i>
-                           <input value="Send" name="submit" type="submit"> 
+                           <input value='<spring:message code="label.submit"/>' name="submit" type="submit"> 
                         </div>
                      </div>
                   </form>
