@@ -137,7 +137,13 @@
 				<h4>Fecha creación:</h4> <p>${fechaCreacion}</p> 
 				</div>
 			</div>
-				
+			  <sec:authorize access="hasRole('ROLE_ADMIN')">
+			<div class="row"  >
+			<div class="col-md-1" style="border: 2px solid #ff0000" >
+				<a href="/offersconsulting/querypage/e?id=${idQuery}">Eliminar</a>
+			</div>
+			</div>
+				</sec:authorize>
 				<h4>Url oferta:</h4> <p><a href="${urlOferta}" target="_blank">${urlOferta}</a></p>
 				
 				<h4>Comentarios del autor de la consulta:</h4> <p style="text-align: justify;"> ${textoOferta}</p>
@@ -145,7 +151,8 @@
 				<h4>Respuesta:</h4> <pre style="white-space:pre-wrap;">${respuestaOferta}</pre>
 			
 				 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')">
-				  <fieldset style="border: 1px solid #ff0000">
+				 <h4>Escribir o modificar respuesta: </h4>
+				  <fieldset>
 				
 				  <form:form
 							action="/offersconsulting/querypage?id=${param.id}"
@@ -153,9 +160,9 @@
 							id="servicesform" >
 							<div id="register-form" class="register-form">
 							
-							<textarea id="response" name="response" rows="8" >${respuestaOferta}</textarea>
+							<textarea id="response" name="response" rows="8" placeholder="Aquí se debe escribir la respuesta." >${respuestaOferta}</textarea>
 							<div class="col-md-3">
-							<input type="submit" value="<spring:message code="label.submitresponse"/>">
+							<input type="submit"  style="border: 3px solid #ff0000" value="<spring:message code="label.submitresponse"/>">
 							</div>
 							</div>
 							</form:form>

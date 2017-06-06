@@ -193,7 +193,19 @@
                                     <td>
                                        <fmt:formatDate value="${movimiento.fechaValor}" pattern="dd-MM-yyyy"/>
                                     </td>
-                                    <td>${movimiento.operacion}</td>
+                                    <td>
+                                       <c:choose>
+                                          <c:when test = "${movimiento.operacion == 'I' }">
+                                             Ingreso
+                                          </c:when>
+                                          <c:when test = "${movimiento.operacion == 'D' }">
+                                             Disposición
+                                          </c:when>
+                                          <c:otherwise>
+                                             No especificado
+                                          </c:otherwise>
+                                       </c:choose>
+                                    </td>
                                  </tr>
                               </c:forEach>
                            </table>
@@ -279,18 +291,16 @@
                               </a>
                            </p>
                            <div class="row text-center">
-                          
-                           <a class="button mt-20" id="formularioMovimientos" onclick="registrar()"><span> Registrar movimientos </span> <i class ="fa fa-plus"></i></a>
-                           <input id="submit_handle_formularioMovimientos" type="submit" style="display: none" />
+                              <a class="button mt-20" id="formularioMovimientos" onclick="registrar()"><span> Registrar movimientos </span> <i class ="fa fa-plus"></i></a>
+                              <input id="submit_handle_formularioMovimientos" type="submit" style="display: none" />
                            </div>
-                          <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
+                           <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
                            <noscript>
                               <input type="submit"
                                  value="Registrar movimientos" />
                            </noscript>
                         </form:form>
                         <hr/>
-                        
                         <form id="liquidarForm" method="POST">
                            <div class="row">
                               <div class="col-md-6 col-md-offset-3">
@@ -303,9 +313,8 @@
                                        name="fechaInicioLiquidacion" required="required" />
                                  </div>
                               </div>
-                               <br>
-                               <br>
-                               
+                              <br>
+                              <br>
                               <div class="col-md-6 col-md-offset-3">
                                  <div class="col-md-6">
                                     Hasta 
@@ -317,10 +326,9 @@
                                  </div>
                               </div>
                            </div>
-                           
                            <div class="row text-center">
-                          <a class="button mt-20" id="liquidarFormulario" onclick="liquidar()"> <span> Liquidar </span> <i class ="fa fa-calculator"></i></a>
-                           <input id="submit_handle_liquidarFormulario" type="submit" style="display: none" />
+                              <a class="button mt-20" id="liquidarFormulario" onclick="liquidar()"> <span> Liquidar </span> <i class ="fa fa-calculator"></i></a>
+                              <input id="submit_handle_liquidarFormulario" type="submit" style="display: none" />
                            </div>
                            <!-- En caso de que algún usuario tenga desactivado javascript, saldrá este mensaje por defecto. -->
                            <noscript>
@@ -333,32 +341,30 @@
                   <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
                </div>
             </div>
-  
-      </section>
-      <!--=================================
-         Footer-->
-      <jsp:include page="/WEB-INF/views/footer.jsp" />
-      <!--=================================
-         Footer-->
-         
-      </div>    
+         </section>
+         <!--=================================
+            Footer-->
+         <jsp:include page="/WEB-INF/views/footer.jsp" />
+         <!--=================================
+            Footer-->
+      </div>
       <script type="text/javascript">
-      var strings = new Array();
-		strings['movimiento.descripcion'] = "<spring:message code='label.s7c1' javaScriptEscape='true' />";
-		strings['movimiento.fecha'] = "<spring:message code='label.s7c3' javaScriptEscape='true' />";
-		strings['movimiento.importe'] = "<spring:message code='label.s7c2' javaScriptEscape='true' />";
-		strings['movimiento.operacion'] = "<spring:message code='label.operation' javaScriptEscape='true' />";
-		strings['movimiento.ingreso'] = "<spring:message code='label.ingreso' javaScriptEscape='true' />";
-		strings['movimiento.disposicion'] = "<spring:message code='label.disposicion' javaScriptEscape='true' />";
-
-      function liquidar() {
-       	$("#submit_handle_liquidarFormulario").click();
-       }
-       
-       function registrar() {
-       	$("#submit_handle_formularioMovimientos").click();
-       }
-     
+         var strings = new Array();
+         strings['movimiento.descripcion'] = "<spring:message code='label.s7c1' javaScriptEscape='true' />";
+         strings['movimiento.fecha'] = "<spring:message code='label.s7c3' javaScriptEscape='true' />";
+         strings['movimiento.importe'] = "<spring:message code='label.s7c2' javaScriptEscape='true' />";
+         strings['movimiento.operacion'] = "<spring:message code='label.operation' javaScriptEscape='true' />";
+         strings['movimiento.ingreso'] = "<spring:message code='label.ingreso' javaScriptEscape='true' />";
+         strings['movimiento.disposicion'] = "<spring:message code='label.disposicion' javaScriptEscape='true' />";
+         
+         function liquidar() {
+          	$("#submit_handle_liquidarFormulario").click();
+          }
+          
+          function registrar() {
+          	$("#submit_handle_formularioMovimientos").click();
+          }
+         
       </script>
       <script src="/resources/services/js/dynamic-form2.js"></script>
       <script src="/resources/services/js/tooltip-script.js"></script>

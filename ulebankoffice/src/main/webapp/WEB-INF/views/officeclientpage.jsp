@@ -342,7 +342,7 @@
                                  <form:errors style="color: red;" path="periodoLiquidacion"></form:errors>
                               </div>
                               <div class="col-md-3">
-                                 Retención de rendimientos:
+                                Porcentaje de retención:
                                  <form:input path="retencionRendimientosCapital" type="text" 
                                     required="required" name="u" />
                                  <form:errors style="color: red;" path="retencionRendimientosCapital"></form:errors>

@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+
 import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
 import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
 
@@ -26,30 +30,42 @@ import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository
 @RequestMapping(value = "/offersconsulting/querypage")
 public class QueryPageController {
 
+	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+
 	@Autowired
 	private SolicitudesFinancialAdvisorRepository repo;
-	
+
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
-	
-	@GetMapping( params = { "id" })
+
+	@GetMapping(params = { "id" })
 	public String add(ModelMap model, HttpServletRequest req, HttpServletResponse resp, Principal principal,
 			@RequestParam("id") String idSolicitud) throws IOException {
 
 		SolicitudFinancialAdvisorDomain solicitud = repo.findOne(idSolicitud);
-		
-		if(solicitud == null){
-			logger.warn(principal.getName() + " " +  req.getRemoteAddr() + " " + req.getLocalAddr() + " ha tratado de acceder a una consulta inexistente. Devolviendo 404 advisor.");
+
+		if (solicitud == null) {
+			logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
+					+ " ha tratado de acceder a una consulta inexistente. Devolviendo 404 advisor.");
 			return "redirect:/e/404";
 		}
-		
-		/* Se comprueba que el usuario que está accediendo a la solicitud es el creador de la misma o bien un empleado de la oficina o superiores */
+
+		/*
+		 * Se comprueba que el usuario que está accediendo a la solicitud es el
+		 * creador de la misma o bien un empleado de la oficina o superiores
+		 */
 		String creadorSolicitud = solicitud.getEmail();
-			if(hasRole("ROLE_ADVISORUSER") && !principal.getName().equals(creadorSolicitud)){
-				logger.warn("El usuario " + principal.getName() + req.getRemoteAddr() + " ha intentado acceder a la consulta " + solicitud.getId() + " del usuario " + creadorSolicitud + ". Redireccionando a 403.");
-				return "redirect:/e/403";
-			}
-		
-		/* Si es empleado, podrá ver los comandos para añadir nueva respuesta. Si la solicitud ya tiene una respuesta, se le cargará en el text área por si lo que quiere es modificarla. */
+		if (hasRole("ROLE_ADVISORUSER") && !principal.getName().equals(creadorSolicitud)) {
+			logger.warn(
+					"El usuario " + principal.getName() + req.getRemoteAddr() + " ha intentado acceder a la consulta "
+							+ solicitud.getId() + " del usuario " + creadorSolicitud + ". Redireccionando a 403.");
+			return "redirect:/e/403";
+		}
+
+		/*
+		 * Si es empleado, podrá ver los comandos para añadir nueva respuesta.
+		 * Si la solicitud ya tiene una respuesta, se le cargará en el text área
+		 * por si lo que quiere es modificarla.
+		 */
 		model.addAttribute("asuntoOferta", solicitud.getAsuntoOferta());
 		model.addAttribute("idQuery", solicitud.getId());
 		model.addAttribute("enlaceArchivo", "/offersconsulting/serve?blob-key=" + solicitud.getFileBlobKey());
@@ -62,27 +78,64 @@ public class QueryPageController {
 		return "querypage";
 
 	}
-	
-	@PostMapping(params = {"id"})
-	public String addResponse(ModelMap model, @RequestParam("response") String respuestaSolicitud, @RequestParam("id") String idSolicitud, Principal principal, HttpServletRequest req){
-		if(hasRole("ROLE_ADMIN") || hasRole("ROLE_SUPERVISOR") || hasRole("ROLE_EMPLEADO")){
+
+	@PostMapping(params = { "id" })
+	public String addResponse(ModelMap model, @RequestParam("response") String respuestaSolicitud,
+			@RequestParam("id") String idSolicitud, Principal principal, HttpServletRequest req) {
+		if (hasRole("ROLE_ADMIN") || hasRole("ROLE_SUPERVISOR") || hasRole("ROLE_EMPLEADO")) {
 			SolicitudFinancialAdvisorDomain solicitud = repo.findOne(idSolicitud);
-			
-			if(solicitud == null){
-				logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr() + " ha tratado de acceder a una consulta inexistente. Devolviendo 404 advisor.");
+
+			if (solicitud == null) {
+				logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
+						+ " ha tratado de acceder a una consulta inexistente. Devolviendo 404 advisor.");
 				return "redirect:/e/404";
 			}
-			
+
 			solicitud.setRespuestaOferta(respuestaSolicitud);
 			solicitud.setEstado("Contestada");
 			repo.save(solicitud);
 			logger.info(principal.getName() + " ha añadido una respuesta a la consulta " + solicitud.getId());
-			return "redirect:/offersconsulting/querypage?id="+idSolicitud;
+			return "redirect:/offersconsulting/querypage?id=" + idSolicitud;
 		} else {
-			logger.error(req.getRemoteAddr() + " " + req.getLocalAddr() + " Alguien ha tratado de hacer POST a una id de una consulta sin tener los roles necesarios o haber iniciado sesión. Esto significa que alguien ha tratado, por medios externos, contestar a una query.");
+			logger.error(req.getRemoteAddr() + " " + req.getLocalAddr()
+					+ " Alguien ha tratado de hacer POST a una id de una consulta sin tener los roles necesarios o haber iniciado sesión. Esto significa que alguien ha tratado, por medios externos, contestar a una query.");
 			return "redirect:/e/403";
 		}
-		
+
+	}
+
+	@GetMapping(value = "/e", params = { "id" })
+	public String eliminarConsulta(ModelMap model, HttpServletRequest req, HttpServletResponse resp,
+			Principal principal, @RequestParam("id") String idSolicitud) {
+		SolicitudFinancialAdvisorDomain solicitud = repo.findOne(idSolicitud);
+
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
+				+ "está tratando de borrar una consulta.");
+
+		if (solicitud == null) {
+			logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
+					+ " ha tratado de borrar una consulta inexistente. Devolviendo 404 advisor.");
+			return "redirect:/e/404";
+		}
+
+		if (!hasRole("ROLE_ADMIN")) {
+			logger.warn(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
+					+ "ha tratado de eliminar la consulta" + idSolicitud + " sin tener los privilegios necesarios.");
+			return "redirect:/e/403";
+		}
+
+		if (solicitud.getFileBlobKey() != null) {
+			/*
+			 * Si no encuentra la blobkey no hay nullPointer, aparentemente,
+			 * simplemente lo omite.
+			 */
+			blobstoreService.delete(new BlobKey(solicitud.getFileBlobKey()));
+		}
+
+		repo.delete(solicitud);
+		logger.info(principal.getName() + " " + req.getRemoteAddr() + " " + req.getLocalAddr()
+				+ " ha borrado la consulta " + idSolicitud);
+		return "redirect:/offersconsulting";
 	}
 
 	private boolean hasRole(String role) {
