@@ -3,6 +3,8 @@
  */
 package es.unileon.ulebankoffice.web;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -196,7 +198,8 @@ public class OfficeClientPageController {
 
 		logger.info(principal.getName() + " " + req.getRemoteAddr() + " ha añadido movimientos a la cuenta: "
 				+ numeroDeCuenta);
-		cuentaCorriente.setSaldo(cuentaCorriente.getSaldo() + saldoAux);
+		cuentaCorriente.setSaldo(BigDecimal.valueOf(Math.rint(cuentaCorriente.getSaldo() + saldoAux * 100) / 100)
+				.setScale(2, RoundingMode.HALF_UP).doubleValue());
 		cuentasCorrientesRepo.save(cuentaCorriente);
 
 		return "redirect:/o/u/c?accn=" + numeroDeCuenta;
