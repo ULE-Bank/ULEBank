@@ -187,7 +187,7 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 
 			/* Primera columna: La fecha */
 			DateTime fecha = new DateTime(movimientoCuentaCorrienteDomain.getFechaValor());
-			itemTabla.add(fecha.getDayOfMonth() + "-" + fecha.getMonthOfYear());
+			itemTabla.add(fecha.getDayOfMonth() + "-" + fecha.getMonthOfYear() + "-" + fecha.getYear());
 
 			/* Segunda columan: El concepto */
 			itemTabla.add(movimientoCuentaCorrienteDomain.getConcepto());
@@ -298,7 +298,7 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 		/* El último movimiento es la liquidación */
 		itemTabla = new ArrayList<>();
 		DateTime fechaLiquidacion = new DateTime(fechaFinalLiquidacion);
-		itemTabla.add(fechaLiquidacion.getDayOfMonth() + "-" + fechaLiquidacion.getMonthOfYear());
+		itemTabla.add(fechaLiquidacion.getDayOfMonth() + "-" + fechaLiquidacion.getMonthOfYear() + "-" + fechaLiquidacion.getYear());
 		itemTabla.add("Liquidacion");
 		if (totalLiquidacionFinal >= 0) {
 			itemTabla.add(decimalFormatter.format(redondear(totalLiquidacionFinal)) + moneda);
@@ -310,10 +310,16 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 			 */
 			itemTabla.add(decimalFormatter.format(redondear(-totalLiquidacionFinal)) + moneda);
 		}
-
+		
+		/* Si no se ha añadido ningún movimiento este paso se salta pues listaSaldos.size()-1 causaría un nullPointer */
+		if(!listaSaldos.isEmpty()){
 		itemTabla
 				.add(decimalFormatter.format(redondear(listaSaldos.get(listaSaldos.size() - 1) + totalLiquidacionFinal))
 						+ moneda);
+		} else{
+			itemTabla.add(Double.toString(this.saldo + totalLiquidacionFinal));
+					
+		}
 
 		itemTabla.add(Integer.toString(totalDias));
 		itemTabla.add(decimalFormatter.format(redondear(totalNumerosAcreedores)) + moneda);
@@ -328,8 +334,10 @@ public class CuentaCorrienteDomain extends Operacion implements ProductoFinancie
 		this.totalLiquidacion = decimalFormatter.format(redondear(totalLiquidacionFinal))+moneda;
 		
 		double liquiTotalAux = totalLiquidacionFinal < 0 ? -totalLiquidacionFinal : totalLiquidacionFinal;
-		this.movimientos.add(new MovimientoCuentaCorrienteDomain(redondear(liquiTotalAux), "Liquidación", new Date(), "D"));
+		this.movimientos.add(new MovimientoCuentaCorrienteDomain(redondear(liquiTotalAux), "Liquidación", fechaFinalLiquidacion, "D"));
 		this.saldo += totalLiquidacionFinal;
+		
+		this.saldo = redondear(this.saldo);
 		
 		return tabla;
 	}

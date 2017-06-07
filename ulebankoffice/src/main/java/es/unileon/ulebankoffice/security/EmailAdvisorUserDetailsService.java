@@ -29,38 +29,43 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 	private User userDetails;
 
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
-	
+
 	@Override
-	public UserDetails loadUserByUsername(String userName){
-		
-		if(!userName.contains("@") || !userName.contains(".")){
-			logger.warn("Alguien ha tratado de acceder al consultor financiero sin ser un email. Nombre intentado: " + userName);
+	public UserDetails loadUserByUsername(String userName) {
+
+		if (!userName.contains("@") || !userName.contains(".")) {
+			logger.warn("Alguien ha tratado de acceder al consultor financiero sin ser un email. Nombre intentado: "
+					+ userName);
 			throw new UsernameNotFoundException("Se debe buscar un e-mail");
 		}
-		
-		/* Si el último indice de "." punto está antes que la "@" arroba, el email es incorrecto. */
-		
-		if(userName.lastIndexOf('.') < userName.indexOf('@')){
-			logger.warn("Alguien ha tratado de acceder al consultor financiero sin ser un email correcto. Nombre intentado: " + userName);
+
+		/*
+		 * Si el último indice de "." punto está antes que la "@" arroba, el
+		 * email es incorrecto.
+		 */
+
+		if (userName.lastIndexOf('.') < userName.indexOf('@')) {
+			logger.warn(
+					"Alguien ha tratado de acceder al consultor financiero sin ser un email correcto. Nombre intentado: "
+							+ userName);
 			throw new UsernameNotFoundException("El email tratado de buscar no es correcto");
 		}
-		
+
 		AdvisorUserDomain clienteAdvisor = repo.findByEmail(userName);
 		if (clienteAdvisor == null) {
-			logger.info("Un nuevo email ha accedido al consultor financiero:" + userName + " Creando registro de usuario." );
+			logger.info(
+					"Un nuevo email ha accedido al consultor financiero:" + userName + " Creando registro de usuario.");
 			clienteAdvisor = new AdvisorUserDomain();
 			clienteAdvisor.setEmail(userName);
 			repo.save(clienteAdvisor);
 		}
-		
-		
 
 		userDetails = new User(clienteAdvisor.getEmail(), "", getAuthorities());
-		logger.info("Alguien ha tratado de inciar sesión en el consultor financiero con el email:" + userName + " ." );
+		logger.info("Alguien ha tratado de inciar sesión en el consultor financiero con el email:" + userName + " .");
 		return userDetails;
 	}
 
-	private List<GrantedAuthority> getAuthorities() { 
+	private List<GrantedAuthority> getAuthorities() {
 
 		List<GrantedAuthority> authList = new ArrayList<>();
 

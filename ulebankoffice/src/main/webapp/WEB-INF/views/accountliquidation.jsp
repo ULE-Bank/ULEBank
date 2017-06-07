@@ -136,17 +136,17 @@
          
          <div class="modal-body">
 					
-						<table class="table" style="background-color:white;">
+						<table class="table" style="background-color:white; ">
 							<thead>
 								<tr>
-									<th><spring:message code="label.fecha"/></th>
-									<th><spring:message code="label.concepto"/></th>
-									<th><spring:message code="label.ingreso"/></th>	
-									<th><spring:message code="label.disposicion"/></th>
-									<th><spring:message code="label.balance" /></th>
-									<th><spring:message code="label.days" /></th>
-									<th><spring:message code="label.debtornumbers" /></th>
-									<th><spring:message code="label.exceedednumbers" /></th>
+									<th style="text-align:right;"><spring:message code="label.fecha"/></th>
+									<th style="text-align:right;"><spring:message code="label.concepto"/></th>
+									<th style="text-align:right;"><spring:message code="label.ingreso"/></th>	
+									<th style="text-align:right;"><spring:message code="label.disposicion"/></th>
+									<th style="text-align:right;"><spring:message code="label.balance" /></th>
+									<th style="text-align:right;"><spring:message code="label.days" /></th>
+									<th style="text-align:right;"><spring:message code="label.debtornumbers" /></th>
+									<th style="text-align:right;"><spring:message code="label.exceedednumbers" /></th>
 								</tr>
 							</thead>
 							<tbody  style="font-size:13px; text-align:right;">
