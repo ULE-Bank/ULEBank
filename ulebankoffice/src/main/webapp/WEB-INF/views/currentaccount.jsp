@@ -101,7 +101,7 @@
                      <li>
                         <a href="/o">
                         <i class="fa fa-home"></i> 
-                        Sucursal bancaria
+                        Oficina bancaria
                         </a>
                         <i class="fa fa-angle-double-right"></i>
                      </li>
@@ -172,7 +172,7 @@
                      <b> Retención rendimientos de capital: </b> ${cuenta.retencionRendimientosCapital}%
                   </div>
                   <div class="col-md-2">
-                     <b> Saldo:</b> ${cuenta.saldo}€
+                     <h4><b> Saldo:</b> ${cuenta.saldo}€</h4>
                   </div>
                   <div class="row">
                      <hr/>
@@ -338,6 +338,10 @@
                         </form>
                      </div>
                   </div>
+                        <a href="/o" class="button mt-20"  > <span> Volver a la oficina </span> <i class ="fa fa-fast-backward"></i></a>
+               
+        
+                  <a href="/o/u?uin=${cuenta.dni}" class="button mt-20"  > <span> Volver al expediente electrónico </span> <i class ="fa fa-step-backward"></i></a>
                   <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
                </div>
             </div>

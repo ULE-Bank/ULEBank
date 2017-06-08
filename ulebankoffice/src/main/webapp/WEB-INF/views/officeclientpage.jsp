@@ -165,7 +165,7 @@
                         </div>
                      </c:forEach>
                      <div class="row">
-                        <a class="button mt-20"  id="mostrarFormularioNuevaDireccion"> <span> Añadir dirección </span> <i class ="fa fa-file-text-o"></i></a>
+                        <a class="button mt-20 button-black"  id="mostrarFormularioNuevaDireccion"> <span> Añadir dirección </span> <i class ="fa fa-caret-down"></i></a>
                         <form:form style="display: none;" id="formularioNuevaDireccion" action="/o/u/nd" method="post" modelAttribute="nuevaDireccion">
                            <div class="row col-md-12">
                               <h2>Nueva dirección:</h2>
@@ -280,7 +280,7 @@
                         </div>
                      </c:forEach>
                      <div class="row">
-                        <a class="button mt-20"  id="mostrarFormularioNuevaCuentaCorriente"> <span> Crear nueva cuenta corriente </span> <i class ="fa fa-plus"></i></a>
+                        <a class="button mt-20 button-black"  id="mostrarFormularioNuevaCuentaCorriente"> <span> Crear nueva cuenta corriente </span> <i class ="fa fa-caret-down"></i></a>
                         <form:form style="display: none;" id="formularioNuevaCuentaCorriente" action="/o/u/nc" method="post" modelAttribute="nuevaCuentaCorriente">
                            <div class="row col-md-12">
                               <h2>Datos nueva cuenta corriente:</h2>
@@ -366,6 +366,7 @@
                   </div>
                </div>
                <div class="row">
+               <a href="/o" class="button mt-20"  > <span> Volver a la oficina </span> <i class ="fa fa-step-backward"></i></a>
                   <a href="/o/logout" class="button mt-20"  > <span> Cerrar sesión </span> <i class ="fa fa-sign-out"></i></a>
                </div>
             </div>
