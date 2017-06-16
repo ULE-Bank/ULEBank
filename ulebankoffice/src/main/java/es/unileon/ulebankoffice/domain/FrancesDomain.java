@@ -25,7 +25,7 @@ public class FrancesDomain extends Prestamo {
 		double[] amortizacion = new double[numFilas];
 		double[] capitalPendiente = new double[numFilas];
 		
-		double Ani = (1 - Math.pow(1+tipoInteres/tipoPeriodo, periodos*(-1)*tipoPeriodo)) / (tipoInteres/tipoPeriodo);
+		double Ani = (1 - Math.pow(1+tipoInteres/tipoPeriodo, periodos*(-1)* (double)tipoPeriodo)) / (tipoInteres/tipoPeriodo);
 		double anualidadCons = capInicial / Ani;
 		
 		anualidad[0] = 0;

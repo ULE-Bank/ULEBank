@@ -88,7 +88,7 @@
             <div class="container">
                <div class="row text-center intro-title">
                   <h1 class="text-blue">
-                     Sucursal bancaria
+                     Oficina bancaria
                   </h1>
                   <ul class="page-breadcrumb">
                      <li>
