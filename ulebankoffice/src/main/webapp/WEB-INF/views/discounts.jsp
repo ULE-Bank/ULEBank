@@ -285,7 +285,7 @@
 								<div class="row">
 									<div class="section-field col-md-8">
 										<div class="field-widget">
-											<i class="fa fa-eur"></i>
+											<i class="fa fa-percent"></i>
 											<form:input type="text" name="name" path="comisiones" />
 										</div>
 									</div>

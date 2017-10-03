@@ -146,7 +146,7 @@
                                     </form:select>
                                  </div>
                               </div>
-                              <div class="section-field col-md-1">
+                              <div class="section-field col-md-1 pl-0">
                                  <span class="tooltip-content text-blue"
                                     data-original-title="<spring:message code="label.typeofperiodinfo"/>"
                                  data-toggle="tooltip" data-placement="top"><i
