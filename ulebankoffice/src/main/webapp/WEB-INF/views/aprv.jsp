@@ -123,7 +123,7 @@
                               <div class="section-field col-md-8">
                                  <label for="name">
                                     <spring:message
-                                       code="label.typeofperiod" />
+                                       code="label.period" />
                                  </label>
                               </div>
                            </div>
@@ -165,121 +165,217 @@
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  1 <form:errors style="color: red;" path="intereses[0].interes"></form:errors>
+                                 
+                                 </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input path="intereses[0].interes" required="required" />
                                  </div>
                               </div>
-                              
+                              <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
+                              </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  2  <form:errors style="color: red;" path="intereses[1].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[1].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  3 <form:errors style="color: red;" path="intereses[2].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[2].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  4  <form:errors style="color: red;" path="intereses[3].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[3].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  5 <form:errors style="color: red;" path="intereses[4].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[4].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  6 <form:errors style="color: red;" path="intereses[5].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[5].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  7 <form:errors style="color: red;" path="intereses[6].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[6].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  8 <form:errors style="color: red;" path="intereses[7].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[7].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  9 <form:errors style="color: red;" path="intereses[8].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[8].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  10 <form:errors style="color: red;" path="intereses[9].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[9].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  11 <form:errors style="color: red;" path="intereses[10].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[10].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="row TAEVariosTipoInteres">
                               <div class="section-field col-md-8">
                                  <spring:message code="label.period"/>
                                  12 <form:errors style="color: red;" path="intereses[11].interes"></form:errors>
+                                  </div>
+                                 <div class="row col-md-8 ml-0">
                                  <div class="field-widget">
                                     <i class="fa fa-percent"></i>
                                     <form:input type="text" name="name" path="intereses[11].interes" required="required" />
                                  </div>
+                              </div>
+                               <div class="section-field col-md-1">
+                                 <span class="tooltip-content text-blue"
+                                    data-original-title="<spring:message code="label.nominalinteresttype"/>"
+                                 data-toggle="tooltip" data-placement="top"><i
+                                    class="fa fa-question-circle fa-2x" aria-hidden="true"></i></span>
                               </div>
                            </div>
                            <div class="bg-info">
