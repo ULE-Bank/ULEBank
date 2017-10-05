@@ -38,6 +38,9 @@ public class AlemanDomain extends Prestamo {
 		double[] amortizacion = new double[numFilas];
 		double[] interes = new double[numFilas];
 		double[] capitalPendiente = new double[numFilas];
+		double totalAnualidad = 0;
+		double totalInteres = 0;
+		double totalAmortizacion = 0;
 		
 		interes[0] = capInicial * tipoInteres / tipoPeriodo;
 		
@@ -74,8 +77,19 @@ public class AlemanDomain extends Prestamo {
 			itemTabla.add(Double.toString(redondear(amortizacion[i])));
 			itemTabla.add(Double.toString(redondear(capitalPendiente[i])));
 			
+			totalAnualidad += anualidad[i];
+			totalInteres += interes[i];
+			totalAmortizacion += amortizacion[i];
+			
 			tabla.add(itemTabla);
 		}
+		
+		itemTabla = new ArrayList<>();
+		itemTabla.add(Double.toString(redondear(totalAnualidad)));
+		itemTabla.add(Double.toString(redondear(totalInteres)));
+		itemTabla.add(Double.toString(redondear(totalAmortizacion)));
+		
+		tabla.add(itemTabla);
 		
 		return tabla;
 	}

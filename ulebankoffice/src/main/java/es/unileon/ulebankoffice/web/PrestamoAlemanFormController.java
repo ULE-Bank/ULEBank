@@ -38,7 +38,18 @@ public class PrestamoAlemanFormController {
 		
 		List<List<String>> tabla = myAleman.calcularTabla();
 		
+		/* El último elemento es el de los totales, los sumatorios, así que lo 
+		 * insertaré en otra tabla y lo elimino de la original*/
+		List<String> totales = tabla.get(tabla.size()-1);
+		tabla.remove(tabla.size()-1);
+		
+		/* Añado un elemento vacío al principio para que la colocación de las
+		 * columnas corresponda con la orginal donde se cuentan los periodos */
+		totales.add(0, "");
+		
+		
         model.addObject("tabla", tabla);
+        model.addObject("tablaTotales", totales);
         
         response.addCookie(new Cookie("resultados", "1"));
 
