@@ -24,6 +24,10 @@ public class FrancesDomain extends Prestamo {
 		double[] interes = new double[numFilas];
 		double[] amortizacion = new double[numFilas];
 		double[] capitalPendiente = new double[numFilas];
+		double totalAnualidad = 0;
+		double totalInteres = 0;
+		double totalAmortizacion = 0;
+		
 		
 		double Ani = (1 - Math.pow(1+tipoInteres/tipoPeriodo, periodos*(-1)* (double)tipoPeriodo)) / (tipoInteres/tipoPeriodo);
 		double anualidadCons = capInicial / Ani;
@@ -52,8 +56,19 @@ public class FrancesDomain extends Prestamo {
 			itemTabla.add(Double.toString(redondear(amortizacion[i])));
 			itemTabla.add(Double.toString(redondear(capitalPendiente[i])));
 			
+			totalAnualidad += anualidad[i];
+			totalInteres += interes[i];
+			totalAmortizacion += amortizacion[i];
+			
 			tabla.add(itemTabla);
 		}
+		
+		itemTabla = new ArrayList<>();
+		itemTabla.add(Double.toString(redondear(totalAnualidad)));
+		itemTabla.add(Double.toString(redondear(totalInteres)));
+		itemTabla.add(Double.toString(redondear(totalAmortizacion)));
+		
+		tabla.add(itemTabla);
 		
 		return tabla;
 	}

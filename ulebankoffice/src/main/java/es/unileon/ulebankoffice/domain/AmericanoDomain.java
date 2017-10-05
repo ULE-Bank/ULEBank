@@ -24,6 +24,9 @@ public class AmericanoDomain extends Prestamo {
 		double[] interes = new double[numFilas];
 		double[] amortizacion = new double[numFilas];
 		double[] capitalPendiente = new double[numFilas];
+		double totalAnualidad = 0;
+		double totalInteres = 0;
+		double totalAmortizacion = 0;
 		
 		anualidad[0] = 0;
 		anualidad[numFilas-1] = capInicial + interesCons;
@@ -57,8 +60,20 @@ public class AmericanoDomain extends Prestamo {
 			itemTabla.add(Double.toString(redondear(amortizacion[i])));
 			itemTabla.add(Double.toString(redondear(capitalPendiente[i])));
 			
+			totalAnualidad += anualidad[i];
+			totalInteres += interes[i];
+			totalAmortizacion += amortizacion[i];
+			
+			
 			tabla.add(itemTabla);
 		}
+		
+		itemTabla = new ArrayList<>();
+		itemTabla.add(Double.toString(redondear(totalAnualidad)));
+		itemTabla.add(Double.toString(redondear(totalInteres)));
+		itemTabla.add(Double.toString(redondear(totalAmortizacion)));
+		
+		tabla.add(itemTabla);
 			
 		return tabla;
 	}

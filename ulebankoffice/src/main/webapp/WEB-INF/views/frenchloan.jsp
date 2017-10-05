@@ -447,6 +447,22 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>TOTAL <spring:message code="label.annuality" /></th>
+									<th>TOTAL <spring:message code="label.interest" /></th>
+									<th>TOTAL <spring:message code="label.amortization" /></th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="fila" items="${tablaTotales}">
+											<td><c:out value="${fila}" /></td>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
