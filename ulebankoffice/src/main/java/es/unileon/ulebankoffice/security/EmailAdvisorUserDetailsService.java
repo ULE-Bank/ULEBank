@@ -50,7 +50,10 @@ public class EmailAdvisorUserDetailsService implements UserDetailsService {
 							+ userName);
 			throw new UsernameNotFoundException("El email tratado de buscar no es correcto");
 		}
-
+		
+		/*
+		 * Es en este punto donde se crean los usuarios que acceden por primera vez.
+		 */
 		AdvisorUserDomain clienteAdvisor = repo.findByEmail(userName);
 		if (clienteAdvisor == null) {
 			logger.info(

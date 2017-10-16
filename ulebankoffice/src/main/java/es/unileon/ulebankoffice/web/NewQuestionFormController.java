@@ -28,7 +28,9 @@ import com.google.appengine.api.blobstore.BlobstoreInputStream;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
+import es.unileon.ulebankoffice.domain.AdvisorUserDomain;
 import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
+import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
 import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
 import es.unileon.ulebankoffice.service.SolicitudFinancialAdvisor;
 
@@ -46,6 +48,9 @@ public class NewQuestionFormController {
 
 	@Autowired
 	private SolicitudesFinancialAdvisorRepository repo;
+	
+	@Autowired
+	private AdvisorUserRepository repoUser;
 
 	@ModelAttribute("newQuestion")
 	public SolicitudFinancialAdvisor getNewQuestion() {
@@ -59,14 +64,15 @@ public class NewQuestionFormController {
 
 		Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
 		String blobStoreFileKey = null;
-
+		String userEmail = principal.getName();
+		
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("errorQueryDetails", "Por favor, ofrece detalles acerca de tu consulta.");
-			logger.warn(principal.getName()
+			logger.warn(userEmail
 					+ " ha intentado crear una nueva consulta y en el formulario ha habido errores. Devolviendo la vista de nuevo.");
 			return "newquery";
 		}
-		logger.info(principal.getName() + " está tratando de crear una nueva consulta");
+		logger.info(userEmail + " está tratando de crear una nueva consulta");
 
 		if (!blobs.isEmpty()) {
 			logger.info(
@@ -75,7 +81,7 @@ public class NewQuestionFormController {
 			List<BlobKey> blobKeys = blobs.get("myFile");
 			BlobInfoFactory blobInfoFactory = new BlobInfoFactory();
 			BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKeys.get(0));
-			logger.info(principal.getName() + " ha adjuntado un documento." + "El documento es tipo: "
+			logger.info(userEmail + " ha adjuntado un documento." + "El documento es tipo: "
 					+ blobInfo.getContentType() + " con nombre: " + blobInfo.getFilename() + " y tamaño "
 					+ blobInfo.getSize());
 
@@ -129,7 +135,7 @@ public class NewQuestionFormController {
 		String asunto = new String(nuevaSolicitud.getAsuntoOferta().getBytes(GOOGLEENCODING), UTF8);
 		String url = new String(nuevaSolicitud.getUrlOferta().getBytes(GOOGLEENCODING), UTF8);
 		SolicitudFinancialAdvisorDomain solicitud = new SolicitudFinancialAdvisorDomain();
-		solicitud.setEmail(principal.getName());
+		solicitud.setEmail(userEmail);
 		solicitud.setEstado("Pendiente");
 		solicitud.setFileBlobKey(blobStoreFileKey);
 		solicitud.setUrlOferta(url);
@@ -142,8 +148,16 @@ public class NewQuestionFormController {
 		solicitud.setFechaCreacion(now.getDayOfMonth() + "-" + now.getMonthOfYear() + "-" + now.getYear());
 
 		repo.save(solicitud);
-		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + principal.getName() + " con id: "
+		logger.info("Se ha guardado en la base de datos (MongoDB) la solicitud de " + userEmail + " con id: "
 				+ solicitud.getId() + " y asunto : " + asunto);
+		
+		AdvisorUserDomain user = repoUser.findByEmail(userEmail);
+
+		if (user.getResultadoTest() <= 0.0) {
+			model.addAttribute("testPendiente", 1);
+			model.addAttribute("userEmail", userEmail);
+		}
+		
 		return "question-verification";
 	}
 
