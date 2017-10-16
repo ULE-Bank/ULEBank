@@ -151,18 +151,22 @@
 				<h4>Respuesta:</h4> <pre style="white-space:pre-wrap;">${respuestaOferta}</pre>
 			
 				 <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_EMPLEADO','ROLE_SUPERVISOR')">
-				 <h4>Escribir o modificar respuesta: </h4>
-				  <fieldset>
-				
-				  <form:form
+				 <fieldset>
+				 <form:form
 							action="/offersconsulting/querypage?id=${param.id}"
 							role="form" method="post"
 							id="servicesform" >
+				 <h4>Resultado del usuario ${autorConsulta} del test: </h4>
+				 <input type="number" id="scoreTest" name="scoreTest" value="${ testScore}"/>
+				 <h4>Escribir o modificar respuesta: </h4>
+				  
+				
+				  
 							<div id="register-form" class="register-form">
 							
 							<textarea id="response" name="response" rows="8" placeholder="Aquí se debe escribir la respuesta." >${respuestaOferta}</textarea>
 							<div class="col-md-3">
-							<input type="submit"  style="border: 3px solid #ff0000" value="<spring:message code="label.submitresponse"/>">
+							<input type="submit"  style="border: 3px solid #ff0000" value="<spring:message code="label.update"/>">
 							</div>
 							</div>
 							</form:form>

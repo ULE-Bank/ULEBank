@@ -23,7 +23,9 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
+import es.unileon.ulebankoffice.domain.AdvisorUserDomain;
 import es.unileon.ulebankoffice.domain.SolicitudFinancialAdvisorDomain;
+import es.unileon.ulebankoffice.repository.AdvisorUserRepository;
 import es.unileon.ulebankoffice.repository.SolicitudesFinancialAdvisorRepository;
 
 @Controller
@@ -34,6 +36,9 @@ public class QueryPageController {
 
 	@Autowired
 	private SolicitudesFinancialAdvisorRepository repo;
+	
+	@Autowired
+	private AdvisorUserRepository repoUser;
 
 	private static final Logger logger = Logger.getLogger("ulebankLogger");
 
@@ -51,7 +56,10 @@ public class QueryPageController {
 
 		/*
 		 * Se comprueba que el usuario que está accediendo a la solicitud es el
-		 * creador de la misma o bien un empleado de la oficina o superiores
+		 * creador de la misma o bien un empleado de la oficina o superiores. Todos 
+		 * los usuarios que no saen el administrador del sistema o los empleados
+		 * de la banca tienen el rol ROLE_ADVISORUSER. Si tienen este rol y no son
+		 * el creador de la consulta, se devuelve error.
 		 */
 		String creadorSolicitud = solicitud.getEmail();
 		if (hasRole("ROLE_ADVISORUSER") && !principal.getName().equals(creadorSolicitud)) {
@@ -72,8 +80,11 @@ public class QueryPageController {
 		model.addAttribute("textoOferta", solicitud.getTextoOferta());
 		model.addAttribute("urlOferta", solicitud.getUrlOferta());
 		model.addAttribute("respuestaOferta", solicitud.getRespuestaOferta());
-		model.addAttribute("autorConsulta", solicitud.getEmail());
+		model.addAttribute("autorConsulta", creadorSolicitud);
 		model.addAttribute("fechaCreacion", solicitud.getFechaCreacion());
+		
+		AdvisorUserDomain user = repoUser.findByEmail(creadorSolicitud);
+		model.addAttribute("testScore", user.getResultadoTest());
 
 		return "querypage";
 
@@ -81,7 +92,7 @@ public class QueryPageController {
 
 	@PostMapping(params = { "id" })
 	public String addResponse(ModelMap model, @RequestParam("response") String respuestaSolicitud,
-			@RequestParam("id") String idSolicitud, Principal principal, HttpServletRequest req) {
+			@RequestParam("id") String idSolicitud, @RequestParam("scoreTest") double scoreTest, Principal principal, HttpServletRequest req) {
 		if (hasRole("ROLE_ADMIN") || hasRole("ROLE_SUPERVISOR") || hasRole("ROLE_EMPLEADO")) {
 			SolicitudFinancialAdvisorDomain solicitud = repo.findOne(idSolicitud);
 
@@ -93,6 +104,12 @@ public class QueryPageController {
 
 			solicitud.setRespuestaOferta(respuestaSolicitud);
 			solicitud.setEstado("Contestada");
+			
+			AdvisorUserDomain user = repoUser.findByEmail(solicitud.getEmail());
+			user.setResultadoTest(scoreTest);
+			
+			
+			repoUser.save(user);
 			repo.save(solicitud);
 			logger.info(principal.getName() + " ha añadido una respuesta a la consulta " + solicitud.getId());
 			return "redirect:/offersconsulting/querypage?id=" + idSolicitud;
