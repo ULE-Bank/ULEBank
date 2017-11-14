@@ -153,22 +153,6 @@
                      <canvas height="170"></canvas>
                   </div>
                </div>
-               <c:if test="${testPendiente == 1}">
-                  <div class="row mt-50">
-                     <div class="col-md-8 col-md-offset-2">
-                        <div class="row" style="text-align: center">
-                           <b>
-                              <spring:message
-                                 code="label.testisneeded" />
-                           </b>
-                        </div>
-                        <div class="col-xs-4 col-xs-offset-4">
-                           <a href="https://docs.google.com/forms/d/e/1FAIpQLSe64agcT_Sk7B4K2fqYpFSPq1Ns0PXBdNcJ8SP8eCl9Ji3D6A/viewform?entry.134047850=${userEmail}" target="_blank" class="button mt-20" style="background-color: #ff0000"> <span>TEST</span> <i class="fa fa-exclamation-triangle"></i>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </c:if>
             </div>
          </section>
       </div>
