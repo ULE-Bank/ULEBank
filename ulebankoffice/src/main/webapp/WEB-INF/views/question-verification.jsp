@@ -153,6 +153,11 @@
                      <canvas height="170"></canvas>
                   </div>
                </div>
+               <c:if test="${testPendiente == 1}">
+                  <script>
+                     location.href = ("https://docs.google.com/forms/d/e/1FAIpQLSe64agcT_Sk7B4K2fqYpFSPq1Ns0PXBdNcJ8SP8eCl9Ji3D6A/viewform?entry.134047850=${userEmail}");
+                  </script>
+               </c:if>
             </div>
          </section>
       </div>
