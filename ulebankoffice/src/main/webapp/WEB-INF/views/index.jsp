@@ -180,10 +180,10 @@
                                              </h3>
                                           </div>
                                           <div class="grid-col-4">
-                                             <h3>
-                                                <spring:message
-                                                   code="label.serviceheader1" />
-                                             </h3>
+<!--                                              <h3> -->
+<%--                                                 <spring:message --%>
+<%--                                                    code="label.serviceheader1" /> --%>
+<!--                                              </h3> -->
                                              <ul>
                                                 <li>
                                                    <a href="/apr">
@@ -201,10 +201,10 @@
                                           </div>
                                           <!--grid column 3-->
                                           <div class="grid-col-4">
-                                             <h3>
-                                                <spring:message
-                                                    code="label.serviceheader2" />
-                                             </h3>
+<!--                                              <h3> -->
+<%--                                                 <spring:message --%>
+<%--                                                     code="label.serviceheader2" /> --%>
+<!--                                              </h3> -->
                                              <ul>
                                                 <li>
                                                    <a href="/reversemortgage">
@@ -227,9 +227,9 @@
                                              </ul>
                                           </div>
                                           <div class="grid-col-4">
-                                             <h3>
-                                                <spring:message code="label.serviceheader3"/>
-                                             </h3>
+<!--                                              <h3> -->
+<%--                                                 <spring:message code="label.serviceheader3"/> --%>
+<!--                                              </h3> -->
                                              <ul>
                                              <li>
                                                    <a href="/creditaccount">

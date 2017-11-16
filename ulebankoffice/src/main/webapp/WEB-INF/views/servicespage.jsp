@@ -144,7 +144,7 @@
             <div class="row">
             <div class="col-md-12">
             <div class="col-md-6">
-            <h3 class=" text-blue"><spring:message code="label.serviceheader1"/></h3>
+<%--             <h3 class=" text-blue"><spring:message code="label.serviceheader1"/></h3> --%>
             <div class="col-md-6">
             <div class="feature-11-uleservice  clearfix">
                         <div class="feature-11-uleservice  mb-30 ">
@@ -185,7 +185,7 @@
                      </div>
             </div>
             <div class="col-md-6">
-            <h3><spring:message code="label.serviceheader2"/></h3>
+<%--             <h3><spring:message code="label.serviceheader2"/></h3> --%>
                                  <div class="col-md-6">
                      <div class="feature-11-uleservice  mb-30">
                         
@@ -220,7 +220,7 @@
             </div>
              <div class="col-md-12">
             <div class="col-md-6">
-            <h3 class=" text-blue"><spring:message code="label.serviceheader3"/></h3>       
+<%--             <h3 class=" text-blue"><spring:message code="label.serviceheader3"/></h3>        --%>
              <div class="col-md-6">      
              <div class="feature-11-uleservice">
                       

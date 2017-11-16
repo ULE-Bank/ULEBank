@@ -56,10 +56,10 @@
                                        <spring:message
                                           code="label.servicegroup1" />
                                     </li>
-                                    <li class="uleserviceheader">
-                                       <spring:message
-                                          code="label.serviceheader1" />
-                                    </li>
+<!--                                     <li class="uleserviceheader"> -->
+<%--                                        <spring:message --%>
+<%--                                           code="label.serviceheader1" /> --%>
+<!--                                     </li> -->
                                     <li>
                                        <a href="/apr">
                                           <i class="fa fa-angle-double-right"></i>
@@ -74,10 +74,10 @@
                                              code="label.siteservice1-2" />
                                        </a>
                                     </li>
-                                    <li class="uleserviceheader">
-                                       <spring:message
-                                         code="label.serviceheader2" />
-                                    </li>
+<!--                                     <li class="uleserviceheader"> -->
+<%--                                        <spring:message --%>
+<%--                                          code="label.serviceheader2" /> --%>
+<!--                                     </li> -->
                                     <li>
                                        <a href="/reversemortgage">
                                           <i class="fa fa-angle-double-right"></i>
@@ -99,10 +99,10 @@
 <%--                                              code="label.siteservice9" /> --%>
 <!--                                        </a> -->
 <!--                                     </li> -->
-                                    <li class="uleserviceheader">
-                                       <spring:message
-                                          code="label.serviceheader3" />
-                                    </li>
+<!--                                     <li class="uleserviceheader"> -->
+<%--                                        <spring:message --%>
+<%--                                           code="label.serviceheader3" /> --%>
+<!--                                     </li> -->
                                     <li>
                                        <a href="/creditaccount">
                                           <i class="fa fa-angle-double-right"></i>
