@@ -133,7 +133,8 @@ public class CreditosDomain extends Operacion {
 					itemTabla.add(String.valueOf(DECIMALFORMATTER.format(movimiento.getImporteMovimiento())) + MONEDA);
 					itemTabla.add("-");
 				}
-
+				
+				/* Saldo */
 				if (saldo.isEmpty()) {
 					saldo.add(movimiento.getImporteMovimiento());
 					itemTabla.add(DECIMALFORMATTER.format(redondear(movimiento.getImporteMovimiento())) + MONEDA);
@@ -145,6 +146,7 @@ public class CreditosDomain extends Operacion {
 
 				}
 
+				/* Días */
 				DateTime thisDay;
 				DateTime nextDay;
 				Days days;
@@ -160,9 +162,11 @@ public class CreditosDomain extends Operacion {
 				}
 				itemTabla.add(Integer.toString(days.getDays()));
 
+				/* N.Deudores / N.Excedidos / N.Acreedores */
 				if (saldo.get(index) > limiteCredito) {
-					numerosDeudores.add(limiteCredito * dias.get(index));
-					itemTabla.add(DECIMALFORMATTER.format(saldo.get(index) * dias.get(index)) + MONEDA);
+					double numerosDeudoresAux = limiteCredito * dias.get(index);
+					numerosDeudores.add(numerosDeudoresAux);
+					itemTabla.add(DECIMALFORMATTER.format(numerosDeudoresAux) + MONEDA);
 					double diferencia = saldo.get(index) - limiteCredito;
 					numerosExcedidos.add(diferencia * dias.get(index));
 
