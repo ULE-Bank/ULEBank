@@ -114,13 +114,11 @@ public class CreditosDomain extends Operacion {
 				itemTabla = new ArrayList<>();
 
 				/* Fecha valor */
-
 				calendar.setTime(movimiento.getFechaMovimiento());
-
-				itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
-
+					/* Atencion. Se suma 1 puesto que en el calendario Gregoriano las fechas empiezan en 0. Enero el es el mes 0 y Diciembre el 11. */
+				itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1));
+				
 				/* Concepto */
-
 				itemTabla.add(movimiento.getDescripcionMovimiento());
 
 				/* Disposiciones o ingresos */

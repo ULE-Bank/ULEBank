@@ -59,9 +59,10 @@ public class CreditosFormController {
 		String operacion;
 		DecimalFormat decimalFormatter = new DecimalFormat("#,##0.00");
 		decimalFormatter.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMAN));
-		
+	
 		for(MovimientosCreditos movimiento : movimientos) {
 			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());
+			System.out.println("La fecha recibida para el movimiento ha sido: " + fechaMovimiento.toString());
 			descripcionMovimiento = movimiento.getDescripcionMovimiento();
 			importeMovimiento = movimiento.getImporteMovimiento();
 			operacion = movimiento.getOperacion();
@@ -109,6 +110,7 @@ public class CreditosFormController {
 		Double saldoFinal = Double.parseDouble(totalSaldoToString);
 		
 		itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
+		System.out.println("La fecha añadida para la liquidación fue: " + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
 		itemTabla.add("Liquidación");
 		itemTabla.add(totalLiquidacionToString);
 		itemTabla.add("-");
