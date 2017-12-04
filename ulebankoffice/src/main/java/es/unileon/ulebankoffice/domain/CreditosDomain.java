@@ -254,7 +254,8 @@ public class CreditosDomain extends Operacion {
 		interesesAcreedoresFinales = interesesAcreedores * this.interesAcreedor / 360;
 		interesesExcedidosFinales = interesesExcedidos * this.interesExcedido / 360;
 		
-		liquidacionTotal = redondear(interesesDeudoresFinales + interesesAcreedoresFinales
+		/* Atención. Los intereses acreedores finales se deben restar */
+		liquidacionTotal = redondear(interesesDeudoresFinales - interesesAcreedoresFinales
 				+ interesesExcedidosFinales + comisionSaldoMedioNoDispuesto);
 
 		List<Double> listaResultados = new ArrayList<>();
