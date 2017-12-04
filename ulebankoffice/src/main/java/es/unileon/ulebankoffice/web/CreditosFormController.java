@@ -62,7 +62,6 @@ public class CreditosFormController {
 	
 		for(MovimientosCreditos movimiento : movimientos) {
 			fechaMovimiento = sdf.parse(movimiento.getFechaMovimiento());
-			System.out.println("La fecha recibida para el movimiento ha sido: " + fechaMovimiento.toString());
 			descripcionMovimiento = movimiento.getDescripcionMovimiento();
 			importeMovimiento = movimiento.getImporteMovimiento();
 			operacion = movimiento.getOperacion();
@@ -109,8 +108,9 @@ public class CreditosFormController {
 		
 		Double saldoFinal = Double.parseDouble(totalSaldoToString);
 		
-		itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
-		System.out.println("La fecha añadida para la liquidación fue: " + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.MONTH));
+		/* Atencion. Se suma 1 puesto que en el calendario Gregoriano las fechas empiezan en 0. Enero el es el mes 0 y Diciembre el 11. */
+		itemTabla.add(calendar.get(Calendar.DAY_OF_MONTH) + "-" + (calendar.get(Calendar.MONTH)+1));
+	
 		itemTabla.add("Liquidación");
 		itemTabla.add(totalLiquidacionToString);
 		itemTabla.add("-");
