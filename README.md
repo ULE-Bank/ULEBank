@@ -1,5 +1,4 @@
-# We are moving!
-We're moving our code to organization's hub. Check it out and follow us here -> https://github.com/ULE-Bank
+# ULe-Bank
+Welcome to Ule-Bank's repo. We strongly encourage you to read our license [here](https://github.com/ULE-Bank/Ulebank/blob/master/LICENSE "ULe-Bank's License")
 
-# ulebankoffice
-First attempt at implementing ULeBank's office managemente service. Spring MVC.
+## We aim to improve financial culture throughout Euorpean countries.
