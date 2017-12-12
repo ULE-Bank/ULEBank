@@ -1,5 +1,6 @@
 package es.unileon.ulebankoffice.service;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -8,7 +9,7 @@ public class HipotecaInversa {
 	@NotNull @Min(1)
 	private double valorTasacion;
 	
-	@NotNull @Min(65)
+	@NotNull @Min(65) @Max(89)
 	private int edad;
 	
 	@NotNull @Min(0)
