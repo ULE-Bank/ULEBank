@@ -44,13 +44,14 @@
   font-family: "FontAwesome";
 }
 .mega-menu img {
+   /* ↓  Modificado Razvan 15 Febrero 2018 ↓ */
   /*------------------------------- IMAGE */
   margin: 0;
   padding: 0;
   display: block;
   max-width: 100% !important;
   float: left;
-  height: 60px;
+  height: 100px;
 }
 
 /* Modificado por Razvan para que las banderas de selección de idioma se posicionen correctamente */
@@ -1436,10 +1437,13 @@ de las páginas que no son index */
     width: 100%;
     margin: 0px;
   }
+
+  /* ↓  Modificado Razvan 15 Febrero 2018 ↓ */
+
   .mega-menu.desktopTopFixed .menu-list-items .menu-logo > li > a img {
-    height: 40px;
-    padding-top: 0px;
-    margin: 15px 0px;
+    height: 70px;
+    /*padding-top: 0px;*/
+    /*margin: 15px 0px;*/
     /*width: 75%;*/
    }
    .mega-menu.desktopTopFixed .menu-list-items .menu-links > li > a { 
