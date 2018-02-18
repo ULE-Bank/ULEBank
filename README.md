@@ -1,3 +1,4 @@
+
 # ULe-Bank
 Welcome to Ule-Bank's repo. 
 
@@ -5,8 +6,10 @@ Welcome to Ule-Bank's repo.
 We aim to improve financial culture throughout Euorpean countries. Please visit us [here](http://ulebank.unileon.es/ "ULe-Bank").
 
 ## Development
-This project is being developed at Universidad de Leon. 
+This project is being developed at Universidad de Leon.
+##### Last test result trend 
 ![Build Status](http://ciserver.unileon.es:8080/buildStatus/icon?job=UlebankOffice)
+![Test result trend](http://ciserver.unileon.es:8080/job/UlebankOffice/test/trend)
 
 ### Tools
 Some of the tools used are:
