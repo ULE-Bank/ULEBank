@@ -9,7 +9,6 @@ We aim to improve financial culture throughout Euorpean countries. Please visit 
 This project is being developed at Universidad de Leon.
 ##### Last test result trend 
 ![Build Status](http://ciserver.unileon.es:8080/buildStatus/icon?job=UlebankOffice)
-![Test result trend](http://ciserver.unileon.es:8080/job/UlebankOffice/test/trend)
 
 ### Tools
 Some of the tools used are:
